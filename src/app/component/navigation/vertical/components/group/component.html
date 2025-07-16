@@ -1,0 +1,13 @@
+<details open>
+  <summary>
+    {{ item().title }}
+  </summary>
+
+  <ul [class.menu-disabled]="item().disabled">
+    @for (item of item().children; track $index) {
+      <ng-container
+        *ngTemplateOutlet="itemTemplate(); context: { item: item }"
+      ></ng-container>
+    }
+  </ul>
+</details>

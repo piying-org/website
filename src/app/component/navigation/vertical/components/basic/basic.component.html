@@ -1,0 +1,120 @@
+<!-- Item with an internal link -->
+@if (item.link && !item.externalLink && !item.function && !item.disabled) {
+  <a
+    [routerLink]="[item.link]"
+    [fragment]="item.fragment ?? undefined"
+    [preserveFragment]="item.preserveFragment ?? false"
+    [queryParams]="item.queryParams ?? undefined"
+    [queryParamsHandling]="item.queryParamsHandling ?? undefined"
+    [routerLinkActive]="'menu-active'"
+    [routerLinkActiveOptions]="isActiveMatchOptions"
+    class="tooltip"
+    [attr.data-tip]="item.tooltip || ''"
+  >
+    <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+  </a>
+}
+
+<!-- Item with an external link -->
+@if (item.link && item.externalLink && !item.function && !item.disabled) {
+  <a
+    [href]="item.link"
+    [target]="item.target || '_self'"
+    class="tooltip"
+    [attr.data-tip]="item.tooltip || ''"
+  >
+    <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+  </a>
+}
+
+<!-- Item with a function -->
+@if (!item.link && item.function && !item.disabled) {
+  <div
+    class="tooltip"
+    [attr.data-tip]="item.tooltip || ''"
+    (click)="item.function(item)"
+  >
+    <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+  </div>
+}
+
+<!-- Item with an internal link and function -->
+@if (item.link && !item.externalLink && item.function && !item.disabled) {
+  <a
+    [routerLink]="[item.link]"
+    [fragment]="item.fragment ?? undefined"
+    [preserveFragment]="item.preserveFragment ?? false"
+    [queryParams]="item.queryParams ?? undefined"
+    [queryParamsHandling]="item.queryParamsHandling ?? undefined"
+    [routerLinkActive]="'menu-active'"
+    [routerLinkActiveOptions]="isActiveMatchOptions"
+    class="tooltip"
+    [attr.data-tip]="item.tooltip || ''"
+    (click)="item.function(item)"
+  >
+    <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+  </a>
+}
+<!-- Item with an external link and function -->
+@if (item.link && item.externalLink && item.function && !item.disabled) {
+  <a
+    [href]="item.link"
+    [target]="item.target || '_self'"
+    class="tooltip"
+    [attr.data-tip]="item.tooltip || ''"
+    (click)="item.function(item)"
+  >
+    <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+  </a>
+}
+
+<!-- Item with a no link and no function -->
+@if (!item.link && !item.function && !item.disabled) {
+  <div class="tooltip">
+    <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+  </div>
+}
+
+<!-- Item is disabled -->
+@if (item.disabled) {
+  <div menu-disabled [attr.data-tip]="item.tooltip || ''">
+    <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+  </div>
+}
+
+<!-- Item template -->
+<ng-template #itemTemplate>
+  <!-- Icon -->
+  @if (item.icon) {
+    <mat-icon
+      class="navigation-item-icon"
+      [ngClass]="item.classes?.icon"
+      [fontIcon]="item.icon"
+    ></mat-icon>
+  }
+
+  <!-- Title & Subtitle -->
+  <div class="navigation-item-title-wrapper">
+    <div class="navigation-item-title">
+      <span [ngClass]="item.classes?.title">
+        {{ item.title }}
+      </span>
+    </div>
+    @if (item.subtitle) {
+      <div class="navigation-item-subtitle">
+        <span [ngClass]="item.classes?.subtitle">
+          {{ item.subtitle }}
+        </span>
+      </div>
+    }
+  </div>
+
+  <!-- Badge -->
+  @if (item.badge) {
+    <div class="navigation-item-badge">
+      <div class="navigation-item-badge-content" [ngClass]="item.badge.classes">
+        {{ item.badge.title }}
+      </div>
+    </div>
+  }
+</ng-template>

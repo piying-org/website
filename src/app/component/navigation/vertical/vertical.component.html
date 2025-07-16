@@ -1,0 +1,23 @@
+<ng-template #itemTemplate let-item="item">
+  @if ((item.hidden && !item.hidden(item)) || !item.hidden) {
+    @switch (item.type) {
+      @case ("basic") {
+        <li type="basic" [item]="item"></li>
+      }
+      @case ("group") {
+        <li type="group" [item]="item" [itemTemplate]="itemTemplate"></li>
+      }
+      @case ("divider") {
+        <li></li>
+      }
+    }
+  }
+</ng-template>
+
+<ul class="menu bg-base-200 rounded-box w-56">
+  @for (item of navigation; track trackByFn($index, item)) {
+    <ng-container
+      *ngTemplateOutlet="itemTemplate; context: { item: item }"
+    ></ng-container>
+  }
+</ul>

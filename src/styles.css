@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@plugin "daisyui";
+.md-container {
+  h1 {
+    @apply text-5xl mb-6;
+  }
+  h2 {
+    @apply text-4xl mt-6 mb-6;
+  }
+  h3 {
+    @apply text-3xl my-4;
+  }
+  h4 {
+    @apply text-2xl;
+  }
+  h5 {
+    @apply text-xl;
+  }
+  a {
+    @apply font-medium underline text-info;
+  }
+  .code-tab-background {
+    box-shadow: 0 0 0 1px var(--color-base-100) inset;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      var(--color-base-100),
+      var(--color-base-100) 13px,
+      var(--color-base-200) 13px,
+      var(--color-base-200) 14px
+    );
+    background-size: 40px 40px;
+  }
+  ul {
+    @apply mt-4 mb-4 ps-6 list-disc;
+  }
+  ol {
+    @apply mt-4 mb-4 ps-6 list-decimal;
+  }
+  li {
+    @apply my-2;
+  }
+  p {
+    @apply my-3;
+  }
+}

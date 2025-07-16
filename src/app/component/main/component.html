@@ -1,0 +1,44 @@
+<div class="drawer" [class.lg:drawer-open]="drawerOpen$()">
+  <input
+    id="drawer-open-1"
+    type="checkbox"
+    class="drawer-toggle"
+    #drawerToggleEl
+  />
+  <div class="drawer-content flex flex-col">
+    <div class="sticky top-0 z-30">
+      <div class="navbar bg-base-100 shadow-sm">
+        <label
+          for="drawer-open-1"
+          class="btn btn-square btn-ghost"
+          [class.lg:hidden]="drawerOpen$()"
+        >
+          <mat-icon>menu</mat-icon>
+        </label>
+        @if (toolbar$$(); as toolbar) {
+          <ng-container
+            *ngTemplateOutlet="
+              fieldTemplateRef();
+              context: { $implicit: toolbar }
+            "
+          ></ng-container>
+        }
+      </div>
+    </div>
+    <div class="h-[calc(100vh-4rem)] px-6 pb-16">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="drawer-side z-99">
+    <label
+      for="drawer-open-1"
+      aria-label="close sidebar"
+      class="drawer-overlay"
+    ></label>
+
+    <app-navigation
+      class="min-h-full block bg-base-200 p-4"
+      [navigation]="navList"
+    ></app-navigation>
+  </div>
+</div>

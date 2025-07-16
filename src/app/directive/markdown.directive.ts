@@ -1,0 +1,96 @@
+import { Directive, ElementRef, inject, input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Renderer, Tokens, Marked } from 'marked';
+import { markedHighlight } from 'marked-highlight';
+import { hljsCode } from './hilight-code.directive';
+import { encode } from 'html-entities';
+function getId(headingText: string) {
+  // debugger
+  const id = headingText
+    .toLowerCase()
+    // .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-');
+  return id;
+}
+class Renderer2 extends Renderer {
+  route;
+  constructor(route: ActivatedRoute) {
+    super();
+    this.route = route;
+  }
+  override blockquote({ tokens }: Tokens.Blockquote): string {
+    const body = this.parser.parse(tokens);
+    return `<blockquote class="alert alert-info alert-soft">\n${body}</blockquote>\n`;
+  }
+  override codespan({ text }: Tokens.Codespan): string {
+    return `<code class="badge badge-outline badge-info">${encode(text)}</code>`;
+  }
+  override heading({ tokens, depth, text }: Tokens.Heading): string {
+    if (depth === 2 || depth === 3) {
+      const id = getId(text);
+      const url = this.route.snapshot.url
+        .map((item) => item.toString())
+        .join('/');
+      const anchor = `<a href="${url}#${id}" class="no-underline">
+              <span class="heading-anchorlink-icon bg-base-content/5 hover:bg-primary/10 size-[1em] text-base-content/30 hover:text-primary/50 rounded-field border border-base-content/5 hover:border-primary/20 inline-grid place-content-center hover:shadow-sm hover:shadow-base-200 align-text-bottom me-3 lg:absolute lg:ms-[-1.5em] lg:mt-1 transition-all group">
+                <svg class="group-hover:scale-100 scale-90 transition-transform" fill="currentColor" width=".5em" height=".5em" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M216,148H172V108h44a12,12,0,0,0,0-24H172V40a12,12,0,0,0-24,0V84H108V40a12,12,0,0,0-24,0V84H40a12,12,0,0,0,0,24H84v40H40a12,12,0,0,0,0,24H84v44a12,12,0,0,0,24,0V172h40v44a12,12,0,0,0,24,0V172h44a12,12,0,0,0,0-24Zm-108,0V108h40v40Z"/>
+                </svg>
+              </span>
+            </a>`;
+      return `<h${depth} id="${id}">${anchor}<span>${this.parser.parseInline(
+        tokens,
+      )}</span></h${depth}>\n`;
+    }
+    return `<h${depth}>${this.parser.parseInline(tokens)}</h${depth}>\n`;
+  }
+  override code({ text, lang, escaped }: Tokens.Code): string {
+    return lang === 'ts'
+      ? text
+      : '<pre><code class="language-' + lang + '">' + text + '</code></pre>\n';
+  }
+}
+
+let codeIndex = 0;
+export const CodeMap = new Map<number, string>();
+const marked = new Marked(
+  markedHighlight({
+    langPrefix: 'ts',
+    highlight: (code, lang, info) => {
+      // ts为可以eval的typescript为不能eval的
+      const codeData = hljsCode(code);
+      const currentIndex = codeIndex++;
+      CodeMap.set(currentIndex, code);
+      const tabName = `code-tab-${currentIndex}`;
+      // todo md代码包裹
+      if (lang === 'ts') {
+        return `<div class="tabs tabs-lift">
+        <input type="radio" name="${tabName}" class="tab" aria-label="预览" checked="checked"/>
+        <div class="tab-content bg-base-100 border-base-300 p-6 code-tab-background">
+        <app-eval-view data-code-index="${currentIndex}"></app-eval-view>
+        </div>
+        <input type="radio" name="${tabName}" class="tab" aria-label="代码"/>
+      <pre class="tab-content bg-base-100 border-base-300 p-6"><code class="language-${lang}"><div>${codeData}</div></code></pre>  
+        <app-open-playground data-code-index="${currentIndex}"></app-open-playground>
+
+        </div>`;
+      }
+      return codeData;
+    },
+  }),
+);
+@Directive({
+  selector: '[markdown]',
+})
+export class MarkdownDirective {
+  route = inject(ActivatedRoute);
+  markdown = input.required<string>();
+  #eleRef = inject<ElementRef<HTMLElement>>(ElementRef);
+  ngOnChanges(): void {
+    this.#eleRef.nativeElement.innerHTML = marked.parse(this.markdown(), {
+      gfm: true,
+      async: false,
+      renderer: new Renderer2(this.route),
+    });
+  }
+}

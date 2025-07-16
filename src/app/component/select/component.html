@@ -1,0 +1,7 @@
+<option selected value="">{{ emptyContent() }}</option>
+
+@for (item of options(); track $index) {
+  <option [disabled]="item.disabled" [value]="item.value">
+    {{ item.label }}
+  </option>
+}

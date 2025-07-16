@@ -1,0 +1,10 @@
+@for (item of list(); track $index) {
+  <input
+    type="radio"
+    class="mask mask-star"
+    [name]="name"
+    [attr.aria-label]="$index + 1 + ' star'"
+    [checked]="value$() === $index + 1"
+    (change)="valueChange($index + 1)"
+  />
+}
