@@ -1,1 +1,0 @@
-import{ma as a}from"./chunk-QTBQ66D2.js";var i=class{value$=a(void 0);emitValue;registerOnChange(e){this.emitValue=e}valueChange(e){this.emitValue?.(e),this.value$.set(e)}writeValue(e){this.value$.set(e??void 0)}#e;registerOnTouched(e){this.#e=e}touchedChange(){this.#e()}disabled$=a(!1);setDisabledState(e){this.disabled$.set(e)}};export{i as a};
