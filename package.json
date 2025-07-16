@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build && cp ./dist/piying-website/browser/index.html ./dist/piying-website/browser/404.html",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:piying-website": "node dist/piying-website/server/server.mjs",
