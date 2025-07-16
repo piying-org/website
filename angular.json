@@ -59,7 +59,8 @@
                   "maximumError": "800kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/website/"
             },
             "development": {
               "optimization": false,
