@@ -32,6 +32,15 @@ export const routes: Routes = [
                   label: '游乐场',
                 }),
               ),
+              __github: v.pipe(
+                NFCSchema,
+                setComponent('button-link'),
+                setInputs({
+                  externalLink: 'https://github.com/piying-org/website',
+                  type: 'img',
+                  imgLink: './img/github.svg',
+                }),
+              ),
             }),
             componentClass('flex gap-4 w-full'),
           ),

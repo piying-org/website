@@ -9,4 +9,7 @@ import { RouterLink } from '@angular/router';
 export class ButtonLinkComponent {
   label = input<string>();
   href = input<string>();
+  type = input<string>();
+  imgLink = input<string>();
+  externalLink = input<string>();
 }
