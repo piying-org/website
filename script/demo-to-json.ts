@@ -6,6 +6,10 @@ function main() {
   let list = fs.readdirSync(dir);
   let obj = {} as Record<string, any[]>;
   for (const name of list) {
+    let stat = fs.statSync(path.join(dir, name));
+    if (!stat.isDirectory()) {
+      continue;
+    }
     let fileList = sync('*.ts', { cwd: path.join(dir, name) });
     obj[name] = [];
     for (const item of fileList) {
@@ -23,7 +27,7 @@ function main() {
   for (const [key, value] of Object.entries(obj)) {
     fs.writeFileSync(
       path.join(process.cwd(), './public/examples', key + '.json'),
-      JSON.stringify(value, undefined, 4)
+      JSON.stringify(value, undefined, 4),
     );
   }
 }

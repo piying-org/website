@@ -1,14 +1,14 @@
 [
     {
         "label": "base",
-        "value": "(() => {\n  return {\n    schema: v.object({\n      input1: v.string(),\n      num1: v.number(),\n      bool1: v.boolean(),\n    }),\n  };\n})();\n"
+        "value": "(() => ({\n  schema: v.object({\n    input1: v.string(),\n    num1: v.number(),\n    bool1: v.boolean(),\n  }),\n}))();\n"
     },
     {
         "label": "change",
-        "value": "(() => {\n  return {\n    schema: v.pipe(\n      v.object({\n        bool1: v.pipe(v.boolean(), v.title('bool1-label')),\n        input1: v.pipe(\n          v.string(),\n          v.title('input1-label'),\n          disableWhen({\n            listen: (fn) => {\n              return fn({ list: [['#', 'bool1']] }).pipe(\n                map(({ list }) => !list[0])\n              );\n            },\n          })\n        ),\n        input2: v.pipe(\n          v.string(),\n          v.title('input2-label'),\n          hideWhen({\n            listen: (fn) => {\n              return fn({ list: [['#', 'bool1']] }).pipe(\n                map(({ list }) => list[0])\n              );\n            },\n          })\n        ),\n      }),\n      setComponent('fieldset')\n    ),\n  };\n})();\n"
+        "value": "(() => ({\n  schema: v.pipe(\n    v.object({\n      bool1: v.pipe(v.boolean(), v.title('bool1-label')),\n      input1: v.pipe(\n        v.string(),\n        v.title('input1-label'),\n        disableWhen({\n          listen: (fn) =>\n            fn({ list: [['#', 'bool1']] }).pipe(map(({ list }) => !list[0])),\n        }),\n      ),\n      input2: v.pipe(\n        v.string(),\n        v.title('input2-label'),\n        hideWhen({\n          listen: (fn) =>\n            fn({ list: [['#', 'bool1']] }).pipe(map(({ list }) => list[0])),\n        }),\n      ),\n    }),\n    setComponent('fieldset'),\n  ),\n}))();\n"
     },
     {
         "label": "title-default-field",
-        "value": "(() => {\n  return {\n    schema: v.pipe(\n      v.object({\n        input1: v.pipe(v.string(), v.title('input1-label')),\n        num1: v.pipe(v.number(), v.title('num1-label')),\n        bool1: v.pipe(v.boolean(), v.title('bool1-label')),\n      }),\n      setComponent('fieldset')\n    ),\n  };\n})();\n"
+        "value": "(() => ({\n  schema: v.pipe(\n    v.object({\n      input1: v.pipe(v.string(), v.title('input1-label')),\n      num1: v.pipe(v.number(), v.title('num1-label')),\n      bool1: v.pipe(v.boolean(), v.title('bool1-label')),\n    }),\n    setComponent('fieldset'),\n  ),\n}))();\n"
     }
 ]
