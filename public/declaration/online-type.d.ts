@@ -1,7 +1,7 @@
 import * as _angular_core from '@angular/core';
 import { CreateEffectOptions, EffectRef, InjectionToken, Injector, Signal, WritableSignal } from '@angular/core';
 import * as _piying_valibot_visit from '@piying/valibot-visit';
-import { BaseSchemaHandle, ConvertOptions, DefaultSchema, EnumSchema as EnumSchema$1, IntersectSchema as IntersectSchema$1, LazySchema as LazySchema$1, MetadataAction as MetadataAction$1, RawConfig, RawConfigActionCommon, Schema as Schema$1, SchemaOrPipe, TupleSchema as TupleSchema$1, UnionSchema as UnionSchema$1, VoidSchema as VoidSchema$1, asControl, asVirtualGroup, changeObject, condition, getDefaults as getDefaults$1, getSchemaByIssuePath, getSchemaMetadata } from '@piying/valibot-visit';
+import { BaseSchemaHandle, ConvertOptions, DefaultSchema, EnumSchema as EnumSchema$1, IntersectSchema as IntersectSchema$1, LazySchema as LazySchema$1, MetadataAction as MetadataAction$1, RawConfig, RawConfigActionCommon, Schema as Schema$1, SchemaOrPipe, TupleSchema as TupleSchema$1, UnionSchema as UnionSchema$1, VoidSchema as VoidSchema$1, asControl, asVirtualGroup as asVirtualGroup$1, changeObject, condition, getDefaults as getDefaults$1, getSchemaByIssuePath, getSchemaMetadata } from '@piying/valibot-visit';
 import { ClassValue } from 'clsx';
 import * as rxjs from 'rxjs';
 import { Observable } from 'rxjs';
@@ -11118,8 +11118,8 @@ export declare abstract class AbstractControl<TValue = any> {
 	get pristine(): boolean;
 	syncError$$: _angular_core.WritableSignal<ValidationErrors | undefined>;
 	asyncErrorRes$$: Signal<_angular_core.ResourceRef<ValidationErrors | undefined> | undefined>;
-	asyncError$$: Signal<"PENDING" | ValidationErrors | undefined>;
-	rawError$$: Signal<"PENDING" | ValidationErrors | undefined>;
+	asyncError$$: Signal<ValidationErrors | "PENDING" | undefined>;
+	rawError$$: Signal<ValidationErrors | "PENDING" | undefined>;
 	valueNoError$$: Signal<boolean>;
 	get errors(): ValidationErrors | undefined;
 	/** parent */
@@ -11418,6 +11418,12 @@ declare function disableWhen$1<TInput>(options: DisableWhenOption): _piying_vali
 export declare function topClass<T>(className: ClassValue, merge?: boolean): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, AnyCoreSchemaHandle>;
 /** 仅设置在组件上 */
 export declare function componentClass<T>(className: ClassValue, merge?: boolean): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, AnyCoreSchemaHandle>;
+export interface NonFieldControlAction<TInput = unknown> extends BaseMetadata<TInput> {
+	readonly type: "nonFieldControl";
+	readonly reference: typeof nonFieldControl;
+	readonly value: boolean;
+}
+export declare function nonFieldControl<TInput>(value?: boolean): NonFieldControlAction<TInput>;
 export declare function convert<RESULT extends Omit<PiResolvedCommonViewFieldConfig<any, any>, "define">>(obj: SchemaOrPipe, options: SetOptional<ConvertOptions, "handle"> & {
 	injector: Injector;
 	builder: typeof FormBuilder;
@@ -11576,6 +11582,7 @@ declare global {
 	export const valueChange: (typeof PYV)["valueChange"];
 	export const setAlias: (typeof PYV)["setAlias"];
 	export const layout: (typeof PYV)["layout"];
+	export const asVirtualGroup: (typeof PYV)["asVirtualGroup"];
 	export const map: (typeof rxjs)["map"];
 }
 
@@ -11587,7 +11594,7 @@ export {
 	NFCSchema$1 as NFCSchema,
 	RawConfig,
 	asControl,
-	asVirtualGroup,
+	asVirtualGroup$1 as asVirtualGroup,
 	changeObject,
 	condition,
 	disableWhen$1 as disableWhen,

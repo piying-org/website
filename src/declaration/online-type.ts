@@ -17,6 +17,7 @@ declare global {
   export const valueChange: (typeof PYV)['valueChange'];
   export const setAlias: (typeof PYV)['setAlias'];
   export const layout: (typeof PYV)['layout'];
+  export const asVirtualGroup: (typeof PYV)['asVirtualGroup'];
   export const map: (typeof rxjs)['map'];
 }
 export {};

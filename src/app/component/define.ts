@@ -131,6 +131,9 @@ export const FieldGlobalConfig = {
     'array-rw': {
       type: () => import('./array-rw/component').then((a) => a.default),
     },
+    tabs: {
+      type: () => import('./tag-group/component').then((a) => a.default),
+    },
   },
   wrappers: {},
 } as PiViewConfig;

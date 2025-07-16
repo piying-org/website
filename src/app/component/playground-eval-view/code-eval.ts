@@ -9,7 +9,7 @@ export function codeEval(code: string) {
       'pyv',
       'map',
       'v',
-      `let {NFCSchema,setComponent,disableWhen,hideWhen,rawConfig,outputChange,patchAsyncInputs,setInputs,valueChange,setAlias,layout}=pyv;
+      `let {NFCSchema,setComponent,disableWhen,hideWhen,rawConfig,outputChange,patchAsyncInputs,setInputs,valueChange,setAlias,layout,asVirtualGroup}=pyv;
       return ${code}`,
     )(pyv, map, v);
     if (result && typeof result === 'object' && 'schema' in result) {
