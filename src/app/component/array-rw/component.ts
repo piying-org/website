@@ -1,10 +1,7 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, inject, input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import {
-  PI_VIEW_FIELD_TOKEN,
-  PiViewGroupBase,
-} from '@piying/view-angular';
+import { PI_VIEW_FIELD_TOKEN, PiViewGroupBase } from '@piying/view-angular';
 
 @Component({
   selector: 'array-rw',

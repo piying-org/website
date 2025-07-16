@@ -12,12 +12,15 @@ import {
 import { debounceTime, map } from 'rxjs';
 import { SchemaViewRC } from '../component/schema-view/component';
 import * as v from 'valibot';
+import { HttpClient } from '@angular/common/http';
 const EvalViewDefine = v.pipe(
   NFCSchema,
   setComponent('evalView'),
   patchAsyncInputs({
     configCode: (field) =>
-      field.get(['#', 'codeEditor'])!.form.control!.valueChanges.pipe(debounceTime(500)),
+      field
+        .get(['#', 'codeEditor'])!
+        .form.control!.valueChanges.pipe(debounceTime(500)),
   }),
 );
 export const PlaygroundGroupRoute: Route = {
@@ -26,13 +29,14 @@ export const PlaygroundGroupRoute: Route = {
   data: {
     context: () => {
       const route = inject(ActivatedRoute);
+      const http = inject(HttpClient);
       const groupType = route.snapshot.params['type'];
       return {
-        getList: async () => {
+        getList: () => {
           if (!groupType) {
             return [];
           }
-          return fetch(`examples/${groupType}.json`).then((a) => a.json());
+          return http.get(`examples/${groupType}.json`, {});
         },
       };
     },
@@ -45,10 +49,6 @@ export const PlaygroundGroupRoute: Route = {
               setComponent('picklist'),
               patchAsyncInputs({
                 options: (field) => field.context.getList(),
-              }),
-              hideWhen({
-                listen: (fn) =>
-                  fn({ list: [undefined] }).pipe(map(({ list }) => list[0])),
               }),
               valueChange((fn) => {
                 fn({ list: [undefined] }).subscribe(({ list, field }) => {

@@ -13,10 +13,7 @@ import {
   Router,
   RouterOutlet,
 } from '@angular/router';
-import {
-  PI_VIEW_FIELD_TOKEN,
-  PiViewGroupBase,
-} from '@piying/view-angular';
+import { PI_VIEW_FIELD_TOKEN, PiViewGroupBase } from '@piying/view-angular';
 import { NavigationComponent, NavigationItem } from '../navigation';
 import { filter, merge, of, map } from 'rxjs';
 import { MatIcon } from '@angular/material/icon';
@@ -82,7 +79,9 @@ export class MainNFCC extends PiViewGroupBase {
         map((item) => item.url),
       ),
     ).subscribe((filePath) => {
-      this.drawerOpen$.set((filePath === '/'||filePath.startsWith('/playground')) ? false : true);
+      this.drawerOpen$.set(
+        filePath === '/' || filePath.startsWith('/playground') ? false : true,
+      );
     });
   }
 }

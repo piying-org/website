@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 import { switchMap, map } from 'rxjs';
 import { MarkdownWebComponentService } from './markdown-web-component.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: '',
@@ -12,12 +13,13 @@ import { MarkdownWebComponentService } from './markdown-web-component.service';
 })
 export class MarkdownPage {
   #route = inject(ActivatedRoute);
+  #http = inject(HttpClient);
   data = this.#route.params.pipe(
     map(
       (item) =>
-        `/docs/${[item['l1'], item['l2']].filter(Boolean).join('/')}.md`,
+        `docs/${[item['l1'], item['l2']].filter(Boolean).join('/')}.md`,
     ),
-    switchMap((url) => fetch(url).then((item) => item.text())),
+    switchMap((url) => this.#http.get(url, { responseType: 'text' })),
   );
 
   constructor() {

@@ -1,9 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import {
-  PI_VIEW_FIELD_TOKEN,
-  PiViewGroupBase,
-} from '@piying/view-angular';
+import { PI_VIEW_FIELD_TOKEN, PiViewGroupBase } from '@piying/view-angular';
 
 @Component({
   selector: 'fieldset-group',

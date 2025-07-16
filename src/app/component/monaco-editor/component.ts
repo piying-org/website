@@ -1,6 +1,7 @@
 import { Component, ElementRef, forwardRef, inject } from '@angular/core';
 import { BaseControl } from '../form/base.component.js';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+let amdInited$$: Promise<void> | undefined;
 // todo 指令?
 @Component({
   selector: 'div[type=code-editor]',
@@ -27,16 +28,16 @@ export default class CodeEditorComponent extends BaseControl {
       instance.setValue(obj ?? '');
     });
   }
-  amdInit() {
-    if (document) {
-      return new Promise<void>((resolve) => {
+  async amdInit() {
+    if (document && !amdInited$$) {
+      amdInited$$ = new Promise<void>((resolve) => {
         const el = document.createElement('script');
         el.src = './lib/monaco-editor/vs/loader.js';
         document.head.appendChild(el);
         el.onload = () => {
           (AMDLoader.global as any).require.config({
             paths: { vs: 'vs' },
-            baseUrl: window.location.origin + '/lib/monaco-editor',
+            baseUrl: document.baseURI + 'lib/monaco-editor',
             preferScriptTags: true,
             'vs/nls': {
               availableLanguages: {
@@ -50,6 +51,7 @@ export default class CodeEditorComponent extends BaseControl {
           });
         };
       });
+      return amdInited$$;
     }
     return;
   }

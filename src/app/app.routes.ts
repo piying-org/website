@@ -4,7 +4,6 @@ import * as v from 'valibot';
 import {
   componentClass,
   NFCSchema,
-  patchAttributes,
   setComponent,
   setInputs,
   topClass,
