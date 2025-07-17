@@ -23,7 +23,7 @@ class Renderer2 extends Renderer {
     return `<blockquote class="alert alert-info alert-soft">\n${body}</blockquote>\n`;
   }
   override codespan({ text }: Tokens.Codespan): string {
-    return `<code class="badge badge-outline badge-info">${encode(text)}</code>`;
+    return `<code class="badge badge-outline badge-info mx-2">${encode(text)}</code>`;
   }
   override heading({ tokens, depth, text }: Tokens.Heading): string {
     if (depth === 2 || depth === 3) {

@@ -240,3 +240,44 @@ v.pipe(
   setComponent("validGroup"),
 );
 ```
+
+## 级联
+
+- 通过`valueChange`监听指定控件,更新控件值
+- 第一次监听的值默认为undefined(假如没有设置默认值),所以需要跳过
+
+```ts
+v.object({
+  k1: v.boolean(),
+  k2: v.pipe(
+    v.boolean(),
+    valueChange((fn) => {
+      fn({ list: [["#", "k1"]] })
+        .pipe(skip(1))
+        .subscribe(({ list: [value], field }) => {
+          field.form.control?.updateValue(!value);
+        });
+    }),
+  ),
+  k3: v.pipe(
+    v.boolean(),
+    valueChange((fn) => {
+      fn({ list: [["#", "k2"]] })
+        .pipe(skip(1))
+        .subscribe(({ list: [value], field }) => {
+          field.form.control?.updateValue(!value);
+        });
+    }),
+  ),
+  k4: v.pipe(
+    v.boolean(),
+    valueChange((fn) => {
+      fn({ list: [["#", "k3"]] })
+        .pipe(skip(1))
+        .subscribe(({ list: [value], field }) => {
+          field.form.control?.updateValue(!value);
+        });
+    }),
+  ),
+});
+```
