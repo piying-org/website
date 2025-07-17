@@ -1,9 +1,10 @@
 import { Directive, ElementRef, inject, input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Renderer, Tokens, Marked } from 'marked';
+import { Renderer, Tokens, Marked, lexer } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 import { hljsCode } from './hilight-code.directive';
 import { encode } from 'html-entities';
+import { $localize } from '@cyia/localize';
 function getId(headingText: string) {
   // debugger
   const id = headingText
@@ -79,6 +80,49 @@ const marked = new Marked(
     },
   }),
 );
+let textList = new Set<string>();
+(window as any).__getTranslate = () => {
+  return JSON.stringify([...textList].sort(), undefined, 4);
+};
+marked.use({
+  hooks: {
+    processAllTokens(tokens) {
+      if (localStorage.getItem('lang') === 'zh-hans') {
+        return tokens;
+      }
+
+      for (let index = 0; index < tokens.length; index++) {
+        const token = tokens[index];
+        if (token.type === 'heading' || token.type === 'paragraph') {
+          textList.add(token.text);
+          let tmp = [token.text];
+          (tmp as any).raw = token.text;
+          let text = $localize(tmp as any);
+          if (token.type === 'heading') {
+            let transList = lexer(`${'#'.repeat(token.depth)} ${text}`);
+            tokens[index] = transList[0];
+          } else {
+            let transList = lexer(text);
+            tokens[index] = transList[0];
+          }
+        } else if (token.type === 'list') {
+          for (let j = 0; j < (token as Tokens.List).items.length; j++) {
+            const item = (token as Tokens.List).items[j];
+            textList.add(item.text);
+            let tmp = [item.text];
+            (tmp as any).raw = item.text;
+            let text = $localize(tmp as any);
+            let transList = lexer(`- ${text}`);
+            (token as Tokens.List).items[j] = (transList[0] as any)
+              .items[0] as any;
+          }
+        }
+      }
+
+      return tokens;
+    },
+  },
+});
 @Directive({
   selector: '[markdown]',
 })

@@ -17,40 +17,49 @@ import { PI_VIEW_FIELD_TOKEN, PiViewGroupBase } from '@piying/view-angular';
 import { NavigationComponent, NavigationItem } from '../navigation';
 import { filter, merge, of, map } from 'rxjs';
 import { MatIcon } from '@angular/material/icon';
+import { $localize } from '@cyia/localize';
 const Menu: NavigationItem[] = [
   {
-    title: '首页',
+    title: $localize`首页`,
     type: 'basic',
     link: '/',
   },
   {
-    title: '加入测试',
+    title: $localize`加入测试`,
     type: 'basic',
     link: '/docs/join-test',
   },
   {
-    title: `文档`,
+    title: $localize`文档`,
     type: 'group',
     children: [
-      { title: `介绍`, link: '/docs/intro/', type: 'basic' },
-      { title: `安装`, link: '/docs/install/', type: 'basic' },
+      { title: $localize`介绍`, link: '/docs/intro/', type: 'basic' },
+      { title: $localize`安装`, link: '/docs/install/', type: 'basic' },
     ],
   },
   {
-    title: '客户端',
+    title: $localize`客户端`,
     type: 'group',
     children: [
-      { title: `介绍`, link: '/docs/client/intro', type: 'basic' },
-      { title: `组件使用`, link: '/docs/client/component-use', type: 'basic' },
-      { title: `表单使用`, link: '/docs/client/form-use', type: 'basic' },
+      { title: $localize`介绍`, link: '/docs/client/intro', type: 'basic' },
+      {
+        title: $localize`组件使用`,
+        link: '/docs/client/component-use',
+        type: 'basic',
+      },
+      {
+        title: $localize`表单使用`,
+        link: '/docs/client/form-use',
+        type: 'basic',
+      },
     ],
   },
   {
-    title: '服务端',
+    title: $localize`服务端`,
     type: 'group',
-    children: [{ title: `介绍`, link: '/docs/server/intro', type: 'basic' }],
+    children: [{ title: $localize`介绍`, link: '/docs/server/intro', type: 'basic' }],
   },
-  { title: '游乐场', type: 'basic', link: '/playground/group/form' },
+  { title: $localize`游乐场`, type: 'basic', link: '/playground/group/form' },
 ];
 @Component({
   selector: '',

@@ -1,0 +1,122 @@
+{
+  "8044044696511750096": {
+    "id": "8044044696511750096",
+    "text": "游乐场",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "游乐场"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Playground"
+  },
+  "7304804787084703335": {
+    "id": "7304804787084703335",
+    "text": "首页",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "首页"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Home Page"
+  },
+  "6466167068076818338": {
+    "id": "6466167068076818338",
+    "text": "加入测试",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "加入测试"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Add test"
+  },
+  "5663341488582522474": {
+    "id": "5663341488582522474",
+    "text": "文档",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "文档"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Document"
+  },
+  "7807636449017554161": {
+    "id": "7807636449017554161",
+    "text": "介绍",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "介绍"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Introduction"
+  },
+  "4707791770500562346": {
+    "id": "4707791770500562346",
+    "text": "安装",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "安装"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Installation"
+  },
+  "3713218421079785836": {
+    "id": "3713218421079785836",
+    "text": "客户端",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "客户端"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Client"
+  },
+  "2864635957462559808": {
+    "id": "2864635957462559808",
+    "text": "组件使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "组件使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Component Usage"
+  },
+  "6654092053584961242": {
+    "id": "6654092053584961242",
+    "text": "表单使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "表单使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Form Usage"
+  },
+  "2395404919385499367": {
+    "id": "2395404919385499367",
+    "text": "服务端",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "服务端"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Server-side"
+  }
+}

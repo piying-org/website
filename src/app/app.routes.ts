@@ -4,12 +4,16 @@ import * as v from 'valibot';
 import {
   componentClass,
   NFCSchema,
+  patchAsyncInputs,
   setComponent,
   setInputs,
   topClass,
+  valueChange,
 } from '@piying/view-angular-core';
 import { MarkdownPage } from './component/markdown/component';
 import { PlaygroundGroupRoute, PlaygroundSingleRoute } from './page/playground';
+import { skip } from 'rxjs';
+import { $localize } from '@cyia/localize';
 export const routes: Routes = [
   {
     path: '',
@@ -29,7 +33,7 @@ export const routes: Routes = [
                 setComponent('button-link'),
                 setInputs({
                   href: '/playground/group/form',
-                  label: '游乐场',
+                  label: $localize`游乐场`,
                 }),
               ),
               __github: v.pipe(
@@ -41,12 +45,39 @@ export const routes: Routes = [
                   imgLink: './img/github.svg',
                 }),
               ),
+              language: v.pipe(
+                v.string(),
+                setComponent('picklist'),
+                setInputs({
+                  options: [
+                    { label: '中文', value: 'zh-hans' },
+                    { label: 'english', value: 'en' },
+                  ],
+                }),
+                topClass('w-[80px]'),
+                valueChange((fn) => {
+                  fn()
+                    .pipe(skip(1))
+                    .subscribe(({ list }) => {
+                      let last = localStorage.getItem('lang');
+                      if (last !== list[0]) {
+                        localStorage.setItem('lang', list[0]);
+                        location.reload();
+                      }
+                    });
+                }),
+              ),
             }),
             componentClass('flex gap-4 w-full'),
           ),
         }),
         setComponent('main'),
       ),
+      model: async () => {
+        return {
+          toolbar: { language: localStorage.getItem('lang') ?? 'zh-hans' },
+        };
+      },
     },
     children: [
       {
