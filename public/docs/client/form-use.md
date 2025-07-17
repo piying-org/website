@@ -283,6 +283,7 @@ v.object({
 ```
 
 ## 过滤组
+
 - 自定义创建表单组控制内部表单的显示
 
 ```ts
@@ -290,12 +291,32 @@ v.pipe(
   v.object(
     new Array(100)
       .fill(undefined)
-      .map((item,i) =>v.pipe(v.string(),v.title(`SearchTitle${i}`)) )
+      .map((item, i) => v.pipe(v.string(), v.title(`SearchTitle${i}`)))
       .reduce((obj, item, i) => {
         obj[`k${i}`] = item;
         return obj;
       }, Object.create({})),
   ),
-  setComponent('filterGroup')
-)
+  setComponent("filterGroup"),
+);
+```
+
+## 滚动组
+
+- 使用`defer`动态创建控件
+
+```ts
+v.pipe(
+  v.object(
+    new Array(1000)
+      .fill(undefined)
+      .map((item, i) => v.pipe(v.string(), v.title(`title${i}`)))
+      .reduce((obj, item, i) => {
+        obj[`k${i}`] = item;
+        return obj;
+      }, Object.create({})),
+  ),
+  setComponent("scrollGroup"),
+  setInputs({ scrollHeight: 500, placeholerHeight: 20 }),
+);
 ```

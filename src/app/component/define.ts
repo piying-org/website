@@ -140,6 +140,9 @@ export const FieldGlobalConfig = {
     },
     filterGroup:{
       type:() => import('./filter-group/component').then((a) => a.default)
+    },
+    scrollGroup:{
+      type:() => import('./scroll-group/component').then((a) => a.default)
     }
   },
   wrappers: {
