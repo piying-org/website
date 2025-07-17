@@ -171,3 +171,152 @@ v.pipe(
   }),
 );
 ```
+
+## 值变更时修改表单其他值
+
+- 使用`valueChange`监听控件并进行变更
+
+```ts
+v.object({
+  list: v.pipe(
+    v.picklist(["data1", "data2"]),
+    valueChange((fn) => {
+      fn().subscribe(({ list: [value], field }) => {
+        let o1FG = field.get(["#", "o1"]).form.control;
+        let o2FG = field.get(["#", "o2"]).form.control;
+        if (value === "data1") {
+          o1FG.updateValue({
+            k1: "data1-input-k1",
+            k2: "data1-input-k2",
+          });
+          o2FG.updateValue({});
+        } else {
+          o2FG.updateValue({
+            k3: "data2-input-k3",
+            k4: "data2-input-k4",
+          });
+          o1FG.updateValue({});
+        }
+      });
+    }),
+  ),
+  o1: v.object({ k1: v.optional(v.string()), k2: v.optional(v.string()) }),
+  o2: v.object({ k3: v.optional(v.string()), k4: v.optional(v.string()) }),
+});
+```
+
+## 验证
+
+- 验证和控件组件完全解偶,需要自行实现,只提供相关控件状态
+- 可以使用`wrapper`套一层实现
+
+```ts
+v.pipe(
+  v.object({
+    k1: v.pipe(
+      v.string(),
+      v.check((value) => {
+        return value === "k2-value";
+      }, "should input k2-value"),
+      setWrappers(["valid"]),
+    ),
+  }),
+);
+```
+
+- 也可以使用group只在专门的组中进行验证
+
+```ts
+v.pipe(
+  v.object({
+    k1: v.string(),
+    k2: v.pipe(
+      v.string(),
+      v.check((value) => {
+        return value === "k2-value";
+      }),
+    ),
+  }),
+  setComponent("validGroup"),
+);
+```
+
+## 级联
+
+- 通过`valueChange`监听指定控件,更新控件值
+- 第一次监听的值默认为undefined(假如没有设置默认值),所以需要跳过
+
+```ts
+v.object({
+  k1: v.boolean(),
+  k2: v.pipe(
+    v.boolean(),
+    valueChange((fn) => {
+      fn({ list: [["#", "k1"]] })
+        .pipe(skip(1))
+        .subscribe(({ list: [value], field }) => {
+          field.form.control?.updateValue(!value);
+        });
+    }),
+  ),
+  k3: v.pipe(
+    v.boolean(),
+    valueChange((fn) => {
+      fn({ list: [["#", "k2"]] })
+        .pipe(skip(1))
+        .subscribe(({ list: [value], field }) => {
+          field.form.control?.updateValue(!value);
+        });
+    }),
+  ),
+  k4: v.pipe(
+    v.boolean(),
+    valueChange((fn) => {
+      fn({ list: [["#", "k3"]] })
+        .pipe(skip(1))
+        .subscribe(({ list: [value], field }) => {
+          field.form.control?.updateValue(!value);
+        });
+    }),
+  ),
+});
+```
+
+## 过滤组
+
+- 自定义创建表单组控制内部表单的显示
+
+```ts
+v.pipe(
+  v.object(
+    new Array(100)
+      .fill(undefined)
+      .map((item, i) => v.pipe(v.string(), v.title(`SearchTitle${i}`)))
+      .reduce((obj, item, i) => {
+        obj[`k${i}`] = item;
+        return obj;
+      }, Object.create({})),
+  ),
+  setComponent("filterGroup"),
+);
+```
+
+## 滚动组
+
+- 使用`defer`动态创建控件
+
+```ts
+v.pipe(
+  v.object(
+    new Array(1000)
+      .fill(undefined)
+      .map((item, i) => v.pipe(v.string(), v.title(`title${i}`)))
+      .reduce((obj, item, i) => {
+        obj[`k${i}`] = item;
+        return obj;
+      }, Object.create({})),
+  ),
+  setComponent("scrollGroup"),
+  setInputs({ scrollHeight: 500, placeholerHeight: 20 }),
+);
+```
