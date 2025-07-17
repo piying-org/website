@@ -174,6 +174,8 @@ v.pipe(
 
 ## 值变更时修改表单其他值
 
+- 使用`valueChange`监听控件并进行变更
+
 ```ts
 v.object({
   list: v.pipe(
@@ -201,4 +203,40 @@ v.object({
   o1: v.object({ k1: v.optional(v.string()), k2: v.optional(v.string()) }),
   o2: v.object({ k3: v.optional(v.string()), k4: v.optional(v.string()) }),
 });
+```
+
+## 验证
+
+- 验证和控件组件完全解偶,需要自行实现,只提供相关控件状态
+- 可以使用`wrapper`套一层实现
+
+```ts
+v.pipe(
+  v.object({
+    k1: v.pipe(
+      v.string(),
+      v.check((value) => {
+        return value === "k2-value";
+      }, "should input k2-value"),
+      setWrappers(["valid"]),
+    ),
+  }),
+);
+```
+
+- 也可以使用group只在专门的组中进行验证
+
+```ts
+v.pipe(
+  v.object({
+    k1: v.string(),
+    k2: v.pipe(
+      v.string(),
+      v.check((value) => {
+        return value === "k2-value";
+      }),
+    ),
+  }),
+  setComponent("validGroup"),
+);
 ```

@@ -36,6 +36,7 @@
     "@angular/router": "^20.1.0",
     "@angular/ssr": "^20.1.0",
     "@piying/view-angular": "^0.6.5",
+    "@valibot/i18n": "^1.0.0",
     "express": "^5.1.0",
     "highlight.js": "^11.11.1",
     "html-entities": "^2.6.0",

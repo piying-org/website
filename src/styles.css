@@ -43,3 +43,13 @@
     @apply my-3;
   }
 }
+
+.pi-valid > * {
+  @apply border-success;
+}
+.pi-invalid > * {
+  @apply border-error;
+}
+.pi-pristine > * {
+  @apply border-warning;
+}

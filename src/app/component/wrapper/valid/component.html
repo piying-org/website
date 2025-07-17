@@ -1,0 +1,12 @@
+@let field = field$$();
+<div
+  [class.pi-valid]="field.form.control && field.form.control.valid"
+  [class.pi-invalid]="field.form.control && field.form.control.invalid"
+  [class.pi-pristine]="field.form.control && field.form.control.pristine"
+  class="flex flex-col gap-2"
+>
+  <ng-container #fieldComponent></ng-container>
+  @if (field.form.control?.errors) {
+    <p class="label">{{ errorStr$$() }}</p>
+  }
+</div>

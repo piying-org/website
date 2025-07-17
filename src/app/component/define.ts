@@ -12,6 +12,7 @@ import { FieldsetFGC } from './fieldset/component';
 import { MainNFCC } from './main/component';
 import { Main1Component } from './main-1/component';
 import { ButtonLinkComponent } from './link/component';
+import { ValidWC } from './wrapper/valid/component';
 export const FieldGlobalConfig = {
   types: {
     string: {
@@ -134,6 +135,13 @@ export const FieldGlobalConfig = {
     tabs: {
       type: () => import('./tag-group/component').then((a) => a.default),
     },
+    validGroup: {
+      type: () => import('./valid-group/component').then((a) => a.default),
+    },
   },
-  wrappers: {},
+  wrappers: {
+    valid: {
+      type: ValidWC,
+    },
+  },
 } as PiViewConfig;
