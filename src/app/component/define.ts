@@ -138,6 +138,9 @@ export const FieldGlobalConfig = {
     validGroup: {
       type: () => import('./valid-group/component').then((a) => a.default),
     },
+    filterGroup:{
+      type:() => import('./filter-group/component').then((a) => a.default)
+    }
   },
   wrappers: {
     valid: {

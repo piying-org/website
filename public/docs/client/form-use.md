@@ -281,3 +281,21 @@ v.object({
   ),
 });
 ```
+
+## 过滤组
+- 自定义创建表单组控制内部表单的显示
+
+```ts
+v.pipe(
+  v.object(
+    new Array(100)
+      .fill(undefined)
+      .map((item,i) =>v.pipe(v.string(),v.title(`SearchTitle${i}`)) )
+      .reduce((obj, item, i) => {
+        obj[`k${i}`] = item;
+        return obj;
+      }, Object.create({})),
+  ),
+  setComponent('filterGroup')
+)
+```
