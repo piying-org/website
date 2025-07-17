@@ -171,3 +171,34 @@ v.pipe(
   }),
 );
 ```
+
+## 值变更时修改表单其他值
+
+```ts
+v.object({
+  list: v.pipe(
+    v.picklist(["data1", "data2"]),
+    valueChange((fn) => {
+      fn().subscribe(({ list: [value], field }) => {
+        let o1FG = field.get(["#", "o1"]).form.control;
+        let o2FG = field.get(["#", "o2"]).form.control;
+        if (value === "data1") {
+          o1FG.updateValue({
+            k1: "data1-input-k1",
+            k2: "data1-input-k2",
+          });
+          o2FG.updateValue({});
+        } else {
+          o2FG.updateValue({
+            k3: "data2-input-k3",
+            k4: "data2-input-k4",
+          });
+          o1FG.updateValue({});
+        }
+      });
+    }),
+  ),
+  o1: v.object({ k1: v.optional(v.string()), k2: v.optional(v.string()) }),
+  o2: v.object({ k3: v.optional(v.string()), k4: v.optional(v.string()) }),
+});
+```
