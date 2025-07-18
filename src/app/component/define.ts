@@ -13,6 +13,7 @@ import { MainNFCC } from './main/component';
 import { Main1Component } from './main-1/component';
 import { ButtonLinkComponent } from './link/component';
 import { ValidWC } from './wrapper/valid/component';
+import { DropdownComponent } from './dropdown/component';
 export const FieldGlobalConfig = {
   types: {
     string: {
@@ -58,6 +59,14 @@ export const FieldGlobalConfig = {
       directives: [
         { type: SelectControlValueAccessor, selector: 'formControl' },
       ],
+    },
+    dropdown: {
+      type: DropdownComponent,
+      selector: 'div',
+      attributes: {
+        type: 'dropdown',
+        class: 'dropdown',
+      },
     },
     rating: {
       type: RatingComponent,
@@ -138,12 +147,12 @@ export const FieldGlobalConfig = {
     validGroup: {
       type: () => import('./valid-group/component').then((a) => a.default),
     },
-    filterGroup:{
-      type:() => import('./filter-group/component').then((a) => a.default)
+    filterGroup: {
+      type: () => import('./filter-group/component').then((a) => a.default),
     },
-    scrollGroup:{
-      type:() => import('./scroll-group/component').then((a) => a.default)
-    }
+    scrollGroup: {
+      type: () => import('./scroll-group/component').then((a) => a.default),
+    },
   },
   wrappers: {
     valid: {

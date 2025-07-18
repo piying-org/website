@@ -47,14 +47,14 @@ export const routes: Routes = [
               ),
               language: v.pipe(
                 v.string(),
-                setComponent('picklist'),
+                setComponent('dropdown'),
                 setInputs({
                   options: [
                     { label: '中文', value: 'zh-hans' },
                     { label: 'english', value: 'en' },
                   ],
                 }),
-                topClass('w-[80px]'),
+                topClass('dropdown-end',true),
                 valueChange((fn) => {
                   fn()
                     .pipe(skip(1))
@@ -68,7 +68,7 @@ export const routes: Routes = [
                 }),
               ),
             }),
-            componentClass('flex gap-4 w-full'),
+            componentClass('flex gap-4 w-full items-center'),
           ),
         }),
         setComponent('main'),
