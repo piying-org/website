@@ -5,6 +5,18 @@ import { markedHighlight } from 'marked-highlight';
 import { hljsCode } from './hilight-code.directive';
 import { encode } from 'html-entities';
 import { $localize } from '@cyia/localize';
+function _tagged_template_literal(strings: string[], raw?: any) {
+  if (!raw) {
+    raw = strings.slice(0);
+  }
+  return Object.freeze(
+    Object.defineProperties(strings, {
+      raw: {
+        value: Object.freeze(raw),
+      },
+    }),
+  ) as TemplateStringsArray;
+}
 function getId(headingText: string) {
   // debugger
   const id = headingText
@@ -53,6 +65,8 @@ class Renderer2 extends Renderer {
 }
 
 let codeIndex = 0;
+const PrevLabel = $localize`预览`;
+const CodeLabel = $localize`代码`;
 export const CodeMap = new Map<number, string>();
 const marked = new Marked(
   markedHighlight({
@@ -66,11 +80,11 @@ const marked = new Marked(
       // todo md代码包裹
       if (lang === 'ts') {
         return `<div class="tabs tabs-lift">
-        <input type="radio" name="${tabName}" class="tab" aria-label="预览" checked="checked"/>
+        <input type="radio" name="${tabName}" class="tab" aria-label="${PrevLabel}" checked="checked"/>
         <div class="tab-content bg-base-100 border-base-300 p-6 code-tab-background">
         <app-eval-view data-code-index="${currentIndex}"></app-eval-view>
         </div>
-        <input type="radio" name="${tabName}" class="tab" aria-label="代码"/>
+        <input type="radio" name="${tabName}" class="tab" aria-label="${CodeLabel}"/>
       <pre class="tab-content bg-base-100 border-base-300 p-6"><code class="language-${lang}"><div>${codeData}</div></code></pre>  
         <app-open-playground data-code-index="${currentIndex}"></app-open-playground>
 
@@ -82,7 +96,13 @@ const marked = new Marked(
 );
 let textList = new Set<string>();
 (window as any).__getTranslate = () => {
-  return JSON.stringify([...textList].sort(), undefined, 4);
+  let text = JSON.stringify([...textList].sort(), undefined, 4);
+  const link = document.createElement('a');
+  link.download = 'doc.json';
+  link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 };
 marked.use({
   hooks: {
@@ -93,13 +113,18 @@ marked.use({
 
       for (let index = 0; index < tokens.length; index++) {
         const token = tokens[index];
-        if (token.type === 'heading' || token.type === 'paragraph') {
+        if (
+          token.type === 'heading' ||
+          token.type === 'paragraph' ||
+          token.type === 'blockquote'
+        ) {
           textList.add(token.text);
-          let tmp = [token.text];
-          (tmp as any).raw = token.text;
-          let text = $localize(tmp as any);
+          let text = $localize(_tagged_template_literal([token.text]));
           if (token.type === 'heading') {
             let transList = lexer(`${'#'.repeat(token.depth)} ${text}`);
+            tokens[index] = transList[0];
+          } else if (token.type === 'blockquote') {
+            let transList = lexer(`> ${text}`);
             tokens[index] = transList[0];
           } else {
             let transList = lexer(text);
@@ -109,9 +134,7 @@ marked.use({
           for (let j = 0; j < (token as Tokens.List).items.length; j++) {
             const item = (token as Tokens.List).items[j];
             textList.add(item.text);
-            let tmp = [item.text];
-            (tmp as any).raw = item.text;
-            let text = $localize(tmp as any);
+            let text = $localize(_tagged_template_literal([item.text]));
             let transList = lexer(`- ${text}`);
             (token as Tokens.List).items[j] = (transList[0] as any)
               .items[0] as any;

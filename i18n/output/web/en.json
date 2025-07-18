@@ -11,6 +11,30 @@
     "associatedMessageIds": {},
     "target": "Playground"
   },
+  "9082781386050595065": {
+    "id": "9082781386050595065",
+    "text": "预览",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "预览"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Preview"
+  },
+  "3967836601573629321": {
+    "id": "3967836601573629321",
+    "text": "代码",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "代码"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Code"
+  },
   "7304804787084703335": {
     "id": "7304804787084703335",
     "text": "首页",
@@ -33,7 +57,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Add test"
+    "target": "Join test"
   },
   "5663341488582522474": {
     "id": "5663341488582522474",
@@ -118,5 +142,77 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Server-side"
+  },
+  "5368901699704642476": {
+    "id": "5368901699704642476",
+    "text": "平台无关的表单布局解决方案",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "平台无关的表单布局解决方案"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Platform-Independent Form Layout Solution"
+  },
+  "2844906699478651364": {
+    "id": "2844906699478651364",
+    "text": "皮影提供了可以在任意平台上使用的\n          <br />\n          快速组件布局,定位,事件融合监听及\n          <br />\n          表单设计,验证,分区禁用,类型化等功能",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "皮影提供了可以在任意平台上使用的\n          <br />\n          快速组件布局,定位,事件融合监听及\n          <br />\n          表单设计,验证,分区禁用,类型化等功能"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "piying provides a fast component layout, positioning, event fusion monitoring, and\n          <br />\n          form design, validation, partitioned disablement, and typed functionalities that can be used on any platform."
+  },
+  "1229404968866062269": {
+    "id": "1229404968866062269",
+    "text": "查看介绍",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "查看介绍"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "View introduction"
+  },
+  "8834528211326730134": {
+    "id": "8834528211326730134",
+    "text": "当前支持",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "当前支持"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Currently supported"
+  },
+  "6524332794911304168": {
+    "id": "6524332794911304168",
+    "text": "评价",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "评价"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Evaluation"
+  },
+  "6270788596078726352": {
+    "id": "6270788596078726352",
+    "text": "使用皮影",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "使用皮影"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Use piying"
   }
 }

@@ -4,20 +4,14 @@
   >
     <div class="flex-1 flex items-center py-10 ps-10">
       <div class="flex gap-10 flex-col">
-        <h1 class="text-8xl font-black">平台无关的表单布局解决方案</h1>
-        <p class="text-3xl font-light">
-          皮影提供了可以在任意平台上使用的
-          <br />
-          快速组件布局,定位,事件融合监听及
-          <br />
-          表单设计,验证,分区禁用,类型化等功能
-        </p>
+        <h1 class="text-8xl font-black">{{ title }}</h1>
+        <p class="text-3xl font-light" [innerHTML]="subTitle"></p>
         <div class="flex gap-4">
           <a role="button" class="btn btn-primary" routerLink="/docs/intro/"
-            >查看介绍</a
+            >{{btn1}}</a
           >
           <button class="btn btn-soft btn-info" routerLink="/docs/join-test">
-            加入测试
+            {{btn2}}
           </button>
         </div>
       </div>

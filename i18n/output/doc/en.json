@@ -215,17 +215,17 @@
     "associatedMessageIds": {},
     "target": "Use `valueChange` to listen to the control and handle changes."
   },
-  "5026775968723489247": {
-    "id": "5026775968723489247",
-    "text": "使用npm包测试\\n> 待发布",
+  "6699782234733574033": {
+    "id": "6699782234733574033",
+    "text": "使用npm包测试\n> 待发布",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "使用npm包测试\\n> 待发布"
+      "使用npm包测试\n> 待发布"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Using npm package for testing\n> To be released\\n"
+    "target": "Test with npm package\n> To be released"
   },
   "2717337146994444101": {
     "id": "2717337146994444101",
@@ -321,7 +321,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Reduce code coupling and increase code reuse."
+    "target": "Reduce code coupling and increase code reuse"
   },
   "2095256808838468994": {
     "id": "2095256808838468994",
@@ -333,7 +333,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Reducing reliance on the underlying framework makes the code more generic."
+    "target": "Reducing dependency on the underlying framework makes the code more generic."
   },
   "5920669653157437949": {
     "id": "5920669653157437949",
@@ -683,17 +683,17 @@
     "associatedMessageIds": {},
     "target": "You can also customize the object component and modify the display method."
   },
-  "4873738061654840487": {
-    "id": "4873738061654840487",
-    "text": "您可以到[游乐场](/playground/group/form)中进行测试\\n",
+  "5193353370440311125": {
+    "id": "5193353370440311125",
+    "text": "您可以到[游乐场](/playground/group/form)中进行测试\n",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "您可以到[游乐场](/playground/group/form)中进行测试\\n"
+      "您可以到[游乐场](/playground/group/form)中进行测试\n"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "You can test it in the [Playground](/playground/group/form).\\n"
+    "target": "You can test it in the [Playground](/playground/group/form)"
   },
   "1047498010145358144": {
     "id": "1047498010145358144",
@@ -753,7 +753,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "More efficient and secure form creation"
+    "target": "More convenient and secure form creation"
   },
   "4523453167246662757": {
     "id": "4523453167246662757",
@@ -766,6 +766,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "More convenient layout"
+  },
+  "4784491009468222538": {
+    "id": "4784491009468222538",
+    "text": "更多支持待实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "更多支持待实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "More support to be implemented"
   },
   "2539537157883153440": {
     "id": "2539537157883153440",
@@ -837,7 +849,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "This feature can also be used in components. Since components do not need to consider types, it is easy to perform various layouts. However, in forms, the data structure often does not match the view layout. In such cases, you need to move components while ensuring the data structure remains normal."
+    "target": "This feature can also be used in components. Since components do not need to consider types, it is easy to perform various layouts. However, in forms, the data structure often does not match the view layout. In such cases, we need to move components while ensuring the data structure remains normal."
   },
   "3376582029892431350": {
     "id": "3376582029892431350",
@@ -863,17 +875,17 @@
     "associatedMessageIds": {},
     "target": "Scroll Group"
   },
-  "2512729969602681386": {
-    "id": "2512729969602681386",
-    "text": "由于正在调整相关接口配置及文档,以方便开发者更好使用;暂未开放安装;\\n",
+  "5247306805626300515": {
+    "id": "5247306805626300515",
+    "text": "由于正在调整相关接口配置及文档,以方便开发者更好使用;暂未开放安装;\n",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "由于正在调整相关接口配置及文档,以方便开发者更好使用;暂未开放安装;\\n"
+      "由于正在调整相关接口配置及文档,以方便开发者更好使用;暂未开放安装;\n"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Due to the adjustment of relevant interface configurations and documentation to facilitate better usage by developers; installation is temporarily not available;\\n"
+    "target": "Due to the adjustment of relevant interface configurations and documentation to facilitate better usage by developers; installation is temporarily not available;"
   },
   "5727984477711897801": {
     "id": "5727984477711897801",
@@ -981,7 +993,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Quick layout of components, merged monitoring, automatic lazy loading, package decoration"
+    "target": "Quick layout of components, merged listening, automatic lazy loading, package decoration"
   },
   "2790194754255961960": {
     "id": "2790194754255961960",
@@ -1257,7 +1269,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Validation"
+    "target": "Verification"
   },
   "6782449427950026009": {
     "id": "6782449427950026009",

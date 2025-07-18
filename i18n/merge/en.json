@@ -1,124 +1,4 @@
 {
-  "8044044696511750096": {
-    "id": "8044044696511750096",
-    "text": "游乐场",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "游乐场"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Playground"
-  },
-  "7304804787084703335": {
-    "id": "7304804787084703335",
-    "text": "首页",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "首页"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Home Page"
-  },
-  "6466167068076818338": {
-    "id": "6466167068076818338",
-    "text": "加入测试",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "加入测试"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Join test"
-  },
-  "5663341488582522474": {
-    "id": "5663341488582522474",
-    "text": "文档",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "文档"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Document"
-  },
-  "7807636449017554161": {
-    "id": "7807636449017554161",
-    "text": "介绍",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "介绍"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Introduction"
-  },
-  "4707791770500562346": {
-    "id": "4707791770500562346",
-    "text": "安装",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "安装"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Installation"
-  },
-  "3713218421079785836": {
-    "id": "3713218421079785836",
-    "text": "客户端",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "客户端"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Client"
-  },
-  "2864635957462559808": {
-    "id": "2864635957462559808",
-    "text": "组件使用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "组件使用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Component Usage"
-  },
-  "6654092053584961242": {
-    "id": "6654092053584961242",
-    "text": "表单使用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "表单使用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Form Usage"
-  },
-  "2395404919385499367": {
-    "id": "2395404919385499367",
-    "text": "服务端",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "服务端"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Server-side"
-  },
   "5010537385816875614": {
     "id": "5010537385816875614",
     "text": "**如果您符合以下条件,那么您可以尝试以下皮影**",
@@ -335,17 +215,17 @@
     "associatedMessageIds": {},
     "target": "Use `valueChange` to listen to the control and handle changes."
   },
-  "5026775968723489247": {
-    "id": "5026775968723489247",
-    "text": "使用npm包测试\\n> 待发布",
+  "6699782234733574033": {
+    "id": "6699782234733574033",
+    "text": "使用npm包测试\n> 待发布",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "使用npm包测试\\n> 待发布"
+      "使用npm包测试\n> 待发布"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Using npm package for testing\n> To be released\\n"
+    "target": "Test with npm package\n> To be released"
   },
   "2717337146994444101": {
     "id": "2717337146994444101",
@@ -441,7 +321,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Reduce code coupling and increase code reuse."
+    "target": "Reduce code coupling and increase code reuse"
   },
   "2095256808838468994": {
     "id": "2095256808838468994",
@@ -453,7 +333,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Reducing reliance on the underlying framework makes the code more generic."
+    "target": "Reducing dependency on the underlying framework makes the code more generic."
   },
   "5920669653157437949": {
     "id": "5920669653157437949",
@@ -490,6 +370,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Create multiple components"
+  },
+  "6466167068076818338": {
+    "id": "6466167068076818338",
+    "text": "加入测试",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "加入测试"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Join test"
   },
   "8803694132217552613": {
     "id": "8803694132217552613",
@@ -610,6 +502,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Field Grouping"
+  },
+  "4707791770500562346": {
+    "id": "4707791770500562346",
+    "text": "安装",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "安装"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Installation"
   },
   "2839668173576519178": {
     "id": "2839668173576519178",
@@ -779,17 +683,17 @@
     "associatedMessageIds": {},
     "target": "You can also customize the object component and modify the display method."
   },
-  "4873738061654840487": {
-    "id": "4873738061654840487",
-    "text": "您可以到[游乐场](/playground/group/form)中进行测试\\n",
+  "5193353370440311125": {
+    "id": "5193353370440311125",
+    "text": "您可以到[游乐场](/playground/group/form)中进行测试\n",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "您可以到[游乐场](/playground/group/form)中进行测试\\n"
+      "您可以到[游乐场](/playground/group/form)中进行测试\n"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "You can test it in the [Playground](/playground/group/form).\\n"
+    "target": "You can test it in the [Playground](/playground/group/form)"
   },
   "1047498010145358144": {
     "id": "1047498010145358144",
@@ -849,7 +753,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "More efficient and secure form creation"
+    "target": "More convenient and secure form creation"
   },
   "4523453167246662757": {
     "id": "4523453167246662757",
@@ -862,6 +766,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "More convenient layout"
+  },
+  "4784491009468222538": {
+    "id": "4784491009468222538",
+    "text": "更多支持待实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "更多支持待实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "More support to be implemented"
   },
   "2539537157883153440": {
     "id": "2539537157883153440",
@@ -933,7 +849,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "This feature can also be used in components. Since components do not need to consider types, it is easy to perform various layouts. However, in forms, the data structure often does not match the view layout. In such cases, you need to move components while ensuring the data structure remains normal."
+    "target": "This feature can also be used in components. Since components do not need to consider types, it is easy to perform various layouts. However, in forms, the data structure often does not match the view layout. In such cases, we need to move components while ensuring the data structure remains normal."
   },
   "3376582029892431350": {
     "id": "3376582029892431350",
@@ -959,17 +875,17 @@
     "associatedMessageIds": {},
     "target": "Scroll Group"
   },
-  "2512729969602681386": {
-    "id": "2512729969602681386",
-    "text": "由于正在调整相关接口配置及文档,以方便开发者更好使用;暂未开放安装;\\n",
+  "5247306805626300515": {
+    "id": "5247306805626300515",
+    "text": "由于正在调整相关接口配置及文档,以方便开发者更好使用;暂未开放安装;\n",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "由于正在调整相关接口配置及文档,以方便开发者更好使用;暂未开放安装;\\n"
+      "由于正在调整相关接口配置及文档,以方便开发者更好使用;暂未开放安装;\n"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Due to the adjustment of relevant interface configurations and documentation to facilitate better usage by developers; installation is temporarily not available;\\n"
+    "target": "Due to the adjustment of relevant interface configurations and documentation to facilitate better usage by developers; installation is temporarily not available;"
   },
   "5727984477711897801": {
     "id": "5727984477711897801",
@@ -1055,6 +971,18 @@
     "associatedMessageIds": {},
     "target": "Cascade"
   },
+  "2864635957462559808": {
+    "id": "2864635957462559808",
+    "text": "组件使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "组件使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Component Usage"
+  },
   "2160878348380850726": {
     "id": "2160878348380850726",
     "text": "组件的快速布局,融合监听,自动懒加载,包装修饰",
@@ -1065,7 +993,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Quick layout of components, merged monitoring, automatic lazy loading, package decoration"
+    "target": "Quick layout of components, merged listening, automatic lazy loading, package decoration"
   },
   "2790194754255961960": {
     "id": "2790194754255961960",
@@ -1102,6 +1030,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Forms are also components, but forms have unified input/output"
+  },
+  "6654092053584961242": {
+    "id": "6654092053584961242",
+    "text": "表单使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "表单使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Form Usage"
   },
   "3603990046363629496": {
     "id": "3603990046363629496",
@@ -1329,7 +1269,7 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Validation"
+    "target": "Verification"
   },
   "6782449427950026009": {
     "id": "6782449427950026009",
@@ -1402,5 +1342,161 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "A basic object component is provided by default to display internal child components."
+  },
+  "8044044696511750096": {
+    "id": "8044044696511750096",
+    "text": "游乐场",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "游乐场"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Playground"
+  },
+  "9082781386050595065": {
+    "id": "9082781386050595065",
+    "text": "预览",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "预览"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Preview"
+  },
+  "3967836601573629321": {
+    "id": "3967836601573629321",
+    "text": "代码",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "代码"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Code"
+  },
+  "7304804787084703335": {
+    "id": "7304804787084703335",
+    "text": "首页",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "首页"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Home Page"
+  },
+  "5663341488582522474": {
+    "id": "5663341488582522474",
+    "text": "文档",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "文档"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Document"
+  },
+  "7807636449017554161": {
+    "id": "7807636449017554161",
+    "text": "介绍",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "介绍"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Introduction"
+  },
+  "3713218421079785836": {
+    "id": "3713218421079785836",
+    "text": "客户端",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "客户端"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Client"
+  },
+  "2395404919385499367": {
+    "id": "2395404919385499367",
+    "text": "服务端",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "服务端"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Server-side"
+  },
+  "5368901699704642476": {
+    "id": "5368901699704642476",
+    "text": "平台无关的表单布局解决方案",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "平台无关的表单布局解决方案"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Platform-Independent Form Layout Solution"
+  },
+  "2844906699478651364": {
+    "id": "2844906699478651364",
+    "text": "皮影提供了可以在任意平台上使用的\n          <br />\n          快速组件布局,定位,事件融合监听及\n          <br />\n          表单设计,验证,分区禁用,类型化等功能",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "皮影提供了可以在任意平台上使用的\n          <br />\n          快速组件布局,定位,事件融合监听及\n          <br />\n          表单设计,验证,分区禁用,类型化等功能"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "piying provides a fast component layout, positioning, event fusion monitoring, and\n          <br />\n          form design, validation, partitioned disablement, and typed functionalities that can be used on any platform."
+  },
+  "1229404968866062269": {
+    "id": "1229404968866062269",
+    "text": "查看介绍",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "查看介绍"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "View introduction"
+  },
+  "6524332794911304168": {
+    "id": "6524332794911304168",
+    "text": "评价",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "评价"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Evaluation"
+  },
+  "6270788596078726352": {
+    "id": "6270788596078726352",
+    "text": "使用皮影",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "使用皮影"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Use piying"
   }
 }
