@@ -43,6 +43,7 @@
     "express": "^5.1.0",
     "highlight.js": "^11.11.1",
     "html-entities": "^2.6.0",
+    "json-formatter-js": "^2.5.23",
     "marked": "^16.0.0",
     "marked-highlight": "^2.2.2",
     "material-icons": "^1.13.14",
