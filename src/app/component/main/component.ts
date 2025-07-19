@@ -52,6 +52,11 @@ const Menu: NavigationItem[] = [
         link: '/docs/client/form-use',
         type: 'basic',
       },
+      {
+        title: $localize`ngx-formly迁移`,
+        link: '/docs/client/ngx-formly-migrate',
+        type: 'basic',
+      },
     ],
   },
   {

@@ -14,6 +14,7 @@ import { Main1Component } from './main-1/component';
 import { ButtonLinkComponent } from './link/component';
 import { ValidWC } from './wrapper/valid/component';
 import { DropdownComponent } from './dropdown/component';
+import { CheckboxComponent } from './checkbox/component';
 export const FieldGlobalConfig = {
   types: {
     string: {
@@ -32,6 +33,12 @@ export const FieldGlobalConfig = {
       directives: [
         { type: CheckboxControlValueAccessor, selector: 'formControl' },
       ],
+    },
+    checkbox: {
+      type: CheckboxComponent,
+      props: {
+        hideTitle: true,
+      },
     },
     number: {
       type: 'input',
@@ -152,6 +159,14 @@ export const FieldGlobalConfig = {
     },
     scrollGroup: {
       type: () => import('./scroll-group/component').then((a) => a.default),
+    },
+    'formly-custom-input-1': {
+      type: () =>
+        import('./formly-custom-input-1/component').then((a) => a.default),
+    },
+    'formly-group': {
+      type: () =>
+        import('./group/formly-group/component').then((a) => a.default),
     },
   },
   wrappers: {

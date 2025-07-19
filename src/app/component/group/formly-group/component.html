@@ -1,0 +1,37 @@
+<fieldset
+  class="fieldset bg-base-200 border-base-300 rounded-box border p-4 w-full"
+>
+  @if (field().props()["title"]; as title) {
+    <legend class="fieldset-legend">{{ title }}</legend>
+  }
+  @for (field of fields(); track field.id || $index) {
+    @if (field.props()["title"] && !field.props()["hideTitle"]) {
+      @let requiredLable = field.form.control?.required$$() ? "*" : "";
+      <label for="label">{{ field.props()["title"] }}{{ requiredLable }}</label>
+    }
+    @let valid = field.form.control && field.form.control.valid;
+    @let invalid = field.form.control && !valid;
+    @let pristine = field.form.control && field.form.control.pristine;
+    @let dirty = field.form.control && !pristine;
+    @let touched = field.form.control && field.form.control.touched;
+    @let untouched = field.form.control && !touched;
+    <div
+      [class.pi-valid]="valid"
+      [class.pi-invalid]="invalid"
+      [class.pi-pristine]="pristine"
+      [class.pi-dirty]="dirty"
+      [class.pi-touched]="touched"
+      [class.pi-untouched]="untouched"
+    >
+      <ng-container
+        *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: field }"
+      ></ng-container>
+    </div>
+    @if (field.form.control?.errors&&touched) {
+      <p class="label text-error">{{ errorStr(field) }}</p>
+    }
+    @if (field.props()["description"]) {
+      <p class="label">{{ field.props()["description"] }}</p>
+    }
+  }
+</fieldset>

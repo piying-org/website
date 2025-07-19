@@ -1,0 +1,22 @@
+<div class="flex gap-2 items-center">
+  @if (position() === "start") {
+    <ng-container *ngTemplateOutlet="labelTmp"></ng-container>
+  }
+  <input
+    type="checkbox"
+    class="checkbox"
+    [disabled]="disabled$()"
+    [ngModel]="value$()"
+    (ngModelChange)="valueChange($event)"
+    (blur)="touchedChange()"
+  />
+  @if (position() === "end") {
+    <ng-container *ngTemplateOutlet="labelTmp"></ng-container>
+  }
+</div>
+
+<ng-template #labelTmp>
+  @if (field().props()["title"]) {
+    {{ field().props()["title"] }}
+  }
+</ng-template>

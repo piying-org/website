@@ -12,11 +12,7 @@ import { PlayContext } from './context';
 })
 export class PlayGroundEvalViewNFCC {
   configCode = input<string>();
-  options = {
-    fieldGlobalConfig: FieldGlobalConfig,
-    builder: CustomNgBuilder,
-    context: PlayContext,
-  };
+
   config$$ = computed(() => {
     const code = this.configCode();
     if (!code) {
@@ -24,4 +20,15 @@ export class PlayGroundEvalViewNFCC {
     }
     return codeEval(code);
   });
+  #context$$ = computed(() => {
+    return {
+      ...PlayContext,
+      ...this.config$$()?.context,
+    };
+  });
+  options$$ = computed(() => ({
+    fieldGlobalConfig: FieldGlobalConfig,
+    builder: CustomNgBuilder,
+    context: this.#context$$(),
+  }));
 }

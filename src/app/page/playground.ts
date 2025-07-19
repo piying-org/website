@@ -99,10 +99,18 @@ export const PlaygroundSingleRoute: Route = {
     ),
     model: async () => {
       const route = inject(ActivatedRoute);
-      const inputData = route.snapshot.queryParams['input'];
+      const inputData = route.snapshot.queryParams['input'] as string;
+      let data = JSON.parse(inputData) as string;
+      if (data.startsWith('{')) {
+        return {
+          codeEditor: `(() => {
+return ${data}
+})()`,
+        };
+      }
       return {
         codeEditor: `(() => {
-    let schema = ${JSON.parse(inputData)}
+    let schema = ${data}
     return { schema: schema }
 })()`,
       };
