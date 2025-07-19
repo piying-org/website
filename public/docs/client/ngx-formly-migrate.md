@@ -99,3 +99,33 @@
     ),
   }
 ```
+
+## [Expression Properties](https://formly.dev/docs/examples/field-options/expression-properties)
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        text: v.pipe(
+          v.string(),
+          v.title('Text'),
+          patchAttributes({
+            placeholder: 'Type here to see the other field become enabled...',
+          }),
+        ),
+        text2: v.pipe(
+          v.string(),
+          v.title('Hey!'),
+          disableWhen({
+            listen: (fn) => {
+              return fn({ list: [['#', 'text']] }).pipe(
+                map(({ list: [value] }) => !value),
+              );
+            },
+          }),
+        ),
+        __helper: v.pipe(NFCSchema, setComponent('domHelper')),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```
