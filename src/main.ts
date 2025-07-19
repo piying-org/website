@@ -18,8 +18,8 @@ fetch(`i18n/${lang}.json`)
     loadTranslations({});
   })
   .then(async () => {
-    let { App } = await import('./app/app');
-    let { appConfig } = await import('./app/app.config');
+    const { App } = await import('./app/app');
+    const { appConfig } = await import('./app/app.config');
 
     bootstrapApplication(App, appConfig).catch((err) => console.error(err));
   });

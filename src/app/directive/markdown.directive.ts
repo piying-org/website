@@ -94,9 +94,9 @@ const marked = new Marked(
     },
   }),
 );
-let textList = new Set<string>();
+const textList = new Set<string>();
 (window as any).__getTranslate = () => {
-  let text = JSON.stringify([...textList].sort(), undefined, 4);
+  const text = JSON.stringify([...textList].sort(), undefined, 4);
   const link = document.createElement('a');
   link.download = 'doc.json';
   link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
@@ -119,23 +119,23 @@ marked.use({
           token.type === 'blockquote'
         ) {
           textList.add(token.text);
-          let text = $localize(_tagged_template_literal([token.text]));
+          const text = $localize(_tagged_template_literal([token.text]));
           if (token.type === 'heading') {
-            let transList = lexer(`${'#'.repeat(token.depth)} ${text}`);
+            const transList = lexer(`${'#'.repeat(token.depth)} ${text}`);
             tokens[index] = transList[0];
           } else if (token.type === 'blockquote') {
-            let transList = lexer(`> ${text}`);
+            const transList = lexer(`> ${text}`);
             tokens[index] = transList[0];
           } else {
-            let transList = lexer(text);
+            const transList = lexer(text);
             tokens[index] = transList[0];
           }
         } else if (token.type === 'list') {
           for (let j = 0; j < (token as Tokens.List).items.length; j++) {
             const item = (token as Tokens.List).items[j];
             textList.add(item.text);
-            let text = $localize(_tagged_template_literal([item.text]));
-            let transList = lexer(`- ${text}`);
+            const text = $localize(_tagged_template_literal([item.text]));
+            const transList = lexer(`- ${text}`);
             (token as Tokens.List).items[j] = (transList[0] as any)
               .items[0] as any;
           }

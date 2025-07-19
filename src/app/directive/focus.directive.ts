@@ -15,7 +15,7 @@ export class FocusDirective {
   #el = inject<ElementRef<HTMLElement>>(ElementRef);
   ngOnChanges(changes: SimpleChanges): void {
     if (this.focus()) {
-      let selector = this.selector();
+      const selector = this.selector();
       if (selector) {
         (this.#el.nativeElement.querySelector(selector) as HTMLElement).focus();
       } else {

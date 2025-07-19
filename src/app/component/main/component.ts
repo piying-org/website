@@ -62,7 +62,9 @@ const Menu: NavigationItem[] = [
   {
     title: $localize`服务端`,
     type: 'group',
-    children: [{ title: $localize`介绍`, link: '/docs/server/intro', type: 'basic' }],
+    children: [
+      { title: $localize`介绍`, link: '/docs/server/intro', type: 'basic' },
+    ],
   },
   { title: $localize`游乐场`, type: 'basic', link: '/playground/group/form' },
 ];

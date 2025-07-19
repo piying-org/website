@@ -3,13 +3,12 @@ import { ActivatedRoute, Route } from '@angular/router';
 import {
   setComponent,
   patchAsyncInputs,
-  hideWhen,
   valueChange,
   componentClass,
   NFCSchema,
   asVirtualGroup,
 } from '@piying/view-angular-core';
-import { debounceTime, map } from 'rxjs';
+import { debounceTime } from 'rxjs';
 import { SchemaViewRC } from '../component/schema-view/component';
 import * as v from 'valibot';
 import { HttpClient } from '@angular/common/http';
@@ -100,7 +99,7 @@ export const PlaygroundSingleRoute: Route = {
     model: async () => {
       const route = inject(ActivatedRoute);
       const inputData = route.snapshot.queryParams['input'] as string;
-      let data = JSON.parse(inputData) as string;
+      const data = JSON.parse(inputData) as string;
       if (data.startsWith('{')) {
         return {
           codeEditor: `(() => {

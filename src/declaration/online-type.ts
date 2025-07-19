@@ -6,8 +6,8 @@ export * as PV from '@piying/view-angular';
 import * as PVA from '@piying/view-angular';
 import * as PYVAC from '@piying/view-angular-core';
 import * as rxjs from 'rxjs';
-export *  as _d from '../app/directive/code-index'
-import *  as directive from '../app/directive/code-index'
+export * as _d from '../app/directive/code-index';
+import * as directive from '../app/directive/code-index';
 declare global {
   export const v: typeof V;
   export const NFCSchema: (typeof PYVAC)['NFCSchema'];

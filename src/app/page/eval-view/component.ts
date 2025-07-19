@@ -1,10 +1,4 @@
-import {
-  Component,
-  computed,
-  ElementRef,
-  inject,
-  viewChild,
-} from '@angular/core';
+import { Component, computed, ElementRef, inject } from '@angular/core';
 import { PiView } from '@piying/view-angular';
 
 import { codeEval } from '../../component/playground-eval-view/code-eval';
@@ -33,12 +27,10 @@ export class EvalViewWC {
       return {schema:schema}
       })()`);
   })();
-  #context$$ = computed(() => {
-    return {
-      ...PlayContext,
-      ...this.config.context,
-    };
-  });
+  #context$$ = computed(() => ({
+    ...PlayContext,
+    ...this.config.context,
+  }));
   options = {
     fieldGlobalConfig: FieldGlobalConfig,
     builder: CustomNgBuilder,

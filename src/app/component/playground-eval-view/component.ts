@@ -20,12 +20,10 @@ export class PlayGroundEvalViewNFCC {
     }
     return codeEval(code);
   });
-  #context$$ = computed(() => {
-    return {
-      ...PlayContext,
-      ...this.config$$()?.context,
-    };
-  });
+  #context$$ = computed(() => ({
+    ...PlayContext,
+    ...this.config$$()?.context,
+  }));
   options$$ = computed(() => ({
     fieldGlobalConfig: FieldGlobalConfig,
     builder: CustomNgBuilder,

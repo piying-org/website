@@ -4,7 +4,6 @@ import * as v from 'valibot';
 import {
   componentClass,
   NFCSchema,
-  patchAsyncInputs,
   setComponent,
   setInputs,
   topClass,
@@ -54,12 +53,12 @@ export const routes: Routes = [
                     { label: 'english', value: 'en' },
                   ],
                 }),
-                topClass('dropdown-end',true),
+                topClass('dropdown-end', true),
                 valueChange((fn) => {
                   fn()
                     .pipe(skip(1))
                     .subscribe(({ list }) => {
-                      let last = localStorage.getItem('lang');
+                      const last = localStorage.getItem('lang');
                       if (last !== list[0]) {
                         localStorage.setItem('lang', list[0]);
                         location.reload();
@@ -73,11 +72,9 @@ export const routes: Routes = [
         }),
         setComponent('main'),
       ),
-      model: async () => {
-        return {
-          toolbar: { language: localStorage.getItem('lang') ?? 'zh-hans' },
-        };
-      },
+      model: async () => ({
+        toolbar: { language: localStorage.getItem('lang') ?? 'zh-hans' },
+      }),
     },
     children: [
       {

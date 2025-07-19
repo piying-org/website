@@ -16,8 +16,7 @@ export class MarkdownPage {
   #http = inject(HttpClient);
   data = this.#route.params.pipe(
     map(
-      (item) =>
-        `docs/${[item['l1'], item['l2']].filter(Boolean).join('/')}.md`,
+      (item) => `docs/${[item['l1'], item['l2']].filter(Boolean).join('/')}.md`,
     ),
     switchMap((url) => this.#http.get(url, { responseType: 'text' })),
   );

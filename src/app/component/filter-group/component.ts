@@ -12,7 +12,7 @@ export default class FilterFGC extends PiViewGroupBase {
   field = inject(PI_VIEW_FIELD_TOKEN);
   searchContent$ = signal('');
   searchFields$$ = computed(() => {
-    let content = this.searchContent$().trim().toLocaleLowerCase();
+    const content = this.searchContent$().trim().toLocaleLowerCase();
     if (!content) {
       return [];
     }

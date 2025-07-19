@@ -10,8 +10,8 @@ setGlobalConfig({ lang: 'zh-CN' });
 })
 export class ValidWC extends PiWrapperBaseComponent {
   errorStr$$ = computed(() => {
-    let field = this.field$$();
-    let valibot = field.form.control!.errors!['valibot'];
+    const field = this.field$$();
+    const valibot = field.form.control!.errors!['valibot'];
     return summarize(valibot);
   });
 }

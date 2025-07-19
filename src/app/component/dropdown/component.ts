@@ -28,7 +28,7 @@ export class DropdownComponent extends BaseControl {
     },
   });
   selected$$ = computed(() => {
-    let list = this.options().find((item) => item.value === this.value$());
+    const list = this.options().find((item) => item.value === this.value$());
     return list?.label ?? '';
   });
   optionSelected(option: Option1, el: HTMLElement) {
