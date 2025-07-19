@@ -129,3 +129,40 @@
     ),
   }
 ```
+
+## [Default Value](https://formly.dev/docs/examples/field-options/default-value)
+
+```ts
+{
+    model: { lastName: 'Smith' },
+    schema: v.pipe(
+      v.object({
+        firstName: v.pipe(
+          v.optional(v.string(), 'This is a default value'),
+          v.title('First Name (initialized via default value)'),
+        ),
+        lastName: v.pipe(
+          v.optional(v.string(), 'This is a default value'),
+          v.title('Last Name (initialized via the model)'),
+        ),
+        candy: v.pipe(
+          v.optional(
+            v.picklist(['snickers', 'baby_ruth', 'milky_way']),
+            'milky_way',
+          ),
+          v.title('Favorite Candy (initialized via default value'),
+          patchInputs({
+            options: [
+              { label: 'Snickers', value: 'snickers' },
+              { label: 'Baby Ruth', value: 'baby_ruth' },
+              { label: 'Milky Way', value: 'milky_way' },
+            ],
+          }),
+        ),
+        agree: v.pipe(v.boolean(), v.title('Agree? (not initialized at all)')),
+        __helper: v.pipe(NFCSchema, setComponent('domHelper')),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```

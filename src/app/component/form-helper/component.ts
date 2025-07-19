@@ -29,8 +29,6 @@ export default class FormHelperComponent {
         return;
       }
       const formatter = new JSONFormatter(data);
-      console.log(formatter.render());
-
       anchor.appendChild(formatter.render());
     });
   }

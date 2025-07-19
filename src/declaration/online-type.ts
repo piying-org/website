@@ -27,6 +27,7 @@ declare global {
   export const patchAsyncProps: (typeof PYVAC)['patchAsyncProps'];
   export const setAttributes: (typeof PYVAC)['setAttributes'];
   export const patchAttributes: (typeof PYVAC)['patchAttributes'];
+  export const patchInputs: (typeof PYVAC)['patchInputs'];
   export const patchAsyncDirective: (typeof PVA)['patchAsyncDirective'];
   export const map: (typeof rxjs)['map'];
   export const skip: (typeof rxjs)['skip'];
