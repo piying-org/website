@@ -93,7 +93,7 @@
           setComponent('formly-custom-input-1'),
           v.title('Custom inlined'),
         ),
-        __helper: v.pipe(NFCSchema, setComponent('domHelper')),
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
       }),
       setComponent('formly-group'),
     ),
@@ -101,6 +101,7 @@
 ```
 
 ## [Expression Properties](https://formly.dev/docs/examples/field-options/expression-properties)
+
 ```ts
 {
     schema: v.pipe(
@@ -123,7 +124,7 @@
             },
           }),
         ),
-        __helper: v.pipe(NFCSchema, setComponent('domHelper')),
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
       }),
       setComponent('formly-group'),
     ),
@@ -160,7 +161,86 @@
           }),
         ),
         agree: v.pipe(v.boolean(), v.title('Agree? (not initialized at all)')),
-        __helper: v.pipe(NFCSchema, setComponent('domHelper')),
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```
+
+## [Hide Fields](https://formly.dev/docs/examples/field-options/hide-fields)
+
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        name: v.pipe(
+          v.optional(v.string()),
+          v.title('Name'),
+          patchAttributes({
+            placeholder: 'Type in here to display the hidden field',
+          }),
+        ),
+        iLikeTwix: v.pipe(
+          v.optional(v.boolean()),
+          setComponent('checkbox'),
+          v.title('I like twix'),
+          hideWhen({
+            disabled: true,
+            listen: (fn) => {
+              return fn({ list: [['#', 'name']] }).pipe(
+                map(({ list: [value] }) => !value),
+              );
+            },
+          }),
+        ),
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```
+
+## [model-options](https://formly.dev/docs/examples/field-options/model-options)
+- submit/debounce不直接支持,但可以使用其他逻辑代替
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        updateOnBlur: v.pipe(
+          v.string(),
+          formConfig({ updateOn: 'blur' }),
+          v.title('`updateOn` on Blur'),
+        ),
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```
+
+## [Reset Model](https://formly.dev/docs/examples/form-options/reset-model)
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        text: v.pipe(
+          v.string(),
+          v.title('Some awesome text'),
+          patchAttributes({
+            placeholder: 'Some sweet text',
+          }),
+        ),
+        candy: v.pipe(
+          v.optional(v.picklist(['snickers', 'baby_ruth', 'milky_way'])),
+          patchInputs({
+            options: [
+              { label: 'Snickers', value: 'snickers' },
+              { label: 'Baby Ruth', value: 'baby_ruth' },
+              { label: 'Milky Way', value: 'milky_way' },
+            ],
+          }),
+        ),
       }),
       setComponent('formly-group'),
     ),

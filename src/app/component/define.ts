@@ -168,7 +168,7 @@ export const FieldGlobalConfig = {
       type: () =>
         import('./group/formly-group/component').then((a) => a.default),
     },
-    domHelper: {
+    formHelper: {
       type: () => import('./form-helper/component').then((a) => a.default),
     },
   },

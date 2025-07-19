@@ -32,7 +32,14 @@ export default class FormHelperComponent {
       anchor.appendChild(formatter.render());
     });
   }
+  submit() {
+    alert(JSON.stringify(this.field().form.root.value));
+  }
   resetForm() {
-    this.field().form.root.reset();
+    this.field().form.root.reset(this.lastData);
+  }
+  lastData: any;
+  saveInit() {
+    this.lastData = this.field().form.root.value;
   }
 }

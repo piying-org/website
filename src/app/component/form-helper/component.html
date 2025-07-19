@@ -1,4 +1,10 @@
 <div #anchor></div>
-<button class="btn btn-outline btn-secondary" (click)="resetForm()">
-  Reset
-</button>
+<div class="flex gap-2 items-center">
+  <button class="btn btn-primary" (click)="submit()">Submit</button>
+  <button class="btn btn-outline btn-secondary" (click)="resetForm()">
+    Reset
+  </button>
+  <button class="btn btn-outline btn-accent" (click)="saveInit()">
+    Update Intial Values
+  </button>
+</div>
