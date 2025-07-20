@@ -513,7 +513,6 @@
 
 - 由于类型安全的原因,设计上不支持切换
 
-
 ## [Disable submit button](https://formly.dev/docs/examples/validation/disable-submit-button)
 
 ```ts
@@ -551,7 +550,6 @@
     ),
   }
 ```
-
 
 ## [Select](https://formly.dev/docs/examples/bootstrap-formly/select)
 
@@ -684,9 +682,9 @@
       v.intersect([
         v.pipe(
           v.object({
-            firstName: v.pipe(v.string(), v.title('First Name')),
+            firstName: v.pipe(v.optional(v.string()), v.title('First Name')),
             lastName: v.pipe(
-              v.string(),
+              v.optional(v.string()),
               v.title('Last Name'),
               disableWhen({
                 listen: (fn) =>
@@ -705,13 +703,13 @@
         v.pipe(
           v.object({
             street: v.pipe(
-              v.string(),
+              v.optional(v.string()),
               v.title('Street'),
               patchProps({
                 itemClass: 'col-span-2',
               }),
             ),
-            cityName: v.pipe(v.string(), v.title('City')),
+            cityName: v.pipe(v.optional(v.string()), v.title('City')),
             zip: v.pipe(
               v.number(),
               v.title('Zip'),
@@ -729,17 +727,49 @@
         v.pipe(
           v.object({
             otherInput: v.pipe(
-              v.string(),
+              v.optional(v.string()),
               v.title('Other Input'),
               setComponent('textarea'),
             ),
-            otherToo: v.pipe(v.boolean(), v.title('Other Checkbox')),
+            otherToo: v.pipe(
+              v.optional(v.boolean()),
+              v.title('Other Checkbox'),
+            ),
           }),
           setComponent('formly-group'),
         ),
         v.object({ __helper: v.pipe(NFCSchema, setComponent('formHelper')) }),
       ]),
       asVirtualGroup(),
+    ),
+  }
+```
+
+## [Bootstrap Horizontal](https://formly.dev/docs/examples/bootstrap-specific/bootstrap-horizontal)
+
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        email: v.pipe(
+          v.string(),
+          patchAttributes({
+            type: 'email',
+          }),
+          setWrappers(['formlyField']),
+          v.title('Email'),
+        ),
+        password: v.pipe(
+          v.string(),
+          patchAttributes({
+            type: 'password',
+          }),
+          setWrappers(['formlyField']),
+          v.title('Password'),
+        ),
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+      componentClass('flex flex-col gap-2')
     ),
   }
 ```
