@@ -551,3 +551,127 @@
     ),
   }
 ```
+
+
+## [Select](https://formly.dev/docs/examples/bootstrap-formly/select)
+
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        marvel1: v.pipe(
+          v.picklist([
+            'iron_man',
+            'captain_america',
+            'black_widow',
+            'hulk',
+            'captain_marvel',
+          ]),
+          v.title('Normal Select'),
+          patchInputs({
+            options: [
+              { label: 'Iron Man', value: 'iron_man' },
+              { label: 'Captain America', value: 'captain_america' },
+              { label: 'Black Widow', value: 'black_widow' },
+              { label: 'Hulk', value: 'hulk' },
+              { label: 'Captain Marvel', value: 'captain_marvel' },
+            ],
+          }),
+        ),
+        marvel2: v.pipe(
+          v.picklist([
+            'iron_man',
+            'captain_america',
+            'black_widow',
+            'hulk',
+            'captain_marvel',
+          ]),
+          v.title('Grouped Select'),
+          patchInputs({
+            options: [
+              {
+                label: 'Male',
+                type: 'group',
+                children: [
+                  { label: 'Iron Man', value: 'iron_man' },
+                  { label: 'Captain America', value: 'captain_america' },
+                  { label: 'Hulk', value: 'hulk' },
+                ],
+              },
+              {
+                label: 'Female',
+                type: 'group',
+                children: [
+                  { label: 'Black Widow', value: 'black_widow' },
+                  { label: 'Captain Marvel', value: 'captain_marvel' },
+                ],
+              },
+            ],
+          }),
+        ),
+        marvel3: v.pipe(
+          v.picklist([
+            'iron_man',
+            'captain_america',
+            'black_widow',
+            'hulk',
+            'captain_marvel',
+          ]),
+          v.title('Select with custom name/value/group'),
+          patchInputs({
+            optionConvert: {
+              children: (item) => item.list,
+              label: (item) => item.label,
+              value: (item) => item.value,
+            },
+            options: [
+              {
+                label: 'Male',
+                type: 'group',
+                list: [
+                  { label: 'Iron Man', value: 'iron_man' },
+                  { label: 'Captain America', value: 'captain_america' },
+                  { label: 'Hulk', value: 'hulk' },
+                ],
+              },
+              {
+                label: 'Female',
+                type: 'group',
+                list: [
+                  { label: 'Black Widow', value: 'black_widow' },
+                  { label: 'Captain Marvel', value: 'captain_marvel' },
+                ],
+              },
+            ],
+          }),
+        ),
+        marvel4: v.pipe(
+          v.array(
+            v.picklist([
+              'iron_man',
+              'captain_america',
+              'black_widow',
+              'hulk',
+              'captain_marvel',
+            ]),
+          ),
+          asControl(),
+          componentClass('h-[200px]',true),
+          v.title('Multi-select'),
+          setComponent('multiselect'),
+          patchInputs({
+            options: [
+              { label: 'Iron Man', value: 'iron_man' },
+              { label: 'Captain America', value: 'captain_america' },
+              { label: 'Black Widow', value: 'black_widow' },
+              { label: 'Hulk', value: 'hulk' },
+              { label: 'Captain Marvel', value: 'captain_marvel' },
+            ],
+          }),
+        ),
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```

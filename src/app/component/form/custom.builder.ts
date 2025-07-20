@@ -44,7 +44,7 @@ export class CustomNgBuilder extends AngularFormBuilder {
       }
       if (rawConfig.type === 'picklist' || rawConfig.type === 'styled-style') {
         const options = options$$();
-        if (options) {
+        if (options && !value.options) {
           value = { ...value, options };
         }
       }

@@ -4,6 +4,7 @@ import {
   NumberValueAccessor,
   RangeValueAccessor,
   SelectControlValueAccessor,
+  SelectMultipleControlValueAccessor,
 } from '@angular/forms';
 import { PiViewConfig, PiViewGroup } from '@piying/view-angular';
 import { SelectComponent } from './select/component';
@@ -66,6 +67,17 @@ export const FieldGlobalConfig = {
       },
       directives: [
         { type: SelectControlValueAccessor, selector: 'formControl' },
+      ],
+    },
+    multiselect: {
+      type: SelectComponent,
+      attributes: {
+        class: 'select',
+        multiple: '',
+        
+      },
+      directives: [
+        { type: SelectMultipleControlValueAccessor, selector: 'formControl' },
       ],
     },
     dropdown: {

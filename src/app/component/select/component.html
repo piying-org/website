@@ -1,7 +1,22 @@
 <option selected value="">{{ emptyContent() }}</option>
+<ng-template #optionTemp let-config="config">
+  @if (config.type === "group") {
+    <optgroup [label]="config.label">
+      @for (item of config.children; track $index) {
+        <ng-container
+          *ngTemplateOutlet="optionTemp; context: { config: item }"
+        ></ng-container>
+      }
+    </optgroup>
+  } @else {
+    <option [disabled]="config.disabled" [value]="config.value">
+      {{ config.label }}
+    </option>
+  }
+</ng-template>
 
-@for (item of options(); track $index) {
-  <option [disabled]="item.disabled" [value]="item.value">
-    {{ item.label }}
-  </option>
+@for (item of resolvedOptions$$(); track $index) {
+  <ng-container
+    *ngTemplateOutlet="optionTemp; context: { config: item }"
+  ></ng-container>
 }
