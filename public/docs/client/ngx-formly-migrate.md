@@ -508,3 +508,46 @@
     ),
   }
 ```
+
+## [Toggle required field](https://formly.dev/docs/examples/validation/toggle-required/)
+
+- 由于类型安全的原因,设计上不支持切换
+
+
+## [Disable submit button](https://formly.dev/docs/examples/validation/disable-submit-button)
+
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        text: v.pipe(
+          v.string(),
+          v.check((a ) => !!a),
+          v.title('Text'),
+          patchAttributes({ placeholder: 'This is required!' }),
+        ),
+
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```
+
+## [Table Rows](https://formly.dev/docs/examples/bootstrap-formly/table-rows)
+
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        text: v.pipe(
+          v.string(),
+          setComponent('textarea'),
+          v.title('Textarea with specified rows'),
+          patchAttributes({ rows: 10, placeholder: 'This has 10 rows' }),
+        ),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```

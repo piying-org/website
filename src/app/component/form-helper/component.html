@@ -8,7 +8,7 @@
 }
 
 <div class="flex gap-2 items-center">
-  <button class="btn btn-primary" (click)="submit()">Submit</button>
+  <button [disabled]="control.invalid" class="btn btn-primary" (click)="submit()">Submit</button>
   <button class="btn btn-outline btn-secondary" (click)="resetForm()">
     Reset
   </button>
