@@ -202,7 +202,9 @@
 ```
 
 ## [model-options](https://formly.dev/docs/examples/field-options/model-options)
+
 - submit/debounce不直接支持,但可以使用其他逻辑代替
+
 ```ts
 {
     schema: v.pipe(
@@ -220,6 +222,7 @@
 ```
 
 ## [Reset Model](https://formly.dev/docs/examples/form-options/reset-model)
+
 ```ts
 {
     schema: v.pipe(
@@ -281,7 +284,6 @@
   }
 ```
 
-
 ## [List of default / built-in validations](https://formly.dev/docs/examples/validation/built-in-validations)
 
 ```ts
@@ -311,6 +313,93 @@
           v.string(),
           v.title('IP Address (pattern = /(d{1,3}.){3}d{1,3}/)'),
           v.ipv4(),
+        ),
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```
+
+## [Custom validation](https://formly.dev/docs/examples/validation/custom-validation)
+
+- 支持valibot验证/自定义验证,与表单自定义验证
+
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        ip: v.pipe(
+          v.string(),
+          v.ip(),
+          v.title('IP Address'),
+          v.check((value) => {
+            return true;
+          }),
+          formConfig({
+            validators: [
+              (ab) => {
+                return undefined;
+              },
+            ],
+          }),
+        ),
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```
+
+## [Async validation of unique value](https://formly.dev/docs/examples/validation/unique-value-async-validation)
+
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        username1: v.pipe(
+          v.string(),
+          v.title('Username (validated using `Promise`)'),
+          patchAttributes({ placeholder: 'Username' }),
+          formConfig({
+            asyncValidators: [
+              (control) => {
+                return new Promise((resolve) => {
+                  setTimeout(() => {
+                    resolve(
+                      ['user1', 'user2', 'user3'].indexOf(control.value) === -1
+                        ? {
+                            uniqueUsername: 'This username is already taken.',
+                          }
+                        : undefined,
+                    );
+                  }, 1000);
+                });
+              },
+            ],
+          }),
+        ),
+        username2: v.pipe(
+          v.string(),
+          v.title('Username (validated using `Observable`)'),
+          patchAttributes({ placeholder: 'Username' }),
+          formConfig({
+            asyncValidators: [
+              (control) => {
+                return of(
+                  ['user1', 'user2', 'user3'].indexOf(control.value) === -1,
+                ).pipe(
+                  map((value) => {
+                    return value
+                      ? {
+                          uniqueUsername: 'This username is already taken.',
+                        }
+                      : undefined;
+                  }),
+                );
+              },
+            ],
+          }),
         ),
         __helper: v.pipe(NFCSchema, setComponent('formHelper')),
       }),

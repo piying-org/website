@@ -17,6 +17,12 @@ export default class FormlyFGC extends PiViewGroupBase {
 
   errorStr = (field: PiResolvedViewFieldConfig) => {
     const valibot = field.form.control!.errors!['valibot'];
-    return summarize(valibot);
+    if (valibot) {
+      return summarize(valibot);
+    } else {
+      return Object.values(field.form.control!.errors!).map((item) =>
+        typeof item === 'string' ? item : JSON.stringify(item),
+      ).join('\n');
+    }
   };
 }
