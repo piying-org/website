@@ -480,3 +480,31 @@
     ),
   }
 ```
+
+## [Force showing error state](https://formly.dev/docs/examples/validation/force-show-error/)
+
+```ts
+{
+    model: { showErrorState: true },
+    schema: v.pipe(
+      v.object({
+        email: v.pipe(
+          v.string(),
+          v.title('Email'),
+          v.email(),
+          patchAttributes({ type: 'email' }),
+          patchAsyncProps({
+            forceShowError: (field) => {
+              return field
+                .get(['#', 'showErrorState'])
+                ?.form.control?.valueChanges;
+            },
+          }),
+        ),
+        showErrorState: v.pipe(v.boolean(), v.title('Force show error state')),
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```
