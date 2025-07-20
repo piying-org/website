@@ -818,3 +818,69 @@
   ),
 }
 ```
+
+## [i18n ngx-translate](https://formly.dev/docs/examples/advanced/i18n)
+
+```ts
+{
+  context: {
+    lang: {
+      en: {
+        'FORM.LANG': 'Change language',
+        'FORM.NAME': 'Name',
+      },
+      fr: { 'FORM.LANG': 'Changer la langue', 'FORM.NAME': 'Nom' },
+    },
+  },
+  schema: v.pipe(
+    v.object({
+      lang: v.pipe(
+        v.picklist(['fr', 'en']),
+        patchInputs({
+          options: [
+            { label: 'fr', value: 'fr' },
+            { label: 'en', value: 'en' },
+          ],
+        }),
+        valueChange((fn, field) => {
+          fn().subscribe(({ list: [value] }) => {
+            if (!value) {
+              return;
+            }
+            v.setGlobalConfig({ lang: value });
+          });
+        }),
+        patchAsyncProps({
+          title: (field) => {
+            return field.form.control?.valueChanges.pipe(
+              map((item) => {
+                if (!item) {
+                  return;
+                }
+                return field.context.lang[item]['FORM.LANG'];
+              }),
+            );
+          },
+        }),
+      ),
+      name: v.pipe(
+        v.string(),
+        patchAsyncProps({
+          title: (field) => {
+            return field.get(['#', 'lang'])?.form.control?.valueChanges.pipe(
+              map((item) => {
+                if (!item) {
+                  return;
+                }
+                return field.context.lang[item]['FORM.NAME'];
+              }),
+            );
+          },
+        }),
+      ),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```

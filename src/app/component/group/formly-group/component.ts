@@ -6,6 +6,7 @@ import {
   PiViewGroupBase,
 } from '@piying/view-angular';
 import { summarize } from 'valibot';
+import '@valibot/i18n/fr';
 
 @Component({
   selector: 'formly-group',
