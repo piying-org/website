@@ -17,7 +17,7 @@ export function codeEval(code: string) {
       'BehaviorSubject',
       'v',
       `let {FocusDirective}=directive;
-      let {NFCSchema,setComponent,disableWhen,hideWhen,rawConfig,outputChange,patchAsyncInputs,setInputs,valueChange,setAlias,layout,asVirtualGroup,setWrappers,patchAttributes,setAttributes,patchAsyncProps,patchAsyncAttributes,patchInputs ,formConfig}=pyvac;
+      let {NFCSchema,setComponent,disableWhen,hideWhen,rawConfig,outputChange,patchAsyncInputs,setInputs,valueChange,setAlias,layout,asVirtualGroup,setWrappers,patchAttributes,setAttributes,patchAsyncProps,patchAsyncAttributes,patchInputs ,formConfig,patchOutputs,mergeOutputs}=pyvac;
       let {patchAsyncDirective}=pyva;
       return ${code}`,
     )(pyvac, pyva, directive, map, skip, tap, BehaviorSubject, v);

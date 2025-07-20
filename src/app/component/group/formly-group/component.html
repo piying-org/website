@@ -30,7 +30,7 @@
           *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: field }"
         ></ng-container>
       </div>
-      @if (field.form.control?.errors && touched) {
+      @if (field.form.control?.errors && (touched || dirty)) {
         <p class="label text-error">{{ errorStr(field) }}</p>
       }
       @if (field.props()["description"]) {

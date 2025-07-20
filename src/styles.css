@@ -50,6 +50,6 @@
 .pi-invalid > * {
   @apply border-error;
 }
-.pi-untouched.pi-invalid > * {
+.pi-untouched.pi-invalid:not(.pi-dirty) > * {
   @apply border-warning;
 }

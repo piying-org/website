@@ -1,6 +1,7 @@
 import {
   CheckboxControlValueAccessor,
   DefaultValueAccessor,
+  NumberValueAccessor,
   RangeValueAccessor,
   SelectControlValueAccessor,
 } from '@angular/forms';
@@ -46,7 +47,7 @@ export const FieldGlobalConfig = {
         type: 'number',
         class: 'input',
       },
-      directives: [{ type: DefaultValueAccessor, selector: 'formControl' }],
+      directives: [{ type: NumberValueAccessor, selector: 'formControl' }],
     },
     toggle: {
       type: 'input',
@@ -138,6 +139,9 @@ export const FieldGlobalConfig = {
         import('./playground-eval-view/component').then(
           (a) => a.PlayGroundEvalViewNFCC,
         ),
+    },
+    button: {
+      type: () => import('./button/component').then((a) => a.default),
     },
     'button-link': {
       type: ButtonLinkComponent,

@@ -246,3 +246,75 @@
     ),
   }
 ```
+
+## [Form State](https://formly.dev/docs/examples/form-options/form-state)
+
+```ts
+{
+    context: {
+      disabled: new BehaviorSubject(true),
+    },
+    schema: v.pipe(
+      v.object({
+        __btnToggle: v.pipe(
+          NFCSchema,
+          setComponent('button'),
+          patchInputs({ label: 'Toggle' }),
+          mergeOutputs({
+            click: (event, field) => {
+              field.context.disabled.next(!field.context.disabled.value);
+            },
+          }),
+        ),
+        text: v.pipe(
+          v.string(),
+          v.title('First Name'),
+          disableWhen({
+            listen: (fn, field) => {
+              return field.context.disabled;
+            },
+          }),
+        ),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```
+
+
+## [List of default / built-in validations](https://formly.dev/docs/examples/validation/built-in-validations)
+
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        name: v.pipe(v.string(), v.title('Name (required)')),
+        age: v.pipe(
+          v.number(),
+          v.title('Age (min= 18, max= 40)'),
+          v.minValue(18),
+          v.maxValue(40),
+        ),
+        password: v.pipe(
+          v.string(),
+          v.title('Password (minLength = 6)'),
+          v.minLength(6),
+        ),
+        comment: v.pipe(
+          v.string(),
+          setComponent('textarea'),
+          v.title('Comment (maxLength = 100)'),
+          v.maxLength(100),
+          patchAttributes({ rows: 5 }),
+        ),
+        ip: v.pipe(
+          v.string(),
+          v.title('IP Address (pattern = /(d{1,3}.){3}d{1,3}/)'),
+          v.ipv4(),
+        ),
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```
