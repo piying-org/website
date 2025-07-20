@@ -773,3 +773,48 @@
     ),
   }
 ```
+
+## [Input add-ons](https://formly.dev/docs/examples/bootstrap-specific/input-add-ons)
+
+```ts
+{
+  schema: v.pipe(
+    v.object({
+      left: v.pipe(
+        v.string(),
+        v.title('One add-on on the left (icon)'),
+        setWrappers([
+          { type: 'joinItem', inputs: { prefix: { icon: 'attach_money' } } },
+        ]),
+      ),
+      both: v.pipe(
+        v.string(),
+        v.title('One add-on on both side (left: icon, right: text)'),
+        setWrappers([
+          {
+            type: 'joinItem',
+            inputs: {
+              prefix: { icon: 'home' },
+              suffix: { text: '$' },
+            },
+          },
+        ]),
+      ),
+      right: v.pipe(
+        v.string(),
+        v.title('One add-on on the right (icon)'),
+        setWrappers([
+          {
+            type: 'joinItem',
+            inputs: {
+              suffix: { icon: 'star' },
+            },
+          },
+        ]),
+      ),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```

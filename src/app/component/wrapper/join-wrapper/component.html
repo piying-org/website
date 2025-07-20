@@ -1,0 +1,21 @@
+<div class="join">
+  @if (prefix(); as prefix) {
+    <div class="btn join-item">
+      @if (prefix.icon) {
+        <mat-icon>{{ prefix.icon }}</mat-icon>
+      } @else {
+        {{ prefix.text }}
+      }
+    </div>
+  }
+  <ng-container #fieldComponent></ng-container>
+  @if (suffix(); as suffix) {
+    <div class="btn join-item">
+      @if (suffix.icon) {
+        <mat-icon>{{ suffix.icon }}</mat-icon>
+      } @else {
+        {{ suffix.text }}
+      }
+    </div>
+  }
+</div>
