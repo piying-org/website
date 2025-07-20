@@ -675,3 +675,71 @@
     ),
   }
 ```
+
+## [Advanced Layout](https://formly.dev/docs/examples/bootstrap-specific/advanced-layout)
+
+```ts
+{
+    schema: v.pipe(
+      v.intersect([
+        v.pipe(
+          v.object({
+            firstName: v.pipe(v.string(), v.title('First Name')),
+            lastName: v.pipe(
+              v.string(),
+              v.title('Last Name'),
+              disableWhen({
+                listen: (fn) =>
+                  fn({ list: [['#', 'firstName']] }).pipe(
+                    map(({ list: [value] }) => !value),
+                  ),
+              }),
+            ),
+          }),
+          patchInputs({
+            wrapperClass: 'grid grid-cols-2 gap-4',
+          }),
+          setComponent('formly-group'),
+        ),
+        v.object({ __divider: v.pipe(NFCSchema, setComponent('divider')) }),
+        v.pipe(
+          v.object({
+            street: v.pipe(
+              v.string(),
+              v.title('Street'),
+              patchProps({
+                itemClass: 'col-span-2',
+              }),
+            ),
+            cityName: v.pipe(v.string(), v.title('City')),
+            zip: v.pipe(
+              v.number(),
+              v.title('Zip'),
+              v.minValue(0),
+              v.maxValue(99999),
+            ),
+          }),
+          patchInputs({
+            wrapperClass: 'grid grid-cols-4 gap-4',
+          }),
+          setComponent('formly-group'),
+          v.title('Address:'),
+        ),
+        v.object({ __divider: v.pipe(NFCSchema, setComponent('divider')) }),
+        v.pipe(
+          v.object({
+            otherInput: v.pipe(
+              v.string(),
+              v.title('Other Input'),
+              setComponent('textarea'),
+            ),
+            otherToo: v.pipe(v.boolean(), v.title('Other Checkbox')),
+          }),
+          setComponent('formly-group'),
+        ),
+        v.object({ __helper: v.pipe(NFCSchema, setComponent('formHelper')) }),
+      ]),
+      asVirtualGroup(),
+    ),
+  }
+```

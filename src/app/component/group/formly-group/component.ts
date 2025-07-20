@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import {
   PI_VIEW_FIELD_TOKEN,
   PiResolvedViewFieldConfig,
@@ -14,15 +14,15 @@ import { summarize } from 'valibot';
 })
 export default class FormlyFGC extends PiViewGroupBase {
   field = inject(PI_VIEW_FIELD_TOKEN);
-
+  wrapperClass = input<any>();
   errorStr = (field: PiResolvedViewFieldConfig) => {
     const valibot = field.form.control!.errors!['valibot'];
     if (valibot) {
       return summarize(valibot);
     } else {
-      return Object.values(field.form.control!.errors!).map((item) =>
-        typeof item === 'string' ? item : JSON.stringify(item),
-      ).join('\n');
+      return Object.values(field.form.control!.errors!)
+        .map((item) => (typeof item === 'string' ? item : JSON.stringify(item)))
+        .join('\n');
     }
   };
 }

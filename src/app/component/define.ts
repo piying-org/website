@@ -74,7 +74,6 @@ export const FieldGlobalConfig = {
       attributes: {
         class: 'select',
         multiple: '',
-        
       },
       directives: [
         { type: SelectMultipleControlValueAccessor, selector: 'formControl' },
@@ -186,6 +185,12 @@ export const FieldGlobalConfig = {
     },
     formHelper: {
       type: () => import('./form-helper/component').then((a) => a.default),
+    },
+    divider: {
+      type: 'div',
+      attributes: {
+        class: 'divider',
+      },
     },
   },
   wrappers: {
