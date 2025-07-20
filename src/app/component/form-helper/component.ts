@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { PI_VIEW_FIELD_TOKEN } from '@piying/view-angular';
 import JSONFormatter from 'json-formatter-js';
+import { summarize } from 'valibot';
 
 @Component({
   selector: '',
@@ -42,4 +43,15 @@ export default class FormHelperComponent {
   saveInit() {
     this.lastData = this.field().form.root.value;
   }
+  errorStr$$ = computed(() => {
+    let field = this.field();
+    const valibot = field.form.root!.errors!['valibot'];
+    if (valibot) {
+      return summarize(valibot);
+    } else {
+      return Object.values(field.form.root!.errors!)
+        .map((item) => (typeof item === 'string' ? item : JSON.stringify(item)))
+        .join('\n');
+    }
+  });
 }

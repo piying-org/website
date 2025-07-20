@@ -407,3 +407,76 @@
     ),
   }
 ```
+
+## [Async validation and `updateOn`](https://formly.dev/docs/examples/validation/async-validation-update-on)
+
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        username: v.pipe(
+          v.string(),
+          v.title('Username (validated on `blur`)'),
+          patchAttributes({ placeholder: 'Username' }),
+          formConfig({
+            updateOn: 'blur',
+            asyncValidators: [
+              (control) => {
+                return of(
+                  ['user1', 'user2', 'user3'].indexOf(control.value) === -1,
+                ).pipe(
+                  map((value) => {
+                    return value
+                      ? { uniqueUsername: 'This username is already taken.' }
+                      : undefined;
+                  }),
+                );
+              },
+            ],
+          }),
+        ),
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+      setComponent('formly-group'),
+    ),
+  }
+```
+
+## [Matching Two Fields](https://formly.dev/docs/examples/validation/matching-two-fields)
+
+```ts
+{
+    schema: v.pipe(
+      v.object({
+        password: v.pipe(
+          v.string(),
+          v.title('Password'),
+          patchAttributes({
+            type: 'password',
+            placeholder: 'Must be at least 3 characters',
+          }),
+          v.minLength(3),
+        ),
+        passwordConfirm: v.pipe(
+          v.string(),
+          v.title('Confirm Password'),
+          patchAttributes({
+            type: 'password',
+            placeholder: 'Please re-enter your password',
+          }),
+        ),
+
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+      setComponent('formly-group'),
+      v.forward(
+        v.partialCheck(
+          [['password'], ['passwordConfirm']],
+          (input) => input.password === input.passwordConfirm,
+          'The two passwords do not match.'
+        ),
+        ['passwordConfirm']
+      )
+    ),
+  }
+```
