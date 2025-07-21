@@ -884,3 +884,49 @@
   ),
 }
 ```
+
+
+## [i18n ngx-translate (alternative)](https://formly.dev/docs/examples/advanced/i18n-alternative)
+- builder实现在源码`src/app/component/form/formly/translate.builder.ts`中
+
+```ts
+{
+  builderType:'translate',
+  context: {
+    i18n: {
+      en: {
+        'FORM.LANG': 'Change language',
+        'FORM.NAME': 'Name',
+      },
+      fr: { 'FORM.LANG': 'Changer la langue', 'FORM.NAME': 'Nom' },
+    },
+    lang: new BehaviorSubject('en'),
+  },
+  schema: v.pipe(
+    v.object({
+      lang: v.pipe(
+        v.picklist(['fr', 'en']),
+        patchInputs({
+          options: [
+            { label: 'fr', value: 'fr' },
+            { label: 'en', value: 'en' },
+          ],
+        }),
+        valueChange((fn, field) => {
+          fn().subscribe(({ list: [value] }) => {
+            if (!value) {
+              return;
+            }
+            v.setGlobalConfig({ lang: value });
+            field.context.lang.next(value)
+          });
+        }),
+        v.title('FORM.LANG'),
+      ),
+      name: v.pipe(v.string(), v.title('FORM.NAME')),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```

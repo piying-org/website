@@ -6,6 +6,7 @@ import { FieldGlobalConfig } from '../../component/define';
 import { CustomNgBuilder } from '../../component/form/custom.builder';
 import { CodeMap } from '../../directive/markdown.directive';
 import { PlayContext } from '../../component/playground-eval-view/context';
+import { getBuilderType } from '../../component/playground-eval-view/builder-type';
 @Component({
   selector: 'app-eval-view',
   templateUrl: './component.html',
@@ -33,7 +34,7 @@ export class EvalViewWC {
   }));
   options = {
     fieldGlobalConfig: FieldGlobalConfig,
-    builder: CustomNgBuilder,
+    builder: getBuilderType(this.config.builderType),
     context: this.#context$$(),
   };
 }

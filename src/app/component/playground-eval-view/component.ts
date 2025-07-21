@@ -4,6 +4,7 @@ import { FieldGlobalConfig } from '../define';
 import { CustomNgBuilder } from '../form/custom.builder';
 import { codeEval } from './code-eval';
 import { PlayContext } from './context';
+import { getBuilderType } from './builder-type';
 @Component({
   selector: 'app-playground-eval-view',
   templateUrl: './component.html',
@@ -26,7 +27,7 @@ export class PlayGroundEvalViewNFCC {
   }));
   options$$ = computed(() => ({
     fieldGlobalConfig: FieldGlobalConfig,
-    builder: CustomNgBuilder,
+    builder: getBuilderType(this.config$$().builderType),
     context: this.#context$$(),
   }));
 }
