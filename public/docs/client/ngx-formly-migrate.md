@@ -1162,3 +1162,92 @@
   ),
 }
 ```
+
+## [Cascaded Select (using observable)](https://formly.dev/docs/examples/other/cascaded-select)
+
+```ts
+{
+  model: { sport: '1' },
+  schema: v.pipe(
+    v.object({
+      sport: v.pipe(
+        v.picklist(['1', '2']),
+        v.title('Sport'),
+        patchInputs({
+          options: [
+            { id: '1', name: 'Soccer' },
+            { id: '2', name: 'Basketball' },
+          ],
+          optionConvert: {
+            label: (item) => item.name,
+            value: (item) => item.id,
+          },
+        }),
+      ),
+      team: v.pipe(
+        v.picklist(['1', '2', '3', '4']),
+        v.title('Sport'),
+        patchAsyncInputs({
+          options: (field) => {
+            let options = [
+              { id: '1', name: 'Bayern Munich', sportId: '1' },
+              { id: '2', name: 'Real Madrid', sportId: '1' },
+              { id: '3', name: 'Cleveland', sportId: '2' },
+              { id: '4', name: 'Miami', sportId: '2' },
+            ];
+            return field.get(['#', 'sport'])?.form.control?.valueChanges.pipe(
+              map((value) => {
+                return options.filter((item) => item.sportId === value);
+              }),
+              tap(() => {
+                field.form.control?.reset();
+              }),
+            );
+          },
+        }),
+        patchInputs({
+          optionConvert: {
+            label: (item) => item.name,
+            value: (item) => item.id,
+          },
+        }),
+      ),
+      player: v.pipe(
+        v.picklist(['1', '2', '3', '4', '5', '6', '7', '8']),
+        v.title('Player'),
+        patchAsyncInputs({
+          options: (field) => {
+            let options = [
+              { id: '1', name: 'Bayern Munich (Player 1)', teamId: '1' },
+              { id: '2', name: 'Bayern Munich (Player 2)', teamId: '1' },
+              { id: '3', name: 'Real Madrid (Player 1)', teamId: '2' },
+              { id: '4', name: 'Real Madrid (Player 2)', teamId: '2' },
+              { id: '5', name: 'Cleveland (Player 1)', teamId: '3' },
+              { id: '6', name: 'Cleveland (Player 2)', teamId: '3' },
+              { id: '7', name: 'Miami (Player 1)', teamId: '4' },
+              { id: '8', name: 'Miami (Player 2)', teamId: '4' },
+            ];
+            return field.get(['#', 'team'])?.form.control?.valueChanges.pipe(
+              map((value) => {
+                return options.filter((item) => item.teamId === value);
+              }),
+              tap(() => {
+                field.form.control?.reset();
+              }),
+            );
+          },
+        }),
+        patchInputs({
+          optionConvert: {
+            label: (item) => item.name,
+            value: (item) => item.id,
+          },
+        }),
+      ),
+
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```
