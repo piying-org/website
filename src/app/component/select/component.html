@@ -1,22 +1,62 @@
-<option value="">{{ emptyContent() }}</option>
-<ng-template #optionTemp let-config="config">
-  @if (config.type === "group") {
-    <optgroup [label]="config.label">
-      @for (item of config.children; track $index) {
-        <ng-container
-          *ngTemplateOutlet="optionTemp; context: { config: item }"
-        ></ng-container>
+@if (multiple()) {
+  <select
+    class="select h-full"
+    multiple
+    [ngModel]="value$()"
+    (ngModelChange)="valueChange($event)"
+    [disabled]="disabled$()"
+  >
+    <ng-template #optionTemp let-config="config">
+      @if (config.type === "group") {
+        <optgroup [label]="config.label">
+          @for (item of config.children; track $index) {
+            <ng-container
+              *ngTemplateOutlet="optionTemp; context: { config: item }"
+            ></ng-container>
+          }
+        </optgroup>
+      } @else {
+        <option [disabled]="config.disabled" [ngValue]="config.value">
+          {{ config.label }}
+        </option>
       }
-    </optgroup>
-  } @else {
-    <option [disabled]="config.disabled" [value]="config.value">
-      {{ config.label }}
-    </option>
-  }
-</ng-template>
+    </ng-template>
+    <option [ngValue]="">{{ emptyContent() }}</option>
 
-@for (item of resolvedOptions$$(); track $index) {
-  <ng-container
-    *ngTemplateOutlet="optionTemp; context: { config: item }"
-  ></ng-container>
+    @for (item of resolvedOptions$$(); track $index) {
+      <ng-container
+        *ngTemplateOutlet="optionTemp; context: { config: item }"
+      ></ng-container>
+    }
+  </select>
+} @else {
+  <select
+    class="select"
+    [ngModel]="value$()"
+    (ngModelChange)="valueChange($event)"
+    [disabled]="disabled$()"
+  >
+    <ng-template #optionTemp let-config="config">
+      @if (config.type === "group") {
+        <optgroup [label]="config.label">
+          @for (item of config.children; track $index) {
+            <ng-container
+              *ngTemplateOutlet="optionTemp; context: { config: item }"
+            ></ng-container>
+          }
+        </optgroup>
+      } @else {
+        <option [disabled]="config.disabled" [ngValue]="config.value">
+          {{ config.label }}
+        </option>
+      }
+    </ng-template>
+    <option [ngValue]="''">{{ emptyContent() }}</option>
+
+    @for (item of resolvedOptions$$(); track $index) {
+      <ng-container
+        *ngTemplateOutlet="optionTemp; context: { config: item }"
+      ></ng-container>
+    }
+  </select>
 }

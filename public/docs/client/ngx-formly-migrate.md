@@ -930,3 +930,62 @@
   ),
 }
 ```
+
+## [JSON Schema](https://formly.dev/docs/examples/advanced/json-schema/)
+
+
+```ts
+{
+  schema: v.pipe(
+    v.object({
+      toggle: v.pipe(
+        v.optional(v.tuple(
+          [
+            'simple',
+            'nested',
+            'arrays',
+            'numbers',
+            'references',
+            'schema_dependencies',
+            'null_field',
+            'nullable',
+            'allOf',
+            'anyOf',
+            'oneOf',
+            'select_alternatives',
+          ].map((item) => {
+            return v.pipe(
+              NFCSchema,
+              setComponent('button'),
+              patchInputs({ label: item }),
+              mergeOutputs({
+                click: (_, field) => {
+                  // todo
+                  fetch(`ngx-formly/json-schema/${item}_json`)
+                    .then((item) => item.json())
+                    .then((result) => {
+                      field
+                        .get(['#', 'jsonSchema'])
+                        .inputs.update((value) => {
+                          return { ...value, data: result };
+                        });
+                    });
+                },
+              }),
+            );
+          }),
+        )),
+        setComponent('object'),
+        nonFieldControl()
+      ),
+      jsonSchema: v.pipe(
+        v.any(),
+        setComponent('jsonSchema'),
+        patchInputs({ data: undefined }),
+      ),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```

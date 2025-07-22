@@ -73,6 +73,9 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
+            "options": {
+              "prebundle": false
+            },
             "production": {
               "buildTarget": "piying-website:build:production"
             },

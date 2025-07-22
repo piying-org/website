@@ -1,9 +1,15 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, computed, inject, input } from '@angular/core';
+import { Component, computed, forwardRef, inject, input } from '@angular/core';
+import {
+  FormsModule,
+  NG_VALUE_ACCESSOR,
+  SelectControlValueAccessor,
+} from '@angular/forms';
 import { PI_VIEW_FIELD_TOKEN } from '@piying/view-angular';
+import { BaseControl } from '../form/base.component';
 export interface Option1 {
   label: string;
-  value: string;
+  value: any;
   disabled?: boolean;
   type?: 'option';
 }
@@ -15,7 +21,7 @@ export interface OptionGroup {
 }
 export interface ResolvedOption {
   label: string;
-  value: string;
+  value: any;
   disabled?: boolean;
   type: 'option' | 'group';
   children?: ResolvedOption[];
@@ -29,7 +35,7 @@ export interface OptionConvert {
 }
 export type Option2 = string;
 
-const DefaultOptionConvert: OptionConvert = {
+export const DefaultOptionConvert: OptionConvert = {
   label: (item) => (typeof item === 'string' ? item : item.label),
   value: (item) => (typeof item === 'string' ? item : item.value),
   disabled: (item) => typeof item === 'object' && item.disabled,
@@ -37,11 +43,19 @@ const DefaultOptionConvert: OptionConvert = {
   children: (item) => item.children,
 };
 @Component({
-  selector: 'select',
+  selector: 'app-select',
   templateUrl: './component.html',
-  imports: [NgTemplateOutlet],
+  imports: [NgTemplateOutlet, FormsModule],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SelectComponent),
+      multi: true,
+    },
+  ],
 })
-export class SelectComponent {
+export class SelectComponent extends BaseControl {
+  multiple = input<boolean>(false);
   emptyContent = input<string>('------');
   optionConvert = input<OptionConvert, Partial<OptionConvert>>(
     DefaultOptionConvert,

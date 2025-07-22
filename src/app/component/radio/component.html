@@ -1,0 +1,13 @@
+@for (item of resolvedOptions$$(); track $index) {
+  <div>
+    <input
+      type="radio"
+      [name]="name"
+      class="radio"
+      (change)="valueChange(item.value)"
+      [disabled]="item.disabled || disabled$()"
+      (blur)="touchedChange()"
+    />
+    {{ item.label }}
+  </div>
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "key": "firstName",
+    "type": "input",
+    "props": {
+      "label": "First Name"
+    }
+  },
+  {
+    "key": "lastName",
+    "type": "input",
+    "props": {
+      "label": "Last Name"
+    }
+  },
+  {
+    "key": "mac",
+    "type": "input",
+    "props": {
+      "label": "Mac Address",
+      "pattern": "([0-9A-F]{2}[:-]){5}([0-9A-F]{2})"
+    }
+  },
+  {
+    "key": "color",
+    "type": "input",
+    "props": {
+      "label": "Color Preference (try this out)"
+    }
+  },
+  {
+    "key": "reason",
+    "type": "textarea",
+    "props": {
+      "label": "Why?"
+    },
+    "expressions": {
+      "hide": "!model.color",
+      "props.label": "'Why did you choose ' + model.color + '?'"
+    }
+  }
+]

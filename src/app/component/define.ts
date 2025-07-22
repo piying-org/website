@@ -64,22 +64,10 @@ export const FieldGlobalConfig = {
     },
     picklist: {
       type: SelectComponent,
-      attributes: {
-        class: 'select',
-      },
-      directives: [
-        { type: SelectControlValueAccessor, selector: 'formControl' },
-      ],
     },
     multiselect: {
       type: SelectComponent,
-      attributes: {
-        class: 'select',
-        multiple: '',
-      },
-      directives: [
-        { type: SelectMultipleControlValueAccessor, selector: 'formControl' },
-      ],
+      inputs: { multiple: true },
     },
     dropdown: {
       type: DropdownComponent,
@@ -193,6 +181,18 @@ export const FieldGlobalConfig = {
       attributes: {
         class: 'divider',
       },
+    },
+    jsonSchema: {
+      type: () => import('./json-schema/component').then((a) => a.default),
+    },
+    'logic-group': {
+      type: () => import('./logic-group/component').then((a) => a.default),
+    },
+    null: {
+      type: () => import('./null/component').then((a) => a.default),
+    },
+    radio: {
+      type: () => import('./radio/component').then((a) => a.default),
     },
   },
   wrappers: {
