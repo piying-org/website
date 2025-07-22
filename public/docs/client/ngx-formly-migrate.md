@@ -885,8 +885,8 @@
 }
 ```
 
-
 ## [i18n ngx-translate (alternative)](https://formly.dev/docs/examples/advanced/i18n-alternative)
+
 - builder实现在源码`src/app/component/form/formly/translate.builder.ts`中
 
 ```ts
@@ -932,7 +932,6 @@
 ```
 
 ## [JSON Schema](https://formly.dev/docs/examples/advanced/json-schema/)
-
 
 ```ts
 {
@@ -1018,7 +1017,6 @@
 }
 ```
 
-
 ## [Repeating Section With Length Input](https://formly.dev/docs/examples/advanced/repeating-section-input)
 
 ```ts
@@ -1047,7 +1045,6 @@
   ),
 }
 ```
-
 
 ## [Multi-Step Form](https://formly.dev/docs/examples/advanced/multi-step-form)
 
@@ -1134,6 +1131,30 @@
         patchInputs({
           stepsLike: true,
         }),
+      ),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```
+
+## [Extending Field Types](https://formly.dev/docs/examples/advanced/extending-field-types)
+
+```ts
+{
+  schema: v.pipe(
+    v.object({
+      input: v.pipe(v.optional(v.string()), v.title('Input Field')),
+      'default-password': v.pipe(
+        v.optional(v.string()),
+        patchAttributes({ type: 'password' }),
+        v.title('Default Password Field'),
+      ),
+      'customized-password': v.pipe(
+        v.optional(v.string()),
+        patchAttributes({ type: 'password' }),
+        v.title('Password Field (with custom label)'),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
