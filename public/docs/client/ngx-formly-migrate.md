@@ -1297,9 +1297,38 @@
     v.object({
       firstName: v.pipe(v.string(), v.title('First Name')),
       address: v.pipe(
-        v.object({ town: v.pipe(v.string(), v.title('Town')) }),
+        v.object({ town: v.pipe(
+          v.string(), v.title('Town'),
+          setWrappers(['formlyField'])
+        ) }),
         v.title('Address'),
         setWrappers(['panel']),
+      ),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```
+
+## [Material Prefix and Suffix](https://formly.dev/docs/examples/other/material-prefix-suffix)
+
+```ts
+{
+  schema: v.pipe(
+    v.object({
+      input: v.pipe(
+        v.string(),
+        v.title('Firstname'),
+        setWrappers([
+          {
+            type: 'joinItem',
+            inputs: {
+              prefix: { icon: 'face' },
+              suffix: { text: '$' },
+            },
+          },
+        ]),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
