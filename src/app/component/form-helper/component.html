@@ -2,7 +2,7 @@
 @let control = field().form.root;
 @if (control.errors && (control.touched || control.dirty)) {
   <div>
-    <label for="">Form Error</label>
+    <label class="label">Form Error</label>
     <pre class="mt-2 text-error">{{ errorStr$$() }}</pre>
   </div>
 }

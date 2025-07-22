@@ -7,6 +7,9 @@
       class="tab"
       [attr.aria-label]="label"
       [checked]="$first"
+      [disabled]="
+        stepsLike() && !$first && fields()[$index - 1].form.control?.invalid
+      "
     />
     <div class="tab-content border-base-300 bg-base-100 p-10">
       <ng-container

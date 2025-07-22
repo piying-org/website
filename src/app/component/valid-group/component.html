@@ -6,7 +6,7 @@
   }
   @for (field of fields(); track field.id || $index) {
     @if (field.props()["title"]) {
-      <label for="label">{{ field.props()["title"] }}</label>
+      <label class="label">{{ field.props()["title"] }}</label>
     }
     <div
       [class.pi-valid]="field.form.control && field.form.control.valid"

@@ -10,7 +10,7 @@
         <div [class]="field.props()['itemClass']">
           @if (field.props()["title"] && !field.props()["hideTitle"]) {
             @let requiredLable = field.form.control?.required$$() ? "*" : "";
-            <label for="label"
+            <label class="label"
               >{{ field.props()["title"] }}{{ requiredLable }}</label
             >
           }
