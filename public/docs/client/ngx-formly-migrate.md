@@ -1251,3 +1251,59 @@
   ),
 }
 ```
+
+
+## [Bind Observables to Select](https://formly.dev/docs/examples/other/observable-select)
+
+```ts
+{
+  model: {},
+  schema: v.pipe(
+    v.object({
+      sport: v.pipe(
+        v.picklist(['1', '2']),
+        v.title('Sport'),
+        patchInputs({
+          optionConvert: {
+            label: (item) => item.name,
+            value: (item) => item.id,
+          },
+        }),
+        patchAsyncInputs({
+          options: (field) =>
+            of([
+              { id: '1', name: 'Soccer' },
+              { id: '2', name: 'Basketball' },
+            ]),
+        }),
+      ),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```
+
+
+## [Advanced Layout (Flex)](https://formly.dev/docs/examples/other/advanced-layout-flex)
+- 实现方式与`Advanced Layout`相同
+
+
+## [Nested Forms (fieldGroup wrapper)](https://formly.dev/docs/examples/other/nested-formly-forms)
+
+```ts
+{
+  schema: v.pipe(
+    v.object({
+      firstName: v.pipe(v.string(), v.title('First Name')),
+      address: v.pipe(
+        v.object({ town: v.pipe(v.string(), v.title('Town')) }),
+        v.title('Address'),
+        setWrappers(['panel']),
+      ),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```

@@ -19,6 +19,7 @@ import { DropdownComponent } from './dropdown/component';
 import { CheckboxComponent } from './checkbox/component';
 import { FormlyFieldWC } from './wrapper/formly-field-wrapper/component';
 import { JoinItemWC } from './wrapper/join-wrapper/component';
+import { PanelWC } from './wrapper/panel-wrapper/component';
 export const FieldGlobalConfig = {
   types: {
     string: {
@@ -210,6 +211,9 @@ export const FieldGlobalConfig = {
     },
     joinItem: {
       type: JoinItemWC,
+    },
+    panel: {
+      type: PanelWC,
     },
   },
 } as PiViewConfig;
