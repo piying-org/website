@@ -1,5 +1,11 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, inject, input } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  input,
+  SimpleChanges,
+} from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { PI_VIEW_FIELD_TOKEN, PiViewGroupBase } from '@piying/view-angular';
 
@@ -9,20 +15,38 @@ import { PI_VIEW_FIELD_TOKEN, PiViewGroupBase } from '@piying/view-angular';
   imports: [MatIcon, NgTemplateOutlet],
 })
 export default class ArrayRWComponent extends PiViewGroupBase {
-  defaultLength = input<number>();
   initItem = input<(index: number | undefined) => any>();
   minLength = input<number>();
+  fixedLength = input<number>();
   field = inject(PI_VIEW_FIELD_TOKEN);
+  isFixedLength$$ = computed(() => {
+    return typeof this.fixedLength() === 'number';
+  });
+  ngOnInit(): void {}
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['minLength']) {
+      let minLength = this.minLength() ?? 0;
+      for (
+        let i = (this.field().fieldArray!() || []).length;
+        i < minLength;
+        i++
+      ) {
+        this.field().action.set(this.initItem()?.(i), i);
+      }
+    }
+    if (changes['fixedLength']) {
+      let fixedLength = this.fixedLength() ?? 0;
+      let currentLength = (this.field().fieldArray!() || []).length;
 
-  ngOnInit(): void {
-    const addLength = Math.max(
-      0,
-      (this.defaultLength() || 0) -
-        (this.field().form.control!.value || []).length,
-    );
-
-    for (let i = 0; i < addLength; i++) {
-      this.field().action.set(this.initItem()?.(i), i);
+      if (currentLength < fixedLength) {
+        for (let i = currentLength; i < fixedLength; i++) {
+          this.field().action.set(this.initItem()?.(i), i);
+        }
+      } else if (currentLength > fixedLength) {
+        for (let i = fixedLength; i < currentLength; i++) {
+          this.field().action.remove(fixedLength);
+        }
+      }
     }
   }
   remove(index: number) {

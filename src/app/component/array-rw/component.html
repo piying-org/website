@@ -5,17 +5,21 @@
         *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: child }"
       ></ng-container>
       @let btnDisabled = minLength() ? $count <= minLength()! : false;
-      <button
-        class="btn btn-circle btn-soft btn-error"
-        (click)="remove(i)"
-        [class.btn-disabled]="btnDisabled"
-        [attr.aria-disabled]="btnDisabled ? 'true' : ''"
-      >
-        <mat-icon>remove</mat-icon>
-      </button>
+      @if (!isFixedLength$$()) {
+        <button
+          class="btn btn-circle btn-soft btn-error"
+          (click)="remove(i)"
+          [class.btn-disabled]="btnDisabled"
+          [attr.aria-disabled]="btnDisabled ? 'true' : ''"
+        >
+          <mat-icon>remove</mat-icon>
+        </button>
+      }
     </div>
   }
-  <button class="btn" (click)="add()">
-    <mat-icon>add</mat-icon>
-  </button>
+  @if (!isFixedLength$$()) {
+    <button class="btn" (click)="add()">
+      <mat-icon>add</mat-icon>
+    </button>
+  }
 </div>

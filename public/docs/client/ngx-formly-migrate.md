@@ -989,3 +989,61 @@
   ),
 }
 ```
+
+## [Repeating Section](https://formly.dev/docs/examples/advanced/repeating-section/)
+
+```ts
+{
+  model: { tasks: [''] },
+  schema: v.pipe(
+    v.object({
+      tasks: v.pipe(
+        v.optional(
+          v.array(
+            v.pipe(
+              v.string(),
+              patchAttributes({
+                placeholder: 'Task name',
+              }),
+            ),
+          ),
+        ),
+        v.title('TODO LIST'),
+        setComponent('array-rw'),
+      ),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```
+
+
+## [Repeating Section With Length Input](https://formly.dev/docs/examples/advanced/repeating-section-input)
+
+```ts
+{
+  model: { investmentsCount: 3 },
+  schema: v.pipe(
+    v.object({
+      investmentsCount: v.pipe(
+        v.optional(v.number(), 3),
+        v.minValue(1),
+        v.title('Investments count'),
+      ),
+      investments: v.pipe(
+        v.array(v.pipe(v.string(), v.title('Name of Investment:'))),
+        patchAsyncInputs({
+          fixedLength: (field) => {
+            return field.get(['#', 'investmentsCount'])?.form.control
+              ?.valueChanges;
+          },
+        }),
+        setComponent('array-rw'),
+      ),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```
