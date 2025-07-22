@@ -1047,3 +1047,49 @@
   ),
 }
 ```
+
+
+## [Multi-Step Form](https://formly.dev/docs/examples/advanced/multi-step-form)
+
+```ts
+{
+  model: {},
+  schema: v.pipe(
+    v.object({
+      steps: v.pipe(
+        v.intersect([
+          v.pipe(
+            v.object({
+              firstname: v.pipe(v.string(), v.title('First name')),
+              age: v.pipe(v.number(), v.title('Age')),
+            }),
+            setComponent('formly-group'),
+            v.title('Personal data'),
+          ),
+          v.pipe(
+            v.object({
+              country: v.pipe(v.string(), v.title('Country')),
+            }),
+            setComponent('formly-group'),
+            v.title('Destination'),
+          ),
+          v.pipe(
+            v.object({
+              day: v.pipe(
+                v.string(),
+                setComponent('date'),
+                v.title('Day of the trip'),
+              ),
+            }),
+            setComponent('formly-group'),
+            v.title('Day of the trip'),
+          ),
+        ]),
+        setComponent('steps'),
+      ),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```

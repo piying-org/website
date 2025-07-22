@@ -156,6 +156,9 @@ export const FieldGlobalConfig = {
     tabs: {
       type: () => import('./tag-group/component').then((a) => a.default),
     },
+    steps: {
+      type: () => import('./step-group/component').then((a) => a.default),
+    },
     validGroup: {
       type: () => import('./valid-group/component').then((a) => a.default),
     },
@@ -193,6 +196,9 @@ export const FieldGlobalConfig = {
     },
     radio: {
       type: () => import('./radio/component').then((a) => a.default),
+    },
+    date: {
+      type: () => import('./date/component').then((a) => a.default),
     },
   },
   wrappers: {

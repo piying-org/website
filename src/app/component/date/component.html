@@ -1,0 +1,8 @@
+<input
+  type="date"
+  [ngModel]="value$()"
+  (ngModelChange)="valueChange($event)"
+  [disabled]="disabled$()"
+  (blur)="touchedChange()"
+  class="input input-border"
+/>
