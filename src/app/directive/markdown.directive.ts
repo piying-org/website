@@ -21,7 +21,7 @@ function getId(headingText: string) {
   // debugger
   const id = headingText
     .toLowerCase()
-    // .replace(/[^\w\s-]/g, '')
+    .replace(/[^\w\s\-\p{Script=Hani}]/gu, '')
     .replace(/\s+/g, '-');
   return id;
 }
@@ -167,5 +167,25 @@ export class MarkdownDirective {
       async: false,
       renderer: new Renderer2(this.route),
     });
+    let fragment = this.route.snapshot.fragment;
+    if (fragment) {
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          const el = this.#eleRef.nativeElement.querySelector(`#${fragment}`);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+            setTimeout(() => {
+              el.scrollIntoView({ behavior: 'smooth' });
+            }, 200);
+            observer.disconnect();
+          }
+        });
+      });
+
+      observer.observe(this.#eleRef.nativeElement, {
+        childList: true,
+        subtree: true,
+      });
+    }
   }
 }
