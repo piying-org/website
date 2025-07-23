@@ -201,6 +201,36 @@ export const FieldGlobalConfig = {
     date: {
       type: () => import('./date/component').then((a) => a.default),
     },
+    salutation: {
+      type: SelectComponent,
+      props: {
+        title: 'Salutation',
+        placeholder: 'Please Select',
+      },
+      inputs: {
+        options: ['Mr.', 'Ms.', 'Dr.', 'Dude'],
+      },
+    },
+    firstName: {
+      type: 'input',
+      attributes: {
+        class: 'input',
+      },
+      directives: [{ type: DefaultValueAccessor, selector: 'formControl' }],
+      props: {
+        title: 'First Name',
+      },
+    },
+    lastName: {
+      type: 'input',
+      attributes: {
+        class: 'input',
+      },
+      directives: [{ type: DefaultValueAccessor, selector: 'formControl' }],
+      props: {
+        title: 'Last Name',
+      },
+    },
   },
   wrappers: {
     valid: {

@@ -1381,3 +1381,76 @@
   ),
 }
 ```
+
+
+## [Buttons](https://formly.dev/docs/examples/other/button)
+
+```ts
+{
+  schema: v.pipe(
+    v.object({
+      __btn1: v.pipe(
+        NFCSchema,
+        setComponent('button'),
+        patchInputs({ label: 'With Function' }),
+        mergeOutputs({
+          click: () => {
+            alert('You clicked me!');
+          },
+        }),
+      ),
+      __btn2: v.pipe(
+        NFCSchema,
+        setComponent('button'),
+        patchInputs({ label: 'JSON Only', classStyle: 'btn-info' }),
+        v.title('Click this guy'),
+        mergeOutputs({
+          click: (event, field) => {
+            field.get(['#', 'someInput']).form.control.updateValue('clicked!');
+          },
+        }),
+        patchProps({
+          description: 'These can have labels and stuff too if you want....',
+        }),
+      ),
+      someInput: v.pipe(v.string(), v.title('Some Input')),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```
+
+## [JSON powered](https://formly.dev/docs/examples/other/json-powered)
+
+- 请参考`JSON Schema`实现
+
+## [File input](https://formly.dev/docs/examples/other/input-file)
+
+```ts
+{
+  schema: v.pipe(
+    v.object({
+      file: v.pipe(v.any(), setComponent('fileInput')),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```
+
+## [Field Presets](https://formly.dev/docs/examples/other/presets)
+
+```ts
+{
+  schema: v.pipe(
+    v.object({
+      salutation: v.pipe(v.string(), setComponent('salutation')),
+      firstName: v.pipe(v.optional(v.string()), setComponent('firstName')),
+      lastName: v.pipe(v.string(), setComponent('lastName')),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    setComponent('formly-group'),
+  ),
+}
+```
