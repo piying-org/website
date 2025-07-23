@@ -40,7 +40,15 @@ class Renderer2 extends Renderer {
   }
   override heading({ tokens, depth, text }: Tokens.Heading): string {
     if (depth === 2 || depth === 3) {
-      const id = getId(text);
+      let titleName = text;
+      let [token] = lexer(text);
+      if (token.type === 'paragraph') {
+        if (token.tokens?.length === 1 && token.tokens[0].type === 'link') {
+          titleName = token.tokens[0].text;
+        }
+      }
+      const id = getId(titleName);
+
       const url = this.route.snapshot.url
         .map((item) => item.toString())
         .join('/');
