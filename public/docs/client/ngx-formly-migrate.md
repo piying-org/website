@@ -1336,3 +1336,48 @@
   ),
 }
 ```
+
+## [Material Field Hint Alignment](https://formly.dev/docs/examples/other/material-formfield-hint-align)
+```ts
+{
+  schema: v.pipe(
+    v.object({
+      Input: v.pipe(
+        v.string(),
+        v.title('Input with string hints'),
+        patchAttributes({ placeholder: 'Placeholder' }),
+        patchProps({
+          hintStart:
+            'hintStart accepts strings and TemplateRefs and is aligned to start',
+          hintEnd:
+            'hintEnd accepts strings and TemplateRefs and is aligned to end',
+        }),
+        setWrappers(['formlyField']),
+      ),
+      Input2: v.pipe(
+        v.string(),
+        v.title('Input with template hints'),
+        patchAttributes({ placeholder: 'Placeholder' }),
+        patchProps({
+          hintStart:
+            'hintStart accepts strings and TemplateRefs and is aligned to start',
+          hintEnd:
+            'hintEnd accepts strings and TemplateRefs and is aligned to end',
+        }),
+        setWrappers(['formlyField']),
+      ),
+      Input3: v.pipe(
+        v.string(),
+        v.title('Input with description'),
+        patchAttributes({
+          placeholder:
+            'Description field accepts strings and gets aligned to start',
+        }),
+        setWrappers(['formlyField']),
+      ),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+    componentClass('flex flex-col flex-gap gap-4'),
+  ),
+}
+```

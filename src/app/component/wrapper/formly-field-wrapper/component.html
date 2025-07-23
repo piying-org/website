@@ -1,4 +1,4 @@
-<div class="grid grid-cols-10 *:last:col-span-7 *:last:w-full">
+<div class="grid grid-cols-10 *:nth-2:col-span-7 *:nth-2:w-full">
   @let field = field$$();
   @if (field.props()["title"] && !field.props()["hideTitle"]) {
     @let requiredLable = field.form.control?.required$$() ? "*" : "";
@@ -7,4 +7,18 @@
     >
   }
   <ng-container #fieldComponent></ng-container>
+  <div class="col-span-10">
+    @if (
+      field.form.control?.errors &&
+      (field.form.control?.dirty || field.form.control?.touched)
+    ) {
+      <p class="label text-error">{{ errorStr$$() }}</p>
+    } @else {
+      <div class="flex gap-2 items-center">
+        <div>{{ field$$().props()["hintStart"] }}</div>
+        <div class="flex-1"></div>
+        <div>{{ field$$().props()["hintEnd"] }}</div>
+      </div>
+    }
+  </div>
 </div>
