@@ -5,9 +5,6 @@
     <legend class="fieldset-legend">{{ title }}</legend>
   }
   @for (field of fields(); track field.id || $index) {
-    @if (field.props()["title"]) {
-      <label class="label">{{ field.props()["title"] }}</label>
-    }
     <ng-container
       *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: field }"
     ></ng-container>

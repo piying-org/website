@@ -1,0 +1,6 @@
+<div class="flex gap-2 items-center">
+  @if (field$$().props()["title"]; as title) {
+    <span class="label">{{ title }}</span>
+  }
+  <ng-container #fieldComponent></ng-container>
+</div>

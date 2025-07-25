@@ -18,6 +18,7 @@ import { CheckboxComponent } from './checkbox/component';
 import { FormlyFieldWC } from './wrapper/formly-field-wrapper/component';
 import { JoinItemWC } from './wrapper/join-wrapper/component';
 import { PanelWC } from './wrapper/panel-wrapper/component';
+import { LabelWC } from './wrapper/label/component';
 export const FieldGlobalConfig = {
   types: {
     string: {
@@ -26,6 +27,17 @@ export const FieldGlobalConfig = {
         class: 'input',
       },
       directives: [{ type: DefaultValueAccessor, selector: 'formControl' }],
+    },
+    number: {
+      type: 'input',
+      attributes: {
+        type: 'number',
+        class: 'input',
+      },
+      directives: [{ type: NumberValueAccessor, selector: 'formControl' }],
+    },
+    radio: {
+      type: () => import('./radio/component').then((a) => a.default),
     },
     boolean: {
       type: 'input',
@@ -43,13 +55,8 @@ export const FieldGlobalConfig = {
         hideTitle: true,
       },
     },
-    number: {
-      type: 'input',
-      attributes: {
-        type: 'number',
-        class: 'input',
-      },
-      directives: [{ type: NumberValueAccessor, selector: 'formControl' }],
+    fieldset: {
+      type: FieldsetFGC,
     },
     toggle: {
       type: 'input',
@@ -76,6 +83,7 @@ export const FieldGlobalConfig = {
         class: 'dropdown',
       },
     },
+
     rating: {
       type: RatingComponent,
       selector: 'div',
@@ -107,9 +115,7 @@ export const FieldGlobalConfig = {
       },
       directives: [{ type: DefaultValueAccessor, selector: 'formControl' }],
     },
-    fieldset: {
-      type: FieldsetFGC,
-    },
+
     object: {
       type: PiyingViewGroup,
     },
@@ -193,9 +199,7 @@ export const FieldGlobalConfig = {
     null: {
       type: () => import('./null/component').then((a) => a.default),
     },
-    radio: {
-      type: () => import('./radio/component').then((a) => a.default),
-    },
+
     date: {
       type: () => import('./date/component').then((a) => a.default),
     },
@@ -242,6 +246,9 @@ export const FieldGlobalConfig = {
     },
     panel: {
       type: PanelWC,
+    },
+    label: {
+      type: LabelWC,
     },
   },
 } as PiViewConfig;

@@ -120,11 +120,11 @@ v.object({
 ```ts
 v.pipe(
   v.object({
-    k1: v.pipe(v.string(), v.title("一级k1")),
+    k1: v.pipe(v.string(), v.title("一级k1"), setWrappers(["label"])),
     o1: v.pipe(
       v.object({
-        k2: v.pipe(v.optional(v.string()), v.title("二级k2")),
-        k3: v.pipe(v.optional(v.string()), v.title("二级k3")),
+        k2: v.pipe(v.optional(v.string()), v.title("二级k2"), setWrappers(["label"])),
+        k3: v.pipe(v.optional(v.string()), v.title("二级k3"), setWrappers(["label"])),
       }),
       setComponent("fieldset"),
       v.title("一级o1"),
