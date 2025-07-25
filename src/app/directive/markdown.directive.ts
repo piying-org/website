@@ -103,20 +103,25 @@ const marked = new Marked(
   }),
 );
 const textList = new Set<string>();
-(window as any).__getTranslate = () => {
-  const text = JSON.stringify([...textList].sort(), undefined, 4);
-  const link = document.createElement('a');
-  link.download = 'doc.json';
-  link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
+
+if (ngDevMode) {
+  (window as any).__getTranslate = () => {
+    const text = JSON.stringify([...textList].sort(), undefined, 4);
+    const link = document.createElement('a');
+    link.download = 'doc.json';
+    link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+}
 marked.use({
   hooks: {
     processAllTokens(tokens) {
-      if (localStorage.getItem('lang') === 'zh-hans') {
-        return tokens;
+      if (!ngDevMode) {
+        if (localStorage.getItem('lang') === 'zh-hans') {
+          return tokens;
+        }
       }
 
       for (let index = 0; index < tokens.length; index++) {
@@ -126,7 +131,9 @@ marked.use({
           token.type === 'paragraph' ||
           token.type === 'blockquote'
         ) {
-          textList.add(token.text);
+          if (ngDevMode) {
+            textList.add(token.text);
+          }
           const text = $localize(_tagged_template_literal([token.text]));
           if (token.type === 'heading') {
             const transList = lexer(`${'#'.repeat(token.depth)} ${text}`);
@@ -141,7 +148,9 @@ marked.use({
         } else if (token.type === 'list') {
           for (let j = 0; j < (token as Tokens.List).items.length; j++) {
             const item = (token as Tokens.List).items[j];
-            textList.add(item.text);
+            if (ngDevMode) {
+              textList.add(item.text);
+            }
             const text = $localize(_tagged_template_literal([item.text]));
             const transList = lexer(`- ${text}`);
             (token as Tokens.List).items[j] = (transList[0] as any)
