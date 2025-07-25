@@ -8,7 +8,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PiView } from '@piying/view-angular';
+import { PiyingView } from '@piying/view-angular';
 import { FieldGlobalConfig } from '../define';
 import { CustomNgBuilder } from '../form/custom.builder';
 import { AsyncPipe } from '@angular/common';
@@ -20,7 +20,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
   selector: 'app-json-schema-view',
   templateUrl: './component.html',
   standalone: true,
-  imports: [PiView],
+  imports: [PiyingView],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {

@@ -14,7 +14,7 @@ export class CustomNgBuilder extends AngularFormBuilder {
     rawConfig: NgSchemaHandle,
     config: PiResolvedViewFieldConfig,
   ) {
-    const parsed = super.afterResolveConfig(rawConfig, config);
+    const parsed = super.afterResolveConfig(rawConfig, config) ?? config;
     const props = parsed.props;
     const inputs = parsed.inputs;
     const title$$ = computed(() => {
@@ -34,15 +34,11 @@ export class CustomNgBuilder extends AngularFormBuilder {
     );
     const inputs$$ = linkedSignal(() => {
       let value = getSignalValue(inputs);
-      const title = title$$();
       const placeholder = placeholder$$();
-      if (typeof title === 'string') {
-        value = { ...value, label: title };
-      }
       if (typeof placeholder === 'string') {
         value = { ...value, placeholder };
       }
-      if (rawConfig.type === 'picklist' || rawConfig.type === 'styled-style') {
+      if (rawConfig.type === 'picklist') {
         const options = options$$();
         if (options && !value.options) {
           value = { ...value, options };
@@ -51,17 +47,8 @@ export class CustomNgBuilder extends AngularFormBuilder {
       return value;
     });
 
-    const props$$ = linkedSignal(() => {
-      const value = getSignalValue(props);
-      return {
-        ...value,
-        label: title$$(),
-      };
-    });
-
     return {
       ...parsed,
-      props: props$$,
       inputs: inputs$$,
     } as any;
   }

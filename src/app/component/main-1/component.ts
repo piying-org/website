@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PiView } from '@piying/view-angular';
+import { PiyingView } from '@piying/view-angular';
 import * as v from 'valibot';
 import { FieldGlobalConfig } from '../define';
 import { CustomNgBuilder } from '../form/custom.builder';
@@ -11,7 +11,7 @@ import { $localize } from '@cyia/localize';
 @Component({
   selector: 'main-1',
   templateUrl: './component.html',
-  imports: [PiView, HilightCodeDirective, RouterLink],
+  imports: [PiyingView, HilightCodeDirective, RouterLink],
 })
 export class Main1Component {
   readonly title = $localize`平台无关的表单布局解决方案`;

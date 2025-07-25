@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PiView } from '@piying/view-angular';
+import { PiyingView } from '@piying/view-angular';
 import { FieldGlobalConfig } from '../define';
 import { CustomNgBuilder } from '../form/custom.builder';
 import { AsyncPipe } from '@angular/common';
@@ -9,7 +9,7 @@ const defaultValue = Promise.resolve(undefined);
   selector: 'app-schema-view',
   templateUrl: './component.html',
   standalone: true,
-  imports: [PiView, AsyncPipe],
+  imports: [PiyingView, AsyncPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SchemaViewRC {

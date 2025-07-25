@@ -13,7 +13,7 @@ import {
   Router,
   RouterOutlet,
 } from '@angular/router';
-import { PI_VIEW_FIELD_TOKEN, PiViewGroupBase } from '@piying/view-angular';
+import { PI_VIEW_FIELD_TOKEN, PiyingViewGroupBase } from '@piying/view-angular';
 import { NavigationComponent, NavigationItem } from '../navigation';
 import { filter, merge, of, map } from 'rxjs';
 import { MatIcon } from '@angular/material/icon';
@@ -73,7 +73,7 @@ const Menu: NavigationItem[] = [
   templateUrl: './component.html',
   imports: [RouterOutlet, NgTemplateOutlet, NavigationComponent, MatIcon],
 })
-export class MainNFCC extends PiViewGroupBase {
+export class MainNFCC extends PiyingViewGroupBase {
   field = inject(PI_VIEW_FIELD_TOKEN);
   toolbar$$ = computed(() =>
     this.fields().find((item) => item.keyPath?.[0] === 'toolbar'),

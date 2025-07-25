@@ -6,7 +6,7 @@ import {
   SelectControlValueAccessor,
   SelectMultipleControlValueAccessor,
 } from '@angular/forms';
-import { PiViewConfig, PiViewGroup } from '@piying/view-angular';
+import { PiViewConfig, PiyingViewGroup } from '@piying/view-angular';
 import { SelectComponent } from './select/component';
 import { RatingComponent } from './rating/component';
 import { FileInputDirective } from './file-input/file-input.directive';
@@ -113,13 +113,13 @@ export const FieldGlobalConfig = {
       type: FieldsetFGC,
     },
     object: {
-      type: PiViewGroup,
+      type: PiyingViewGroup,
     },
     intersect: {
-      type: PiViewGroup,
+      type: PiyingViewGroup,
     },
     'intersect-group': {
-      type: PiViewGroup,
+      type: PiyingViewGroup,
     },
     main: {
       type: MainNFCC,

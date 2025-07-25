@@ -1,6 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, computed, inject, input, signal } from '@angular/core';
-import { PI_VIEW_FIELD_TOKEN, PiViewGroupBase } from '@piying/view-angular';
+import { PI_VIEW_FIELD_TOKEN, PiyingViewGroupBase } from '@piying/view-angular';
 import { FieldLogicGroup } from '@piying/view-angular-core';
 import { SelectComponent } from '../select/component';
 import { FormsModule } from '@angular/forms';
@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './component.html',
   imports: [NgTemplateOutlet, SelectComponent, FormsModule],
 })
-export default class LogicFGC extends PiViewGroupBase {
+export default class LogicFGC extends PiyingViewGroupBase {
   field = inject(PI_VIEW_FIELD_TOKEN);
   list = computed(() => {
     return this.fields().map((item, index) => ({

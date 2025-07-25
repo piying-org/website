@@ -1,5 +1,5 @@
 import { Component, computed, input } from '@angular/core';
-import { PiView } from '@piying/view-angular';
+import { PiyingView } from '@piying/view-angular';
 import { FieldGlobalConfig } from '../define';
 import { CustomNgBuilder } from '../form/custom.builder';
 import { codeEval } from './code-eval';
@@ -9,7 +9,7 @@ import { getBuilderType } from './builder-type';
   selector: 'app-playground-eval-view',
   templateUrl: './component.html',
   standalone: true,
-  imports: [PiView],
+  imports: [PiyingView],
 })
 export class PlayGroundEvalViewNFCC {
   configCode = input<string>();

@@ -1,5 +1,5 @@
 import { Component, computed, ElementRef, inject } from '@angular/core';
-import { PiView } from '@piying/view-angular';
+import { PiyingView } from '@piying/view-angular';
 
 import { codeEval } from '../../component/playground-eval-view/code-eval';
 import { FieldGlobalConfig } from '../../component/define';
@@ -11,7 +11,7 @@ import { getBuilderType } from '../../component/playground-eval-view/builder-typ
   selector: 'app-eval-view',
   templateUrl: './component.html',
   standalone: true,
-  imports: [PiView],
+  imports: [PiyingView],
 })
 export class EvalViewWC {
   #el = inject<ElementRef<HTMLElement>>(ElementRef);

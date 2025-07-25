@@ -1,13 +1,17 @@
-export type * as v from 'valibot';
 import * as V from 'valibot';
+export { V };
 
-export * from '@piying/view-angular-core';
-export * as PV from '@piying/view-angular';
 import * as PVA from '@piying/view-angular';
+export { PVA };
+
 import * as PYVAC from '@piying/view-angular-core';
+export { PYVAC };
+
 import * as rxjs from 'rxjs';
-export * as _d from '../app/directive/code-index';
+export { rxjs };
+
 import * as directive from '../app/directive/code-index';
+export { directive };
 declare global {
   export const v: typeof V;
   export const NFCSchema: (typeof PYVAC)['NFCSchema'];
@@ -28,10 +32,19 @@ declare global {
   export const setAttributes: (typeof PYVAC)['setAttributes'];
   export const patchAttributes: (typeof PYVAC)['patchAttributes'];
   export const patchInputs: (typeof PYVAC)['patchInputs'];
+  export const nonFieldControl: (typeof PYVAC)['nonFieldControl'];
+  export const topClass: (typeof PYVAC)['topClass'];
+  export const componentClass: (typeof PYVAC)['componentClass'];
+  export const asControl: (typeof PYVAC)['asControl'];
+  export const patchProps: (typeof PYVAC)['patchProps'];
+  export const mergeOutputs: (typeof PYVAC)['mergeOutputs'];
+  export const patchOutputs: (typeof PYVAC)['patchOutputs'];
+  export const formConfig: (typeof PYVAC)['formConfig'];
   export const patchAsyncDirective: (typeof PVA)['patchAsyncDirective'];
   export const map: (typeof rxjs)['map'];
   export const skip: (typeof rxjs)['skip'];
   export const tap: (typeof rxjs)['tap'];
+  export const of: (typeof rxjs)['of'];
   export const BehaviorSubject: (typeof rxjs)['BehaviorSubject'];
   export const FocusDirective: (typeof directive)['FocusDirective'];
 }

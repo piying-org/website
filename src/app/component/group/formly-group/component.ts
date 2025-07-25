@@ -3,7 +3,7 @@ import { Component, inject, input } from '@angular/core';
 import {
   PI_VIEW_FIELD_TOKEN,
   PiResolvedViewFieldConfig,
-  PiViewGroupBase,
+  PiyingViewGroupBase,
 } from '@piying/view-angular';
 import { summarize } from 'valibot';
 import '@valibot/i18n/fr';
@@ -13,7 +13,7 @@ import '@valibot/i18n/fr';
   templateUrl: './component.html',
   imports: [NgTemplateOutlet],
 })
-export default class FormlyFGC extends PiViewGroupBase {
+export default class FormlyFGC extends PiyingViewGroupBase {
   field = inject(PI_VIEW_FIELD_TOKEN);
   wrapperClass = input<any>();
   errorStr = (field: PiResolvedViewFieldConfig) => {
