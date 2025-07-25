@@ -1,1 +1,0 @@
-import{d as n}from"./chunk-KZE3DQVF.js";import"./chunk-RYNLPKIV.js";import{Db as p,cb as o}from"./chunk-HIAA3CTO.js";var a=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-root"]],decls:1,vars:0,template:function(e,r){e&1&&p(0,"router-outlet")},dependencies:[n],encapsulation:2})};export{a as App};
