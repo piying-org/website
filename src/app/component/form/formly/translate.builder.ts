@@ -34,7 +34,7 @@ export class TranslateNgBuilder extends AngularFormBuilder {
       }
       return value;
     });
-    let propsData = props();
+    const propsData = props();
     config.context.lang.subscribe((lang: any) => {
       if (!lang) {
         return;

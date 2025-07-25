@@ -5,7 +5,6 @@
     [multiple]="true"
     [(ngModel)]="selectAny$"
     (ngModelChange)="anyOfChange()"
-
     class="h-[80px] block"
   ></app-select>
   <div class="flex flex-col gap-4">
@@ -23,7 +22,6 @@
     [(ngModel)]="selectOr$"
     class="h-[80px] block"
     (ngModelChange)="oneOfChange()"
-
   ></app-select>
   <div class="flex flex-col gap-4">
     @for (item of fields(); track $index) {

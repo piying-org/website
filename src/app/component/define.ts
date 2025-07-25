@@ -3,8 +3,6 @@ import {
   DefaultValueAccessor,
   NumberValueAccessor,
   RangeValueAccessor,
-  SelectControlValueAccessor,
-  SelectMultipleControlValueAccessor,
 } from '@angular/forms';
 import { PiViewConfig, PiyingViewGroup } from '@piying/view-angular';
 import { SelectComponent } from './select/component';

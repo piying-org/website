@@ -41,7 +41,7 @@ class Renderer2 extends Renderer {
   override heading({ tokens, depth, text }: Tokens.Heading): string {
     if (depth === 2 || depth === 3) {
       let titleName = text;
-      let [token] = lexer(text);
+      const [token] = lexer(text);
       if (token.type === 'paragraph') {
         if (token.tokens?.length === 1 && token.tokens[0].type === 'link') {
           titleName = token.tokens[0].text;
@@ -167,7 +167,7 @@ export class MarkdownDirective {
       async: false,
       renderer: new Renderer2(this.route),
     });
-    let fragment = this.route.snapshot.fragment;
+    const fragment = this.route.snapshot.fragment;
     if (fragment) {
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {

@@ -11,9 +11,7 @@ export default class StepsFGC extends PiyingViewGroupBase {
   field = inject(PI_VIEW_FIELD_TOKEN);
 
   activatedIndex$ = signal(0);
-  activatedItem$$ = computed(() => {
-    return this.fields()[this.activatedIndex$()];
-  });
+  activatedItem$$ = computed(() => this.fields()[this.activatedIndex$()]);
 
   toPrev() {
     this.activatedIndex$.update((value) => value - 1);

@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed } from '@angular/core';
 import { PiWrapperBaseComponent } from '@piying/view-angular';
 import { summarize } from 'valibot';
 

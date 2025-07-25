@@ -1,10 +1,8 @@
 import { Component, computed, forwardRef, input } from '@angular/core';
 import {
   DefaultOptionConvert,
-  Option1,
   OptionConvert,
   ResolvedOption,
-  SelectComponent,
 } from '../select/component';
 import { BaseControl } from '../form/base.component';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -28,17 +26,13 @@ export default class RadioComponent extends BaseControl {
   optionConvert = input<OptionConvert, Partial<OptionConvert>>(
     DefaultOptionConvert,
     {
-      transform: (input) => {
-        return { ...DefaultOptionConvert, ...input };
-      },
+      transform: (input) => ({ ...DefaultOptionConvert, ...input }),
     },
   );
-  resolvedOptions$$ = computed(() => {
-    return this.transformOptions(this.options());
-  });
+  resolvedOptions$$ = computed(() => this.transformOptions(this.options()));
   transformOptions(options: any[]): ResolvedOption[] {
     return options.map((option) => {
-      let resolvedItem: ResolvedOption = {
+      const resolvedItem: ResolvedOption = {
         label: this.optionConvert().label(option),
         value: this.optionConvert().value(option),
         disabled: this.optionConvert().disabled?.(option) ?? false,

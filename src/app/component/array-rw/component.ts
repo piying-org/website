@@ -19,13 +19,11 @@ export default class ArrayRWComponent extends PiyingViewGroupBase {
   minLength = input<number>();
   fixedLength = input<number>();
   field = inject(PI_VIEW_FIELD_TOKEN);
-  isFixedLength$$ = computed(() => {
-    return typeof this.fixedLength() === 'number';
-  });
+  isFixedLength$$ = computed(() => typeof this.fixedLength() === 'number');
   ngOnInit(): void {}
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['minLength']) {
-      let minLength = this.minLength() ?? 0;
+      const minLength = this.minLength() ?? 0;
       for (
         let i = (this.field().fieldArray!() || []).length;
         i < minLength;
@@ -35,8 +33,8 @@ export default class ArrayRWComponent extends PiyingViewGroupBase {
       }
     }
     if (changes['fixedLength']) {
-      let fixedLength = this.fixedLength() ?? 0;
-      let currentLength = (this.field().fieldArray!() || []).length;
+      const fixedLength = this.fixedLength() ?? 0;
+      const currentLength = (this.field().fieldArray!() || []).length;
 
       if (currentLength < fixedLength) {
         for (let i = currentLength; i < fixedLength; i++) {

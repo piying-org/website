@@ -1,11 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, computed, forwardRef, inject, input } from '@angular/core';
-import {
-  FormsModule,
-  NG_VALUE_ACCESSOR,
-  SelectControlValueAccessor,
-} from '@angular/forms';
-import { PI_VIEW_FIELD_TOKEN } from '@piying/view-angular';
+import { Component, computed, forwardRef, input } from '@angular/core';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BaseControl } from '../form/base.component';
 export interface Option1 {
   label: string;
@@ -60,18 +55,14 @@ export class SelectComponent extends BaseControl {
   optionConvert = input<OptionConvert, Partial<OptionConvert>>(
     DefaultOptionConvert,
     {
-      transform: (input) => {
-        return { ...DefaultOptionConvert, ...input };
-      },
+      transform: (input) => ({ ...DefaultOptionConvert, ...input }),
     },
   );
   options = input<(Option1 | OptionGroup)[]>([]);
-  resolvedOptions$$ = computed(() => {
-    return this.transformOptions(this.options());
-  });
+  resolvedOptions$$ = computed(() => this.transformOptions(this.options()));
   transformOptions(options: any[]): ResolvedOption[] {
     return options.map((option) => {
-      let resolvedItem: ResolvedOption = {
+      const resolvedItem: ResolvedOption = {
         label: this.optionConvert().label(option),
         value: this.optionConvert().value(option),
         disabled: this.optionConvert().disabled?.(option) ?? false,

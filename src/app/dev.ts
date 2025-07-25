@@ -24,7 +24,7 @@ const a = v.pipe(
   }),
 );
 
-let b = v.pipe(
+const b = v.pipe(
   v.intersect([
     v.pipe(
       v.object({

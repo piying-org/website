@@ -44,7 +44,7 @@ export default class FormHelperComponent {
     this.lastData = this.field().form.root.value;
   }
   errorStr$$ = computed(() => {
-    let field = this.field();
+    const field = this.field();
     const valibot = field.form.root!.errors!['valibot'];
     if (valibot) {
       return summarize(valibot);

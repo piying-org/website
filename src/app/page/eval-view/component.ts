@@ -3,7 +3,6 @@ import { PiyingView } from '@piying/view-angular';
 
 import { codeEval } from '../../component/playground-eval-view/code-eval';
 import { FieldGlobalConfig } from '../../component/define';
-import { CustomNgBuilder } from '../../component/form/custom.builder';
 import { CodeMap } from '../../directive/markdown.directive';
 import { PlayContext } from '../../component/playground-eval-view/context';
 import { getBuilderType } from '../../component/playground-eval-view/builder-type';

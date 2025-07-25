@@ -1,5 +1,5 @@
 import { JSONSchema7, JSONSchema7Definition } from 'json-schema';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import rfdc from 'rfdc';
 import * as v from 'valibot';
 import {
@@ -9,7 +9,6 @@ import {
   patchInputs,
   patchProps,
   setComponent,
-  valueChange,
 } from '@piying/view-angular-core';
 import * as jsonActions from '@piying/view-angular-core';
 const clone = rfdc({ proto: false, circles: false });
@@ -57,7 +56,7 @@ function isBlankString(value: any) {
 }
 
 function getSchemaAction(schema: FormlyJSONSchema7) {
-  let action = [];
+  const action = [];
   if ('title' in schema) {
     action.push(v.title(schema['title']!));
   }
@@ -96,23 +95,23 @@ function getSchemaAction(schema: FormlyJSONSchema7) {
   }
   if ('uniqueItems' in schema) {
     action.push(
-      v.check((input: any[]) => {
-        return new Set(input).size === input.length;
-      }),
+      v.check((input: any[]) => new Set(input).size === input.length),
     );
   }
   if ('maxProperties' in schema) {
     action.push(
-      v.check((input: Record<string, any>) => {
-        return Object.keys(input).length <= schema.maxProperties!;
-      }),
+      v.check(
+        (input: Record<string, any>) =>
+          Object.keys(input).length <= schema.maxProperties!,
+      ),
     );
   }
   if ('minProperties' in schema) {
     action.push(
-      v.check((input: Record<string, any>) => {
-        return Object.keys(input).length >= schema.minProperties!;
-      }),
+      v.check(
+        (input: Record<string, any>) =>
+          Object.keys(input).length >= schema.minProperties!,
+      ),
     );
   }
   if ('actions' in schema) {
@@ -168,7 +167,7 @@ export class JsonSchemaToValibot {
     if (this.cacheSchema.has(schema)) {
       return this.cacheSchema.get(schema);
     }
-    let result = this._toValibot(schema, { ...options });
+    const result = this._toValibot(schema, { ...options });
     this.cacheSchema.set(schema, result);
     return result;
   }
@@ -177,8 +176,8 @@ export class JsonSchemaToValibot {
     { ...options }: IOptions,
   ): ResolvedSchema | undefined {
     schema = this.resolveSchema(schema, options);
-    let actionList = getSchemaAction(schema);
-    let configList: any[] = [];
+    const actionList = getSchemaAction(schema);
+    const configList: any[] = [];
     const types = this.guessSchemaType(schema);
     const type = types[0];
 
@@ -207,7 +206,7 @@ export class JsonSchemaToValibot {
       );
     } else if (this.isEnum(schema)) {
       const enumOptions = this.toEnumOptions(schema);
-      let baseSchema = v.picklist(enumOptions.map((item) => item.value));
+      const baseSchema = v.picklist(enumOptions.map((item) => item.value));
 
       if (type === 'array') {
         return createTypeFn(
@@ -256,8 +255,8 @@ export class JsonSchemaToValibot {
         case 'object': {
           let parent;
 
-          let childrenMap = new Map<string, any>();
-          let addonList: any[] = [];
+          const childrenMap = new Map<string, any>();
+          const addonList: any[] = [];
           let checkUnion = false;
           const { propDeps, schemaDeps } = this.resolveDependencies(schema);
           for (const property of Object.keys(schema.properties || {})) {
@@ -281,12 +280,12 @@ export class JsonSchemaToValibot {
             }
 
             if (schemaDeps[property]) {
-              let depSchema = schemaDeps[property];
-              let haskey = this.#hasSelfKey(depSchema, property);
+              const depSchema = schemaDeps[property];
+              const haskey = this.#hasSelfKey(depSchema, property);
               if (haskey) {
                 console.log(this.isEnum((depSchema as any).oneOf![0]));
               }
-              let instance = this.__toValibotWrapper(depSchema, {
+              const instance = this.__toValibotWrapper(depSchema, {
                 ...options,
                 unionKey: haskey ? property : undefined,
               });
@@ -298,14 +297,13 @@ export class JsonSchemaToValibot {
                   hideWhen({
                     disabled: true,
                     listen: (fn, field) => {
-                      let queryField = field.get(['..', 0, property])!;
+                      const queryField = field.get(['..', 0, property])!;
                       return queryField.form.control!.valueChanges.pipe(
-                        map((value) => {
-                          return (
+                        map(
+                          (value) =>
                             queryField.form.control!.status$$() !== 'VALID' ||
-                            value === undefined
-                          );
-                        }),
+                            value === undefined,
+                        ),
                       );
                     },
                   }),
@@ -318,7 +316,7 @@ export class JsonSchemaToValibot {
           if (!childrenMap.size) {
             return undefined;
           }
-          let baseSchema = v.object(
+          const baseSchema = v.object(
             [...childrenMap.entries()].reduce(
               (obj, [key, value]) => {
                 obj[key] = value;
@@ -337,22 +335,19 @@ export class JsonSchemaToValibot {
             parent = baseSchema;
           }
           if (checkUnion) {
-            let constValue = this.toEnumOptions(
+            const constValue = this.toEnumOptions(
               schema.properties![options.unionKey!] as any,
             ).map((item) => item.value);
             parent = v.pipe(
               parent,
               hideWhen({
                 disabled: true,
-                listen: (fn, field) => {
-                  return field
+                listen: (fn, field) =>
+                  field
                     .get(['..', '..', 0, options.unionKey!])!
                     .form.control!.valueChanges.pipe(
-                      map((item) => {
-                        return constValue.every((cv) => cv !== item);
-                      }),
-                    );
-                },
+                      map((item) => constValue.every((cv) => cv !== item)),
+                    ),
               }),
             );
           }
@@ -475,10 +470,10 @@ export class JsonSchemaToValibot {
     type: 'oneOf' | 'anyOf',
     options: IOptions,
   ) {
-    let children = schemas
+    const children = schemas
       .map((s, i) => this.__toValibotWrapper(s, options))
       .filter(Boolean);
-    let baseSchema = v.pipe(
+    const baseSchema = v.pipe(
       type === 'oneOf' ? v.union(children) : v.intersect(children),
       setComponent('logic-group'),
     );
@@ -613,7 +608,7 @@ export class JsonSchemaToValibot {
     return this.toEnumOptions(<JSONSchema7>schema.items);
   }
   #hasSelfKey(schema: JSONSchema7, property: string) {
-    let list = schema.oneOf ?? [];
+    const list = schema.oneOf ?? [];
     if (!list.length) {
       return false;
     }

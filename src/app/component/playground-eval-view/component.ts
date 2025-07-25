@@ -1,7 +1,6 @@
 import { Component, computed, input } from '@angular/core';
 import { PiyingView } from '@piying/view-angular';
 import { FieldGlobalConfig } from '../define';
-import { CustomNgBuilder } from '../form/custom.builder';
 import { codeEval } from './code-eval';
 import { PlayContext } from './context';
 import { getBuilderType } from './builder-type';
