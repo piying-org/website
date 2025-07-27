@@ -14,7 +14,7 @@ import { $localize } from '@cyia/localize';
   imports: [PiyingView, HilightCodeDirective, RouterLink],
 })
 export class Main1Component {
-  readonly title = $localize`平台无关的表单布局解决方案`;
+  readonly title = $localize`平台无关的表单解决方案`;
   readonly subTitle = $localize`皮影提供了可以在任意平台上使用的
           <br />
           快速组件布局,定位,事件融合监听及
@@ -25,7 +25,7 @@ export class Main1Component {
   schema = v.pipe(
     v.object({
       support: v.pipe(
-        v.optional(v.picklist(['angular', 'vue']), 'angular'),
+        v.optional(v.picklist(['Angular', 'Vue', 'React']), 'Angular'),
         v.title($localize`当前支持`),
       ),
       rating: v.pipe(
@@ -33,7 +33,7 @@ export class Main1Component {
         setComponent('rating'),
         v.title($localize`评价`),
       ),
-      bool1: v.pipe(v.boolean(), v.title($localize`使用皮影`)),
+      usePiying: v.pipe(v.boolean(), v.title($localize`使用皮影`)),
     }),
     setComponent('fieldset'),
   );
