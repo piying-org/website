@@ -80,12 +80,10 @@ const marked = new Marked(
   markedHighlight({
     langPrefix: 'ts',
     highlight: (code, lang, info) => {
-      // ts为可以eval的typescript为不能eval的
-      const codeData = hljsCode(code);
+      const codeData = hljsCode(code, lang);
       const currentIndex = codeIndex++;
       CodeMap.set(currentIndex, code);
       const tabName = `code-tab-${currentIndex}`;
-      // todo md代码包裹
       if (lang === 'ts') {
         return `<div class="tabs tabs-lift">
         <input type="radio" name="${tabName}" class="tab" aria-label="${PrevLabel}" checked="checked"/>

@@ -43,6 +43,12 @@ const Menu: NavigationItem[] = [
     children: [
       { title: $localize`介绍`, link: '/docs/client/intro', type: 'basic' },
       {
+        title: $localize`快速开始`,
+        link: '/docs/client/quick-start',
+        type: 'basic',
+      },
+
+      {
         title: $localize`组件使用`,
         link: '/docs/client/component-use',
         type: 'basic',

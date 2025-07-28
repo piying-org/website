@@ -7,6 +7,7 @@ import {
 import { createCustomElement } from '@angular/elements';
 import { EvalViewWC } from '../../page/eval-view/component';
 import { OpenPlayGroundWC } from '../../page/open-playground/component';
+import { TabsWC } from './tabs/component';
 @Injectable({ providedIn: 'root' })
 export class MarkdownWebComponentService {
   #injector = inject(Injector);
@@ -15,18 +16,16 @@ export class MarkdownWebComponentService {
     if (this.#inited) {
       return;
     }
-    const element = createCustomElement(EvalViewWC, {
-      injector: this.#injector,
-    });
-    customElements.define(reflectComponentType(EvalViewWC)!.selector, element);
-    this.#inited = true;
-    const element2 = createCustomElement(OpenPlayGroundWC, {
-      injector: this.#injector,
-    });
-    customElements.define(
-      reflectComponentType(OpenPlayGroundWC)!.selector,
-      element2,
-    );
+
+    for (const Item of [EvalViewWC, OpenPlayGroundWC, TabsWC]) {
+      const element = createCustomElement(Item, {
+        injector: this.#injector,
+      });
+      customElements.define(
+        reflectComponentType(Item as any)!.selector,
+        element,
+      );
+    }
     this.#inited = true;
   }
 }

@@ -1,10 +1,14 @@
 import { Directive, ElementRef, inject, input } from '@angular/core';
 import hljs from 'highlight.js/lib/core';
 import typescript from 'highlight.js/lib/languages/typescript';
+import shell from 'highlight.js/lib/languages/shell';
+import html from 'highlight.js/lib/languages/xml';
 hljs.registerLanguage('typescript', typescript);
-export function hljsCode(str: string) {
+hljs.registerLanguage('shell', shell);
+hljs.registerLanguage('html', html);
+export function hljsCode(str: string, language?: string) {
   return hljs.highlight(str, {
-    language: 'typescript',
+    language: language ?? 'typescript',
   }).value;
 }
 @Directive({

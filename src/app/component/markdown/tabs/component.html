@@ -1,0 +1,18 @@
+<div class="hidden *:whitespace-pre-line" #container>
+  <ng-content select="custom-tab"> </ng-content>
+</div>
+
+<div class="tabs tabs-border">
+  @for (item of list$(); track $index) {
+    <input
+      type="radio"
+      [name]="name"
+      class="tab"
+      [attr.aria-label]="item.label"
+      [checked]="$first"
+    />
+    <div class="tab-content border-base-300 bg-base-100 p-10">
+      <div [markdown]="item.content" class="md-container"></div>
+    </div>
+  }
+</div>
