@@ -89,7 +89,7 @@ outputChange((fn) => {
 });
 ```
 
-## set/remove/patch/patchAsync(inputs/props/attributes/output)
+## set/remove/patch/patchAsync(inputs/props/attributes/outputs/wrappers)
 
 - 此类方法都是用来设置组件的
 - `set`替换当前输入设置
@@ -107,6 +107,8 @@ patchAsyncInputs({
   },
 });
 ```
+
+
 
 ## topClass
 
@@ -133,3 +135,12 @@ componentClass("abcd");
 ```typescript
 layout({ keyPath: ["#"], priority: -2 });
 ```
+
+## asVirtualGroup
+- 使用`intersect`时,会自动创建一个`LogicGroup`,使用此方法可以不创建控件组,而是一个普通的组件(等价于v.object)
+
+## asControl
+- 使用`v.array(v.string())`时,如果不想表示为`FieldArray`,而是仅仅想视为一个普通的类型`FieldControl`时使用
+
+## setAlias
+- 设置别名,用于路径查询
