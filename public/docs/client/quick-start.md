@@ -1,8 +1,20 @@
 ## 快速开始
 
-### 模板/实例
+### 模板实例
 
-- 如果您有相关开发经验,可以先拉取相关项目查看源码
+- 如果您有相关开发经验,可以先拉取相关模板查看源码
+
+<custom-tabs>
+<custom-tab data-label="Angular">
+https://github.com/piying-org/piying-view-angular-template
+</custom-tab>
+<custom-tab data-label="Vue">
+https://github.com/piying-org/piying-view-vue-template
+</custom-tab>
+<custom-tab data-label="React">
+https://github.com/piying-org/piying-view-react-template
+</custom-tab>
+</custom-tabs>
 
 ## 安装
 
@@ -106,7 +118,7 @@ export function InputText(props: PiInputOptions) {
 ### 包装器
 
 - 当我们实现`组件`的时候,只需要实现最核心的组件内容即可,不需要将验证/标签/提示内容一并实现
-- 包装器就是让组件拥有额外能力的东西
+- 包装器可以让组件拥有额外能力
 - 当实现了多个包装器,就可以通过排列组合使组件产生多种显示效果,并且减少代码耦合,易于维护
 
 <custom-tabs>
@@ -152,7 +164,7 @@ const props = signalToRef(() =&gt; field?.value.props())
 ```typescript
 import { PI_VIEW_FIELD_TOKEN, useSignalToRef } from '@piying/view-react';
 import { useContext } from 'react';
-export function LabelWrapper(props: { children: any }) {
+export function LabelWC(props: { children: any }) {
   const field = useContext(PI_VIEW_FIELD_TOKEN);
   const props2 = useSignalToRef(field, () =&gt; field?.props());
   return (
@@ -231,7 +243,7 @@ const props = signalToRef(() =&gt; field?.value.props())
 ```typescript
 import { PI_VIEW_FIELD_TOKEN, useSignalToRef, type PiResolvedViewFieldConfig, PiyingFieldTemplate } from '@piying/view-react';
 import { useContext } from 'react';
-export function FieldsetGroup(props: { fields: PiResolvedViewFieldConfig[] }) {
+export function FieldsetFGC(props: { fields: PiResolvedViewFieldConfig[] }) {
   const field = useContext(PI_VIEW_FIELD_TOKEN);
   const props2 = useSignalToRef(field, (field) =&gt; field?.props());
   return &lt;fieldset className=&quot;fieldset bg-base-200 border-base-300 rounded-box border p-4 w-full&quot;&gt;
