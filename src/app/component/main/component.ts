@@ -47,14 +47,34 @@ const Menu: NavigationItem[] = [
         link: '/docs/client/quick-start',
         type: 'basic',
       },
+      {
+        title: $localize`概念`,
+        link: '/docs/client/concept',
+        type: 'basic',
+      },
+      {
+        title: $localize`Action`,
+        link: '/docs/client/action',
+        type: 'basic',
+      },
+      {
+        title: $localize`验证`,
+        link: '/docs/client/validator',
+        type: 'basic',
+      },
+      {
+        title: $localize`路径查询`,
+        link: '/docs/client/path-query',
+        type: 'basic',
+      },
 
       {
-        title: $localize`组件使用`,
+        title: $localize`组件使用(用例)`,
         link: '/docs/client/component-use',
         type: 'basic',
       },
       {
-        title: $localize`表单使用`,
+        title: $localize`表单使用(用例)`,
         link: '/docs/client/form-use',
         type: 'basic',
       },
