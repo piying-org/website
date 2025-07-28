@@ -1,6 +1,6 @@
-## 快速开始
+# 快速开始
 
-### 模板实例
+## 模板实例
 
 - 如果您有相关开发经验,可以先拉取相关模板查看源码
 
@@ -180,9 +180,9 @@ export function LabelWC(props: { children: any }) {
 </custom-tab>
 </custom-tabs>
 
-### 组
+### 分组
 
-- 当需要调整多个组件的布局,样式及相关显示时,就需要组
+- 当需要调整多个组件的布局,样式及相关显示时,就需要分组
   > `object`/`intersect`/`union`/`tuple`/`array`类型时可使用
 - 所有库/框架都实现了最基础的`PiyingViewGroup`,但这个并没有任何样式,排版,所以往往需要按要求自定义
 

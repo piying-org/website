@@ -137,7 +137,7 @@ layout({ keyPath: ["#"], priority: -2 });
 ```
 
 ## asVirtualGroup
-- 使用`intersect`时,会自动创建一个`LogicGroup`,使用此方法可以不创建控件组,而是一个普通的组件(等价于v.object)
+- 使用`intersect`时,会自动创建一个`LogicGroup`,使用此方法可以不创建控件组,而是一个普通的分组(等价于v.object)
 
 ## asControl
 - 使用`v.array(v.string())`时,如果不想表示为`FieldArray`,而是仅仅想视为一个普通的类型`FieldControl`时使用
