@@ -11,18 +11,6 @@
     "associatedMessageIds": {},
     "target": "**If you meet the following conditions, you can try the following piying**"
   },
-  "1322945422952317070": {
-    "id": "1322945422952317070",
-    "text": "**如果您符合以下条件,那么皮影不适合您**",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "**如果您符合以下条件,那么皮影不适合您**"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "**If you meet the following conditions, piying is not suitable for you**"
-  },
   "8412000689545871692": {
     "id": "8412000689545871692",
     "text": "**如果您符合以下条件,那么皮影就适合您**",
@@ -431,17 +419,17 @@
     "associatedMessageIds": {},
     "target": "Context"
   },
-  "1390243112809784964": {
-    "id": "1390243112809784964",
-    "text": "不同业务和审美也不可能造就统一的组件库",
+  "6205485088998907091": {
+    "id": "6205485088998907091",
+    "text": "不同框架的组件实现不同,所以需要单独实现",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "不同业务和审美也不可能造就统一的组件库"
+      "不同框架的组件实现不同,所以需要单独实现"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Different business needs and aesthetic preferences cannot lead to a unified component library."
+    "target": "Components in different frameworks are implemented differently, so they need to be implemented separately."
   },
   "162365918824879785": {
     "id": "162365918824879785",
@@ -587,6 +575,18 @@
     "associatedMessageIds": {},
     "target": "Pass in a `string[]`, for example `['aa','bb']`"
   },
+  "1137984121943662985": {
+    "id": "1137984121943662985",
+    "text": "但是经过注册之后,逻辑部分完全不依赖视图中的任何内容,方便未来的迁移与维护",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "但是经过注册之后,逻辑部分完全不依赖视图中的任何内容,方便未来的迁移与维护"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "However, after registration, the logic part is completely independent of any content in the view, making future migration and maintenance more convenient."
+  },
   "1029023685462150272": {
     "id": "1029023685462150272",
     "text": "使开发者更加关注于逻辑和布局,从琐碎事物中解放出来",
@@ -695,18 +695,6 @@
     "associatedMessageIds": {},
     "target": "After using this declaration, you must manually specify a definite component name using `setComponent`."
   },
-  "8736968961658384510": {
-    "id": "8736968961658384510",
-    "text": "使用相同代码在任意适配过的库/框架开发",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "使用相同代码在任意适配过的库/框架开发"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Develop using the same code in any adapted library/framework"
-  },
   "1690593954229013269": {
     "id": "1690593954229013269",
     "text": "使用过不代表发射过值,可能是点击过一次,一般为触发`blur`后变成`touched`",
@@ -718,18 +706,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Using it does not necessarily mean that a value has been emitted; it could simply mean that it was clicked once. Generally, it becomes `touched` after triggering `blur`."
-  },
-  "7454487125906707917": {
-    "id": "7454487125906707917",
-    "text": "使用通用的元数据定义在不同库/框架上实现相同的开发体验",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "使用通用的元数据定义在不同库/框架上实现相同的开发体验"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Achieve the same development experience across different libraries/frameworks by using a common metadata definition."
   },
   "1385309905832843089": {
     "id": "1385309905832843089",
@@ -815,6 +791,18 @@
     "associatedMessageIds": {},
     "target": "In which `intersect` combined with `asVirtualGroup` can create a logical normal group, facilitating layout."
   },
+  "7886923473470595928": {
+    "id": "7886923473470595928",
+    "text": "减少代码编写与维护成本",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "减少代码编写与维护成本"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Reduce the cost of coding and maintenance"
+  },
   "2095256808838468994": {
     "id": "2095256808838468994",
     "text": "减少对底层框架依赖使得代码更加通用",
@@ -826,18 +814,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Reducing dependency on the underlying framework makes the code more generic."
-  },
-  "2518487284038625141": {
-    "id": "2518487284038625141",
-    "text": "减少维护成本与代码编写",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "减少维护成本与代码编写"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Reduce maintenance costs and code writing"
   },
   "8225983412930701792": {
     "id": "8225983412930701792",
@@ -1151,18 +1127,6 @@
     "associatedMessageIds": {},
     "target": "Most form controls have equivalent input and output, meaning that inputting `a` into the control emits output `a`, and passing `a` writes `a` into the control."
   },
-  "5561089691944857743": {
-    "id": "5561089691944857743",
-    "text": "如何处理",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "如何处理"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "How to handle"
-  },
   "487050286487460845": {
     "id": "487050286487460845",
     "text": "如果值没有异常/没有禁用或维持之前的值,那么可以发射获取到,否则跳过",
@@ -1259,6 +1223,18 @@
     "associatedMessageIds": {},
     "target": "Fully compatible with all validation Actions in `valibot`"
   },
+  "4328178203921815141": {
+    "id": "4328178203921815141",
+    "text": "定义结构通用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "定义结构通用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Define General Structure"
+  },
   "3481468223856261201": {
     "id": "3481468223856261201",
     "text": "实现`组件`的时候,只需要实现最核心的组件内容即可,不需要将验证/标签/提示内容一并实现",
@@ -1343,54 +1319,6 @@
     "associatedMessageIds": {},
     "target": "Client Introduction"
   },
-  "5360418071647799017": {
-    "id": "5360418071647799017",
-    "text": "对于一些需要投影的组件,需要进行一些封装,然后即可进行绑定",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "对于一些需要投影的组件,需要进行一些封装,然后即可进行绑定"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "For some components that require projection, some encapsulation is needed, and then binding can be performed."
-  },
-  "4751428082537274155": {
-    "id": "4751428082537274155",
-    "text": "对于仅依赖传值(input/output)的组件,可以直接注册绑定",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "对于仅依赖传值(input/output)的组件,可以直接注册绑定"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "For components that rely solely on value passing (input/output), bindings can be registered directly."
-  },
-  "3671327093159740055": {
-    "id": "3671327093159740055",
-    "text": "对已经适配的库/框架,存在`demo`进行了一些简单的组件实现和注册,方便大家进行修改",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "对已经适配的库/框架,存在`demo`进行了一些简单的组件实现和注册,方便大家进行修改"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "For libraries/frameworks that have already been adapted, some simple component implementations and registrations have been made with `demo`, making it convenient for everyone to make modifications."
-  },
-  "7415821977036770453": {
-    "id": "7415821977036770453",
-    "text": "对特定的一些渲染逻辑进行适配,使得不同库/框架上都可以使用相同代码开发\n> 不同的库,组件实现方式和一些逻辑也不同,所以需要实现一个兼容层",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "对特定的一些渲染逻辑进行适配,使得不同库/框架上都可以使用相同代码开发\n> 不同的库,组件实现方式和一些逻辑也不同,所以需要实现一个兼容层"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Adapt specific rendering logic to enable the same code to be used across different libraries/frameworks  \n> Since different libraries and component implementations, as well as some logic, vary, a compatibility layer needs to be implemented."
-  },
   "4268176488185084713": {
     "id": "4268176488185084713",
     "text": "小部分场景因为视图和逻辑分离,所以需要使用静态解析,将定义先解析为对应模板并写入文件,再配合动态解析赋值",
@@ -1439,18 +1367,6 @@
     "associatedMessageIds": {},
     "target": "Layout Move"
   },
-  "1796852191637047197": {
-    "id": "1796852191637047197",
-    "text": "希望使用皮影代替某个框架",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "希望使用皮影代替某个框架"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Hope to use piying instead of a certain framework"
-  },
   "3809920437268872967": {
     "id": "3809920437268872967",
     "text": "希望未来代码拥有不同框架的可迁移性",
@@ -1474,18 +1390,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Platform-agnostic, the same definition can be used by multiple frameworks."
-  },
-  "124032717431722557": {
-    "id": "124032717431722557",
-    "text": "开箱即用的组件库",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "开箱即用的组件库"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "A ready-to-use component library"
   },
   "567250261954736802": {
     "id": "567250261954736802",
@@ -1751,18 +1655,6 @@
     "associatedMessageIds": {},
     "target": "Control when the `component` is hidden"
   },
-  "6415049004069696174": {
-    "id": "6415049004069696174",
-    "text": "提高页面性能而不是提高开发效率\n> 这并不意味着使用皮影后速度会变得很慢,由于元数据解析会有一点开销,所以一定会被之前慢一点,但是这一点可以忽略不计.",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "提高页面性能而不是提高开发效率\n> 这并不意味着使用皮影后速度会变得很慢,由于元数据解析会有一点开销,所以一定会被之前慢一点,但是这一点可以忽略不计."
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Improving page performance rather than development efficiency  \n> This does not mean that using Piying will make things slow. Due to the overhead of metadata parsing, it will definitely be slightly slower than before, but this difference is negligible."
-  },
   "8437133365005831241": {
     "id": "8437133365005831241",
     "text": "支持valibot验证/自定义验证,与表单自定义验证",
@@ -2027,18 +1919,6 @@
     "associatedMessageIds": {},
     "target": "These methods are used to set component-related properties."
   },
-  "3376582029892431350": {
-    "id": "3376582029892431350",
-    "text": "每个页面的实现都不相同并且没有任何可以重用的组件",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "每个页面的实现都不相同并且没有任何可以重用的组件"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Each page's implementation is different and there are no reusable components."
-  },
   "1763898646512759828": {
     "id": "1763898646512759828",
     "text": "比如JsonSchema中的`anyOf`,`oneOf`,可以轻松使用`v.intersect`,`v.union`对应的`FieldLogicGroup`进行动态切换处理",
@@ -2075,18 +1955,6 @@
     "associatedMessageIds": {},
     "target": "Scroll Group"
   },
-  "3860001193880986178": {
-    "id": "3860001193880986178",
-    "text": "然后通过皮影的解析加持后,相关验证可以完美的反馈到表单上,也就是前后端的限制变成了一样,只要数据可以回传,那么一定符合要求,减少维护成本,并且分担了后端的验证压力",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "然后通过皮影的解析加持后,相关验证可以完美的反馈到表单上,也就是前后端的限制变成了一样,只要数据可以回传,那么一定符合要求,减少维护成本,并且分担了后端的验证压力"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Then, after the Piying parsing and enhancement, the relevant validation can be perfectly fed back to the form, meaning that the constraints on both the front-end and back-end become consistent. As long as the data can be sent back, it will certainly meet the requirements, reducing maintenance costs and alleviating the validation pressure on the back-end."
-  },
   "945863999624144498": {
     "id": "945863999624144498",
     "text": "状态",
@@ -2111,18 +1979,6 @@
     "associatedMessageIds": {},
     "target": "Used for adjusting form control usage; non-form controls do not require it."
   },
-  "2083814897329250573": {
-    "id": "2083814897329250573",
-    "text": "由于不同库/框架有着不同实现方式,所以没法实现统一的组件库",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "由于不同库/框架有着不同实现方式,所以没法实现统一的组件库"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Due to different implementations across various libraries/frameworks, it's not possible to achieve a unified component library."
-  },
   "8787739137583531710": {
     "id": "8787739137583531710",
     "text": "由于存在`wrapper`,所以布局的时候,顶层的组件不一定是定义组件,而有可能是wrapper,所以就需要使用此类进行设置",
@@ -2146,6 +2002,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Due to type safety considerations, switching is not supported in the design."
+  },
+  "2533280580905361738": {
+    "id": "2533280580905361738",
+    "text": "皮影为不同框架提供统一的表单开发体验",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "皮影为不同框架提供统一的表单开发体验"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Piying provides a unified form development experience across different frameworks."
   },
   "7637968389472122461": {
     "id": "7637968389472122461",
@@ -2195,6 +2063,18 @@
     "associatedMessageIds": {},
     "target": "How does Piying support different platforms"
   },
+  "2493761949270948335": {
+    "id": "2493761949270948335",
+    "text": "皮影完全兼容`valibot`的所有Action,可以完美的利用其验证及转换机制",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "皮影完全兼容`valibot`的所有Action,可以完美的利用其验证及转换机制"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Piying is fully compatible with all Actions of `valibot` and can perfectly utilize its validation and transformation mechanisms."
+  },
   "7636767885225758128": {
     "id": "7636767885225758128",
     "text": "皮影对于大多数普通的表单功能都已经完全覆盖,所以下面列举的问题是皮影相较于主流库而言解决",
@@ -2243,17 +2123,17 @@
     "associatedMessageIds": {},
     "target": "What is Piying?"
   },
-  "447682135585445842": {
-    "id": "447682135585445842",
-    "text": "皮影没有解决哪些问题?",
+  "5921239532975014120": {
+    "id": "5921239532975014120",
+    "text": "皮影的相关设置更加语义化,减少开发心智;并允许自定义封装",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "皮影没有解决哪些问题?"
+      "皮影的相关设置更加语义化,减少开发心智;并允许自定义封装"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "What problems has Piying not solved?"
+    "target": "The settings related to Piying are more semantic, reducing the cognitive load for developers, and allow for custom encapsulation."
   },
   "5347825626122550327": {
     "id": "5347825626122550327",
@@ -2891,17 +2771,17 @@
     "associatedMessageIds": {},
     "target": "Export the `dataSource` instance through `convert` and register the `entity`"
   },
-  "3762826358498652184": {
-    "id": "3762826358498652184",
-    "text": "通过`valibot`定义,可以将天然的获取到类型,并且获得最基础的类型验证,保证任何情况下,数据的类型没有问题",
+  "7892116980067536207": {
+    "id": "7892116980067536207",
+    "text": "通过`valibot`定义,可以天然的获取到类型,并且获得最基础的类型验证,保证任何情况下,数据的类型没有问题",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "通过`valibot`定义,可以将天然的获取到类型,并且获得最基础的类型验证,保证任何情况下,数据的类型没有问题"
+      "通过`valibot`定义,可以天然的获取到类型,并且获得最基础的类型验证,保证任何情况下,数据的类型没有问题"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "By defining with `valibot`, you can naturally obtain the type and get the most basic type validation, ensuring that the data type is always correct under any circumstances."
+    "target": "Through `valibot` definitions, you can naturally obtain the type and get the most basic type validation, ensuring that the data type is always correct under any circumstances."
   },
   "8140900748365645999": {
     "id": "8140900748365645999",
@@ -2951,18 +2831,6 @@
     "associatedMessageIds": {},
     "target": "By grouping, you can define containers such as `card`, `tabs`, and `navbar`, allowing controls to be displayed in different styles  \n> To a certain extent, it replaces the [slot](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/slot)"
   },
-  "4161744899960629342": {
-    "id": "4161744899960629342",
-    "text": "通过在配置中注册组件,使得逻辑部分完全不依赖视图中的任何内容,方便未来的迁移与维护",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "通过在配置中注册组件,使得逻辑部分完全不依赖视图中的任何内容,方便未来的迁移与维护"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "By registering components in the configuration, the logical part becomes completely independent of any content in the view, making future migration and maintenance more convenient."
-  },
   "4822148391498864378": {
     "id": "4822148391498864378",
     "text": "通过定义不同的元数据与元数据解析器,适应不同工作场景",
@@ -2998,6 +2866,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "By adding metadata support, the ORM definition and type definition are combined into one, making management more convenient."
+  },
+  "2224996665555967134": {
+    "id": "2224996665555967134",
+    "text": "通过皮影的解析加持后,相关验证可以完美的反馈到表单上,使前后端的检查相同,减少维护成本,提高了数据的安全性",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "通过皮影的解析加持后,相关验证可以完美的反馈到表单上,使前后端的检查相同,减少维护成本,提高了数据的安全性"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "After the analysis and enhancement provided by Piying, the relevant verification can be perfectly reflected on the form, making the front-end and back-end checks consistent, reducing maintenance costs, and improving data security."
   },
   "1109032047741382816": {
     "id": "1109032047741382816",
