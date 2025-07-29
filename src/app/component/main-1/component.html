@@ -1,12 +1,12 @@
-<div class="mx-auto max-w-[100rem] bg-base-100 h-[calc(100vh-4rem)]">
+<div class="mx-auto max-w-[100rem] bg-base-100 xl:h-[calc(100vh-4rem)]">
   <div
     class="flex xl:flex-row flex-col items-center xl:items-stretch  gap-10 h-full"
   >
-    <div class="flex-1 flex items-center py-10 xl:ps-10">
+    <div class="flex-1 flex items-center xl:py-10 pt-10 xl:ps-10">
       <div class="flex gap-10 flex-col">
         <h1 class="text-7xl font-black">{{ title }}</h1>
         <p class="text-3xl font-light" [innerHTML]="subTitle"></p>
-        <div class="flex gap-4">
+        <div class="flex gap-4 max-xl:justify-center">
           <a
             role="button"
             class="btn btn-primary"
@@ -22,8 +22,8 @@
         </div>
       </div>
     </div>
-    <div class="flex-1 group/right flex items-center">
-      <div class="flex flex-col gap-4 relative">
+    <div class="flex-1 group/right flex items-center max-xl:w-full">
+      <div class="flex flex-col gap-4 relative max-xl:w-full">
         <div class="mockup-code w-full bg-base-200 text-base-content">
           <pre class="flex"><code [hilightCode]="schemaCode"></code></pre>
         </div>
