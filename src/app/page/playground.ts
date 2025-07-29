@@ -7,6 +7,7 @@ import {
   componentClass,
   NFCSchema,
   asVirtualGroup,
+  patchInputs,
 } from '@piying/view-angular-core';
 import { debounceTime } from 'rxjs';
 import { SchemaViewRC } from '../component/schema-view/component';
@@ -46,6 +47,7 @@ export const PlaygroundGroupRoute: Route = {
             list: v.pipe(
               v.string(),
               setComponent('picklist'),
+              patchInputs({ options: [] }),
               patchAsyncInputs({
                 options: (field) => field.context.getList(),
               }),
@@ -71,7 +73,7 @@ export const PlaygroundGroupRoute: Route = {
         ),
       ]),
       asVirtualGroup(),
-      componentClass('flex gap-4 *:flex-1 h-full mt-4'),
+      componentClass('flex gap-4 *:flex-1 pt-4 h-[calc(100vh-4rem-4rem)]'),
     ),
   },
 };

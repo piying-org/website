@@ -105,13 +105,18 @@ const textList = new Set<string>();
 if (ngDevMode) {
   (window as any).__getTranslate = () => {
     const text = JSON.stringify([...textList].sort(), undefined, 4);
+    const url = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
     const link = document.createElement('a');
     link.download = 'doc.json';
-    link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(text);
+    link.href = url;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
+}
+function needAddTranslate(value: string) {
+  return !!value.trim() && /\p{Script=Hani}/u.test(value);
 }
 marked.use({
   hooks: {
@@ -129,10 +134,15 @@ marked.use({
           token.type === 'paragraph' ||
           token.type === 'blockquote'
         ) {
-          if (ngDevMode) {
-            textList.add(token.text);
+          let text: string;
+          if (needAddTranslate(token.text)) {
+            if (ngDevMode) {
+              textList.add(token.text);
+            }
+            text = $localize(_tagged_template_literal([token.text]));
+          } else {
+            text = token.text;
           }
-          const text = $localize(_tagged_template_literal([token.text]));
           if (token.type === 'heading') {
             const transList = lexer(`${'#'.repeat(token.depth)} ${text}`);
             tokens[index] = transList[0];
@@ -146,10 +156,15 @@ marked.use({
         } else if (token.type === 'list') {
           for (let j = 0; j < (token as Tokens.List).items.length; j++) {
             const item = (token as Tokens.List).items[j];
-            if (ngDevMode) {
-              textList.add(item.text);
+            let text: string;
+            if (needAddTranslate(item.text)) {
+              if (ngDevMode) {
+                textList.add(item.text);
+              }
+              text = $localize(_tagged_template_literal([item.text]));
+            } else {
+              text = item.text;
             }
-            const text = $localize(_tagged_template_literal([item.text]));
             const transList = lexer(`- ${text}`);
             (token as Tokens.List).items[j] = (transList[0] as any)
               .items[0] as any;
