@@ -6,13 +6,19 @@
 
 <custom-tabs>
 <custom-tab data-label="Angular">
+```shell
 https://github.com/piying-org/piying-view-angular-template
+```
 </custom-tab>
 <custom-tab data-label="Vue">
+```shell
 https://github.com/piying-org/piying-view-vue-template
+```
 </custom-tab>
 <custom-tab data-label="React">
+```shell
 https://github.com/piying-org/piying-view-react-template
+```
 </custom-tab>
 </custom-tabs>
 

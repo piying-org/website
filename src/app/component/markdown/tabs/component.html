@@ -2,12 +2,12 @@
   <ng-content select="custom-tab"> </ng-content>
 </div>
 
-<div class="tabs tabs-border">
+<div class="tabs tabs-lift">
   @for (item of list$(); track $index) {
     <input
       type="radio"
       [name]="name"
-      class="tab"
+      class="tab checked:!bg-base-200"
       [attr.aria-label]="item.label"
       [checked]="$first"
     />
