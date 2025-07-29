@@ -68,7 +68,7 @@ class Renderer2 extends Renderer {
   override code({ text, lang, escaped }: Tokens.Code): string {
     return lang === 'ts'
       ? text
-      : '<pre><code class="language-' + lang + '">' + text + '</code></pre>\n';
+      : `<div class="mockup-code w-full bg-base-200 text-base-content"><pre class="flex"><code class="language-${lang}">${text}</code></pre></div>`;
   }
 }
 

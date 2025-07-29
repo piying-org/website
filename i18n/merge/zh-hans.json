@@ -515,6 +515,18 @@
     "associatedMessageIds": {},
     "target": "举例"
   },
+  "5700106879060710544": {
+    "id": "5700106879060710544",
+    "text": "之后的使用与typeorm完全相同,也就是由之前的装饰器声明改为现在的`valibot`定义声明",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "之后的使用与typeorm完全相同,也就是由之前的装饰器声明改为现在的`valibot`定义声明"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "之后的使用与typeorm完全相同,也就是由之前的装饰器声明改为现在的`valibot`定义声明"
+  },
   "4940897137127057103": {
     "id": "4940897137127057103",
     "text": "也可以使用group只在专门的组中进行验证",
@@ -586,6 +598,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "使开发者更加关注于逻辑和布局,从琐碎事物中解放出来"
+  },
+  "4362706441482076330": {
+    "id": "4362706441482076330",
+    "text": "使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "使用"
   },
   "2614371932351079648": {
     "id": "2614371932351079648",
@@ -2231,6 +2255,18 @@
     "associatedMessageIds": {},
     "target": "皮影没有解决哪些问题?"
   },
+  "5347825626122550327": {
+    "id": "5347825626122550327",
+    "text": "皮影目前仅实现了`typeorm`的兼容",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "皮影目前仅实现了`typeorm`的兼容"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "皮影目前仅实现了`typeorm`的兼容"
+  },
   "7787939913870368146": {
     "id": "7787939913870368146",
     "text": "皮影解决了哪些问题?",
@@ -2842,6 +2878,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "适用于Orm场景"
+  },
+  "5822582136818176348": {
+    "id": "5822582136818176348",
+    "text": "通过`convert`导出`dataSource`实例与注册`实体`",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "通过`convert`导出`dataSource`实例与注册`实体`"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "通过`convert`导出`dataSource`实例与注册`实体`"
   },
   "3762826358498652184": {
     "id": "3762826358498652184",

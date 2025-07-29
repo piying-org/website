@@ -515,6 +515,18 @@
     "associatedMessageIds": {},
     "target": "For example"
   },
+  "5700106879060710544": {
+    "id": "5700106879060710544",
+    "text": "之后的使用与typeorm完全相同,也就是由之前的装饰器声明改为现在的`valibot`定义声明",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "之后的使用与typeorm完全相同,也就是由之前的装饰器声明改为现在的`valibot`定义声明"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The subsequent usage is the same as with typeorm, that is, changing from the previous decorator declaration to the current `valibot` definition declaration."
+  },
   "4940897137127057103": {
     "id": "4940897137127057103",
     "text": "也可以使用group只在专门的组中进行验证",
@@ -586,6 +598,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Enable developers to focus more on logic and layout, freeing them from trivial matters."
+  },
+  "4362706441482076330": {
+    "id": "4362706441482076330",
+    "text": "使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Use"
   },
   "2614371932351079648": {
     "id": "2614371932351079648",
@@ -2231,6 +2255,18 @@
     "associatedMessageIds": {},
     "target": "What problems has Piying not solved?"
   },
+  "5347825626122550327": {
+    "id": "5347825626122550327",
+    "text": "皮影目前仅实现了`typeorm`的兼容",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "皮影目前仅实现了`typeorm`的兼容"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Piying currently only supports compatibility with `typeorm`."
+  },
   "7787939913870368146": {
     "id": "7787939913870368146",
     "text": "皮影解决了哪些问题?",
@@ -2842,6 +2878,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Applicable to Orm scenarios"
+  },
+  "5822582136818176348": {
+    "id": "5822582136818176348",
+    "text": "通过`convert`导出`dataSource`实例与注册`实体`",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "通过`convert`导出`dataSource`实例与注册`实体`"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Export the `dataSource` instance through `convert` and register the `entity`"
   },
   "3762826358498652184": {
     "id": "3762826358498652184",
