@@ -1,4 +1,4 @@
-<div class="drawer mx-auto " [class.lg:drawer-open]="drawerOpen$()" [class.max-w-[100rem]]="drawerOpen$()">
+<div class="drawer mx-auto " [class.xl:drawer-open]="drawerOpen$()" [class.xl:max-w-[100rem]]="drawerOpen$()">
   <input
     id="drawer-open-1"
     type="checkbox"
@@ -29,7 +29,7 @@
       <router-outlet></router-outlet>
     </div>
   </div>
-  <div class="drawer-side z-99 top-0" [class.sticky]="drawerOpen$()">
+  <div class="drawer-side z-99 top-0" [class.xl:sticky]="drawerOpen$()">
     <label
       for="drawer-open-1"
       aria-label="close sidebar"
