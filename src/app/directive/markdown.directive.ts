@@ -168,6 +168,7 @@ export class MarkdownDirective {
   route = inject(ActivatedRoute);
   markdown = input.required<string>();
   #eleRef = inject<ElementRef<HTMLElement>>(ElementRef);
+  fragmentScroll = input<boolean>(true);
   ngOnChanges(): void {
     this.#eleRef.nativeElement.innerHTML = marked.parse(this.markdown(), {
       gfm: true,
@@ -175,7 +176,7 @@ export class MarkdownDirective {
       renderer: new Renderer2(this.route),
     });
     const fragment = this.route.snapshot.fragment;
-    if (fragment) {
+    if (this.fragmentScroll() && fragment) {
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
           const el = this.#eleRef.nativeElement.querySelector(`#${fragment}`);

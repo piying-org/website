@@ -12,7 +12,11 @@
       [checked]="$first"
     />
     <div class="tab-content border-base-300 bg-base-100 p-10">
-      <div [markdown]="item.content" class="md-container"></div>
+      <div
+        [markdown]="item.content"
+        class="md-container"
+        [fragmentScroll]="false"
+      ></div>
     </div>
   }
 </div>

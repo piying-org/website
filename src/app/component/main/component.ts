@@ -69,7 +69,6 @@ const Menu: NavigationItem[] = [
         link: '/docs/client/path-query',
         type: 'basic',
       },
-
       {
         title: $localize`组件使用(用例)`,
         link: '/docs/client/component-use',
@@ -84,6 +83,22 @@ const Menu: NavigationItem[] = [
         title: $localize`ngx-formly迁移`,
         link: '/docs/client/ngx-formly-migrate',
         type: 'basic',
+      },
+      {
+        title: $localize`差异`,
+        type: 'group',
+        children: [
+          {
+            title: $localize`Vue`,
+            type: 'basic',
+            link: '/docs/client/difference-vue',
+          },
+          {
+            title: $localize`React`,
+            type: 'basic',
+            link: '/docs/client/difference-react',
+          },
+        ],
       },
     ],
   },

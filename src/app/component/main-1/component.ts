@@ -14,14 +14,14 @@ import { $localize } from '@cyia/localize';
   imports: [PiyingView, HilightCodeDirective, RouterLink],
 })
 export class Main1Component {
-  readonly title = $localize`平台无关的表单解决方案`;
+  readonly title = $localize`前端表单解决方案`;
   readonly subTitle = $localize`皮影提供了可以在任意平台上使用的
           <br />
           快速组件布局,定位,事件融合监听及
           <br />
-          表单设计,验证,分区禁用,类型化等功能`;
-  readonly btn1 = $localize`查看介绍`;
-  readonly btn2 = $localize`加入测试`;
+          表单设计,验证,分区禁用,类型安全等功能`;
+  readonly btn1 = $localize`查看用例`;
+  readonly btn2 = $localize`快速开始`;
   schema = v.pipe(
     v.object({
       support: v.pipe(
