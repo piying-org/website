@@ -50,6 +50,9 @@
   p {
     @apply my-3;
   }
+  blockquote>*{
+    margin: 0
+  }
 }
 
 .pi-valid > * {

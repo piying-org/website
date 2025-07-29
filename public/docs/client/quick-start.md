@@ -18,7 +18,8 @@ https://github.com/piying-org/piying-view-react-template
 
 ## 安装
 
-- 首先您需要确保当前项目可以正常运行
+- 确保当前项目可以正常运行
+- 安装以下依赖
 
 <custom-tabs>
 <custom-tab data-label="Angular">
@@ -117,9 +118,9 @@ export function InputText(props: PiInputOptions) {
 
 ### 包装器
 
-- 当我们实现`组件`的时候,只需要实现最核心的组件内容即可,不需要将验证/标签/提示内容一并实现
+- 实现`组件`的时候,只需要实现最核心的组件内容即可,不需要将验证/标签/提示内容一并实现
 - 包装器可以让组件拥有额外能力
-- 当实现了多个包装器,就可以通过排列组合使组件产生多种显示效果,并且减少代码耦合,易于维护
+- 实现了多个包装器,就可以通过排列组合使组件产生多种显示效果,并且减少代码耦合,易于维护
 
 <custom-tabs>
 <custom-tab data-label="Angular">
@@ -374,3 +375,6 @@ export function PiyingPage() {
 ```
 </custom-tab>
 </custom-tabs>
+
+## 查看
+- 打开你的项目进行查看

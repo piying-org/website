@@ -10,7 +10,7 @@
 - 组件中实现了`ControlValueAccessor`的组件
 - 包含输入值`writeValue`,值变更注册函数`registerOnChange`,已用状态注册函数`registerOnTouched`,是否禁用`setDisabledState`
 
-```ts
+```typescript
 interface ControlValueAccessor {
   writeValue(obj: any): void;
   registerOnChange(fn: any): void;

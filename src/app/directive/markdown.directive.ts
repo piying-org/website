@@ -33,7 +33,7 @@ class Renderer2 extends Renderer {
   }
   override blockquote({ tokens }: Tokens.Blockquote): string {
     const body = this.parser.parse(tokens);
-    return `<blockquote class="alert alert-info alert-soft">\n${body}</blockquote>\n`;
+    return `<blockquote class="alert alert-info alert-soft my-2">\n${body}</blockquote>\n`;
   }
   override codespan({ text }: Tokens.Codespan): string {
     return `<code class="badge badge-outline badge-info mx-2">${encode(text)}</code>`;

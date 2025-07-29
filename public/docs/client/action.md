@@ -12,7 +12,7 @@
 ## setComponent
 
 - 默认情况下,比如使用`v.string()`时,会自动查找注册的`string`配置;但是您也可以使用此方法手动指定
-- 此方法也支持手动指定组件定义,但是不推荐,因为会让维护变的困难
+- 此方法也支持直接指定组件定义,但是不推荐,因为会让维护变的困难
   > 除非此组件仅在此地方使用并且只使用一次,否则还是建议先注册再使用
 
 ## formConfig
@@ -78,7 +78,7 @@ valueChange((listen) => {
 
 ## outputChange
 
-- 与`valueChange`类似,可以同时监听多个`组件`的事件
+- 与`valueChange`类似
 
 ```typescript
 outputChange((fn) => {
@@ -91,10 +91,10 @@ outputChange((fn) => {
 
 ## set/remove/patch/patchAsync(inputs/props/attributes/outputs/wrappers)
 
-- 此类方法都是用来设置组件的
+- 此类方法都是用来设置组件相关属性
 - `set`替换当前输入设置
 - `remove`删除某一项
-- `patch`与已有配置合并
+- `patch`与已有配置合并({...a,...b})
   > 需要注意的是,如果之前存在字段`xx`的配置,再次设置`xx`时,之前的值会被替换
 - `patchAsync`动态设置某些值,可以读取到field和上下文,支持`Promise`/`Observable`/`Signal`;非上述类型的值会直接返回
 

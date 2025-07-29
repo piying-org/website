@@ -32,10 +32,7 @@ const Menu: NavigationItem[] = [
   {
     title: $localize`文档`,
     type: 'group',
-    children: [
-      { title: $localize`介绍`, link: '/docs/intro/', type: 'basic' },
-      { title: $localize`安装`, link: '/docs/install/', type: 'basic' },
-    ],
+    children: [{ title: $localize`介绍`, link: '/docs/intro/', type: 'basic' }],
   },
   {
     title: $localize`客户端`,
@@ -50,6 +47,11 @@ const Menu: NavigationItem[] = [
       {
         title: $localize`概念`,
         link: '/docs/client/concept',
+        type: 'basic',
+      },
+      {
+        title: $localize`表单`,
+        link: '/docs/client/form',
         type: 'basic',
       },
       {
