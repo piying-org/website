@@ -25,11 +25,6 @@ const Menu: NavigationItem[] = [
     link: '/',
   },
   {
-    title: $localize`加入测试`,
-    type: 'basic',
-    link: '/docs/join-test',
-  },
-  {
     title: $localize`文档`,
     type: 'group',
     children: [{ title: $localize`介绍`, link: '/docs/intro/', type: 'basic' }],
