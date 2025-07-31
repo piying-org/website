@@ -19,7 +19,7 @@
 @if (item.link && item.externalLink && !item.function && !item.disabled) {
   <a
     [href]="item.link"
-    [target]="item.target || '_self'"
+    [target]="item.target || '_blank'"
     class="tooltip"
     [attr.data-tip]="item.tooltip || ''"
   >
@@ -59,7 +59,7 @@
 @if (item.link && item.externalLink && item.function && !item.disabled) {
   <a
     [href]="item.link"
-    [target]="item.target || '_self'"
+    [target]="item.target || '_blank'"
     class="tooltip"
     [attr.data-tip]="item.tooltip || ''"
     (click)="item.function(item)"
