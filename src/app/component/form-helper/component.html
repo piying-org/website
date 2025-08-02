@@ -8,16 +8,19 @@
 }
 
 <div class="flex gap-2 items-center">
-  <button
+  <input
     [disabled]="control.invalid"
+    type="submit"
     class="btn btn-primary"
     (click)="submit()"
-  >
-    Submit
-  </button>
-  <button class="btn btn-outline btn-secondary" (click)="resetForm()">
-    Reset
-  </button>
+  />
+
+  <input
+    type="reset"
+    class="btn btn-outline btn-secondary"
+    (click)="resetForm()"
+  />
+
   <button class="btn btn-outline btn-accent" (click)="saveInit()">
     Update Intial Values
   </button>

@@ -75,14 +75,23 @@ const Menu: NavigationItem[] = [
         type: 'basic',
       },
       {
-        title: $localize`ngx-formly迁移`,
+        title: $localize`ngx-formly 迁移`,
         link: '/docs/client/ngx-formly-migrate',
         type: 'basic',
       },
       {
-        title: $localize`vee-validate迁移`,
-        link: 'https://piying-org.github.io/vee-validate-migration/',
-        externalLink: true,
+        title: $localize`vee-validate 迁移`,
+        link: '/docs/client/vee-validate-migration',
+        type: 'basic',
+      },
+      {
+        title: $localize`formik 迁移`,
+        link: '/docs/client/formik-migration',
+        type: 'basic',
+      },
+      {
+        title: $localize`react-hook-form 迁移`,
+        link: '/docs/client/react-hook-form-migration',
         type: 'basic',
       },
       {

@@ -347,6 +347,18 @@
     "associatedMessageIds": {},
     "target": "The builder is implemented in the source code `src/app/component/form/formly/translate.builder.ts`."
   },
+  "8506936725857513883": {
+    "id": "8506936725857513883",
+    "text": "formik 迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "formik 迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Formik Migration"
+  },
   "9082023173940517025": {
     "id": "9082023173940517025",
     "text": "ngx-formly 迁移",
@@ -357,7 +369,19 @@
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "ngx-formly migration"
+    "target": "ngx-formly Migration"
+  },
+  "8977992715275135017": {
+    "id": "8977992715275135017",
+    "text": "react-hook-form 迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "react-hook-form 迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "react-hook-form Migration"
   },
   "8132394158327439351": {
     "id": "8132394158327439351",
@@ -394,6 +418,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "valibot validation"
+  },
+  "73906890455136876": {
+    "id": "73906890455136876",
+    "text": "vee-validate 迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "vee-validate 迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "vee-validate Migration"
   },
   "7124564648409890694": {
     "id": "7124564648409890694",
@@ -1115,6 +1151,42 @@
     "associatedMessageIds": {},
     "target": "Foreign Key Reference"
   },
+  "7002639287169650545": {
+    "id": "7002639287169650545",
+    "text": "大部分[formik](https://formik.org/)用例已被实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "大部分[formik](https://formik.org/)用例已被实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Most [formik](https://formik.org/) use cases have been implemented"
+  },
+  "1445583293361222639": {
+    "id": "1445583293361222639",
+    "text": "大部分[react-hook-form](https://react-hook-form.com/)用例已被实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "大部分[react-hook-form](https://react-hook-form.com/)用例已被实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Most use cases of [react-hook-form](https://react-hook-form.com/) have been implemented."
+  },
+  "4684763114963851055": {
+    "id": "4684763114963851055",
+    "text": "大部分[vee-validate](https://vee-validate.logaretm.com/v4/)用例已被实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "大部分[vee-validate](https://vee-validate.logaretm.com/v4/)用例已被实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Most [vee-validate](https://vee-validate.logaretm.com/v4/) use cases have been implemented"
+  },
   "1390322479774070306": {
     "id": "1390322479774070306",
     "text": "大部分的表单控件,输入输出是等价的,也就是控件输入`a`=>发射输出`a`,传入`a`=>写入到控件中`a`",
@@ -1162,6 +1234,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "If you have relevant development experience, you can first pull down the relevant template to view the source code."
+  },
+  "1309088439206701149": {
+    "id": "1309088439206701149",
+    "text": "如果您遇到相关迁移问题,欢迎反馈",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "如果您遇到相关迁移问题,欢迎反馈"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "If you encounter any related migration issues, feel free to provide feedback."
   },
   "3128056493328850661": {
     "id": "3128056493328850661",
@@ -1510,6 +1594,42 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "You can simply understand it as metadata settings."
+  },
+  "3005031519844821020": {
+    "id": "3005031519844821020",
+    "text": "您可以访问[formik-migration](https://piying-org.github.io/formik-migration/)查看用例对照",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "您可以访问[formik-migration](https://piying-org.github.io/formik-migration/)查看用例对照"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "You can visit [formik-migration](https://piying-org.github.io/formik-migration/) to view the use case comparison."
+  },
+  "8788809178570272365": {
+    "id": "8788809178570272365",
+    "text": "您可以访问[react-hook-form-migration](https://piying-org.github.io/react-hook-form-migration/)查看用例对照",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "您可以访问[react-hook-form-migration](https://piying-org.github.io/react-hook-form-migration/)查看用例对照"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "You can visit [react-hook-form-migration](https://piying-org.github.io/react-hook-form-migration/) to view the use case comparison."
+  },
+  "3797350592871670720": {
+    "id": "3797350592871670720",
+    "text": "您可以访问[vee-validate-migration](https://piying-org.github.io/vee-validate-migration/)查看用例对照",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "您可以访问[vee-validate-migration](https://piying-org.github.io/vee-validate-migration/)查看用例对照"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "You can visit [vee-validate-migration](https://piying-org.github.io/vee-validate-migration/) to view the use case comparison."
   },
   "9064739616984463993": {
     "id": "9064739616984463993",
@@ -3202,18 +3322,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Form Usage (Use Case)"
-  },
-  "5794359598957906709": {
-    "id": "5794359598957906709",
-    "text": "ngx-formly迁移",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "ngx-formly迁移"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "ngx-formly migration"
   },
   "3793258136716602256": {
     "id": "3793258136716602256",

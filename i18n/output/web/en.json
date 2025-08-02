@@ -179,17 +179,53 @@
     "associatedMessageIds": {},
     "target": "Form Usage (Use Case)"
   },
-  "5794359598957906709": {
-    "id": "5794359598957906709",
-    "text": "ngx-formly迁移",
+  "9082023173940517025": {
+    "id": "9082023173940517025",
+    "text": "ngx-formly 迁移",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "ngx-formly迁移"
+      "ngx-formly 迁移"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "ngx-formly migration"
+    "target": "ngx-formly Migration"
+  },
+  "73906890455136876": {
+    "id": "73906890455136876",
+    "text": "vee-validate 迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "vee-validate 迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "vee-validate Migration"
+  },
+  "8506936725857513883": {
+    "id": "8506936725857513883",
+    "text": "formik 迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "formik 迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Formik Migration"
+  },
+  "8977992715275135017": {
+    "id": "8977992715275135017",
+    "text": "react-hook-form 迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "react-hook-form 迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "react-hook-form Migration"
   },
   "3793258136716602256": {
     "id": "3793258136716602256",
