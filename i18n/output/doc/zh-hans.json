@@ -83,6 +83,30 @@
     "associatedMessageIds": {},
     "target": "`asyncValidators`异步表单验证"
   },
+  "4411053764251150929": {
+    "id": "4411053764251150929",
+    "text": "`cva`用于外部自动绑定",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`cva`用于外部自动绑定"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`cva`用于外部自动绑定"
+  },
+  "6491908673577759423": {
+    "id": "6491908673577759423",
+    "text": "`cvaa`用于和现有的表单控件进行绑定",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`cvaa`用于和现有的表单控件进行绑定"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`cvaa`用于和现有的表单控件进行绑定"
+  },
   "2238330843842140472": {
     "id": "2238330843842140472",
     "text": "`deletionMode`array子项被删除时,应该设置为undefined还是跳过;默认为跳过",
@@ -2435,6 +2459,18 @@
     "associatedMessageIds": {},
     "target": "组件中实现了`ControlValueAccessor`的组件"
   },
+  "9162775487966748992": {
+    "id": "9162775487966748992",
+    "text": "组件中获取配置实例",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "组件中获取配置实例"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "组件中获取配置实例"
+  },
   "2864635957462559808": {
     "id": "2864635957462559808",
     "text": "组件使用",
@@ -2482,6 +2518,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "组件的快速布局,融合监听,自动懒加载,包装修饰"
+  },
+  "2613907245914625651": {
+    "id": "2613907245914625651",
+    "text": "绑定表单",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "绑定表单"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "绑定表单"
   },
   "5493866923233199135": {
     "id": "5493866923233199135",
