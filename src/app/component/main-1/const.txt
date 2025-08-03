@@ -1,15 +1,15 @@
 v.pipe(
   v.object({
     support: v.pipe(
-      v.optional(v.picklist(['Angular', 'Vue', 'React']), 'Angular'),
-      v.title('当前支持')
+      v.optional(v.picklist(["Angular", "Vue", "React"]), "Angular"),
+      v.title($localize`当前支持`),
     ),
     rating: v.pipe(
       v.optional(v.number()),
-      setComponent('rating'),
-      v.title('评价')
+      setComponent("rating"),
+      v.title($localize`评价`),
     ),
-    usePiying: v.pipe(v.boolean(), v.title('使用皮影')),
+    usePiying: v.pipe(v.boolean(), v.title($localize`使用皮影`)),
   }),
-  setComponent('fieldset')
+  setComponent("fieldset"),
 );

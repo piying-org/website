@@ -45,6 +45,7 @@ export const FieldGlobalConfig = {
         type: 'checkbox',
         class: 'checkbox',
       },
+      wrappers: ['label'],
       directives: [
         { type: CheckboxControlValueAccessor, selector: 'formControl' },
       ],
@@ -70,6 +71,7 @@ export const FieldGlobalConfig = {
     },
     picklist: {
       type: SelectComponent,
+      wrappers: ['label'],
     },
     multiselect: {
       type: SelectComponent,
@@ -91,6 +93,7 @@ export const FieldGlobalConfig = {
         type: 'rating',
         class: 'rating',
       },
+      wrappers: ['label'],
     },
     range: {
       type: 'input',
