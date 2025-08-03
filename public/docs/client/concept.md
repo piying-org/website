@@ -33,3 +33,24 @@ interface ControlValueAccessor {
 ## Action/Pipe/Schema
 
 - [valibot](https://valibot.dev/guides/mental-model/)中的概念
+
+## Attributes/Inputs/Outputs/Props
+
+- 配置中的属性输入虽然分为四种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件
+
+### Attributes
+
+- html标签中的原生属性
+
+### Inputs
+
+- 适配的库/框架的输入属性
+
+### Outputs
+
+- 适配的库/框架的输出属性
+
+### Props
+
+- 配置的通用属性,可以在当前组件/包装器中使用
+- 设计上来讲`Props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现

@@ -306,7 +306,7 @@ v.pipe(
 ```ts
 v.pipe(
   v.object(
-    new Array(1000)
+    new Array(100)
       .fill(undefined)
       .map((item, i) => v.pipe(v.string(), v.title(`title${i}`)))
       .reduce((obj, item, i) => {

@@ -75,25 +75,37 @@ const Menu: NavigationItem[] = [
         type: 'basic',
       },
       {
-        title: $localize`ngx-formly 迁移`,
-        link: '/docs/client/ngx-formly-migrate',
-        type: 'basic',
+        title: $localize`迁移`,
+        type: 'group',
+        children: [
+          {
+            title: $localize`ngx-formly`,
+            link: '/docs/client/ngx-formly-migrate',
+            type: 'basic',
+          },
+          {
+            title: $localize`vee-validate`,
+            link: '/docs/client/vee-validate-migration',
+            type: 'basic',
+          },
+          {
+            title: $localize`formik`,
+            link: '/docs/client/formik-migration',
+            type: 'basic',
+          },
+          {
+            title: $localize`react-hook-form`,
+            link: '/docs/client/react-hook-form-migration',
+            type: 'basic',
+          },
+          {
+            title: $localize`react-tanstack`,
+            link: '/docs/client/react-tanstack-migration',
+            type: 'basic',
+          },
+        ],
       },
-      {
-        title: $localize`vee-validate 迁移`,
-        link: '/docs/client/vee-validate-migration',
-        type: 'basic',
-      },
-      {
-        title: $localize`formik 迁移`,
-        link: '/docs/client/formik-migration',
-        type: 'basic',
-      },
-      {
-        title: $localize`react-hook-form 迁移`,
-        link: '/docs/client/react-hook-form-migration',
-        type: 'basic',
-      },
+
       {
         title: $localize`差异`,
         type: 'group',

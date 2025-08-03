@@ -1,28 +1,4 @@
 {
-  "5010537385816875614": {
-    "id": "5010537385816875614",
-    "text": "**如果您符合以下条件,那么您可以尝试以下皮影**",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "**如果您符合以下条件,那么您可以尝试以下皮影**"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "**如果您符合以下条件,那么您可以尝试以下皮影**"
-  },
-  "8412000689545871692": {
-    "id": "8412000689545871692",
-    "text": "**如果您符合以下条件,那么皮影就适合您**",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "**如果您符合以下条件,那么皮影就适合您**"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "**如果您符合以下条件,那么皮影就适合您**"
-  },
   "3845628124501689714": {
     "id": "3845628124501689714",
     "text": "[valibot](https://valibot.dev/guides/mental-model/)中的概念",
@@ -82,6 +58,30 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`asyncValidators`异步表单验证"
+  },
+  "6574109078389591972": {
+    "id": "6574109078389591972",
+    "text": "`blur` touchedChange触发时更新(一般为blur事件触发)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`blur` touchedChange触发时更新(一般为blur事件触发)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`blur` touchedChange触发时更新(一般为blur事件触发)"
+  },
+  "3871154599357482551": {
+    "id": "3871154599357482551",
+    "text": "`change`控件值变更发射时更新",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`change`控件值变更发射时更新"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`change`控件值变更发射时更新"
   },
   "4411053764251150929": {
     "id": "4411053764251150929",
@@ -299,6 +299,18 @@
     "associatedMessageIds": {},
     "target": "`signal`类型的值需要转换为`ref`才支持动态变更"
   },
+  "1355092974482054796": {
+    "id": "1355092974482054796",
+    "text": "`submit` 调用控件的`emitSubmit`方法后更新(一般为form的submit事件后调用)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`submit` 调用控件的`emitSubmit`方法后更新(一般为form的submit事件后调用)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`submit` 调用控件的`emitSubmit`方法后更新(一般为form的submit事件后调用)"
+  },
   "1432372443952387797": {
     "id": "1432372443952387797",
     "text": "`transfomer`输入/输出值时进行转换",
@@ -383,6 +395,18 @@
     "associatedMessageIds": {},
     "target": "formik 迁移"
   },
+  "1226656929959948072": {
+    "id": "1226656929959948072",
+    "text": "html标签中的原生属性",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "html标签中的原生属性"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "html标签中的原生属性"
+  },
   "9082023173940517025": {
     "id": "9082023173940517025",
     "text": "ngx-formly 迁移",
@@ -406,6 +430,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "react-hook-form 迁移"
+  },
+  "1955247720079056793": {
+    "id": "1955247720079056793",
+    "text": "react-tanstack 迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "react-tanstack 迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "react-tanstack 迁移"
   },
   "8132394158327439351": {
     "id": "8132394158327439351",
@@ -538,18 +574,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "与大家理解的组件一致"
-  },
-  "6511725295967825409": {
-    "id": "6511725295967825409",
-    "text": "为什么使用皮影?",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "为什么使用皮影?"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "为什么使用皮影?"
   },
   "8916537472669748089": {
     "id": "8916537472669748089",
@@ -815,6 +839,18 @@
     "associatedMessageIds": {},
     "target": "值恢复为默认值(如果没有传入)"
   },
+  "1006437792698791656": {
+    "id": "1006437792698791656",
+    "text": "值更新时机(updateOn)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "值更新时机(updateOn)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "值更新时机(updateOn)"
+  },
   "6025431985508552731": {
     "id": "6025431985508552731",
     "text": "允许启用部分子级",
@@ -850,30 +886,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "其中`intersect`配合`asVirtualGroup`可以创建一个逻辑上的普通分组,方便布局"
-  },
-  "7886923473470595928": {
-    "id": "7886923473470595928",
-    "text": "减少代码编写与维护成本",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "减少代码编写与维护成本"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "减少代码编写与维护成本"
-  },
-  "2095256808838468994": {
-    "id": "2095256808838468994",
-    "text": "减少对底层框架依赖使得代码更加通用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "减少对底层框架依赖使得代码更加通用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "减少对底层框架依赖使得代码更加通用"
   },
   "8225983412930701792": {
     "id": "8225983412930701792",
@@ -1199,6 +1211,18 @@
     "associatedMessageIds": {},
     "target": "大部分[react-hook-form](https://react-hook-form.com/)用例已被实现"
   },
+  "544077418470170737": {
+    "id": "544077418470170737",
+    "text": "大部分[react-tanstack](https://tanstack.com/form/latest)用例已被实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "大部分[react-tanstack](https://tanstack.com/form/latest)用例已被实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "大部分[react-tanstack](https://tanstack.com/form/latest)用例已被实现"
+  },
   "4684763114963851055": {
     "id": "4684763114963851055",
     "text": "大部分[vee-validate](https://vee-validate.logaretm.com/v4/)用例已被实现",
@@ -1475,18 +1499,6 @@
     "associatedMessageIds": {},
     "target": "布局移动"
   },
-  "3809920437268872967": {
-    "id": "3809920437268872967",
-    "text": "希望未来代码拥有不同框架的可迁移性",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "希望未来代码拥有不同框架的可迁移性"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "希望未来代码拥有不同框架的可迁移性"
-  },
   "374306519133786673": {
     "id": "374306519133786673",
     "text": "平台无关,同一个定义可以可以被多个框架使用",
@@ -1642,6 +1654,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "您可以访问[react-hook-form-migration](https://piying-org.github.io/react-hook-form-migration/)查看用例对照"
+  },
+  "8002117704968980938": {
+    "id": "8002117704968980938",
+    "text": "您可以访问[react-tanstack-migration](https://piying-org.github.io/react-tanstack-migration/)查看用例对照",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "您可以访问[react-tanstack-migration](https://piying-org.github.io/react-tanstack-migration/)查看用例对照"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "您可以访问[react-tanstack-migration](https://piying-org.github.io/react-tanstack-migration/)查看用例对照"
   },
   "3797350592871670720": {
     "id": "3797350592871670720",
@@ -1858,18 +1882,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "普通组件"
-  },
-  "7877949494226542208": {
-    "id": "7877949494226542208",
-    "text": "更加方便的验证机制",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "更加方便的验证机制"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "更加方便的验证机制"
   },
   "4784491009468222538": {
     "id": "4784491009468222538",
@@ -2098,6 +2110,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "滚动组"
+  },
+  "4540800242426995879": {
+    "id": "4540800242426995879",
+    "text": "特点",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "特点"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "特点"
   },
   "945863999624144498": {
     "id": "945863999624144498",
@@ -2651,18 +2675,6 @@
     "associatedMessageIds": {},
     "target": "表单的类型安全,输入/输出转换,验证,分区禁用"
   },
-  "5401644757041843989": {
-    "id": "5401644757041843989",
-    "text": "表单的类型安全实现",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "表单的类型安全实现"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "表单的类型安全实现"
-  },
   "6143418680809879742": {
     "id": "6143418680809879742",
     "text": "视图到模型",
@@ -2698,18 +2710,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "视图变更过?强制更新:仅与上次不同才更新,同时设置表单值"
-  },
-  "588875283703603349": {
-    "id": "588875283703603349",
-    "text": "视图逻辑分离",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "视图逻辑分离"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "视图逻辑分离"
   },
   "8468751852537010668": {
     "id": "8468751852537010668",
@@ -2782,6 +2782,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "设置输入属性"
+  },
+  "4116791952393996719": {
+    "id": "4116791952393996719",
+    "text": "设计上来讲`Props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设计上来讲`Props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设计上来讲`Props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现"
   },
   "9099612979882518592": {
     "id": "9099612979882518592",
@@ -2927,6 +2939,30 @@
     "associatedMessageIds": {},
     "target": "适用于Orm场景"
   },
+  "1689207149762549552": {
+    "id": "1689207149762549552",
+    "text": "适配的库/框架的输入属性",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "适配的库/框架的输入属性"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "适配的库/框架的输入属性"
+  },
+  "8815653886570924608": {
+    "id": "8815653886570924608",
+    "text": "适配的库/框架的输出属性",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "适配的库/框架的输出属性"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "适配的库/框架的输出属性"
+  },
   "5822582136818176348": {
     "id": "5822582136818176348",
     "text": "通过`convert`导出`dataSource`实例与注册`实体`",
@@ -3059,6 +3095,30 @@
     "associatedMessageIds": {},
     "target": "逻辑或/与"
   },
+  "7905472181288812355": {
+    "id": "7905472181288812355",
+    "text": "配置中的属性输入虽然分为四种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "配置中的属性输入虽然分为四种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "配置中的属性输入虽然分为四种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件"
+  },
+  "367359449842309647": {
+    "id": "367359449842309647",
+    "text": "配置的通用属性,可以在当前组件/包装器中使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "配置的通用属性,可以在当前组件/包装器中使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "配置的通用属性,可以在当前组件/包装器中使用"
+  },
   "4386449032482258827": {
     "id": "4386449032482258827",
     "text": "需要注意的是,被移动的位置一定要先被解析",
@@ -3118,18 +3178,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "非表单控件组件"
-  },
-  "8270306090149119799": {
-    "id": "8270306090149119799",
-    "text": "页面之间有一些相似的逻辑,或某些代码看起来相似",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "页面之间有一些相似的逻辑,或某些代码看起来相似"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "页面之间有一些相似的逻辑,或某些代码看起来相似"
   },
   "9140568832968454150": {
     "id": "9140568832968454150",
@@ -3370,6 +3418,78 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "表单使用(用例)"
+  },
+  "4750362201975308629": {
+    "id": "4750362201975308629",
+    "text": "迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "迁移"
+  },
+  "3737834286630446263": {
+    "id": "3737834286630446263",
+    "text": "ngx-formly",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "ngx-formly"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "ngx-formly"
+  },
+  "1519951518158213347": {
+    "id": "1519951518158213347",
+    "text": "vee-validate",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "vee-validate"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "vee-validate"
+  },
+  "4512331068570345648": {
+    "id": "4512331068570345648",
+    "text": "formik",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "formik"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "formik"
+  },
+  "2417676543005498525": {
+    "id": "2417676543005498525",
+    "text": "react-hook-form",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "react-hook-form"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "react-hook-form"
+  },
+  "6891198962450371917": {
+    "id": "6891198962450371917",
+    "text": "react-tanstack",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "react-tanstack"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "react-tanstack"
   },
   "3793258136716602256": {
     "id": "3793258136716602256",

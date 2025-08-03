@@ -63,6 +63,11 @@
 8. 触发值变更,开启异步获取值
 9. 如果值没有异常/没有禁用或维持之前的值,那么可以发射获取到,否则跳过
 
+## 值更新时机(updateOn)
+- `change`控件值变更发射时更新
+- `blur` touchedChange触发时更新(一般为blur事件触发)
+- `submit` 调用控件的`emitSubmit`方法后更新(一般为form的submit事件后调用)
+
 ## reset
 - 设置后状态恢复到`untouched`,`pristine`
 - 值恢复为默认值(如果没有传入)
