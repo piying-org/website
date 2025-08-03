@@ -56,7 +56,7 @@ npm i valibot
 
 ### 控件
 
-- 皮影在所有库/框架上都实现了`ControlValueAccessor`(来自Angular)的概念,通过实现相关方法,使组件能够自动接入控件
+- 皮影在所有库/框架上都实现了`ControlValueAccessor`,通过实现相关方法,使组件能够自动接入控件
 
 <custom-tabs>
 <custom-tab data-label="Angular">
@@ -84,7 +84,7 @@ export class InputFCC extends BaseControl {}
 &lt;script setup lang=&quot;ts&quot;&gt;
 import { useControlValueAccessor } from '@piying/view-vue'
 import { vModelDynamic } from 'vue'
-const { cva, value, disabled, valueChange, touchedChange } = useControlValueAccessor()
+const { cva, cvaa:{value, disabled, valueChange, touchedChange} } = useControlValueAccessor()
 defineExpose({ cva })
 &lt;/script&gt;
 &lt;template&gt;
@@ -126,7 +126,7 @@ export function InputText(props: PiInputOptions) {
 
 - 实现`组件`的时候,只需要实现最核心的组件内容即可,不需要将验证/标签/提示内容一并实现
 - 包装器可以让组件拥有额外能力
-- 实现了多个包装器,就可以通过排列组合使组件产生多种显示效果,并且减少代码耦合,易于维护
+- 多个包装器可以通过排列组合使组件产生更多显示效果,并且减少代码耦合,易于维护
 
 <custom-tabs>
 <custom-tab data-label="Angular">

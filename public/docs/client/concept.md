@@ -20,6 +20,7 @@ interface ControlValueAccessor {
 ```
 
 ### 分组
+
 - `object`/`intersect`/`union`/`tuple`/`array`等可以包含子组件的Schema
 - 其中`intersect`配合`asVirtualGroup`可以创建一个逻辑上的普通分组,方便布局
 - 通过分组可以定义`card`,`tabs`,`navbar`等容器,使控件以不同风格展示
@@ -29,6 +30,12 @@ interface ControlValueAccessor {
 
 - 让组件附加额外的能力,比如显示控件的标签,验证内容,前后缀等组件相关,共通的东西
 - 包装器让开发者在封装组件的时候可以仅考虑该组件的基本功能,减少了代码耦合,增加了可维护性
+
+## 字段顺序
+- 字段顺序影响组件显示顺序
+- 在使用`v.object({})`时,现代浏览器(除了IE11)的字段顺序都是可预测的;即优先非负整数升序键,然后是按照定义顺序来
+  > https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in
+- 如果您想修改字段的显示顺序,除了调整定义顺序以外,还可以使用`layout({priority: -1 })`,默认为`0`,越小越靠前,越大越靠后
 
 ## Action/Pipe/Schema
 
@@ -54,3 +61,7 @@ interface ControlValueAccessor {
 
 - 配置的通用属性,可以在当前组件/包装器中使用
 - 设计上来讲`Props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现
+
+## ControlValueAccessor
+- 值访问控制器是用来连接表单控件与组件的一个设计,来源于[Angular](https://angular.dev/api/forms/ControlValueAccessor)
+- 目前的封装中,分为`cva`(ControlValueAccessor缩写),用于导出自动注册,开发者只需要按照固定代码导出即可;`cvaa`(ControlValueAccessorAdapter缩写),用于注册组件,不同库/框架中有不同实现,但是原理相同,需要将对应的值,事件绑定到对应的组件上即可

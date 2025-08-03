@@ -347,18 +347,6 @@
     "associatedMessageIds": {},
     "target": "`v.intersect()` + `asVirtualGroup` can perform multi-level virtual groups"
   },
-  "4862556518007206733": {
-    "id": "4862556518007206733",
-    "text": "`valibot`的可以同时提供类型与验证",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`valibot`的可以同时提供类型与验证"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`valibot` can provide both type checking and validation at the same time."
-  },
   "362221883486026609": {
     "id": "362221883486026609",
     "text": "`validators`表单验证\n> 推荐使用`valibot`的`v.check`",
@@ -515,18 +503,6 @@
     "associatedMessageIds": {},
     "target": "Context"
   },
-  "6205485088998907091": {
-    "id": "6205485088998907091",
-    "text": "不同框架的组件实现不同,所以需要单独实现",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "不同框架的组件实现不同,所以需要单独实现"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Components in different frameworks are implemented differently, so they need to be implemented separately."
-  },
   "162365918824879785": {
     "id": "162365918824879785",
     "text": "与`hideWhen`,`disableWhen`类似,支持多个控件监听",
@@ -574,6 +550,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Consistent with the components as understood by everyone."
+  },
+  "3038796434602271152": {
+    "id": "3038796434602271152",
+    "text": "为不同框架提供统一的表单开发体验",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "为不同框架提供统一的表单开发体验"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Provide a unified form development experience across different frameworks"
   },
   "8916537472669748089": {
     "id": "8916537472669748089",
@@ -658,18 +646,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Pass in a `string[]`, for example `['aa','bb']`"
-  },
-  "1137984121943662985": {
-    "id": "1137984121943662985",
-    "text": "但是经过注册之后,逻辑部分完全不依赖视图中的任何内容,方便未来的迁移与维护",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "但是经过注册之后,逻辑部分完全不依赖视图中的任何内容,方便未来的迁移与维护"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "However, after registration, the logic part is completely independent of any content in the view, making future migration and maintenance more convenient."
   },
   "1029023685462150272": {
     "id": "1029023685462150272",
@@ -850,6 +826,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Update timing (updateOn)"
+  },
+  "7979054654573832849": {
+    "id": "7979054654573832849",
+    "text": "值访问控制器是用来连接表单控件与组件的一个设计,来源于[Angular](https://angular.dev/api/forms/ControlValueAccessor)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "值访问控制器是用来连接表单控件与组件的一个设计,来源于[Angular](https://angular.dev/api/forms/ControlValueAccessor)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The ControlValueAccessor is a design used to connect form controls with components, originating from [Angular](https://angular.dev/api/forms/ControlValueAccessor)."
   },
   "6025431985508552731": {
     "id": "6025431985508552731",
@@ -1151,6 +1139,18 @@
     "associatedMessageIds": {},
     "target": "Internationalization"
   },
+  "3462149794073679144": {
+    "id": "3462149794073679144",
+    "text": "在使用`v.object({})`时,现代浏览器(除了IE11)的字段顺序都是可预测的;即优先非负整数升序键,然后是按照定义顺序来\n> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "在使用`v.object({})`时,现代浏览器(除了IE11)的字段顺序都是可预测的;即优先非负整数升序键,然后是按照定义顺序来\n> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "When using `v.object({})`, the field order in modern browsers (excluding IE11) is predictable: non-negative integer keys are prioritized in ascending order, followed by keys in the order they were defined.  \n> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in"
+  },
   "101391695118785140": {
     "id": "101391695118785140",
     "text": "基本等价于`Record<string,any>`",
@@ -1186,6 +1186,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Foreign Key Reference"
+  },
+  "8462469311660633327": {
+    "id": "8462469311660633327",
+    "text": "多个包装器可以通过排列组合使组件产生更多显示效果,并且减少代码耦合,易于维护",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "多个包装器可以通过排列组合使组件产生更多显示效果,并且减少代码耦合,易于维护"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Multiple wrappers can be combined in various ways to generate more diverse display effects for components, while reducing code coupling and making maintenance easier."
   },
   "7002639287169650545": {
     "id": "7002639287169650545",
@@ -1271,6 +1283,18 @@
     "associatedMessageIds": {},
     "target": "If disabled, the value is not emitted."
   },
+  "765239162614039149": {
+    "id": "765239162614039149",
+    "text": "如果您想修改字段的显示顺序,除了调整定义顺序以外,还可以使用`layout({priority: -1 })`,默认为`0`,越小越靠前,越大越靠后",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "如果您想修改字段的显示顺序,除了调整定义顺序以外,还可以使用`layout({priority: -1 })`,默认为`0`,越小越靠前,越大越靠后"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "If you want to modify the display order of a field, in addition to adjusting the definition order, you can also use `layout({priority: -1})`. The default value is `0`. The smaller the value, the earlier it appears; the larger the value, the later it appears."
+  },
   "4614411276941932807": {
     "id": "4614411276941932807",
     "text": "如果您有相关开发经验,可以先拉取相关模板查看源码",
@@ -1319,6 +1343,30 @@
     "associatedMessageIds": {},
     "target": "Field Grouping"
   },
+  "611914505479014942": {
+    "id": "611914505479014942",
+    "text": "字段顺序",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "字段顺序"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Field order"
+  },
+  "1738801626619575414": {
+    "id": "1738801626619575414",
+    "text": "字段顺序影响组件显示顺序",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "字段顺序影响组件显示顺序"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The order of fields affects the display order of components."
+  },
   "4707791770500562346": {
     "id": "4707791770500562346",
     "text": "安装",
@@ -1355,17 +1403,41 @@
     "associatedMessageIds": {},
     "target": "Fully compatible with all validation Actions in `valibot`"
   },
-  "4328178203921815141": {
-    "id": "4328178203921815141",
-    "text": "定义结构通用",
+  "6566760398672362764": {
+    "id": "6566760398672362764",
+    "text": "完全兼容`valibot`的所有Action,可以完美的利用其验证及转换机制",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "定义结构通用"
+      "完全兼容`valibot`的所有Action,可以完美的利用其验证及转换机制"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Define General Structure"
+    "target": "Fully compatible with all Actions of `valibot`, allowing perfect utilization of its validation and transformation mechanisms."
+  },
+  "582811462610856728": {
+    "id": "582811462610856728",
+    "text": "定义唯一",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "定义唯一"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Define uniquely"
+  },
+  "1331140998759919469": {
+    "id": "1331140998759919469",
+    "text": "定义的Schema类型虽然固定的,但是每个定义对应的组件是可以移动的\n> 这样,你就可以定制属于设计要求的表单而不是有限的展示",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "定义的Schema类型虽然固定的,但是每个定义对应的组件是可以移动的\n> 这样,你就可以定制属于设计要求的表单而不是有限的展示"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Although the defined Schema types are fixed, the components corresponding to each definition can be moved.  \n> This way, you can create forms tailored to your design requirements, rather than being limited to predefined layouts."
   },
   "3481468223856261201": {
     "id": "3481468223856261201",
@@ -1390,18 +1462,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Achieve the same use case as the example on the ngx-formly official website"
-  },
-  "1506603881572189839": {
-    "id": "1506603881572189839",
-    "text": "实现了多个包装器,就可以通过排列组合使组件产生多种显示效果,并且减少代码耦合,易于维护",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "实现了多个包装器,就可以通过排列组合使组件产生多种显示效果,并且减少代码耦合,易于维护"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "By implementing multiple wrappers, various display effects can be achieved through combination and permutation, while reducing code coupling and making maintenance easier."
   },
   "3110630370524537134": {
     "id": "3110630370524537134",
@@ -1475,18 +1535,6 @@
     "associatedMessageIds": {},
     "target": "Nested definition"
   },
-  "5413246865473526746": {
-    "id": "5413246865473526746",
-    "text": "市面上绝大多数的表单,都没有类型,往往设计表单后,还需要重新写一个类型来对输入输出进行约束",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "市面上绝大多数的表单,都没有类型,往往设计表单后,还需要重新写一个类型来对输入输出进行约束"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Most of the forms available on the market lack types. Often, after designing a form, you still need to write a type separately to constrain the input and output."
-  },
   "7343278444451428466": {
     "id": "7343278444451428466",
     "text": "布局移动",
@@ -1511,17 +1559,17 @@
     "associatedMessageIds": {},
     "target": "Platform-agnostic, the same definition can be used by multiple frameworks."
   },
-  "567250261954736802": {
-    "id": "567250261954736802",
-    "text": "当前后端均使用js开发时,往往遇到一个问题,就是后端的类型已经定义,但是后端返回的接口往往只有`interface`/`type`,更甚者可能连类型都没有,只是告诉有哪些字段",
+  "5913788669104605843": {
+    "id": "5913788669104605843",
+    "text": "并且可以完全不依赖视图中的任何内容,方便未来的不同库/框架的迁移与维护",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "当前后端均使用js开发时,往往遇到一个问题,就是后端的类型已经定义,但是后端返回的接口往往只有`interface`/`type`,更甚者可能连类型都没有,只是告诉有哪些字段"
+      "并且可以完全不依赖视图中的任何内容,方便未来的不同库/框架的迁移与维护"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "When both the frontend and backend are developed using JavaScript, a common issue often arises: although the backend has already defined types, the actual API responses from the backend usually only provide `interface`/`type`, and in some cases, there may not even be any type definitions, only indicating which fields are present."
+    "target": "And it can be completely independent of any content in the view, making it easy to migrate and maintain across different libraries/frameworks in the future."
   },
   "3382540454341591138": {
     "id": "3382540454341591138",
@@ -2171,18 +2219,6 @@
     "associatedMessageIds": {},
     "target": "Due to type safety considerations, switching is not supported in the design."
   },
-  "2533280580905361738": {
-    "id": "2533280580905361738",
-    "text": "皮影为不同框架提供统一的表单开发体验",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "皮影为不同框架提供统一的表单开发体验"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Piying provides a unified form development experience across different frameworks."
-  },
   "7637968389472122461": {
     "id": "7637968389472122461",
     "text": "皮影允许在这两个阶段内分别进行处理,完成更复杂的业务逻辑",
@@ -2194,6 +2230,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Piying allows processing in these two phases separately, enabling more complex business logic to be completed."
+  },
+  "8764240188451861659": {
+    "id": "8764240188451861659",
+    "text": "皮影只需要一次Schema定义,就能解决默认值,验证,类型,组件样式布局等问题,使代码管理更加方便",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "皮影只需要一次Schema定义,就能解决默认值,验证,类型,组件样式布局等问题,使代码管理更加方便"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Piying requires only a single Schema definition to address issues such as default values, validation, data types, and component styling and layout, making code management much more convenient."
   },
   "5161075576289529940": {
     "id": "5161075576289529940",
@@ -2207,17 +2255,17 @@
     "associatedMessageIds": {},
     "target": "Where can Piying be used?"
   },
-  "2484941805385105442": {
-    "id": "2484941805385105442",
-    "text": "皮影在所有库/框架上都实现了`ControlValueAccessor`(来自Angular)的概念,通过实现相关方法,使组件能够自动接入控件",
+  "8515180292512734607": {
+    "id": "8515180292512734607",
+    "text": "皮影在所有库/框架上都实现了`ControlValueAccessor`,通过实现相关方法,使组件能够自动接入控件",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "皮影在所有库/框架上都实现了`ControlValueAccessor`(来自Angular)的概念,通过实现相关方法,使组件能够自动接入控件"
+      "皮影在所有库/框架上都实现了`ControlValueAccessor`,通过实现相关方法,使组件能够自动接入控件"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Piying implements the concept of `ControlValueAccessor` (from Angular) on all libraries/frameworks, allowing components to automatically integrate with form controls by implementing the relevant methods."
+    "target": "Piying implements `ControlValueAccessor` across all libraries/frameworks. By implementing the relevant methods, the component can automatically integrate with form controls."
   },
   "7789523330151719193": {
     "id": "7789523330151719193",
@@ -2231,18 +2279,6 @@
     "associatedMessageIds": {},
     "target": "How does Piying support different platforms"
   },
-  "2493761949270948335": {
-    "id": "2493761949270948335",
-    "text": "皮影完全兼容`valibot`的所有Action,可以完美的利用其验证及转换机制",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "皮影完全兼容`valibot`的所有Action,可以完美的利用其验证及转换机制"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Piying is fully compatible with all Actions of `valibot` and can perfectly utilize its validation and transformation mechanisms."
-  },
   "7636767885225758128": {
     "id": "7636767885225758128",
     "text": "皮影对于大多数普通的表单功能都已经完全覆盖,所以下面列举的问题是皮影相较于主流库而言解决",
@@ -2254,18 +2290,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Piying has already fully covered most of the common form functions, so the issues listed below are problems that Piying addresses compared to mainstream libraries."
-  },
-  "7968906376000502175": {
-    "id": "7968906376000502175",
-    "text": "皮影成功解决了这个问题,使得定义与视图并非耦合关系,允许任意显示与调整\n> 这样,你就可以定制属于设计要求的表单而不是有限的展示",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "皮影成功解决了这个问题,使得定义与视图并非耦合关系,允许任意显示与调整\n> 这样,你就可以定制属于设计要求的表单而不是有限的展示"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Piying successfully addresses this issue, allowing definitions and views to be decoupled, and enabling arbitrary display and adjustment.  \n> This way, you can customize forms according to your specific design requirements, rather than being limited to predefined presentations."
   },
   "1441961653256688942": {
     "id": "1441961653256688942",
@@ -2290,18 +2314,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "What is Piying?"
-  },
-  "5921239532975014120": {
-    "id": "5921239532975014120",
-    "text": "皮影的相关设置更加语义化,减少开发心智;并允许自定义封装",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "皮影的相关设置更加语义化,减少开发心智;并允许自定义封装"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "The settings related to Piying are more semantic, reducing the cognitive load for developers, and allow for custom encapsulation."
   },
   "5347825626122550327": {
     "id": "5347825626122550327",
@@ -2339,6 +2351,18 @@
     "associatedMessageIds": {},
     "target": "Monitor the value change of the control"
   },
+  "2315738666343864903": {
+    "id": "2315738666343864903",
+    "text": "目前的封装中,分为`cva`(ControlValueAccessor缩写),用于导出自动注册,开发者只需要按照固定代码导出即可;`cvaa`(ControlValueAccessorAdapter缩写),用于注册组件,不同库/框架中有不同实现,但是原理相同,需要将对应的值,事件绑定到对应的组件上即可",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "目前的封装中,分为`cva`(ControlValueAccessor缩写),用于导出自动注册,开发者只需要按照固定代码导出即可;`cvaa`(ControlValueAccessorAdapter缩写),用于注册组件,不同库/框架中有不同实现,但是原理相同,需要将对应的值,事件绑定到对应的组件上即可"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "In the current packaging, there are two main components:  \n`cva` (short for ControlValueAccessor), used for exporting auto-registration; developers only need to follow a fixed code pattern to export it.  \n`cvaa` (short for ControlValueAccessorAdapter), used for registering components. Although different implementations exist across various libraries/frameworks, the underlying principle remains the same: bind the corresponding values and events to the respective components."
+  },
   "2409706136399915545": {
     "id": "2409706136399915545",
     "text": "直接与组件绑定的类,表单中的最基础单位",
@@ -2350,6 +2374,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Classes directly bound to components, the most basic unit in a form"
+  },
+  "1649386923063805849": {
+    "id": "1649386923063805849",
+    "text": "相关设置更加语义化,减少开发心智;并允许自定义封装",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "相关设置更加语义化,减少开发心智;并允许自定义封装"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The relevant settings are more semantic, reducing the cognitive load on developers, and allowing customizable encapsulation."
   },
   "4387785588122997235": {
     "id": "4387785588122997235",
@@ -2422,18 +2458,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Type"
-  },
-  "319757566946000054": {
-    "id": "319757566946000054",
-    "text": "类型安全",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "类型安全"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Type Safety"
   },
   "1940695139573952801": {
     "id": "1940695139573952801",
@@ -2567,29 +2591,17 @@
     "associatedMessageIds": {},
     "target": "Most forms only implement three types of controls: `Group`, `Array`, and `Control`, but they are missing logical operators such as OR/AND, which makes certain logical implementations more complex."
   },
-  "7009354589966945087": {
-    "id": "7009354589966945087",
-    "text": "绝大多数表单,都没有类型安全,即使使用了元数据定义,也无法随意移动,只能根据定义顺序来显示组件",
+  "5832641937296301997": {
+    "id": "5832641937296301997",
+    "text": "绝大多数表单,视图部分,逻辑部分,类型部分都需要分开定义,才能正常使用",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "绝大多数表单,都没有类型安全,即使使用了元数据定义,也无法随意移动,只能根据定义顺序来显示组件"
+      "绝大多数表单,视图部分,逻辑部分,类型部分都需要分开定义,才能正常使用"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Most forms lack type safety, and even when using metadata definitions, components cannot be moved arbitrarily; they can only be displayed in the order of their definitions."
-  },
-  "8451275557950126171": {
-    "id": "8451275557950126171",
-    "text": "统一前后端的类型及验证",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "统一前后端的类型及验证"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Unify the types and validation of the front-end and back-end."
+    "target": "Most forms, view sections, logic sections, and type sections need to be defined separately in order to function properly."
   },
   "2790194754255961960": {
     "id": "2790194754255961960",
@@ -2879,6 +2891,18 @@
     "associatedMessageIds": {},
     "target": "Filter Group"
   },
+  "8537854309019301809": {
+    "id": "8537854309019301809",
+    "text": "这也是皮影敢于使用Schema定义的底气,允许固定的类型有用动态的布局",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "这也是皮影敢于使用Schema定义的底气,允许固定的类型有用动态的布局"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "This is also the confidence behind Piying's use of Schema definitions—allowing fixed types with dynamic layouts."
+  },
   "2139968651747675907": {
     "id": "2139968651747675907",
     "text": "进行`valibot`解析,解析失败会写入验证异常,标记为`dirty`",
@@ -2975,18 +2999,6 @@
     "associatedMessageIds": {},
     "target": "Export the `dataSource` instance through `convert` and register the `entity`"
   },
-  "7892116980067536207": {
-    "id": "7892116980067536207",
-    "text": "通过`valibot`定义,可以天然的获取到类型,并且获得最基础的类型验证,保证任何情况下,数据的类型没有问题",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "通过`valibot`定义,可以天然的获取到类型,并且获得最基础的类型验证,保证任何情况下,数据的类型没有问题"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Through `valibot` definitions, you can naturally obtain the type and get the most basic type validation, ensuring that the data type is always correct under any circumstances."
-  },
   "8140900748365645999": {
     "id": "8140900748365645999",
     "text": "通过`valueChange`监听指定控件,更新控件值",
@@ -3070,18 +3082,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "By adding metadata support, the ORM definition and type definition are combined into one, making management more convenient."
-  },
-  "2224996665555967134": {
-    "id": "2224996665555967134",
-    "text": "通过皮影的解析加持后,相关验证可以完美的反馈到表单上,使前后端的检查相同,减少维护成本,提高了数据的安全性",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "通过皮影的解析加持后,相关验证可以完美的反馈到表单上,使前后端的检查相同,减少维护成本,提高了数据的安全性"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "After the analysis and enhancement provided by Piying, the relevant verification can be perfectly reflected on the form, making the front-end and back-end checks consistent, reducing maintenance costs, and improving data security."
   },
   "1109032047741382816": {
     "id": "1109032047741382816",
@@ -3214,6 +3214,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Validation and control components are completely decoupled; they need to be implemented manually, and only related control states are provided."
+  },
+  "6603239672487831028": {
+    "id": "6603239672487831028",
+    "text": "高内聚,低耦合;通过增删配置动态设置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "高内聚,低耦合;通过增删配置动态设置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "High cohesion, low coupling; dynamically configure through adding or removing configurations"
   },
   "8931984317790526076": {
     "id": "8931984317790526076",
