@@ -39,7 +39,7 @@ jobs:
         id: deployment
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist/piying-website/browser
+          path: ./dist/piying-website/website
 
   deploy:
     environment:
