@@ -21,6 +21,10 @@
               "rfdc"
             ],
             "browser": "src/main.ts",
+            "outputPath": {
+              "base": "./dist/piying-website",
+              "browser": "website"
+            },
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -65,7 +69,8 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "baseHref": "/website/"
             }
           },
           "defaultConfiguration": "production"

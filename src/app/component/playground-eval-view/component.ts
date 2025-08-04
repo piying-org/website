@@ -1,4 +1,4 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, input, resource } from '@angular/core';
 import { PiyingView } from '@piying/view-angular';
 import { FieldGlobalConfig } from '../define';
 import { codeEval } from './code-eval';
@@ -13,20 +13,30 @@ import { getBuilderType } from './builder-type';
 export class PlayGroundEvalViewNFCC {
   configCode = input<string>();
 
-  config$$ = computed(() => {
-    const code = this.configCode();
-    if (!code) {
-      return;
-    }
-    return codeEval(code);
+  config2$ = resource({
+    params: () => {
+      return this.configCode();
+    },
+    loader: async ({ params }) => {
+      if (!params) {
+        return undefined;
+      }
+      return codeEval(params);
+    },
   });
   #context$$ = computed(() => ({
     ...PlayContext,
-    ...this.config$$()?.context,
+    ...this.config2$.value()?.context,
   }));
-  options$$ = computed(() => ({
-    fieldGlobalConfig: FieldGlobalConfig,
-    builder: getBuilderType(this.config$$().builderType),
-    context: this.#context$$(),
-  }));
+  options$$ = computed(() => {
+    let status = this.config2$.hasValue();
+    if (!status) {
+      return;
+    }
+    return {
+      fieldGlobalConfig: FieldGlobalConfig,
+      builder: getBuilderType(this.config2$.value().builderType),
+      context: this.#context$$(),
+    };
+  });
 }

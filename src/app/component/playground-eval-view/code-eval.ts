@@ -1,11 +1,9 @@
-import * as v from 'valibot';
-import * as pyvac from '@piying/view-angular-core';
-import * as pyva from '@piying/view-angular';
-import * as rxjs from 'rxjs';
 import * as directive from '../../directive/code-index';
-import { of } from 'rxjs';
-export function codeEval(code: string) {
-  const { map, skip, tap, BehaviorSubject } = rxjs;
+export async function codeEval(code: string) {
+  const { map, skip, tap, BehaviorSubject, of } = await import('rxjs');
+  const pyva = await import('@piying/view-angular');
+  const pyvac = await import('@piying/view-angular-core');
+  const v = await import('valibot');  
   let result;
   try {
     result = new Function(

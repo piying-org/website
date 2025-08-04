@@ -1,4 +1,10 @@
-import { Component, computed, ElementRef, inject } from '@angular/core';
+import {
+  Component,
+  computed,
+  ElementRef,
+  inject,
+  resource,
+} from '@angular/core';
 import { PiyingView } from '@piying/view-angular';
 
 import { codeEval } from '../../component/playground-eval-view/code-eval';
@@ -14,26 +20,39 @@ import { getBuilderType } from '../../component/playground-eval-view/builder-typ
 })
 export class EvalViewWC {
   #el = inject<ElementRef<HTMLElement>>(ElementRef);
-  config = (() => {
-    const index = +this.#el.nativeElement.dataset['codeIndex']!;
-    const str = CodeMap.get(index)!;
-    if (str.startsWith('{')) {
-      return codeEval(`(() => {
-        return ${str}
+  config2$ = resource({
+    params: () => {
+      const index = +this.#el.nativeElement.dataset['codeIndex']!;
+      const str = CodeMap.get(index)!;
+      return str;
+    },
+    loader: ({ params }) => {
+      if (params.startsWith('{')) {
+        return codeEval(`(() => {
+        return ${params}
         })()`);
-    }
-    return codeEval(`(() => {
-      let schema=${str}
+      }
+      return codeEval(`(() => {
+      let schema=${params}
       return {schema:schema}
       })()`);
-  })();
+    },
+  });
+
   #context$$ = computed(() => ({
     ...PlayContext,
-    ...this.config.context,
+    ...this.config2$.value().context,
   }));
-  options = {
-    fieldGlobalConfig: FieldGlobalConfig,
-    builder: getBuilderType(this.config.builderType),
-    context: this.#context$$(),
-  };
+  options$$ = computed(() => {
+    let status = this.config2$.hasValue();
+    if (!status) {
+      return;
+    }
+
+    return {
+      fieldGlobalConfig: FieldGlobalConfig,
+      builder: getBuilderType(this.config2$.value().builderType),
+      context: this.#context$$(),
+    };
+  });
 }

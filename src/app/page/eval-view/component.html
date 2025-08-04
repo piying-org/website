@@ -1,5 +1,8 @@
-<piying-view
-  [schema]="config.schema"
-  [options]="options"
-  [model]="config.model"
-></piying-view>
+@let config = config2$.value();
+@if (config) {
+  <piying-view
+    [schema]="config.schema"
+    [options]="options$$()"
+    [model]="config.model"
+  ></piying-view>
+}
