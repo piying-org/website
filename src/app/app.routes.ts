@@ -6,6 +6,7 @@ import {
   NFCSchema,
   setComponent,
   setInputs,
+  setWrappers,
   topClass,
   valueChange,
 } from '@piying/view-angular-core';
@@ -35,7 +36,29 @@ export const routes: Routes = [
                   label: $localize`游乐场`,
                 }),
               ),
-              __github: v.pipe(
+              __viewLink: v.pipe(
+                NFCSchema,
+                setComponent('button-link'),
+                setInputs({
+                  externalLink: 'https://github.com/piying-org/piying-view',
+                  type: 'img',
+                  imgLink: './img/github.svg',
+                }),
+                setWrappers(['tooltip']),
+                v.description('Piying View'),
+              ),
+              __ormLink: v.pipe(
+                NFCSchema,
+                setComponent('button-link'),
+                setInputs({
+                  externalLink: 'https://github.com/piying-org/piying-orm',
+                  type: 'img',
+                  imgLink: './img/github.svg',
+                }),
+                setWrappers(['tooltip']),
+                v.description('Piying Orm'),
+              ),
+              __websiteLink: v.pipe(
                 NFCSchema,
                 setComponent('button-link'),
                 setInputs({

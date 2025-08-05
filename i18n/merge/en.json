@@ -1355,6 +1355,18 @@
     "associatedMessageIds": {},
     "target": "If you encounter any related migration issues, feel free to provide feedback."
   },
+  "4178018493549220877": {
+    "id": "4178018493549220877",
+    "text": "如果您需要实现某种逻辑却没有头绪,欢迎[提问](https://github.com/piying-org/piying-view/issues)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "如果您需要实现某种逻辑却没有头绪,欢迎[提问](https://github.com/piying-org/piying-view/issues)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "If you need to implement a certain logic but have no idea where to start, feel free to [ask a question](https://github.com/piying-org/piying-view/issues)"
+  },
   "3128056493328850661": {
     "id": "3128056493328850661",
     "text": "如果提供的Action不满足您的开发需要,可以自行封装",

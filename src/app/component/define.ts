@@ -19,6 +19,7 @@ import { FormlyFieldWC } from './wrapper/formly-field-wrapper/component';
 import { JoinItemWC } from './wrapper/join-wrapper/component';
 import { PanelWC } from './wrapper/panel-wrapper/component';
 import { LabelWC } from './wrapper/label/component';
+import { TooltipWC } from './wrapper/tooltip/component';
 export const FieldGlobalConfig = {
   types: {
     string: {
@@ -252,6 +253,9 @@ export const FieldGlobalConfig = {
     },
     label: {
       type: LabelWC,
+    },
+    tooltip: {
+      type: TooltipWC
     },
   },
 } as PiViewConfig;
