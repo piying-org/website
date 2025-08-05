@@ -1,4 +1,16 @@
 {
+  "7011568823392026912": {
+    "id": "7011568823392026912",
+    "text": "ORM介绍",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "ORM介绍"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "ORM介绍"
+  },
   "3845628124501689714": {
     "id": "3845628124501689714",
     "text": "[valibot](https://valibot.dev/guides/mental-model/)中的概念",
@@ -10,6 +22,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "[valibot](https://valibot.dev/guides/mental-model/)中的概念"
+  },
+  "1300767165377959025": {
+    "id": "1300767165377959025",
+    "text": "[客户端](https://github.com/piying-org/piying-view)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "[客户端](https://github.com/piying-org/piying-view)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "[客户端](https://github.com/piying-org/piying-view)"
   },
   "3725591429090425021": {
     "id": "3725591429090425021",
@@ -1307,6 +1331,18 @@
     "associatedMessageIds": {},
     "target": "如果您有相关开发经验,可以先拉取相关模板查看源码"
   },
+  "5028389769583138185": {
+    "id": "5028389769583138185",
+    "text": "如果您有相关项目需要咨询或定制,欢迎联系我",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "如果您有相关项目需要咨询或定制,欢迎联系我"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "如果您有相关项目需要咨询或定制,欢迎联系我"
+  },
   "1309088439206701149": {
     "id": "1309088439206701149",
     "text": "如果您遇到相关迁移问题,欢迎反馈",
@@ -1955,18 +1991,6 @@
     "associatedMessageIds": {},
     "target": "服务端"
   },
-  "2539537157883153440": {
-    "id": "2539537157883153440",
-    "text": "服务端介绍",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "服务端介绍"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "服务端介绍"
-  },
   "2445983431105943030": {
     "id": "2445983431105943030",
     "text": "权重越大,组件越靠后",
@@ -2146,6 +2170,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "注册组件"
+  },
+  "9040732527768649808": {
+    "id": "9040732527768649808",
+    "text": "源码",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "源码"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "源码"
   },
   "54978990630644301": {
     "id": "54978990630644301",
@@ -2602,6 +2638,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "绝大多数表单,视图部分,逻辑部分,类型部分都需要分开定义,才能正常使用"
+  },
+  "10689188723136809": {
+    "id": "10689188723136809",
+    "text": "联系我",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "联系我"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "联系我"
   },
   "2790194754255961960": {
     "id": "2790194754255961960",
@@ -3538,6 +3586,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "React"
+  },
+  "4861050201669412280": {
+    "id": "4861050201669412280",
+    "text": "ORM",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "ORM"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "ORM"
   },
   "8689675581665875697": {
     "id": "8689675581665875697",

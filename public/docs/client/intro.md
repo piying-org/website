@@ -61,3 +61,6 @@
 #### 举例
 
 各个`小程序`便是视图/逻辑分离的,需要使用静态解析先生成模板
+
+## 源码
+- https://github.com/piying-org/piying-view

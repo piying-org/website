@@ -287,17 +287,41 @@
     "associatedMessageIds": {},
     "target": "React"
   },
-  "2395404919385499367": {
-    "id": "2395404919385499367",
-    "text": "服务端",
+  "4861050201669412280": {
+    "id": "4861050201669412280",
+    "text": "ORM",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "服务端"
+      "ORM"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Server"
+    "target": "ORM"
+  },
+  "9040732527768649808": {
+    "id": "9040732527768649808",
+    "text": "源码",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "源码"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Source code"
+  },
+  "10689188723136809": {
+    "id": "10689188723136809",
+    "text": "联系我",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "联系我"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Contact me"
   },
   "8689675581665875697": {
     "id": "8689675581665875697",

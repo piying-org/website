@@ -125,7 +125,7 @@ const Menu: NavigationItem[] = [
     ],
   },
   {
-    title: $localize`服务端`,
+    title: $localize`ORM`,
     type: 'group',
     children: [
       { title: $localize`介绍`, link: '/docs/server/intro', type: 'basic' },
@@ -136,6 +136,8 @@ const Menu: NavigationItem[] = [
       },
     ],
   },
+  { title: $localize`源码`, type: 'basic', link: '/docs/source-code' },
+  { title: $localize`联系我`, type: 'basic', link: '/docs/contact-me' },
   { title: $localize`游乐场`, type: 'basic', link: '/playground/group/form' },
 ];
 @Component({
