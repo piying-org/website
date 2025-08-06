@@ -1,9 +1,7 @@
 import { Component, computed } from '@angular/core';
 import { PiWrapperBaseComponent } from '@piying/view-angular';
 import { fieldControlStatusClass } from '@piying/view-angular-core';
-import { setGlobalConfig, summarize } from 'valibot';
-import '@valibot/i18n/zh-CN';
-setGlobalConfig({ lang: 'zh-CN' });
+import { summarize } from 'valibot';
 
 @Component({
   selector: 'valid-wrapper',
