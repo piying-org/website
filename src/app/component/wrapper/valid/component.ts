@@ -10,11 +10,11 @@ import { summarize } from 'valibot';
 export class ValidWC extends PiWrapperBaseComponent {
   errorStr$$ = computed(() => {
     const field = this.field$$();
-    const valibot = field.form.root!.errors!['valibot'];
+    const valibot = field.form.control!.errors!['valibot'];
     if (valibot) {
       return summarize(valibot);
     } else {
-      return Object.values(field.form.root!.errors!)
+      return Object.values(field.form.control!.errors!)
         .map((item) => (typeof item === 'string' ? item : JSON.stringify(item)))
         .join('\n');
     }
@@ -22,4 +22,9 @@ export class ValidWC extends PiWrapperBaseComponent {
   classStatus$$ = computed(() => {
     return fieldControlStatusClass(this.field$$().form.control);
   });
+  isChangedStatus$$ = computed(
+    () =>
+      this.field$$().form.control?.dirty$$() ||
+      this.field$$().form.control?.touched$$(),
+  );
 }

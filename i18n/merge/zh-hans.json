@@ -959,17 +959,17 @@
     "associatedMessageIds": {},
     "target": "创建多个组件"
   },
-  "8803694132217552613": {
-    "id": "8803694132217552613",
-    "text": "动态变更,支持Promise,Observable",
+  "3627400046970749431": {
+    "id": "3627400046970749431",
+    "text": "动态变更,支持Promise,Observable,Signal",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "动态变更,支持Promise,Observable"
+      "动态变更,支持Promise,Observable,Signal"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "动态变更,支持Promise,Observable"
+    "target": "动态变更,支持Promise,Observable,Signal"
   },
   "2199030438708211389": {
     "id": "2199030438708211389",
@@ -1198,6 +1198,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "基本等价于`any[]`"
+  },
+  "2307902717393215001": {
+    "id": "2307902717393215001",
+    "text": "增加包装器",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "增加包装器"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "增加包装器"
   },
   "5100525730061425158": {
     "id": "5100525730061425158",

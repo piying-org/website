@@ -25,6 +25,18 @@ v.pipe(
 );
 ```
 
+- 增加包装器
+
+```ts
+v.pipe(
+  v.object({
+    k1: v.pipe(v.string(), v.title("k1-label"), setWrappers(["label"])),
+    k2: v.pipe(v.number(), v.title("k2-label"), v.minValue(10), setWrappers(["label", "validator"])),
+  }),
+  setComponent("fieldset"),
+);
+```
+
 ## 非表单控件组件
 
 默认情况下,由于valibot为强类型定义,所以所有输入默认为表单控件,如果想要定义为非表单控件,可以使用`v.optional(v.void())`,表示一个不可能的值
@@ -33,8 +45,8 @@ v.pipe(
 
 ```ts
 v.object({
-  k1: v.pipe(NFCSchema, setComponent("string")),
-  k2: v.pipe(v.optional(v.void()), setComponent("string")),
+  __k1: v.pipe(NFCSchema, setComponent("string")),
+  __k2: v.pipe(v.optional(v.void()), setComponent("string")),
 });
 ```
 
@@ -48,7 +60,7 @@ v.object({
 v.pipe(v.string(), setInputs({ input1: 1 }));
 ```
 
-- 动态变更,支持Promise,Observable
+- 动态变更,支持Promise,Observable,Signal
 
 ```ts
 v.pipe(

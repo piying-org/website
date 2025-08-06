@@ -4,6 +4,7 @@ import {
   effect,
   ElementRef,
   inject,
+  input,
   viewChild,
 } from '@angular/core';
 import { PI_VIEW_FIELD_TOKEN } from '@piying/view-angular';
@@ -18,6 +19,7 @@ export default class FormHelperComponent {
   anchor = viewChild<ElementRef<HTMLElement>>('anchor');
   field = inject(PI_VIEW_FIELD_TOKEN);
   value = computed(() => this.field().form.root.value$$());
+  forceEnableSubmit = input(false);
   constructor() {
     effect(() => {
       const anchor = this.anchor()?.nativeElement;

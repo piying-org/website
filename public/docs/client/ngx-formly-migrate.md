@@ -207,18 +207,31 @@
 
 ```ts
 {
-    schema: v.pipe(
-      v.object({
-        updateOnBlur: v.pipe(
-          v.string(),
-          formConfig({ updateOn: 'blur' }),
-          v.title('`updateOn` on Blur'),
-        ),
-        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
-      }),
-      setComponent('formly-group'),
-    ),
-  }
+  schema: v.pipe(
+    v.object({
+      text: v.pipe(
+        v.string(),
+        formConfig({ pipe: { toModel: pipe(debounceTime(2000)) } }),
+      ),
+      updateOnBlur: v.pipe(
+        v.string(),
+        formConfig({ updateOn: 'blur' }),
+        v.title('`updateOn` on Blur'),
+      ),
+      updateOnSubmit: v.pipe(
+        v.string(),
+        formConfig({ updateOn: 'submit' }),
+        v.title('`updateOn` on Submit'),
+      ),
+      __helper: v.pipe(
+        NFCSchema,
+        setComponent('formHelper'),
+        patchInputs({ forceEnableSubmit: true })
+      ),
+    }),
+    setComponent('formly-group'),
+  ),
+}
 ```
 
 ## [Reset Model](https://formly.dev/docs/examples/form-options/reset-model)
@@ -1252,7 +1265,6 @@
 }
 ```
 
-
 ## [Bind Observables to Select](https://formly.dev/docs/examples/other/observable-select)
 
 ```ts
@@ -1284,10 +1296,9 @@
 }
 ```
 
-
 ## [Advanced Layout (Flex)](https://formly.dev/docs/examples/other/advanced-layout-flex)
-- 实现方式与`Advanced Layout`相同
 
+- 实现方式与`Advanced Layout`相同
 
 ## [Nested Forms (fieldGroup wrapper)](https://formly.dev/docs/examples/other/nested-formly-forms)
 
@@ -1338,6 +1349,7 @@
 ```
 
 ## [Material Field Hint Alignment](https://formly.dev/docs/examples/other/material-formfield-hint-align)
+
 ```ts
 {
   schema: v.pipe(
@@ -1381,7 +1393,6 @@
   ),
 }
 ```
-
 
 ## [Buttons](https://formly.dev/docs/examples/other/button)
 

@@ -239,7 +239,7 @@ export const FieldGlobalConfig = {
     },
   },
   wrappers: {
-    valid: {
+    validator: {
       type: ValidWC,
     },
     formlyField: {

@@ -216,7 +216,7 @@ v.pipe(
       v.check((value) => {
         return value === "k2-value";
       }, "should input k2-value"),
-      setWrappers(["valid"]),
+      setWrappers(["validator"]),
     ),
   }),
 );

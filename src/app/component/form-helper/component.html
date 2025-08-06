@@ -9,7 +9,7 @@
 
 <div class="flex gap-2 items-center">
   <input
-    [disabled]="control.invalid"
+    [disabled]="control.invalid && !forceEnableSubmit()"
     type="submit"
     class="btn btn-primary"
     (click)="submit()"
