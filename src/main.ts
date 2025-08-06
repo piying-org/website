@@ -24,8 +24,9 @@ fetch(`i18n/${lang}.json`)
     loadTranslations({});
   })
   .then(async () => {
-    const { App } = await import('./app/app');
-    const { appConfig } = await import('./app/app.config');
-
+    const [{ App }, { appConfig }] = await Promise.all([
+      import('./app/app'),
+      import('./app/app.config'),
+    ]);
     bootstrapApplication(App, appConfig).catch((err) => console.error(err));
   });
