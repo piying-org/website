@@ -203,14 +203,13 @@
 
 ## [model-options](https://formly.dev/docs/examples/field-options/model-options)
 
-- submit/debounce不直接支持,但可以使用其他逻辑代替
-
 ```ts
 {
   schema: v.pipe(
     v.object({
       text: v.pipe(
         v.string(),
+        v.title('Debounce'),
         formConfig({ pipe: { toModel: pipe(debounceTime(2000)) } }),
       ),
       updateOnBlur: v.pipe(
