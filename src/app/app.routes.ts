@@ -90,7 +90,7 @@ export const routes: Routes = [
                 }),
               ),
             }),
-            componentClass('flex gap-4 w-full items-center'),
+            componentClass('flex xl:gap-4 w-full items-center'),
           ),
         }),
         setComponent('main'),
