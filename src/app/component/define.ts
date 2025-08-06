@@ -255,7 +255,7 @@ export const FieldGlobalConfig = {
       type: LabelWC,
     },
     tooltip: {
-      type: TooltipWC
+      type: TooltipWC,
     },
   },
 } as PiViewConfig;

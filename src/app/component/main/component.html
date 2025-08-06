@@ -1,11 +1,15 @@
-<div class="drawer mx-auto " [class.xl:drawer-open]="drawerOpen$()" [class.xl:max-w-[100rem]]="drawerOpen$()">
+<div
+  class="drawer mx-auto"
+  [class.xl:drawer-open]="drawerOpen$()"
+  [class.xl:max-w-[100rem]]="drawerOpen$()"
+>
   <input
     id="drawer-open-1"
     type="checkbox"
     class="drawer-toggle"
     #drawerToggleEl
   />
-  <div class="drawer-content flex flex-col">
+  <div class="drawer-content flex flex-col min-h-[100vh]">
     <div class="sticky top-0 z-30">
       <div class="navbar bg-base-100 shadow-sm">
         <label
@@ -25,7 +29,7 @@
         }
       </div>
     </div>
-    <div class=" px-6 pb-16">
+    <div class="px-6 pb-16 flex-1">
       <router-outlet></router-outlet>
     </div>
   </div>
