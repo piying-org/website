@@ -128,10 +128,10 @@ const Menu: NavigationItem[] = [
     title: $localize`ORM`,
     type: 'group',
     children: [
-      { title: $localize`介绍`, link: '/docs/server/intro', type: 'basic' },
+      { title: $localize`介绍`, link: '/docs/orm/intro', type: 'basic' },
       {
         title: $localize`快速开始`,
-        link: '/docs/server/quick-start',
+        link: '/docs/orm/quick-start',
         type: 'basic',
       },
     ],
