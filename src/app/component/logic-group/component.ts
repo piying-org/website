@@ -1,6 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
-import { PI_VIEW_FIELD_TOKEN, PiyingViewGroupBase } from '@piying/view-angular';
+import { PiyingViewGroupBase } from '@piying/view-angular';
 import { FieldLogicGroup } from '@piying/view-angular-core';
 import { SelectComponent } from '../select/component';
 import { FormsModule } from '@angular/forms';
@@ -11,9 +11,8 @@ import { FormsModule } from '@angular/forms';
   imports: [NgTemplateOutlet, SelectComponent, FormsModule],
 })
 export default class LogicFGC extends PiyingViewGroupBase {
-  field = inject(PI_VIEW_FIELD_TOKEN);
   list = computed(() =>
-    this.fields().map((item, index) => ({
+    this.field$$().children!().map((item, index) => ({
       label: item.props()['title'],
       value: index,
     })),
@@ -23,7 +22,7 @@ export default class LogicFGC extends PiyingViewGroupBase {
   selectOr$ = signal<number>(0);
 
   anyOfChange() {
-    const flg = this.field().form.control as FieldLogicGroup;
+    const flg = this.field$$().form.control as FieldLogicGroup;
     const list = flg.controls.filter((item, i) =>
       this.selectAny$().includes(i),
     );
@@ -33,7 +32,7 @@ export default class LogicFGC extends PiyingViewGroupBase {
     if (typeof this.selectOr$() !== 'number') {
       return;
     }
-    const flg = this.field().form.control as FieldLogicGroup;
+    const flg = this.field$$().form.control as FieldLogicGroup;
     flg.activateIndex$.set(this.selectOr$()!);
   }
 }

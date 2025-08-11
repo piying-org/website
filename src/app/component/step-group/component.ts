@@ -1,6 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, computed, inject, signal } from '@angular/core';
-import { PI_VIEW_FIELD_TOKEN, PiyingViewGroupBase } from '@piying/view-angular';
+import { PiyingViewGroupBase } from '@piying/view-angular';
 
 @Component({
   selector: 'steps-group',
@@ -8,10 +8,10 @@ import { PI_VIEW_FIELD_TOKEN, PiyingViewGroupBase } from '@piying/view-angular';
   imports: [NgTemplateOutlet],
 })
 export default class StepsFGC extends PiyingViewGroupBase {
-  field = inject(PI_VIEW_FIELD_TOKEN);
-
   activatedIndex$ = signal(0);
-  activatedItem$$ = computed(() => this.fields()[this.activatedIndex$()]);
+  activatedItem$$ = computed(
+    () => this.field$$().children!()[this.activatedIndex$()],
+  );
 
   toPrev() {
     this.activatedIndex$.update((value) => value - 1);

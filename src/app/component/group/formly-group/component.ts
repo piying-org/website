@@ -1,7 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, inject, input } from '@angular/core';
 import {
-  PI_VIEW_FIELD_TOKEN,
   PiResolvedViewFieldConfig,
   PiyingViewGroupBase,
 } from '@piying/view-angular';
@@ -14,7 +13,6 @@ import '@valibot/i18n/fr';
   imports: [NgTemplateOutlet],
 })
 export default class FormlyFGC extends PiyingViewGroupBase {
-  field = inject(PI_VIEW_FIELD_TOKEN);
   wrapperClass = input<any>();
   errorStr = (field: PiResolvedViewFieldConfig) => {
     const valibot = field.form.control!.errors!['valibot'];

@@ -28,6 +28,5 @@ const outputs = useSignalToRef(props.field, (field) => field.outputs());
 const renderConfig = useSignalToRef(props.field, (field) => field.renderConfig());
 const attributes = useSignalToRef(props.field, (field) => field.attributes());
 const wrappers = useSignalToRef(props.field, (field) => field.wrappers());
-const fieldGroup = useSignalToRef(props.field, (field) => field.fieldGroup?.());
-const fieldArray = useSignalToRef(props.field, (field) => field.fieldArray?.());
+const fieldChilren = useSignalToRef(props.field, (field) => field.children?.());
 ```

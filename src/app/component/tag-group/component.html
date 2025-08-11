@@ -1,5 +1,5 @@
 <div class="tabs tabs-border">
-  @for (field of fields(); track field.id || $index) {
+  @for (field of field$$().children!(); track field.id || $index) {
     @let label = field.props()["title"] || "Tab" + ($index + 1);
     <input
       type="radio"
@@ -8,7 +8,7 @@
       [attr.aria-label]="label"
       [checked]="$first"
       [disabled]="
-        stepsLike() && !$first && fields()[$index - 1].form.control?.invalid
+        stepsLike() && !$first && field$$().children!()[$index - 1].form.control?.invalid
       "
     />
     <div class="tab-content border-base-300 bg-base-100 p-10">

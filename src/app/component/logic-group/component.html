@@ -1,4 +1,4 @@
-@let type = field().props()["type"];
+@let type = field$$().props()["type"];
 @if (type === "anyOf") {
   <app-select
     [options]="list()"
@@ -8,7 +8,7 @@
     class="h-[80px] block"
   ></app-select>
   <div class="flex flex-col gap-4">
-    @for (item of fields(); track $index) {
+    @for (item of field$$().children!(); track $index) {
       @if (selectAny$().includes($index)) {
         <ng-container
           *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: item }"
@@ -24,7 +24,7 @@
     (ngModelChange)="oneOfChange()"
   ></app-select>
   <div class="flex flex-col gap-4">
-    @for (item of fields(); track $index) {
+    @for (item of field$$().children!(); track $index) {
       @if (selectOr$() === $index) {
         <ng-container
           *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: item }"
@@ -33,7 +33,7 @@
     }
   </div>
 } @else {
-  @for (item of fields(); track $index) {
+  @for (item of field$$().children!(); track $index) {
     @if (!item.renderConfig().hidden) {
       <ng-container
         *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: item }"

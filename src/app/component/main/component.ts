@@ -148,7 +148,7 @@ const Menu: NavigationItem[] = [
 export class MainNFCC extends PiyingViewGroupBase {
   field = inject(PI_VIEW_FIELD_TOKEN);
   toolbar$$ = computed(() =>
-    this.fields().find((item) => item.keyPath?.[0] === 'toolbar'),
+    this.field$$().children!().find((item) => item.keyPath?.[0] === 'toolbar'),
   );
   navList = Menu;
   router = inject(Router);

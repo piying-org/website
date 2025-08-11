@@ -4,7 +4,7 @@
   @if (field().props()["title"]; as title) {
     <legend class="fieldset-legend">{{ title }}</legend>
   }
-  @for (field of fields(); track field.id || $index) {
+  @for (field of field$$().children!(); track field.id || $index) {
     @if (field.props()["title"]) {
       <label class="label">{{ field.props()["title"] }}</label>
     }

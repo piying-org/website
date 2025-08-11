@@ -1,11 +1,11 @@
 <fieldset
   class="fieldset bg-base-200 border-base-300 rounded-box border p-4 w-full"
 >
-  @if (field().props()["title"]; as title) {
+  @if (field$$().props()["title"]; as title) {
     <legend class="fieldset-legend">{{ title }}</legend>
   }
   <div [class]="wrapperClass()" class="flex flex-col gap-4">
-    @for (field of fields(); track field.id || $index) {
+    @for (field of field$$().children!(); track field.id || $index) {
       @if (!field.renderConfig().hidden) {
         <div [class]="field.props()['itemClass']">
           @if (field.props()["title"] && !field.props()["hideTitle"]) {

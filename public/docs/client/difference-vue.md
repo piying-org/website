@@ -29,6 +29,5 @@ const outputs = signalToRef(() => props.field.outputs());
 const renderConfig = signalToRef(() => props.field.renderConfig());
 const attributes = signalToRef(() => props.field.attributes());
 const wrappers = signalToRef(() => props.field.wrappers());
-const fieldGroup = signalToRef(() => props.field.fieldGroup?.());
-const fieldArray = signalToRef(() => props.field.fieldArray?.());
+const fieldChilren = signalToRef(() => props.field.children?.());
 ```
