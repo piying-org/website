@@ -13,6 +13,9 @@ export class JsonSchemaHandle extends NgSchemaHandle {
     if (this.type === 'tuple') {
       this.type = 'formly-group';
     }
+    if (this.type === 'tuple_with_rest') {
+      this.type = 'formly-group';
+    }
     if (this.type === 'multiselect') {
       this.attributes ??= {};
       this.attributes['class'] = 'h-[200px]';

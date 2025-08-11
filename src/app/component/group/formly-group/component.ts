@@ -6,11 +6,12 @@ import {
 } from '@piying/view-angular';
 import { summarize } from 'valibot';
 import '@valibot/i18n/fr';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'formly-group',
   templateUrl: './component.html',
-  imports: [NgTemplateOutlet],
+  imports: [NgTemplateOutlet, MatIcon],
 })
 export default class FormlyFGC extends PiyingViewGroupBase {
   wrapperClass = input<any>();
@@ -24,4 +25,10 @@ export default class FormlyFGC extends PiyingViewGroupBase {
         .join('\n');
     }
   };
+  add() {
+    this.field$$().action.set(undefined);
+  }
+  remove(index: number) {
+    this.field$$().action.remove(index);
+  }
 }

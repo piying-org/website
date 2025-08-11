@@ -374,15 +374,26 @@ export class JsonSchemaToValibot {
           // TODO: remove isEnum check once adding an option to skip extension
           if (!this.isEnum(schema)) {
             if (Array.isArray(schema.items)) {
-              // 元组
-              parent = v.tuple(
-                schema.items.map((item, index) =>
-                  this.__toValibotWrapper(item as any, options),
-                ),
+              const tupleList = schema.items.map((item, index) =>
+                this.__toValibotWrapper(item as any, options),
               );
+              if ('additionalItems' in schema) {
+                let result = this.__toValibotWrapper(
+                  schema.additionalItems as any,
+                  options,
+                );
+                parent = v.tupleWithRest(tupleList, result);
+              } else {
+                parent = v.tuple(tupleList);
+              }
+              // 元组
             } else {
-              parent = v.lazy(() =>
-                v.array(this.__toValibotWrapper(schema.items as any, options)),
+              return v.lazy(() =>
+                createTypeFn(
+                  v.array(
+                    this.__toValibotWrapper(schema.items as any, options),
+                  ),
+                ),
               );
             }
             return createTypeFn(parent);
