@@ -46,7 +46,7 @@ export const FieldGlobalConfig = {
         type: 'checkbox',
         class: 'checkbox',
       },
-      wrappers: ['label'],
+      // wrappers: ['label'],
       directives: [
         { type: CheckboxControlValueAccessor, selector: 'formControl' },
       ],
