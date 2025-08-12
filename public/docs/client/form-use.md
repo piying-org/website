@@ -1,4 +1,5 @@
 # 表单使用
+
 - 如果您需要实现某种逻辑却没有头绪,欢迎[提问](https://github.com/piying-org/piying-view/issues)
 
 ## 默认值
@@ -49,14 +50,20 @@ v.object({
 - 权重越大,组件越靠后
 
 ```ts
-v.object({
-  layout1: v.pipe(v.object({}), setComponent("fieldset"), setAlias("ly1")),
-  layout2: v.pipe(v.object({}), setComponent("fieldset"), setAlias("ly2")),
-  input1: v.pipe(v.string(), layout({ keyPath: ["@ly1"] }), v.title("input1")),
-  input2: v.pipe(v.string(), layout({ keyPath: ["@ly2"], priority: 3 }), v.title("input2")),
-  input3: v.pipe(v.string(), layout({ keyPath: ["@ly2"], priority: 2 }), v.title("input3")),
-  input4: v.pipe(v.string(), layout({ keyPath: ["@ly2"], priority: 1 }), v.title("input4")),
-});
+v.pipe(
+  v.intersect([
+    v.pipe(v.object({}), setComponent("fieldset"), setAlias("ly1")),
+    v.pipe(v.object({}), setComponent("fieldset"), setAlias("ly2")),
+    v.object({
+      input1: v.pipe(v.string(), layout({ keyPath: ["@ly1"] }), v.title("input1")),
+      input2: v.pipe(v.string(), layout({ keyPath: ["@ly2"], priority: 3 }), v.title("input2")),
+      input3: v.pipe(v.string(), layout({ keyPath: ["@ly2"], priority: 2 }), v.title("input3")),
+      input4: v.pipe(v.string(), layout({ keyPath: ["@ly2"], priority: 1 }), v.title("input4")),
+      __helper: v.pipe(NFCSchema, setComponent("formHelper")),
+    }),
+  ]),
+  asVirtualGroup(),
+);
 ```
 
 ## 分区禁用
