@@ -180,6 +180,15 @@ export const FieldGlobalConfig = {
       type: () =>
         import('./monaco-editor/component').then((item) => item.default),
     },
+    jsonEditor: {
+      selector: 'div',
+      attributes: {
+        type: 'json-editor',
+        class: 'h-full',
+      },
+      type: () =>
+        import('./json-monaco-editor/component').then((item) => item.default),
+    },
     evalView: {
       type: () =>
         import('./playground-eval-view/component').then(

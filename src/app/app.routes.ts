@@ -14,6 +14,7 @@ import { MarkdownPage } from './component/markdown/component';
 import { PlaygroundGroupRoute, PlaygroundSingleRoute } from './page/playground';
 import { skip } from 'rxjs';
 import { $localize } from '@cyia/localize';
+import { JsonPlaygroundRoute } from './page/json-playground';
 export const routes: Routes = [
   {
     path: '',
@@ -110,6 +111,7 @@ export const routes: Routes = [
       },
       PlaygroundGroupRoute,
       PlaygroundSingleRoute,
+      JsonPlaygroundRoute,
       {
         path: '',
         component: SchemaViewRC,

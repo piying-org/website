@@ -139,6 +139,11 @@ const Menu: NavigationItem[] = [
   { title: $localize`源码`, type: 'basic', link: '/docs/source-code' },
   { title: $localize`联系我`, type: 'basic', link: '/docs/contact-me' },
   { title: $localize`游乐场`, type: 'basic', link: '/playground/group/form' },
+  {
+    title: $localize`JsonSchema游乐场`,
+    type: 'basic',
+    link: '/jsonschema-playground',
+  },
 ];
 @Component({
   selector: '',
@@ -168,7 +173,11 @@ export class MainNFCC extends PiyingViewGroupBase {
       ),
     ).subscribe((filePath) => {
       this.drawerOpen$.set(
-        filePath === '/' || filePath.startsWith('/playground') ? false : true,
+        filePath === '/' ||
+          filePath.startsWith('/playground') ||
+          filePath.startsWith('/jsonschema-playground')
+          ? false
+          : true,
       );
     });
   }
