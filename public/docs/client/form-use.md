@@ -2,6 +2,167 @@
 
 - 如果您需要实现某种逻辑却没有头绪,欢迎[提问](https://github.com/piying-org/piying-view/issues)
 
+## 类型映射
+
+- 大部分`Valibot`类型会被解析为`表单控件`类型
+- 以下为一些常用的类型
+
+  > 更多类型请到[valibot](https://valibot.dev/api/)中查看.如果需要自定义类型请使用[custom](https://valibot.dev/api/custom/)
+
+- `string`
+
+```ts
+v.string();
+```
+
+- `number`
+
+```ts
+v.number();
+```
+
+- `boolean`
+
+```ts
+v.boolean();
+```
+
+- `picklist`
+
+```ts
+v.picklist(["v1", "v2", "v3"]);
+```
+
+---
+
+- 以下类型会被解析为`表单组`
+- `object`/`strictObject` 自动过滤未定义的键值
+
+```ts
+{
+  model: { k1: 'v1', k2: 2, k3: 'v3' },
+  schema: v.object({
+    k1: v.string(),
+    k2: v.number(),
+    __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+  }),
+}
+```
+
+- `looseObject` 会保留未定义的键值
+
+```ts
+{
+  model: { k1: 'v1', k2: 2, k3: 'v3' },
+  schema: v.looseObject({
+    k1: v.string(),
+    k2: v.number(),
+    __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+  }),
+}
+```
+
+- `objectWithRest` 部分固定键值,部分可添加键值
+
+```ts
+{
+  model: { k1: 'v1', k2: 2, k3: 'v3' },
+  schema: v.intersect([
+    v.objectWithRest(
+      {
+        k1: v.string(),
+        k2: v.number(),
+      },
+      v.string(),
+    ),
+    v.optional(
+      v.object({
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+    ),
+  ]),
+}
+```
+
+- `record` 无固定键值,全部为可添加键值
+  > 目前仅支持key为string类型
+
+```ts
+{
+  model: { o1: { k1: 'v1' } },
+  schema: v.intersect([
+    v.object({
+      o1: v.record(v.string(), v.string()),
+    }),
+    v.optional(
+      v.object({
+        __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+      }),
+    ),
+  ]),
+}
+```
+
+---
+
+- 以下类型会被解析为`表单数组`
+
+- `tuple`/`strictTuple` 固定的数组项,不可添加,超过长度自动过滤
+
+```ts
+{
+  model: { list: ['v1'] },
+  schema: v.intersect([
+    v.object({
+      list: v.tuple([v.string()]),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+  ]),
+}
+```
+
+- `looseTuple` 固定的数组项,不可添加,超过长度保留
+
+```ts
+{
+  model: { list: ['v1','v2'] },
+  schema: v.intersect([
+    v.object({
+      list: v.looseTuple([v.string()]),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+  ]),
+}
+```
+
+- `tupleWithRest` 部分固定,部分可添加
+
+```ts
+{
+  model: { list: ['v1', 'v2'] },
+  schema: v.intersect([
+    v.object({
+      list: v.tupleWithRest([v.string()], v.string()),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+  ]),
+}
+```
+
+- `array` 动态添加子项
+
+```ts
+{
+  model: { list: ['v1'] },
+  schema: v.intersect([
+    v.object({
+      list: v.array(v.string()),
+      __helper: v.pipe(NFCSchema, setComponent('formHelper')),
+    }),
+  ]),
+}
+```
+
 ## 默认值
 
 ```ts

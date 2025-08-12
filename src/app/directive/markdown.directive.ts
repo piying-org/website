@@ -38,6 +38,9 @@ class Renderer2 extends Renderer {
   override codespan({ text }: Tokens.Codespan): string {
     return `<code class="badge badge-outline badge-info mx-2">${encode(text)}</code>`;
   }
+  override hr(token: Tokens.Hr): string {
+    return `<div class="divider"></div>`
+  }
   override heading({ tokens, depth, text }: Tokens.Heading): string {
     if (depth === 2 || depth === 3) {
       let titleName = text;

@@ -123,6 +123,42 @@ export const FieldGlobalConfig = {
     object: {
       type: PiyingViewGroup,
     },
+    strict_object: {
+      type: () =>
+        import('./group/rest-group/component').then((item) => item.default),
+    },
+    loose_object: {
+      type: () =>
+        import('./group/rest-group/component').then((item) => item.default),
+    },
+    object_with_rest: {
+      type: () =>
+        import('./group/rest-group/component').then((item) => item.default),
+    },
+    array: {
+      type: () =>
+        import('./group/rest-group/component').then((item) => item.default),
+    },
+    tuple: {
+      type: () =>
+        import('./group/rest-group/component').then((item) => item.default),
+    },
+    strict_tuple: {
+      type: () =>
+        import('./group/rest-group/component').then((item) => item.default),
+    },
+    loose_tuple: {
+      type: () =>
+        import('./group/rest-group/component').then((item) => item.default),
+    },
+    tuple_with_rest: {
+      type: () =>
+        import('./group/rest-group/component').then((item) => item.default),
+    },
+    record: {
+      type: () =>
+        import('./group/rest-group/component').then((item) => item.default),
+    },
     intersect: {
       type: PiyingViewGroup,
     },

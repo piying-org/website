@@ -71,6 +71,18 @@
     "associatedMessageIds": {},
     "target": "`@xx` queries the control with the alias `xx`  \n> When an array item is created, the alias creates a separate Map to store it. Only if the query fails, it will then query the parent."
   },
+  "7853811497880683033": {
+    "id": "7853811497880683033",
+    "text": "`array` 动态添加子项",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`array` 动态添加子项"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`array` dynamically add child items"
+  },
   "6598202871436380788": {
     "id": "6598202871436380788",
     "text": "`asyncValidators`异步表单验证",
@@ -227,6 +239,42 @@
     "associatedMessageIds": {},
     "target": "The `list` attribute accepts a path or undefined. It queries the corresponding control through the path and listens for changes in the input value."
   },
+  "3305148830736441409": {
+    "id": "3305148830736441409",
+    "text": "`looseObject` 会保留未定义的键值",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`looseObject` 会保留未定义的键值"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`looseObject` will retain undefined key values"
+  },
+  "8211393579467447801": {
+    "id": "8211393579467447801",
+    "text": "`looseTuple` 固定的数组项,不可添加,超过长度保留",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`looseTuple` 固定的数组项,不可添加,超过长度保留"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`looseTuple` Fixed array items, cannot be added, exceeding the length is retained"
+  },
+  "2726323766671576673": {
+    "id": "2726323766671576673",
+    "text": "`objectWithRest` 部分固定键值,部分可添加键值",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`objectWithRest` 部分固定键值,部分可添加键值"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The `objectWithRest` section has fixed key values, as well as some optional keys that can be added."
+  },
   "5776185434218354072": {
     "id": "5776185434218354072",
     "text": "`object`/`intersect`/`union`/`tuple`/`array`等可以包含子组件的Schema",
@@ -238,6 +286,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Schemas that can contain sub-components, such as `object`/`intersect`/`union`/`tuple`/`array`"
+  },
+  "698410466507448577": {
+    "id": "698410466507448577",
+    "text": "`object`/`strictObject` 自动过滤未定义的键值",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`object`/`strictObject` 自动过滤未定义的键值"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`object`/`strictObject` automatically filter out undefined keys"
   },
   "4470030639577542698": {
     "id": "4470030639577542698",
@@ -286,6 +346,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`priority` indicates the priority level; the smaller the number, the earlier the position."
+  },
+  "3393251207971501349": {
+    "id": "3393251207971501349",
+    "text": "`record` 无固定键值,全部为可添加键值\n> 目前仅支持key为string类型",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`record` 无固定键值,全部为可添加键值\n> 目前仅支持key为string类型"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`record` has no fixed key values; all keys are addable.  \n> Currently, only string-type keys are supported."
   },
   "5375731654841658008": {
     "id": "5375731654841658008",
@@ -346,6 +418,30 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Convert input/output values of `transfomer`"
+  },
+  "1518819030445482137": {
+    "id": "1518819030445482137",
+    "text": "`tupleWithRest` 部分固定,部分可添加",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`tupleWithRest` 部分固定,部分可添加"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The `tupleWithRest` section is partially fixed and partially addable."
+  },
+  "5157879079666139480": {
+    "id": "5157879079666139480",
+    "text": "`tuple`/`strictTuple` 固定的数组项,不可添加,超过长度自动过滤",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`tuple`/`strictTuple` 固定的数组项,不可添加,超过长度自动过滤"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`tuple`/`strictTuple`: Fixed array items; no additions allowed; items exceeding the length are automatically filtered."
   },
   "5736131001182624386": {
     "id": "5736131001182624386",
@@ -454,18 +550,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "React-TanStack Migration"
-  },
-  "8132394158327439351": {
-    "id": "8132394158327439351",
-    "text": "submit/debounce不直接支持,但可以使用其他逻辑代替",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "submit/debounce不直接支持,但可以使用其他逻辑代替"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "submit/debounce is not directly supported, but can be replaced with other logic."
   },
   "7297245665835292883": {
     "id": "7297245665835292883",
@@ -646,6 +730,42 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Event output allows listening to multiple components and multiple outputs at the same time, and then processes them based on their output logic relationships."
+  },
+  "8468647149273983149": {
+    "id": "8468647149273983149",
+    "text": "以下为一些常用的类型\n\n> 更多类型请到[valibot](https://valibot.dev/api/)中查看.如果需要自定义类型请使用[custom](https://valibot.dev/api/custom/)\n",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "以下为一些常用的类型\n\n> 更多类型请到[valibot](https://valibot.dev/api/)中查看.如果需要自定义类型请使用[custom](https://valibot.dev/api/custom/)\n"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The following are some commonly used types.\n\n> For more types, please visit [valibot](https://valibot.dev/api/). To define custom types, use [custom](https://valibot.dev/api/custom/)."
+  },
+  "8605472517479215830": {
+    "id": "8605472517479215830",
+    "text": "以下类型会被解析为`表单数组`\n",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "以下类型会被解析为`表单数组`\n"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The following types will be parsed as `Form Array`"
+  },
+  "6737478381445400515": {
+    "id": "6737478381445400515",
+    "text": "以下类型会被解析为`表单组`",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "以下类型会被解析为`表单组`"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The following types will be parsed as `Form Group`"
   },
   "2821900253069411107": {
     "id": "2821900253069411107",
@@ -1282,6 +1402,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Most [vee-validate](https://vee-validate.logaretm.com/v4/) use cases have been implemented"
+  },
+  "5261099120925019731": {
+    "id": "5261099120925019731",
+    "text": "大部分`Valibot`类型会被解析为`表单控件`类型",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "大部分`Valibot`类型会被解析为`表单控件`类型"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Most `Valibot` types will be parsed into `form control` types."
   },
   "1390322479774070306": {
     "id": "1390322479774070306",
@@ -2530,6 +2662,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Type safety, validation"
+  },
+  "9073887709210456275": {
+    "id": "9073887709210456275",
+    "text": "类型映射",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "类型映射"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Type Mapping"
   },
   "817346401648530873": {
     "id": "817346401648530873",
