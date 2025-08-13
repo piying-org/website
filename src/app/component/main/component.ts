@@ -134,6 +134,11 @@ const Menu: NavigationItem[] = [
         link: '/docs/orm/quick-start',
         type: 'basic',
       },
+      {
+        title: $localize`Action`,
+        link: '/docs/orm/action',
+        type: 'basic',
+      },
     ],
   },
   { title: $localize`源码`, type: 'basic', link: '/docs/source-code' },

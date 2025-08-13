@@ -71,6 +71,18 @@
     "associatedMessageIds": {},
     "target": "`@xx` queries the control with the alias `xx`  \n> When an array item is created, the alias creates a separate Map to store it. Only if the query fails, it will then query the parent."
   },
+  "2884683988417577326": {
+    "id": "2884683988417577326",
+    "text": "`array` 使用`v.array()`时为true",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`array` 使用`v.array()`时为true"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`array` is true when using `v.array()`"
+  },
   "7853811497880683033": {
     "id": "7853811497880683033",
     "text": "`array` 动态添加子项",
@@ -119,6 +131,18 @@
     "associatedMessageIds": {},
     "target": "Update when the `change` control value change is emitted"
   },
+  "5244256398521240053": {
+    "id": "5244256398521240053",
+    "text": "`comment` 根据`v.title`,`v.description`自动生成",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`comment` 根据`v.title`,`v.description`自动生成"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`comment` generated automatically based on `v.title` and `v.description`"
+  },
   "4411053764251150929": {
     "id": "4411053764251150929",
     "text": "`cva`用于外部自动绑定",
@@ -142,6 +166,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`cvaa` is used to bind with existing form controls."
+  },
+  "3636669259068648366": {
+    "id": "3636669259068648366",
+    "text": "`default` 可选的默认值",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`default` 可选的默认值"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`default` Optional default value"
   },
   "2238330843842140472": {
     "id": "2238330843842140472",
@@ -190,6 +226,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`emptyValue` The default value returned when the value is empty  \n> Applies only to `array/group/logic group`"
+  },
+  "2672008421021469298": {
+    "id": "2672008421021469298",
+    "text": "`enum` picklist的值",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`enum` picklist的值"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The value of the `enum` picklist"
   },
   "1188943212461243169": {
     "id": "1188943212461243169",
@@ -262,6 +310,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`looseTuple` Fixed array items, cannot be added, exceeding the length is retained"
+  },
+  "2457804126682227107": {
+    "id": "2457804126682227107",
+    "text": "`nullable` 字段处于非必填状态时",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`nullable` 字段处于非必填状态时"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "When the `nullable` field is in an optional state"
   },
   "2726323766671576673": {
     "id": "2726323766671576673",
@@ -442,6 +502,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`tuple`/`strictTuple`: Fixed array items; no additions allowed; items exceeding the length are automatically filtered."
+  },
+  "5133267340573404107": {
+    "id": "5133267340573404107",
+    "text": "`type` 一些基础类型可自动赋值",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`type` 一些基础类型可自动赋值"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`type` Some basic types can be automatically assigned values."
   },
   "5736131001182624386": {
     "id": "5736131001182624386",
@@ -815,6 +887,18 @@
     "associatedMessageIds": {},
     "target": "Use"
   },
+  "3122031596710613316": {
+    "id": "3122031596710613316",
+    "text": "使用`EntitySchema`实现会有部分逻辑无法实现(@Tree,@VirtualColumn),这是由于typeorm两部分代码(EntitySchema,装饰器)可能没有同步更新导致的,正在想办法解决",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "使用`EntitySchema`实现会有部分逻辑无法实现(@Tree,@VirtualColumn),这是由于typeorm两部分代码(EntitySchema,装饰器)可能没有同步更新导致的,正在想办法解决"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Implementing with `EntitySchema` will result in certain logic being unachievable (@Tree, @VirtualColumn), which is due to potential desynchronization between TypeORM's two components (EntitySchema and decorators). A solution is currently being sought."
+  },
   "2614371932351079648": {
     "id": "2614371932351079648",
     "text": "使用`defer`动态创建控件",
@@ -1019,6 +1103,42 @@
     "associatedMessageIds": {},
     "target": "In which `intersect` combined with `asVirtualGroup` can create a logical normal group, facilitating layout."
   },
+  "8245665266367653205": {
+    "id": "8245665266367653205",
+    "text": "其他列装饰器实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "其他列装饰器实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Other column decorator implementations"
+  },
+  "1526869277162896039": {
+    "id": "1526869277162896039",
+    "text": "其他概念对应",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "其他概念对应"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Other concepts correspond to"
+  },
+  "174278215657368244": {
+    "id": "174278215657368244",
+    "text": "其他装饰器对应",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "其他装饰器对应"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Other decorators correspond to"
+  },
   "8225983412930701792": {
     "id": "8225983412930701792",
     "text": "几乎所有的`皮影Action`都来源于此Action",
@@ -1151,6 +1271,18 @@
     "associatedMessageIds": {},
     "target": "The wrapper allows developers to focus only on the basic functionality of the component when encapsulating it, reducing code coupling and improving maintainability."
   },
+  "1226005654707305742": {
+    "id": "1226005654707305742",
+    "text": "双向关联时因为循环引用的关系,需要将循环部分的类型和定义单独声明,然后使用`intersect`",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "双向关联时因为循环引用的关系,需要将循环部分的类型和定义单独声明,然后使用`intersect`"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "When establishing bidirectional associations, due to circular references, the types and definitions of the circular parts need to be declared separately, and then `intersect` should be used."
+  },
   "2524471733249523260": {
     "id": "2524471733249523260",
     "text": "变更监听",
@@ -1271,6 +1403,18 @@
     "associatedMessageIds": {},
     "target": "It is exactly the same as during normal development, configuring input/output and other properties at the definition location."
   },
+  "7053858755835087629": {
+    "id": "7053858755835087629",
+    "text": "因为EntitySchema不支持`trees`字段,所以`@Tree`不被支持",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "因为EntitySchema不支持`trees`字段,所以`@Tree`不被支持"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Since EntitySchema does not support the `trees` field, `@Tree` is not supported."
+  },
   "307240789270475179": {
     "id": "307240789270475179",
     "text": "国际化",
@@ -1294,6 +1438,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "When using `v.object({})`, the field order in modern browsers (excluding IE11) is predictable: non-negative integer keys are prioritized in ascending order, followed by keys in the order they were defined.  \n> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in"
+  },
+  "8363092649005071624": {
+    "id": "8363092649005071624",
+    "text": "基于typeorm的[EntitySchema](https://typeorm.io/docs/entity/separating-entity-definition/#extending-schemas)封装,与装饰器基本相同,但是会有一些差别",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "基于typeorm的[EntitySchema](https://typeorm.io/docs/entity/separating-entity-definition/#extending-schemas)封装,与装饰器基本相同,但是会有一些差别"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Encapsulated based on TypeORM's [EntitySchema](https://typeorm.io/docs/entity/separating-entity-definition/#extending-schemas), it is largely similar to decorators, but with some differences."
   },
   "101391695118785140": {
     "id": "101391695118785140",
@@ -2267,6 +2423,18 @@
     "associatedMessageIds": {},
     "target": "This method also supports directly specifying the component definition, but it is not recommended as it can make maintenance more difficult.  \n> Unless this component is used only in this one place and only once, it is still recommended to register it first before using it."
   },
+  "2681719361718165007": {
+    "id": "2681719361718165007",
+    "text": "此方法仅用力标记主键,可以用`column`进行其他参数修改",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "此方法仅用力标记主键,可以用`column`进行其他参数修改"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "This method only uses the `key` annotation to mark the primary key, and other parameters can be modified using `column`."
+  },
   "1972490448761244080": {
     "id": "1972490448761244080",
     "text": "此方法单纯为表单更新值,也就是模型到视图",
@@ -2278,6 +2446,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "This method is purely for updating form values, that is, model to view."
+  },
+  "5741091804680144804": {
+    "id": "5741091804680144804",
+    "text": "此方法可以省略,省略时使用注册的key",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "此方法可以省略,省略时使用注册的key"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "This method can be omitted; when omitted, the registered key is used."
   },
   "273695716961833550": {
     "id": "273695716961833550",
@@ -2302,6 +2482,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "These methods are used to set component-related properties."
+  },
+  "7270068091546386907": {
+    "id": "7270068091546386907",
+    "text": "此装饰器的实现在`EntitySchema`中不存在",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "此装饰器的实现在`EntitySchema`中不存在"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The implementation of this decorator does not exist in `EntitySchema`"
   },
   "1763898646512759828": {
     "id": "1763898646512759828",
@@ -2818,6 +3010,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Contact me"
+  },
+  "7142713783726136626": {
+    "id": "7142713783726136626",
+    "text": "自动生成属性(可以覆盖)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "自动生成属性(可以覆盖)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Auto-generated attributes (can be overridden)"
   },
   "2790194754255961960": {
     "id": "2790194754255961960",
@@ -3490,6 +3694,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "By default, it replaces the current class, but you can also set it to `true` to merge with existing classes."
+  },
+  "2047196600557974609": {
+    "id": "2047196600557974609",
+    "text": "默认会自动处理关系,也可以增加column Action进行调整",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "默认会自动处理关系,也可以增加column Action进行调整"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "By default, relationships are automatically handled; you can also adjust them by adding a column Action."
   },
   "5144760924156081460": {
     "id": "5144760924156081460",

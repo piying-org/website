@@ -71,6 +71,18 @@
     "associatedMessageIds": {},
     "target": "`@xx` 查询别名为`xx`的控件\n> 当创建了一个数组项时,别名会创建一个单独的Map保存,如果查询不到的情况下,才会查询父级"
   },
+  "2884683988417577326": {
+    "id": "2884683988417577326",
+    "text": "`array` 使用`v.array()`时为true",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`array` 使用`v.array()`时为true"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`array` 使用`v.array()`时为true"
+  },
   "7853811497880683033": {
     "id": "7853811497880683033",
     "text": "`array` 动态添加子项",
@@ -119,6 +131,18 @@
     "associatedMessageIds": {},
     "target": "`change`控件值变更发射时更新"
   },
+  "5244256398521240053": {
+    "id": "5244256398521240053",
+    "text": "`comment` 根据`v.title`,`v.description`自动生成",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`comment` 根据`v.title`,`v.description`自动生成"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`comment` 根据`v.title`,`v.description`自动生成"
+  },
   "4411053764251150929": {
     "id": "4411053764251150929",
     "text": "`cva`用于外部自动绑定",
@@ -142,6 +166,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`cvaa`用于和现有的表单控件进行绑定"
+  },
+  "3636669259068648366": {
+    "id": "3636669259068648366",
+    "text": "`default` 可选的默认值",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`default` 可选的默认值"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`default` 可选的默认值"
   },
   "2238330843842140472": {
     "id": "2238330843842140472",
@@ -190,6 +226,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`emptyValue`当值为空时,返回的默认值\n> 仅适用于`array/group/logic group`"
+  },
+  "2672008421021469298": {
+    "id": "2672008421021469298",
+    "text": "`enum` picklist的值",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`enum` picklist的值"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`enum` picklist的值"
   },
   "1188943212461243169": {
     "id": "1188943212461243169",
@@ -262,6 +310,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`looseTuple` 固定的数组项,不可添加,超过长度保留"
+  },
+  "2457804126682227107": {
+    "id": "2457804126682227107",
+    "text": "`nullable` 字段处于非必填状态时",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`nullable` 字段处于非必填状态时"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`nullable` 字段处于非必填状态时"
   },
   "2726323766671576673": {
     "id": "2726323766671576673",
@@ -442,6 +502,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`tuple`/`strictTuple` 固定的数组项,不可添加,超过长度自动过滤"
+  },
+  "5133267340573404107": {
+    "id": "5133267340573404107",
+    "text": "`type` 一些基础类型可自动赋值",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`type` 一些基础类型可自动赋值"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`type` 一些基础类型可自动赋值"
   },
   "5736131001182624386": {
     "id": "5736131001182624386",
@@ -815,6 +887,18 @@
     "associatedMessageIds": {},
     "target": "使用"
   },
+  "3122031596710613316": {
+    "id": "3122031596710613316",
+    "text": "使用`EntitySchema`实现会有部分逻辑无法实现(@Tree,@VirtualColumn),这是由于typeorm两部分代码(EntitySchema,装饰器)可能没有同步更新导致的,正在想办法解决",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "使用`EntitySchema`实现会有部分逻辑无法实现(@Tree,@VirtualColumn),这是由于typeorm两部分代码(EntitySchema,装饰器)可能没有同步更新导致的,正在想办法解决"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "使用`EntitySchema`实现会有部分逻辑无法实现(@Tree,@VirtualColumn),这是由于typeorm两部分代码(EntitySchema,装饰器)可能没有同步更新导致的,正在想办法解决"
+  },
   "2614371932351079648": {
     "id": "2614371932351079648",
     "text": "使用`defer`动态创建控件",
@@ -1019,6 +1103,42 @@
     "associatedMessageIds": {},
     "target": "其中`intersect`配合`asVirtualGroup`可以创建一个逻辑上的普通分组,方便布局"
   },
+  "8245665266367653205": {
+    "id": "8245665266367653205",
+    "text": "其他列装饰器实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "其他列装饰器实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "其他列装饰器实现"
+  },
+  "1526869277162896039": {
+    "id": "1526869277162896039",
+    "text": "其他概念对应",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "其他概念对应"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "其他概念对应"
+  },
+  "174278215657368244": {
+    "id": "174278215657368244",
+    "text": "其他装饰器对应",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "其他装饰器对应"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "其他装饰器对应"
+  },
   "8225983412930701792": {
     "id": "8225983412930701792",
     "text": "几乎所有的`皮影Action`都来源于此Action",
@@ -1151,6 +1271,18 @@
     "associatedMessageIds": {},
     "target": "包装器让开发者在封装组件的时候可以仅考虑该组件的基本功能,减少了代码耦合,增加了可维护性"
   },
+  "1226005654707305742": {
+    "id": "1226005654707305742",
+    "text": "双向关联时因为循环引用的关系,需要将循环部分的类型和定义单独声明,然后使用`intersect`",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "双向关联时因为循环引用的关系,需要将循环部分的类型和定义单独声明,然后使用`intersect`"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "双向关联时因为循环引用的关系,需要将循环部分的类型和定义单独声明,然后使用`intersect`"
+  },
   "2524471733249523260": {
     "id": "2524471733249523260",
     "text": "变更监听",
@@ -1271,6 +1403,18 @@
     "associatedMessageIds": {},
     "target": "和正常开发时完全一样,在定义处配置input/output及其他属性传入"
   },
+  "7053858755835087629": {
+    "id": "7053858755835087629",
+    "text": "因为EntitySchema不支持`trees`字段,所以`@Tree`不被支持",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "因为EntitySchema不支持`trees`字段,所以`@Tree`不被支持"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "因为EntitySchema不支持`trees`字段,所以`@Tree`不被支持"
+  },
   "307240789270475179": {
     "id": "307240789270475179",
     "text": "国际化",
@@ -1294,6 +1438,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "在使用`v.object({})`时,现代浏览器(除了IE11)的字段顺序都是可预测的;即优先非负整数升序键,然后是按照定义顺序来\n> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in"
+  },
+  "8363092649005071624": {
+    "id": "8363092649005071624",
+    "text": "基于typeorm的[EntitySchema](https://typeorm.io/docs/entity/separating-entity-definition/#extending-schemas)封装,与装饰器基本相同,但是会有一些差别",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "基于typeorm的[EntitySchema](https://typeorm.io/docs/entity/separating-entity-definition/#extending-schemas)封装,与装饰器基本相同,但是会有一些差别"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "基于typeorm的[EntitySchema](https://typeorm.io/docs/entity/separating-entity-definition/#extending-schemas)封装,与装饰器基本相同,但是会有一些差别"
   },
   "101391695118785140": {
     "id": "101391695118785140",
@@ -2267,6 +2423,18 @@
     "associatedMessageIds": {},
     "target": "此方法也支持直接指定组件定义,但是不推荐,因为会让维护变的困难\n> 除非此组件仅在此地方使用并且只使用一次,否则还是建议先注册再使用"
   },
+  "2681719361718165007": {
+    "id": "2681719361718165007",
+    "text": "此方法仅用力标记主键,可以用`column`进行其他参数修改",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "此方法仅用力标记主键,可以用`column`进行其他参数修改"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "此方法仅用力标记主键,可以用`column`进行其他参数修改"
+  },
   "1972490448761244080": {
     "id": "1972490448761244080",
     "text": "此方法单纯为表单更新值,也就是模型到视图",
@@ -2278,6 +2446,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "此方法单纯为表单更新值,也就是模型到视图"
+  },
+  "5741091804680144804": {
+    "id": "5741091804680144804",
+    "text": "此方法可以省略,省略时使用注册的key",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "此方法可以省略,省略时使用注册的key"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "此方法可以省略,省略时使用注册的key"
   },
   "273695716961833550": {
     "id": "273695716961833550",
@@ -2302,6 +2482,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "此类方法都是用来设置组件相关属性"
+  },
+  "7270068091546386907": {
+    "id": "7270068091546386907",
+    "text": "此装饰器的实现在`EntitySchema`中不存在",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "此装饰器的实现在`EntitySchema`中不存在"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "此装饰器的实现在`EntitySchema`中不存在"
   },
   "1763898646512759828": {
     "id": "1763898646512759828",
@@ -2818,6 +3010,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "联系我"
+  },
+  "7142713783726136626": {
+    "id": "7142713783726136626",
+    "text": "自动生成属性(可以覆盖)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "自动生成属性(可以覆盖)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "自动生成属性(可以覆盖)"
   },
   "2790194754255961960": {
     "id": "2790194754255961960",
@@ -3490,6 +3694,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "默认为替换当前类,也可以设置`true`合并已有类"
+  },
+  "2047196600557974609": {
+    "id": "2047196600557974609",
+    "text": "默认会自动处理关系,也可以增加column Action进行调整",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "默认会自动处理关系,也可以增加column Action进行调整"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "默认会自动处理关系,也可以增加column Action进行调整"
   },
   "5144760924156081460": {
     "id": "5144760924156081460",
