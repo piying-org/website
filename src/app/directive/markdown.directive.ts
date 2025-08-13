@@ -39,7 +39,7 @@ class Renderer2 extends Renderer {
     return `<code class="badge badge-outline badge-info mx-2">${encode(text)}</code>`;
   }
   override hr(token: Tokens.Hr): string {
-    return `<div class="divider"></div>`
+    return `<div class="divider"></div>`;
   }
   override heading({ tokens, depth, text }: Tokens.Heading): string {
     if (depth === 2 || depth === 3) {
@@ -76,8 +76,6 @@ class Renderer2 extends Renderer {
 }
 
 let codeIndex = 0;
-const PrevLabel = $localize`预览`;
-const CodeLabel = $localize`代码`;
 export const CodeMap = new Map<number, string>();
 const marked = new Marked(
   markedHighlight({
@@ -89,11 +87,11 @@ const marked = new Marked(
       const tabName = `code-tab-${currentIndex}`;
       if (lang === 'ts') {
         return `<div class="tabs tabs-lift">
-        <input type="radio" name="${tabName}" class="tab" aria-label="${PrevLabel}" checked="checked"/>
+        <input type="radio" name="${tabName}" class="tab" aria-label="${$localize`预览`}" checked="checked"/>
         <div class="tab-content bg-base-100 border-base-300 p-6 code-tab-background">
         <app-eval-view data-code-index="${currentIndex}"></app-eval-view>
         </div>
-        <input type="radio" name="${tabName}" class="tab" aria-label="${CodeLabel}"/>
+        <input type="radio" name="${tabName}" class="tab" aria-label="${$localize`代码`}"/>
       <pre class="tab-content bg-base-100 border-base-300 p-6"><code class="language-${lang}"><div>${codeData}</div></code></pre>  
         <app-open-playground data-code-index="${currentIndex}"></app-open-playground>
 

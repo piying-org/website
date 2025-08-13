@@ -16,7 +16,7 @@ export class SchemaViewRC {
   route = inject(ActivatedRoute);
 
   context = this.route.snapshot.data['context']?.();
-  schema = this.route.snapshot.data['schema'];
+  schema = this.route.snapshot.data['schema']();
   model = this.route.snapshot.data['model']?.() || defaultValue;
   options = {
     context: this.context,

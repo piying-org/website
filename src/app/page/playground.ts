@@ -40,64 +40,66 @@ export const PlaygroundGroupRoute: Route = {
         },
       };
     },
-    schema: v.pipe(
-      v.intersect([
-        v.pipe(
-          v.object({
-            list: v.pipe(
-              v.string(),
-              setComponent('picklist'),
-              patchInputs({ options: [] }),
-              patchAsyncInputs({
-                options: (field) => field.context.getList(),
-              }),
-              valueChange((fn) => {
-                fn({ list: [undefined] }).subscribe(({ list, field }) => {
-                  if (!list[0]) {
-                    return;
-                  }
-                  field
-                    .get(['..', 'codeEditor'])!
-                    .form.control!.updateValue(list[0]);
-                });
-              }),
-            ),
-            codeEditor: v.pipe(v.string(), setComponent('codeEditor')),
-          }),
-          componentClass('flex flex-col gap-4'),
-        ),
-        v.pipe(
-          v.object({
-            __evalView: EvalViewDefine,
-          }),
-        ),
-      ]),
-      asVirtualGroup(),
-      componentClass('flex gap-4 *:flex-1 pt-4 h-[calc(100vh-4rem-4rem)]'),
-    ),
+    schema: () =>
+      v.pipe(
+        v.intersect([
+          v.pipe(
+            v.object({
+              list: v.pipe(
+                v.string(),
+                setComponent('picklist'),
+                patchInputs({ options: [] }),
+                patchAsyncInputs({
+                  options: (field) => field.context.getList(),
+                }),
+                valueChange((fn) => {
+                  fn({ list: [undefined] }).subscribe(({ list, field }) => {
+                    if (!list[0]) {
+                      return;
+                    }
+                    field
+                      .get(['..', 'codeEditor'])!
+                      .form.control!.updateValue(list[0]);
+                  });
+                }),
+              ),
+              codeEditor: v.pipe(v.string(), setComponent('codeEditor')),
+            }),
+            componentClass('flex flex-col gap-4'),
+          ),
+          v.pipe(
+            v.object({
+              __evalView: EvalViewDefine,
+            }),
+          ),
+        ]),
+        asVirtualGroup(),
+        componentClass('flex gap-4 *:flex-1 pt-4 h-[calc(100vh-4rem-4rem)]'),
+      ),
   },
 };
 export const PlaygroundSingleRoute: Route = {
   path: 'playground/single',
   component: SchemaViewRC,
   data: {
-    schema: v.pipe(
-      v.intersect([
-        v.pipe(
-          v.object({
-            codeEditor: v.pipe(v.string(), setComponent('codeEditor')),
-          }),
-          componentClass('flex flex-col gap-4'),
-        ),
-        v.pipe(
-          v.object({
-            __evalView: EvalViewDefine,
-          }),
-        ),
-      ]),
-      asVirtualGroup(),
-      componentClass('flex gap-4 *:flex-1 h-full mt-4'),
-    ),
+    schema: () =>
+      v.pipe(
+        v.intersect([
+          v.pipe(
+            v.object({
+              codeEditor: v.pipe(v.string(), setComponent('codeEditor')),
+            }),
+            componentClass('flex flex-col gap-4'),
+          ),
+          v.pipe(
+            v.object({
+              __evalView: EvalViewDefine,
+            }),
+          ),
+        ]),
+        asVirtualGroup(),
+        componentClass('flex gap-4 *:flex-1 h-full mt-4'),
+      ),
     model: async () => {
       const route = inject(ActivatedRoute);
       const inputData = route.snapshot.queryParams['input'] as string;

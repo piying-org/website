@@ -9,8 +9,6 @@ import { SelectComponent } from './select/component';
 import { RatingComponent } from './rating/component';
 import { FileInputDirective } from './file-input/file-input.directive';
 import { FieldsetFGC } from './fieldset/component';
-import { MainNFCC } from './main/component';
-import { Main1Component } from './main-1/component';
 import { ButtonLinkComponent } from './link/component';
 import { ValidWC } from './wrapper/valid/component';
 import { DropdownComponent } from './dropdown/component';
@@ -166,10 +164,11 @@ export const FieldGlobalConfig = {
       type: PiyingViewGroup,
     },
     main: {
-      type: MainNFCC,
+      type: () => import('./main/component').then((item) => item.MainNFCC),
     },
     'main-1': {
-      type: Main1Component,
+      type: () =>
+        import('./main-1/component').then((item) => item.Main1Component),
     },
     codeEditor: {
       selector: 'div',
