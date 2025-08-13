@@ -360,15 +360,29 @@ export class JsonSchemaToValibot {
           if (!childrenMap.size) {
             return undefined;
           }
-          const baseSchema = v.object(
-            [...childrenMap.entries()].reduce(
-              (obj, [key, value]) => {
-                obj[key] = value;
-                return obj;
-              },
-              {} as Record<any, any>,
-            ),
+          let restSchema = schema.additionalProperties
+            ? this.__toValibotWrapper(
+                schema.additionalProperties as JSONSchema7,
+                { schema: options.schema },
+              )
+            : undefined;
+          let childrenSchemas = [...childrenMap.entries()].reduce(
+            (obj, [key, value]) => {
+              obj[key] = value;
+              return obj;
+            },
+            {} as Record<any, any>,
           );
+          let baseSchema;
+          if ('additionalProperties' in schema) {
+            if (!schema.additionalProperties) {
+              baseSchema = v.object(childrenSchemas);
+            } else {
+              baseSchema = v.objectWithRest(childrenSchemas, restSchema);
+            }
+          } else {
+            baseSchema = v.looseObject(childrenSchemas);
+          }
           if (addonList.length) {
             // 因为交叉类型问题,使用一个临时兼容
             parent = v.fallback(
