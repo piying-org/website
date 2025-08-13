@@ -9,6 +9,7 @@ import {
   patchInputs,
   patchProps,
   setComponent,
+  VALID,
 } from '@piying/view-angular-core';
 import * as jsonActions from '@piying/view-angular-core';
 const clone = rfdc({ proto: false, circles: false });
@@ -242,45 +243,20 @@ export class JsonSchemaToValibot {
       createTypeFn = (input) =>
         v.pipe(v.nullable(input) as any, ...actionList, ...configList);
     }
-
+    // enum
+    const maybeEnumSchema = this.#enumToDefine(schema);
+    if (maybeEnumSchema) {
+      return createTypeFn(maybeEnumSchema);
+    }
     // 这个是单独类型,与type互斥
     if ('const' in schema) {
       return createTypeFn(
         v.optional(v.literal(schema.const as any), schema.const),
       );
-    } else if (this.isEnum(schema)) {
-      const enumOptions = this.toEnumOptions(schema);
-      const baseSchema = v.picklist(enumOptions.map((item) => item.value));
-
-      if (type === 'array') {
-        return createTypeFn(
-          v.pipe(
-            v.array(baseSchema),
-            asControl(),
-            setComponent('multiselect'),
-            patchInputs({
-              options: enumOptions,
-            }),
-          ),
-        );
-      } else {
-        return createTypeFn(
-          v.pipe(
-            baseSchema,
-            patchInputs({
-              options: enumOptions,
-            }),
-          ),
-        );
-      }
     } else if (schema.oneOf) {
-      return createTypeFn(
-        this.logicGroupSchema(<JSONSchema7[]>schema.oneOf, 'oneOf', options),
-      );
+      return createTypeFn(this.logicGroupSchema(schema, 'oneOf', options));
     } else if (schema.anyOf) {
-      return createTypeFn(
-        this.logicGroupSchema(<JSONSchema7[]>schema.anyOf, 'anyOf', options),
-      );
+      return createTypeFn(this.logicGroupSchema(schema, 'anyOf', options));
     } else {
       switch (type) {
         case 'number':
@@ -303,7 +279,7 @@ export class JsonSchemaToValibot {
           const addonList: any[] = [];
           let checkUnion = false;
           const { propDeps, schemaDeps } = this.resolveDependencies(schema);
-          for (const property of Object.keys(schema.properties || {})) {
+          for (const property of Object.keys(schema.properties ?? {})) {
             if (options.unionKey === property) {
               checkUnion = true;
               continue;
@@ -316,6 +292,11 @@ export class JsonSchemaToValibot {
               <JSONSchema7>schema.properties![property],
               { ...options, unionKey: undefined },
             );
+            if (!child) {
+              // todo patternProperties
+              console.warn(schema.properties![property]);
+              continue;
+            }
             // 添加子级
             if (!isRequired && child.type !== 'optional') {
               childrenMap.set(property, v.optional(child));
@@ -326,9 +307,7 @@ export class JsonSchemaToValibot {
             if (schemaDeps[property]) {
               const depSchema = schemaDeps[property];
               const haskey = this.#hasSelfKey(depSchema, property);
-              if (haskey) {
-                console.log(this.isEnum((depSchema as any).oneOf![0]));
-              }
+
               const instance = this.__toValibotWrapper(depSchema, {
                 ...options,
                 unionKey: haskey ? property : undefined,
@@ -345,17 +324,38 @@ export class JsonSchemaToValibot {
                       return queryField.form.control!.valueChanges.pipe(
                         map(
                           (value) =>
-                            queryField.form.control!.status$$() !== 'VALID' ||
+                            queryField.form.control!.status$$() !== VALID ||
                             value === undefined,
                         ),
                       );
                     },
                   }),
                 ),
-
-                //todo 条件式必选
               );
             }
+          }
+
+          for (const key of Object.keys(propDeps ?? {})) {
+            let list = propDeps[key];
+            let depSchema = childrenMap.get(key)!;
+            depSchema = v.pipe(
+              depSchema,
+              formConfig({
+                validators: [
+                  (control) => {
+                    let needRequired = list.some((item) => {
+                      return control.parent!.get(item)?.valid;
+                    });
+                    return needRequired
+                      ? !!control.value
+                        ? undefined
+                        : { dependentRequired: `must required` }
+                      : undefined;
+                  },
+                ],
+              }),
+            );
+            childrenMap.set(key, depSchema);
           }
           if (!childrenMap.size) {
             return undefined;
@@ -379,9 +379,9 @@ export class JsonSchemaToValibot {
             parent = baseSchema;
           }
           if (checkUnion) {
-            const constValue = this.toEnumOptions(
+            const constValue = this.#parseEnum(
               schema.properties![options.unionKey!] as any,
-            ).map((item) => item.value);
+            )!.map((item) => item.value);
             parent = v.pipe(
               parent,
               hideWhen({
@@ -399,50 +399,41 @@ export class JsonSchemaToValibot {
           return createTypeFn(parent) as any;
         }
         case 'array': {
+          let arrayConfig = this.#getArrayConfig(schema);
+          if (!arrayConfig) {
+            return undefined;
+          }
           let parent;
-          // 解析子级
-          // resolve items schema needed for isEnum check
-          if (schema.items) {
-            if (!Array.isArray(schema.items)) {
-              schema.items = this.resolveSchema(
-                <JSONSchema7>schema.items,
+          let prefixItems = arrayConfig.prefixItems;
+          // tuple
+          if (Array.isArray(prefixItems)) {
+            let items = prefixItems.map((item) =>
+              this.resolveSchema(<JSONSchema7>item, options),
+            );
+            const tupleList = items.map((item, index) =>
+              this.__toValibotWrapper(item as any, options),
+            );
+            if (arrayConfig.items) {
+              let result = this.__toValibotWrapper(
+                arrayConfig.items as any,
                 options,
               );
+              parent = v.tupleWithRest(tupleList, result);
             } else {
-              schema.items = schema.items.map((item) =>
-                this.resolveSchema(<JSONSchema7>item, options),
-              );
-            }
-          }
-
-          // TODO: remove isEnum check once adding an option to skip extension
-          if (!this.isEnum(schema)) {
-            if (Array.isArray(schema.items)) {
-              const tupleList = schema.items.map((item, index) =>
-                this.__toValibotWrapper(item as any, options),
-              );
-              if ('additionalItems' in schema) {
-                let result = this.__toValibotWrapper(
-                  schema.additionalItems as any,
-                  options,
-                );
-                parent = v.tupleWithRest(tupleList, result);
-              } else {
-                parent = v.tuple(tupleList);
-              }
-              // 元组
-            } else {
-              return v.lazy(() =>
-                createTypeFn(
-                  v.array(
-                    this.__toValibotWrapper(schema.items as any, options),
-                  ),
-                ),
-              );
+              parent = v.looseTuple(tupleList);
             }
             return createTypeFn(parent);
           }
-          break;
+          return v.lazy(() =>
+            createTypeFn(
+              v.array(
+                this.__toValibotWrapper(
+                  this.resolveSchema(<JSONSchema7>prefixItems, options),
+                  options,
+                ),
+              ),
+            ),
+          );
         }
         default:
           throw new Error(`未知类型:${type}`);
@@ -521,12 +512,19 @@ export class JsonSchemaToValibot {
   }
 
   private logicGroupSchema(
-    schemas: JSONSchema7[],
+    schema: JSONSchema7,
     type: 'oneOf' | 'anyOf',
     options: IOptions,
   ) {
-    const children = schemas
-      .map((s, i) => this.__toValibotWrapper(s, options))
+    let { oneOf, anyOf, ...restSchema } = schema;
+    const children = (type === 'oneOf' ? oneOf! : anyOf!)
+      .map((schema, index) => {
+        let result = this.__toValibotWrapper(
+          { ...(schema as JSONSchema7), ...restSchema },
+          options,
+        );
+        return result;
+      })
       .filter(Boolean);
     const baseSchema = v.pipe(
       type === 'oneOf' ? v.union(children) : v.intersect(children),
@@ -582,23 +580,34 @@ export class JsonSchemaToValibot {
   private resolveDependencies(schema: JSONSchema7) {
     const propDeps: { [id: string]: string[] } = {};
     const schemaDeps: { [id: string]: JSONSchema7 } = {};
-
-    Object.keys(schema.dependencies || {}).forEach((prop) => {
-      const dependency = schema.dependencies![prop] as JSONSchema7;
-      if (Array.isArray(dependency)) {
-        // Property dependencies
-        dependency.forEach((dep) => {
-          if (!propDeps[dep]) {
-            propDeps[dep] = [prop];
-          } else {
-            propDeps[dep].push(prop);
-          }
-        });
-      } else {
-        // schema dependencies
-        schemaDeps[prop] = dependency;
-      }
-    });
+    const dependentRequired = (dependency: string[], prop: string) => {
+      dependency.forEach((dep) => {
+        propDeps[dep] ??= [];
+        propDeps[dep].push(prop);
+      });
+    };
+    if ('dependencies' in schema) {
+      Object.keys(schema.dependencies!).forEach((prop) => {
+        const dependency = schema.dependencies![prop];
+        if (Array.isArray(dependency)) {
+          dependentRequired(dependency, prop);
+        } else {
+          schemaDeps[prop] = dependency as JSONSchema7;
+        }
+      });
+    }
+    if ('dependentRequired' in schema) {
+      Object.keys(schema.dependentRequired || {}).forEach((prop) => {
+        const dependency = (schema.dependentRequired as any)![prop];
+        dependentRequired(dependency, prop);
+      });
+    }
+    if ('dependentSchemas' in schema) {
+      Object.keys(schema.dependentSchemas || {}).forEach((prop) => {
+        const dependency = (schema.dependentSchemas as any)![prop];
+        schemaDeps[prop] = dependency as JSONSchema7;
+      });
+    }
 
     return { propDeps, schemaDeps };
   }
@@ -624,44 +633,6 @@ export class JsonSchemaToValibot {
     return type ? [type] : [];
   }
 
-  /** 数组是否是枚举 */
-  private isEnum(schema: JSONSchema7): boolean {
-    return (
-      !!schema.enum ||
-      (!!schema.anyOf && (schema.anyOf as JSONSchema7[]).every(isConst)) ||
-      (!!schema.oneOf && (schema.oneOf as JSONSchema7[]).every(isConst)) ||
-      (!!schema.uniqueItems &&
-        !!schema.items &&
-        !Array.isArray(schema.items) &&
-        this.isEnum(<JSONSchema7>schema.items))
-    );
-  }
-
-  private toEnumOptions(schema: JSONSchema7): { value: any; label: any }[] {
-    if (schema.enum) {
-      return schema.enum.map((value) => ({ value, label: value }));
-    }
-
-    const toEnum = (s: JSONSchema7) => {
-      const value = s.hasOwnProperty('const') ? s.const : s.enum![0];
-      const option: any = { value, label: s.title || value };
-      if (s.readOnly) {
-        option.disabled = true;
-      }
-
-      return option;
-    };
-
-    if (schema.anyOf) {
-      return (schema.anyOf as JSONSchema7[]).map(toEnum);
-    }
-
-    if (schema.oneOf) {
-      return (schema.oneOf as JSONSchema7[]).map(toEnum);
-    }
-
-    return this.toEnumOptions(<JSONSchema7>schema.items);
-  }
   #hasSelfKey(schema: JSONSchema7, property: string) {
     const list = schema.oneOf ?? [];
     if (!list.length) {
@@ -674,5 +645,83 @@ export class JsonSchemaToValibot {
         item['properties'] &&
         property in item['properties'],
     );
+  }
+  #getArrayConfig(schema: JSONSchema7) {
+    if ('prefixItems' in schema) {
+      return {
+        prefixItems: schema.prefixItems as
+          | JSONSchema7Definition
+          | JSONSchema7Definition[],
+        items: schema.items as JSONSchema7Definition | undefined,
+      };
+    } else if ('items' in schema) {
+      return {
+        prefixItems: schema.items as
+          | JSONSchema7Definition
+          | JSONSchema7Definition[],
+        items: schema.additionalItems,
+      };
+    }
+    return undefined;
+  }
+  #enumToDefine(schema: JSONSchema7) {
+    let enumOptions = this.#parseEnum(schema);
+    if (!enumOptions) {
+      return;
+    }
+    const baseSchema = v.picklist(enumOptions.map((item) => item.value));
+    if (schema.type === 'array') {
+      return v.pipe(
+        v.array(baseSchema),
+        asControl(),
+        setComponent('multiselect'),
+        patchInputs({
+          options: enumOptions,
+        }),
+      );
+    } else {
+      return v.pipe(
+        baseSchema,
+        patchInputs({
+          options: enumOptions,
+        }),
+      );
+    }
+  }
+  #parseEnum(
+    schema: JSONSchema7,
+    level: number = 0,
+  ): { value: any; label: any }[] | undefined {
+    if ('enum' in schema) {
+      return schema.enum!.map((value) => ({ value, label: value }));
+    } else {
+      const toEnum = (s: JSONSchema7) => {
+        const value = 'const' in s ? s.const : s.enum![0];
+        const option: any = { value, label: s.title || value };
+        if (s.readOnly) {
+          option.disabled = true;
+        }
+
+        return option;
+      };
+      if (!!schema.anyOf && (schema.anyOf as JSONSchema7[]).every(isConst)) {
+        return (schema.anyOf as JSONSchema7[]).map(toEnum);
+      } else if (
+        !!schema.oneOf &&
+        (schema.oneOf as JSONSchema7[]).every(isConst)
+      ) {
+        return (schema.oneOf as JSONSchema7[]).map(toEnum);
+      } else if (!!schema.uniqueItems) {
+        let arrayConfig = this.#getArrayConfig(schema);
+        if (
+          !level &&
+          !!arrayConfig &&
+          !Array.isArray(arrayConfig.prefixItems)
+        ) {
+          return this.#parseEnum(schema.items as any, 1);
+        }
+      }
+    }
+    return undefined;
   }
 }
