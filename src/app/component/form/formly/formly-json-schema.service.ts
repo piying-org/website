@@ -63,56 +63,100 @@ function getSchemaAction(schema: FormlyJSONSchema7) {
   if ('description' in schema) {
     action.push(v.description(schema['description']!));
   }
+  // string
   if ('minLength' in schema) {
     action.push(v.minLength(schema['minLength']!));
   }
+  // string
   if ('maxLength' in schema) {
     action.push(v.maxLength(schema['maxLength']!));
   }
+  // string
   if ('pattern' in schema) {
     action.push(v.regex(new RegExp(schema['pattern']!)));
   }
+  // todo format https://json-schema.org/understanding-json-schema/reference/type#built-in-formats
+  // duration idn-email idn-hostname uri-reference iri iri-reference uri-template json-pointer regex
+  if ('formt' in schema) {
+    switch (schema.format) {
+      case 'date-time': {
+        action.push(v.isoDateTime());
+        break;
+      }
+      case 'time': {
+        action.push(v.isoTime());
+        break;
+      }
+      case 'date': {
+        action.push(v.isoDate());
+        break;
+      }
+      case 'email': {
+        action.push(v.email());
+        break;
+      }
+      case 'ipv4': {
+        action.push(v.ipv4());
+        break;
+      }
+      case 'ipv6': {
+        action.push(v.ipv6());
+        break;
+      }
+      case 'uuid': {
+        action.push(v.uuid());
+        break;
+      }
+      case 'uri': {
+        action.push(v.url());
+        break;
+      }
+
+      default:
+        break;
+    }
+  }
+  // number
   if ('minimum' in schema) {
     action.push(v.minValue(schema.minimum!));
   }
+  // number
   if ('maximum' in schema) {
     action.push(v.maxValue(schema.maximum!));
   }
+  // number
   if ('exclusiveMinimum' in schema) {
     action.push(v.gtValue(schema.exclusiveMinimum!));
   }
+  // number
   if ('exclusiveMaximum' in schema) {
     action.push(v.ltValue(schema.exclusiveMaximum!));
   }
+  // number
   if ('multipleOf' in schema) {
     action.push(v.multipleOf(schema.multipleOf!));
   }
+  // array
   if ('minItems' in schema) {
     action.push(v.minLength(schema.minItems!));
   }
+  // array
   if ('maxItems' in schema) {
     action.push(v.maxLength(schema.maxItems!));
   }
+  // array
   if ('uniqueItems' in schema) {
     action.push(
       v.check((input: any[]) => new Set(input).size === input.length),
     );
   }
+  // object
   if ('maxProperties' in schema) {
-    action.push(
-      v.check(
-        (input: Record<string, any>) =>
-          Object.keys(input).length <= schema.maxProperties!,
-      ),
-    );
+    action.push(v.maxEntries(schema.maxProperties!));
   }
+  // object
   if ('minProperties' in schema) {
-    action.push(
-      v.check(
-        (input: Record<string, any>) =>
-          Object.keys(input).length >= schema.minProperties!,
-      ),
-    );
+    action.push(v.minEntries(schema.minProperties!));
   }
   if ('actions' in schema) {
     for (const rawAction of schema.actions!) {
