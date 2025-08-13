@@ -118,20 +118,28 @@ function getSchemaAction(schema: FormlyJSONSchema7) {
     }
   }
   // number
-  if ('minimum' in schema) {
+  if (
+    'minimum' in schema &&
+    'exclusiveMinimum' in schema &&
+    (schema as any).exclusiveMinimum === true
+  ) {
+    action.push(v.gtValue(schema.minimum!));
+  } else if ('exclusiveMinimum' in schema) {
+    action.push(v.gtValue(schema.exclusiveMinimum!));
+  } else if ('minimum' in schema) {
     action.push(v.minValue(schema.minimum!));
   }
   // number
-  if ('maximum' in schema) {
-    action.push(v.maxValue(schema.maximum!));
-  }
-  // number
-  if ('exclusiveMinimum' in schema) {
-    action.push(v.gtValue(schema.exclusiveMinimum!));
-  }
-  // number
-  if ('exclusiveMaximum' in schema) {
+  if (
+    'maximum' in schema &&
+    'exclusiveMaximum' in schema &&
+    (schema as any).exclusiveMaximum === true
+  ) {
+    action.push(v.ltValue(schema.maximum!));
+  } else if ('exclusiveMaximum' in schema) {
     action.push(v.ltValue(schema.exclusiveMaximum!));
+  } else if ('maximum' in schema) {
+    action.push(v.maxValue(schema.maximum!));
   }
   // number
   if ('multipleOf' in schema) {
