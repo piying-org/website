@@ -239,7 +239,7 @@ export class JsonSchemaToValibot {
           ...actionList,
           ...configList,
         );
-    } else if (types[1] === 'null') {
+    } else if (types.includes('null')) {
       createTypeFn = (input) =>
         v.pipe(v.nullable(input) as any, ...actionList, ...configList);
     }
@@ -437,6 +437,32 @@ export class JsonSchemaToValibot {
               parent = v.looseTuple(tupleList);
             }
             return createTypeFn(parent);
+          }
+          if ('contains' in schema) {
+            let containsSchema = this.__toValibotWrapper(
+              arrayConfig.items as any,
+              options,
+            );
+            let minContains = (schema as any).minContains ?? 1;
+            actionList.push(
+              v.check((list) => {
+                if (Array.isArray(list)) {
+                  let result = list.filter(
+                    (item) => v.safeParse(containsSchema, item).success,
+                  );
+                  if (result.length < minContains) {
+                    return false;
+                  }
+
+                  if (typeof (schema as any).maxContains === 'number') {
+                    return result.length < (schema as any).maxContains;
+                  }
+
+                  return true;
+                }
+                return false;
+              }),
+            );
           }
           return v.lazy(() =>
             createTypeFn(
