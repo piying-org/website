@@ -18,6 +18,9 @@ import { JoinItemWC } from './wrapper/join-wrapper/component';
 import { PanelWC } from './wrapper/panel-wrapper/component';
 import { LabelWC } from './wrapper/label/component';
 import { TooltipWC } from './wrapper/tooltip/component';
+import { JsonSchemaLabelWC } from './wrapper/json-schema-label/component';
+const LazyRestGroup = () =>
+  import('./group/rest-group/component').then((item) => item.default);
 export const FieldGlobalConfig = {
   types: {
     string: {
@@ -121,41 +124,35 @@ export const FieldGlobalConfig = {
     object: {
       type: PiyingViewGroup,
     },
+    restGroup: {
+      type: LazyRestGroup,
+    },
     strict_object: {
-      type: () =>
-        import('./group/rest-group/component').then((item) => item.default),
+      type: LazyRestGroup,
     },
     loose_object: {
-      type: () =>
-        import('./group/rest-group/component').then((item) => item.default),
+      type: LazyRestGroup,
     },
     object_with_rest: {
-      type: () =>
-        import('./group/rest-group/component').then((item) => item.default),
+      type: LazyRestGroup,
     },
     array: {
-      type: () =>
-        import('./group/rest-group/component').then((item) => item.default),
+      type: LazyRestGroup,
     },
     tuple: {
-      type: () =>
-        import('./group/rest-group/component').then((item) => item.default),
+      type: LazyRestGroup,
     },
     strict_tuple: {
-      type: () =>
-        import('./group/rest-group/component').then((item) => item.default),
+      type: LazyRestGroup,
     },
     loose_tuple: {
-      type: () =>
-        import('./group/rest-group/component').then((item) => item.default),
+      type: LazyRestGroup,
     },
     tuple_with_rest: {
-      type: () =>
-        import('./group/rest-group/component').then((item) => item.default),
+      type: LazyRestGroup,
     },
     record: {
-      type: () =>
-        import('./group/rest-group/component').then((item) => item.default),
+      type: LazyRestGroup,
     },
     intersect: {
       type: PiyingViewGroup,
@@ -297,6 +294,9 @@ export const FieldGlobalConfig = {
     },
     label: {
       type: LabelWC,
+    },
+    'jsonschema-label': {
+      type: JsonSchemaLabelWC,
     },
     tooltip: {
       type: TooltipWC,

@@ -1,0 +1,32 @@
+@let props = field$$().props();
+@let isRequired = field$$().form.control?.required$$();
+@let title = field$$().props()["title"] ?? field$$().keyPath?.join(".");
+<div
+  class="flex gap-2 items-baseline"
+  [class.flex-col]="props['titlePosition'] === 'top'"
+  [class.items-center]="props['titlePosition'] !== 'top'"
+>
+  @if (
+    !props["titlePosition"] ||
+    props["titlePosition"] === "left" ||
+    props["titlePosition"] === "top"
+  ) {
+    <div>
+      @if (isRequired) {
+        <span class="text-red-500">*</span>
+      }
+      <span class="label">{{ title }}</span>
+    </div>
+  }
+
+  <ng-container #fieldComponent></ng-container>
+
+  @if (props["titlePosition"] === "right") {
+    <div>
+      @if (isRequired) {
+        <span class="text-red-500">*</span>
+      }
+      <span class="label">{{ title }}</span>
+    </div>
+  }
+</div>

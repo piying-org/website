@@ -205,7 +205,7 @@ interface IOptions {
   /** 对象中使用 */
   unionKey?: string;
 }
-
+const WrapperList = ['tooltip','jsonschema-label', 'validator'];
 export class JsonSchemaToValibot {
   toValibot(schema: JSONSchema7): FormlyFieldConfig {
     this.cacheSchema = new WeakMap();
@@ -217,6 +217,9 @@ export class JsonSchemaToValibot {
     schema: FormlyJSONSchema7,
     { ...options }: IOptions,
   ) {
+    if (typeof schema !== 'object' || !schema) {
+      return undefined;
+    }
     if (this.cacheSchema.has(schema)) {
       return this.cacheSchema.get(schema);
     }
@@ -241,7 +244,7 @@ export class JsonSchemaToValibot {
       let notSchema = this.__toValibotWrapper(
         schema.not as JSONSchema7,
         options,
-      );      
+      );
       if (notSchema) {
         actionList.push(
           v.check((item) => {
@@ -268,6 +271,7 @@ export class JsonSchemaToValibot {
     // enum
     const maybeEnumSchema = this.#enumToDefine(schema);
     if (maybeEnumSchema) {
+      actionList.push(jsonActions.setWrappers(WrapperList));
       return createTypeFn(maybeEnumSchema);
     }
     // 这个是单独类型,与type互斥
@@ -283,12 +287,18 @@ export class JsonSchemaToValibot {
       switch (type) {
         case 'number':
         case 'integer': {
+          actionList.push(jsonActions.setWrappers(WrapperList));
           return createTypeFn(v.number());
         }
         case 'boolean': {
+          actionList.push(
+            jsonActions.setWrappers(WrapperList),
+            patchProps({ titlePosition: 'right' }),
+          );
           return createTypeFn(v.boolean());
         }
         case 'string': {
+          actionList.push(jsonActions.setWrappers(WrapperList));
           return createTypeFn(v.string());
         }
         case 'null': {
@@ -397,7 +407,7 @@ export class JsonSchemaToValibot {
           );
           let baseSchema;
           if ('additionalProperties' in schema) {
-            if (!schema.additionalProperties) {
+            if (!restSchema) {
               baseSchema = v.object(childrenSchemas);
             } else {
               baseSchema = v.objectWithRest(childrenSchemas, restSchema);
@@ -432,13 +442,14 @@ export class JsonSchemaToValibot {
             );
           }
 
-          return createTypeFn(parent) as any;
+          return createTypeFn(v.pipe(parent, setComponent('restGroup'))) as any;
         }
         case 'array': {
           let arrayConfig = this.#getArrayConfig(schema);
           if (!arrayConfig) {
             return undefined;
           }
+          actionList.push(jsonActions.setWrappers(WrapperList));
           let parent;
           let prefixItems = arrayConfig.prefixItems;
           // tuple
