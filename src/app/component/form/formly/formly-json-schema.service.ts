@@ -237,6 +237,20 @@ export class JsonSchemaToValibot {
     if (!options.ignoreDefault && schema.readOnly) {
       configList.push(formConfig<any>({ disabled: true }));
     }
+    if ('not' in schema && schema.not) {
+      let notSchema = this.__toValibotWrapper(
+        schema.not as JSONSchema7,
+        options,
+      );      
+      if (notSchema) {
+        actionList.push(
+          v.check((item) => {
+            let result = v.safeParse(notSchema, item);
+            return !result.success;
+          }),
+        );
+      }
+    }
     let createTypeFn = <T extends v.BaseSchema<any, any, any>>(input: T) =>
       v.pipe(input, ...actionList, ...configList);
 
