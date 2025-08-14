@@ -5,16 +5,16 @@ export class JsonSchemaHandle extends NgSchemaHandle {
   override end(schema: SchemaOrPipe): void {
     super.end(schema);
     if (this.type === 'object') {
-      this.type = 'formly-group';
+      this.type = 'strict_object';
     }
     if (this.type === 'array') {
       this.type = 'array-rw';
     }
     if (this.type === 'tuple') {
-      this.type = 'formly-group';
+      this.type = 'strict_object';
     }
     if (this.type === 'tuple_with_rest') {
-      this.type = 'formly-group';
+      this.type = 'strict_object';
     }
     if (this.type === 'multiselect') {
       this.attributes ??= {};

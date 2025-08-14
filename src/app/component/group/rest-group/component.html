@@ -12,7 +12,7 @@
     }
   </ng-template>
 
-  <div class="flex flex-col gap-4">
+  <div class="flex flex-col gap-4" [class]="wrapperClass()">
     @for (field of field$$().fixedChildren!(); track field.id || $index) {
       <ng-container
         *ngTemplateOutlet="fieldItem; context: { field }"

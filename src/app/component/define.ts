@@ -222,10 +222,6 @@ export const FieldGlobalConfig = {
       type: () =>
         import('./formly-custom-input-1/component').then((a) => a.default),
     },
-    'formly-group': {
-      type: () =>
-        import('./group/formly-group/component').then((a) => a.default),
-    },
     formHelper: {
       type: () => import('./form-helper/component').then((a) => a.default),
     },
@@ -293,7 +289,7 @@ export const FieldGlobalConfig = {
       type: PanelWC,
     },
     label: {
-      type: LabelWC,
+      type: JsonSchemaLabelWC,
     },
     'jsonschema-label': {
       type: JsonSchemaLabelWC,

@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, input, signal } from '@angular/core';
 import { PiyingViewGroupBase } from '@piying/view-angular';
 import { isFieldGroup } from '@piying/view-angular-core';
 import { MatIcon } from '@angular/material/icon';
@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 })
 export default class RestGroup extends PiyingViewGroupBase {
   addKey$ = signal('');
+  wrapperClass = input<any>();
+
   add() {
     if (this.isGroup$$()) {
       this.field$$().action.set(undefined, this.addKey$());
