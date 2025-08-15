@@ -10,7 +10,7 @@ import { PiyingView } from '@piying/view-angular';
 import { codeEval } from '../../component/playground-eval-view/code-eval';
 import { FieldGlobalConfig } from '../../component/define';
 import { CodeMap } from '../../directive/markdown.directive';
-import { PlayContext } from '../../component/playground-eval-view/context';
+
 import { getBuilderType } from '../../component/playground-eval-view/builder-type';
 @Component({
   selector: 'app-eval-view',
@@ -40,7 +40,7 @@ export class EvalViewWC {
   });
 
   #context$$ = computed(() => ({
-    ...PlayContext,
+
     ...this.config2$.value().context,
   }));
   options$$ = computed(() => {

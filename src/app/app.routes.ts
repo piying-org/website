@@ -25,6 +25,15 @@ export const routes: Routes = [
           v.object({
             toolbar: v.pipe(
               v.object({
+                __logo: v.pipe(
+                  NFCSchema,
+                  setComponent('button-link'),
+                  setInputs({
+                    href: '/',
+                    type: 'img',
+                    imgLink: './logo.svg',
+                  }),
+                ),
                 __block: v.pipe(
                   NFCSchema,
                   setComponent('block'),

@@ -91,18 +91,21 @@ v.pipe(
 - 通过传入`context`使得组件可以通过上下文动态获取参数
 
 ```ts
-v.object({
-  input1: v.pipe(
-    v.string(),
-    valueChange((fn) => {
-      fn({ list: [undefined] }).subscribe(({ list, field }) => {
-        console.log("prev:", field.context.get("list"));
+{
+  context: { lastValue$: new BehaviorSubject(undefined) },
+  schema: v.object({
+    input1: v.pipe(
+      v.string(),
+      valueChange((fn) => {
+        fn({ list: [undefined] }).subscribe(({ list, field }) => {
+          console.log('prev:', field.context.lastValue$.value);
 
-        field.context.set("list", [list[0]]);
-      });
-    }),
-  ),
-});
+          field.context.lastValue$.next(list[0]);
+        });
+      }),
+    ),
+  }),
+}
 ```
 
 ## 高级自定义

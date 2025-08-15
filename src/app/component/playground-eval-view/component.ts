@@ -2,7 +2,7 @@ import { Component, computed, input, resource } from '@angular/core';
 import { PiyingView } from '@piying/view-angular';
 import { FieldGlobalConfig } from '../define';
 import { codeEval } from './code-eval';
-import { PlayContext } from './context';
+
 import { getBuilderType } from './builder-type';
 @Component({
   selector: 'app-playground-eval-view',
@@ -25,7 +25,7 @@ export class PlayGroundEvalViewNFCC {
     },
   });
   #context$$ = computed(() => ({
-    ...PlayContext,
+   
     ...this.config2$.value()?.context,
   }));
   options$$ = computed(() => {

@@ -1,0 +1,20 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <mask id="vMask">
+            <rect id="svg_1" fill="white" height="100%" width="100%" />
+            <rect id="svg_2" fill="url(#vPattern)" height="100%" width="100%" />
+        </mask>
+        <pattern patternUnits="userSpaceOnUse" height="20" width="20" y="0" x="0" id="vPattern">
+            <text id="svg_3" transform="rotate(-30 0 4)" fill="black" font-size="16" y="16" x="0"
+                font-family="Source Han Sans HC VF">Y</text>
+        </pattern>
+    </defs>
+
+
+    <text id="svg_4" transform="rotate(30 112 100)" font-size="240" y="200" x="31" opacity="0.6" mask="url(#vMask)"
+        fill="#FFA500" font-weight="bold" font-family="Source Han Sans HC VF">P</text>
+    <text id="svg_5" transform="rotate(30 112 100)" font-size="240" y="200" x="31" opacity="0.4" stroke-width="2"
+        stroke="black" fill="none" font-weight="bold" font-family="Source Han Sans HC VF">P</text>
+
+
+</svg>
