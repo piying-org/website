@@ -1,4 +1,4 @@
-import { Component, computed } from '@angular/core';
+import { Component } from '@angular/core';
 import { PiWrapperBaseComponent } from '@piying/view-angular';
 
 @Component({

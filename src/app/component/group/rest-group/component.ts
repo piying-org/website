@@ -24,13 +24,11 @@ export default class RestGroup extends PiyingViewGroupBase {
   }
   remove(index: number) {
     if (this.isGroup$$()) {
-      let item = this.field$$().restChildren!()[index];
+      const item = this.field$$().restChildren!()[index];
       this.field$$().action.remove(item.keyPath!.slice(-1)[0]);
     } else {
       this.field$$().action.remove(index);
     }
   }
-  isGroup$$ = computed(() => {
-    return isFieldGroup(this.field$$().form.control);
-  });
+  isGroup$$ = computed(() => isFieldGroup(this.field$$().form.control));
 }

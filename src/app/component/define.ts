@@ -16,7 +16,6 @@ import { CheckboxComponent } from './checkbox/component';
 import { FormlyFieldWC } from './wrapper/formly-field-wrapper/component';
 import { JoinItemWC } from './wrapper/join-wrapper/component';
 import { PanelWC } from './wrapper/panel-wrapper/component';
-import { LabelWC } from './wrapper/label/component';
 import { TooltipWC } from './wrapper/tooltip/component';
 import { JsonSchemaLabelWC } from './wrapper/json-schema-label/component';
 const LazyRestGroup = () =>

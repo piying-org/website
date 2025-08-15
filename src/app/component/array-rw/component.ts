@@ -1,11 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import {
-  Component,
-  computed,
-  inject,
-  input,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, computed, input, SimpleChanges } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { PiyingViewGroupBase } from '@piying/view-angular';
 

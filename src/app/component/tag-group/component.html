@@ -8,7 +8,9 @@
       [attr.aria-label]="label"
       [checked]="$first"
       [disabled]="
-        stepsLike() && !$first && field$$().children!()[$index - 1].form.control?.invalid
+        stepsLike() &&
+        !$first &&
+        field$$().children!()[$index - 1].form.control?.invalid
       "
     />
     <div class="tab-content border-base-300 bg-base-100 p-10">

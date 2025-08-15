@@ -14,9 +14,7 @@ export class PlayGroundEvalViewNFCC {
   configCode = input<string>();
 
   config2$ = resource({
-    params: () => {
-      return this.configCode();
-    },
+    params: () => this.configCode(),
     loader: async ({ params }) => {
       if (!params) {
         return undefined;
@@ -25,11 +23,10 @@ export class PlayGroundEvalViewNFCC {
     },
   });
   #context$$ = computed(() => ({
-   
     ...this.config2$.value()?.context,
   }));
   options$$ = computed(() => {
-    let status = this.config2$.hasValue();
+    const status = this.config2$.hasValue();
     if (!status) {
       return;
     }

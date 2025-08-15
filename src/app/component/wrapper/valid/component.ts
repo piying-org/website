@@ -19,9 +19,9 @@ export class ValidWC extends PiWrapperBaseComponent {
         .join('\n');
     }
   });
-  classStatus$$ = computed(() => {
-    return fieldControlStatusClass(this.field$$().form.control);
-  });
+  classStatus$$ = computed(() =>
+    fieldControlStatusClass(this.field$$().form.control),
+  );
   isChangedStatus$$ = computed(
     () =>
       this.field$$().form.control?.dirty$$() ||

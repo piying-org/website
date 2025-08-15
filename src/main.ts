@@ -28,9 +28,7 @@ Promise.all([
       console.error(rej);
       loadTranslations({});
     })
-    .then(async () => {
-      return bootstrapApplication(App, appConfig).catch((err) =>
-        console.error(err),
-      );
-    }),
+    .then(async () =>
+      bootstrapApplication(App, appConfig).catch((err) => console.error(err)),
+    ),
 );

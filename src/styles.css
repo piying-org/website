@@ -50,8 +50,8 @@
   p {
     @apply my-3;
   }
-  blockquote>*{
-    margin: 0
+  blockquote > * {
+    margin: 0;
   }
 }
 

@@ -7,7 +7,6 @@ import {
   viewChild,
 } from '@angular/core';
 import { MarkdownDirective } from '../../../directive/markdown.directive';
-import { decode } from 'html-entities';
 @Component({
   selector: 'custom-tabs',
   templateUrl: './component.html',
@@ -22,7 +21,7 @@ export class TabsWC {
 
   constructor() {
     effect((cleanFn) => {
-      let containerEl = this.container()?.nativeElement;
+      const containerEl = this.container()?.nativeElement;
       if (!containerEl) {
         return;
       }
@@ -46,12 +45,10 @@ export class TabsWC {
   }
   slotChanged(list: HTMLElement[]) {
     this.list$.set(
-      list.map((item) => {
-        return {
-          label: item.dataset['label']?.trim() ?? '',
-          content: item.textContent?.trim() ?? '',
-        };
-      }),
+      list.map((item) => ({
+        label: item.dataset['label']?.trim() ?? '',
+        content: item.textContent?.trim() ?? '',
+      })),
     );
   }
 }

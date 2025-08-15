@@ -205,7 +205,7 @@ interface IOptions {
   /** 对象中使用 */
   unionKey?: string;
 }
-const WrapperList = ['tooltip','jsonschema-label', 'validator'];
+const WrapperList = ['tooltip', 'jsonschema-label', 'validator'];
 export class JsonSchemaToValibot {
   toValibot(schema: JSONSchema7): FormlyFieldConfig {
     this.cacheSchema = new WeakMap();
@@ -241,14 +241,14 @@ export class JsonSchemaToValibot {
       configList.push(formConfig<any>({ disabled: true }));
     }
     if ('not' in schema && schema.not) {
-      let notSchema = this.__toValibotWrapper(
+      const notSchema = this.__toValibotWrapper(
         schema.not as JSONSchema7,
         options,
       );
       if (notSchema) {
         actionList.push(
           v.check((item) => {
-            let result = v.safeParse(notSchema, item);
+            const result = v.safeParse(notSchema, item);
             return !result.success;
           }),
         );
@@ -368,18 +368,18 @@ export class JsonSchemaToValibot {
           }
 
           for (const key of Object.keys(propDeps ?? {})) {
-            let list = propDeps[key];
+            const list = propDeps[key];
             let depSchema = childrenMap.get(key)!;
             depSchema = v.pipe(
               depSchema,
               formConfig({
                 validators: [
                   (control) => {
-                    let needRequired = list.some((item) => {
-                      return control.parent!.get(item)?.valid;
-                    });
+                    const needRequired = list.some(
+                      (item) => control.parent!.get(item)?.valid,
+                    );
                     return needRequired
-                      ? !!control.value
+                      ? control.value
                         ? undefined
                         : { dependentRequired: `must required` }
                       : undefined;
@@ -392,13 +392,13 @@ export class JsonSchemaToValibot {
           if (!childrenMap.size) {
             return undefined;
           }
-          let restSchema = schema.additionalProperties
+          const restSchema = schema.additionalProperties
             ? this.__toValibotWrapper(
                 schema.additionalProperties as JSONSchema7,
                 { schema: options.schema },
               )
             : undefined;
-          let childrenSchemas = [...childrenMap.entries()].reduce(
+          const childrenSchemas = [...childrenMap.entries()].reduce(
             (obj, [key, value]) => {
               obj[key] = value;
               return obj;
@@ -445,23 +445,23 @@ export class JsonSchemaToValibot {
           return createTypeFn(v.pipe(parent, setComponent('restGroup'))) as any;
         }
         case 'array': {
-          let arrayConfig = this.#getArrayConfig(schema);
+          const arrayConfig = this.#getArrayConfig(schema);
           if (!arrayConfig) {
             return undefined;
           }
           actionList.push(jsonActions.setWrappers(WrapperList));
           let parent;
-          let prefixItems = arrayConfig.prefixItems;
+          const prefixItems = arrayConfig.prefixItems;
           // tuple
           if (Array.isArray(prefixItems)) {
-            let items = prefixItems.map((item) =>
+            const items = prefixItems.map((item) =>
               this.resolveSchema(<JSONSchema7>item, options),
             );
             const tupleList = items.map((item, index) =>
               this.__toValibotWrapper(item as any, options),
             );
             if (arrayConfig.items) {
-              let result = this.__toValibotWrapper(
+              const result = this.__toValibotWrapper(
                 arrayConfig.items as any,
                 options,
               );
@@ -472,15 +472,15 @@ export class JsonSchemaToValibot {
             return createTypeFn(parent);
           }
           if ('contains' in schema) {
-            let containsSchema = this.__toValibotWrapper(
+            const containsSchema = this.__toValibotWrapper(
               arrayConfig.items as any,
               options,
             );
-            let minContains = (schema as any).minContains ?? 1;
+            const minContains = (schema as any).minContains ?? 1;
             actionList.push(
               v.check((list) => {
                 if (Array.isArray(list)) {
-                  let result = list.filter(
+                  const result = list.filter(
                     (item) => v.safeParse(containsSchema, item).success,
                   );
                   if (result.length < minContains) {
@@ -589,10 +589,10 @@ export class JsonSchemaToValibot {
     type: 'oneOf' | 'anyOf',
     options: IOptions,
   ) {
-    let { oneOf, anyOf, ...restSchema } = schema;
+    const { oneOf, anyOf, ...restSchema } = schema;
     const children = (type === 'oneOf' ? oneOf! : anyOf!)
       .map((schema, index) => {
-        let result = this.__toValibotWrapper(
+        const result = this.__toValibotWrapper(
           { ...(schema as JSONSchema7), ...restSchema },
           options,
         );
@@ -738,7 +738,7 @@ export class JsonSchemaToValibot {
     return undefined;
   }
   #enumToDefine(schema: JSONSchema7) {
-    let enumOptions = this.#parseEnum(schema);
+    const enumOptions = this.#parseEnum(schema);
     if (!enumOptions) {
       return;
     }
@@ -784,8 +784,8 @@ export class JsonSchemaToValibot {
         (schema.oneOf as JSONSchema7[]).every(isConst)
       ) {
         return (schema.oneOf as JSONSchema7[]).map(toEnum);
-      } else if (!!schema.uniqueItems) {
-        let arrayConfig = this.#getArrayConfig(schema);
+      } else if (schema.uniqueItems) {
+        const arrayConfig = this.#getArrayConfig(schema);
         if (
           !level &&
           !!arrayConfig &&

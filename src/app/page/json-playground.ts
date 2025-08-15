@@ -28,16 +28,13 @@ export const JsonPlaygroundRoute: Route = {
                 v.any(),
                 setComponent('jsonSchema'),
                 patchAsyncInputs({
-                  data: (field) => {
-                    return field
+                  data: (field) =>
+                    field
                       .get(['#', 'codeEditor'])!
                       .form.control!.valueChanges.pipe(
                         filter(Boolean),
-                        map((value) => {
-                          return { schema: JSON.parse(value) };
-                        }),
-                      );
-                  },
+                        map((value) => ({ schema: JSON.parse(value) })),
+                      ),
                 }),
               ),
             }),
