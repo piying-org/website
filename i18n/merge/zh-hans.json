@@ -455,6 +455,18 @@
     "associatedMessageIds": {},
     "target": "`signal`类型的值需要转换为`ref`才支持动态变更"
   },
+  "4492920067774026824": {
+    "id": "4492920067774026824",
+    "text": "`signal`类型的值需要转换为`state`才支持动态变更",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`signal`类型的值需要转换为`state`才支持动态变更"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`signal`类型的值需要转换为`state`才支持动态变更"
+  },
   "1355092974482054796": {
     "id": "1355092974482054796",
     "text": "`submit` 调用控件的`emitSubmit`方法后更新(一般为form的submit事件后调用)",
@@ -3407,6 +3419,18 @@
     "associatedMessageIds": {},
     "target": "适配的库/框架的输出属性"
   },
+  "3495916946674036777": {
+    "id": "3495916946674036777",
+    "text": "通用`signal`类型的值需要转换为solid`signal`才支持动态变更",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "通用`signal`类型的值需要转换为solid`signal`才支持动态变更"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "通用`signal`类型的值需要转换为solid`signal`才支持动态变更"
+  },
   "5822582136818176348": {
     "id": "5822582136818176348",
     "text": "通过`convert`导出`dataSource`实例与注册`实体`",
@@ -3970,6 +3994,30 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "React"
+  },
+  "8898860698337248041": {
+    "id": "8898860698337248041",
+    "text": "Svelte",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Svelte"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Svelte"
+  },
+  "592980626739521579": {
+    "id": "592980626739521579",
+    "text": "Solid",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Solid"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Solid"
   },
   "4861050201669412280": {
     "id": "4861050201669412280",

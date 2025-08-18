@@ -287,6 +287,30 @@
     "associatedMessageIds": {},
     "target": "React"
   },
+  "8898860698337248041": {
+    "id": "8898860698337248041",
+    "text": "Svelte",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Svelte"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": ""
+  },
+  "592980626739521579": {
+    "id": "592980626739521579",
+    "text": "Solid",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Solid"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": ""
+  },
   "4861050201669412280": {
     "id": "4861050201669412280",
     "text": "ORM",

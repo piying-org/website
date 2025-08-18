@@ -25,7 +25,10 @@ export class Main1Component {
   schema = v.pipe(
     v.object({
       support: v.pipe(
-        v.optional(v.picklist(['Angular', 'Vue', 'React']), 'Angular'),
+        v.optional(
+          v.picklist(['Angular', 'Vue', 'React', 'Svelte', 'Solid']),
+          'Angular',
+        ),
         v.title($localize`当前支持`),
       ),
       rating: v.pipe(

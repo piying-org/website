@@ -43,6 +43,8 @@
 - `Angular`
 - `Vue`
 - `React`
+- `Svelte`
+- `Solid`
 
 ---
 

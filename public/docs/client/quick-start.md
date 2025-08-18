@@ -20,6 +20,16 @@ https://github.com/piying-org/piying-view-vue-template
 https://github.com/piying-org/piying-view-react-template
 ```
 </custom-tab>
+<custom-tab data-label="Svelte">
+```shell
+https://github.com/piying-org/piying-view-svelte-template
+```
+</custom-tab>
+<custom-tab data-label="Solid">
+```shell
+https://github.com/piying-org/piying-view-solid-template
+```
+</custom-tab>
 </custom-tabs>
 
 ## 安装
@@ -43,6 +53,18 @@ npm i valibot
 <custom-tab data-label="React">
 ```shell
 npm i @piying/view-react
+npm i valibot
+```
+</custom-tab>
+<custom-tab data-label="Svelte">
+```shell
+npm i @piying/view-svelte
+npm i valibot
+```
+</custom-tab>
+<custom-tab data-label="Solid">
+```shell
+npm i @piying/view-solid
 npm i valibot
 ```
 </custom-tab>
@@ -120,6 +142,44 @@ export function InputText(props: PiInputOptions) {
 }
 ```
 </custom-tab>
+<custom-tab data-label="Svelte">
+```html
+&lt;script lang=&quot;ts&quot;&gt;
+  import { useControlValueAccessor } from &apos;@piying/view-svelte&apos;;
+  const { cva, cvaa } = useControlValueAccessor();
+  export { cva };
+&lt;/script&gt;
+&lt;input
+  class=&quot;input&quot;
+  type=&quot;text&quot;
+  bind:value={() =&gt; cvaa.value, (v) =&gt; cvaa.valueChange(v)}
+  disabled={cvaa.disabled}
+  onblur={cvaa.touchedChange}
+/&gt;
+```
+</custom-tab>
+<custom-tab data-label="Solid">
+```typescript
+import type { ControlValueAccessor } from &apos;@piying/view-core&apos;;
+import { CVA, useControlValueAccessor, useInputTextModel } from &apos;@piying/view-solid&apos;;
+import { createMemo, type Setter } from &apos;solid-js&apos;;
+interface PiInputOptions {
+  [CVA]: Setter&lt;ControlValueAccessor&gt;;
+}
+export function InputText(props: PiInputOptions) {
+  const result = useControlValueAccessor();
+  createMemo(() =&gt; {
+    props[CVA](result.cva);
+  });
+  const textModel = useInputTextModel(result.cvaa, () =&gt; false);
+  return (
+    &lt;&gt;
+      &lt;input type=&quot;text&quot; class=&quot;input&quot; {...textModel()} /&gt;
+    &lt;/&gt;
+  );
+}
+```
+</custom-tab>
 </custom-tabs>
 
 ### 包装器
@@ -179,6 +239,72 @@ export function LabelWC(props: { children: any }) {
       &lt;div className=&quot;flex gap-2 items-center&quot;&gt;
         {props2?.['title'] ? &lt;span className=&quot;label&quot;&gt;{props2['title']}&lt;/span&gt; : undefined}
         {props.children}
+      &lt;/div&gt;
+    &lt;/&gt;
+  );
+}
+```
+</custom-tab>
+<custom-tab data-label="Svelte">
+```html
+&lt;script lang=&quot;ts&quot;&gt;
+  import { PI_VIEW_FIELD_TOKEN, signalToState } from &apos;@piying/view-svelte&apos;;
+  import { getContext } from &apos;svelte&apos;;
+  let dProps: { children: any;  } = $props();
+  const field = getContext&lt;PI_VIEW_FIELD_TOKEN&gt;(PI_VIEW_FIELD_TOKEN);
+  const fProps = signalToState(() =&gt; field().props());
+&lt;/script&gt;
+&lt;div class=&quot;flex gap-2 items-center&quot;&gt;
+  {#if fProps()![&apos;title&apos;]}
+    &lt;span class=&quot;label&quot; &gt;{ fProps()![&apos;title&apos;] }&lt;/span&gt;
+  {/if}
+  {@render dProps.children()}
+&lt;/div&gt;
+```
+</custom-tab>
+<custom-tab data-label="Solid">
+```typescript
+import { PI_VIEW_FIELD_TOKEN, createSignalConvert } from &apos;@piying/view-solid&apos;;
+import clsx from &apos;clsx&apos;;
+import { useContext, createMemo, Show } from &apos;solid-js&apos;;
+export function LabelWrapper(props: { children: any }) {
+  const field = useContext(PI_VIEW_FIELD_TOKEN)!;
+  const props2 = createSignalConvert(() =&gt; {
+    return field.props();
+  });
+  const attributes = createSignalConvert(() =&gt; field.attributes());
+  const isRequired = createSignalConvert(() =&gt; !!field.form.control?.required$$());
+  const wrapperClass = createMemo(() =&gt; {
+    return clsx(&apos;flex gap-2&apos;, {
+      &apos;flex-col&apos;: props2()[&apos;titlePosition&apos;] === &apos;top&apos;,
+      &apos;items-center&apos;: props2()[&apos;titlePosition&apos;] !== &apos;top&apos;,
+    });
+  });
+  const title = createMemo(() =&gt; props2()[&apos;title&apos;]);
+  return (
+    &lt;&gt;
+      &lt;div class={wrapperClass()}&gt;
+        &lt;Show
+          when={
+            (!props2()[&apos;titlePosition&apos;] || props2()[&apos;titlePosition&apos;] === &apos;left&apos; || props2()[&apos;titlePosition&apos;] === &apos;top&apos;) &amp;&amp; props2()[&apos;title&apos;]
+          }
+        &gt;
+          &lt;label for={attributes()?.[&apos;id&apos;]}&gt;
+            &lt;Show when={isRequired()}&gt;
+              &lt;span class=&quot;text-red-500&quot;&gt;*&lt;/span&gt;
+            &lt;/Show&gt;
+            &lt;span class=&quot;label&quot;&gt;{title()}&lt;/span&gt;
+          &lt;/label&gt;
+        &lt;/Show&gt;
+        {props.children}
+        &lt;Show when={props2()[&apos;titlePosition&apos;] === &apos;right&apos; &amp;&amp; props2()[&apos;title&apos;]}&gt;
+          &lt;label for={attributes()?.[&apos;id&apos;]}&gt;
+            &lt;Show when={isRequired()}&gt;
+              &lt;span class=&quot;text-red-500&quot;&gt;*&lt;/span&gt;
+            &lt;/Show&gt;
+            &lt;span class=&quot;label&quot;&gt;{title()}&lt;/span&gt;
+          &lt;/label&gt;
+        &lt;/Show&gt;
       &lt;/div&gt;
     &lt;/&gt;
   );
@@ -259,6 +385,50 @@ export function FieldsetFGC(props: { fields: PiResolvedViewFieldConfig[] }) {
           return &lt;PiyingFieldTemplate field={field} key={index}&gt;&lt;/PiyingFieldTemplate&gt;;
         })}
       &lt;/fieldset&gt;;
+}
+```
+</custom-tab>
+<custom-tab data-label="Svelte">
+```html
+&lt;script lang=&quot;ts&quot;&gt;
+  import { PI_VIEW_FIELD_TOKEN, PiyingFieldTemplate, signalToState } from &apos;@piying/view-svelte&apos;;
+  import { getContext } from &apos;svelte&apos;;
+  const field = getContext&lt;PI_VIEW_FIELD_TOKEN&gt;(PI_VIEW_FIELD_TOKEN);
+  const props = signalToState(() =&gt; field().props())!;
+  const children = signalToState(() =&gt; field().children!())!;
+&lt;/script&gt;
+&lt;fieldset class=&quot;fieldset bg-base-200 border-base-300 rounded-box border p-4 w-full&quot;&gt;
+  {#if props()![&apos;title&apos;]}
+    &lt;legend class=&quot;fieldset-legend&quot;&gt;{props()![&apos;title&apos;]}&lt;/legend&gt;
+  {/if}
+  {#each children()! as field, i (i)}
+    &lt;PiyingFieldTemplate {field}&gt;&lt;/PiyingFieldTemplate&gt;
+  {/each}
+&lt;/fieldset&gt;
+```
+</custom-tab>
+<custom-tab data-label="Solid">
+```typescript
+import { PI_VIEW_FIELD_TOKEN, createSignalConvert, PiyingFieldTemplate } from &apos;@piying/view-solid&apos;;
+import { For, Show, useContext } from &apos;solid-js&apos;;
+export function FieldsetGroup(_: {}) {
+  const field = useContext(PI_VIEW_FIELD_TOKEN);
+  const props2 = createSignalConvert(() =&gt; field?.props());
+  const children = createSignalConvert(() =&gt; field?.children!())!;
+  return (
+    &lt;&gt;
+      &lt;fieldset class=&quot;fieldset bg-base-200 border-base-300 rounded-box border p-4 w-full&quot;&gt;
+        &lt;Show when={props2()?.[&apos;title&apos;]} keyed&gt;
+          {(title) =&gt; &lt;legend class=&quot;fieldset-legend&quot;&gt;{title}&lt;/legend&gt;}
+        &lt;/Show&gt;
+        &lt;For each={children()}&gt;
+          {(field) =&gt; {
+            return &lt;PiyingFieldTemplate field={field}&gt;&lt;/PiyingFieldTemplate&gt;;
+          }}
+        &lt;/For&gt;
+      &lt;/fieldset&gt;
+    &lt;/&gt;
+  );
 }
 ```
 </custom-tab>
@@ -364,7 +534,7 @@ import { patchWrappers, setComponent, patchInputs } from '@piying/view-core';
 import { PiyingView } from '@piying/view-react';
 const schema = v.pipe(
   v.object({
-    text1: v.pipe(v.optional(v.string()), v.title('text1-label'),setWrappers(['label'])),
+    text1: v.pipe(v.optional(v.string()), v.title('text1-label'), setWrappers(['label'])),
   }),
   v.title('form'),
   setComponent('fieldset')
@@ -380,7 +550,59 @@ export function PiyingPage() {
 }
 ```
 </custom-tab>
+<custom-tab data-label="Svelte">
+```html
+&lt;script lang=&quot;ts&quot;&gt;
+  import { PiyingView } from &apos;@piying/view-svelte&apos;;
+  import { patchWrappers, setComponent, patchInputs } from &apos;@piying/view-core&apos;;
+  import * as v from &apos;valibot&apos;;
+  const schema = v.pipe(
+    v.object({
+      text1: v.pipe(v.optional(v.string()), v.title(&apos;text1-label&apos;), setWrappers(['label'])),
+    }),
+    v.title(&apos;form&apos;),
+    setComponent(&apos;fieldset&apos;)
+  );
+  const options = {
+    fieldGlobalConfig: FieldGlobalConfig,
+  };
+  function modelChange(event: any) {
+    console.log(event);
+  }
+  const model = $state({});
+&lt;/script&gt;
+&lt;PiyingView {schema} {options} {model} {modelChange}&gt;&lt;/PiyingView&gt;
+```
+</custom-tab>
+<custom-tab data-label="Solid">
+```typescript
+import * as v from &apos;valibot&apos;;
+import { patchWrappers, setComponent, patchInputs } from &apos;@piying/view-core&apos;;
+import { PiyingView } from &apos;@piying/view-solid&apos;;
+const schema = v.pipe(
+  v.object({
+    text1: v.pipe(v.optional(v.string()), v.title(&apos;text1-label&apos;), setWrappers(['label'])),
+  }),
+  v.title(&apos;form&apos;),
+  setComponent(&apos;fieldset&apos;)
+);
+const options = {
+  fieldGlobalConfig: FieldGlobalConfig,
+};
+export function PiyingPage() {
+  function modelChange(event: any) {
+    console.log(event);
+  }
+  return (
+    &lt;&gt;
+      &lt;PiyingView schema={schema} options={options} modelChange={modelChange}&gt;&lt;/PiyingView&gt;
+    &lt;/&gt;
+  );
+}
+```
+</custom-tab>
 </custom-tabs>
 
 ## 查看
+
 - 打开你的项目进行查看

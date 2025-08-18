@@ -120,6 +120,16 @@ const Menu: NavigationItem[] = [
             type: 'basic',
             link: '/docs/client/difference-react',
           },
+          {
+            title: $localize`Svelte`,
+            type: 'basic',
+            link: '/docs/client/difference-svelte',
+          },
+          {
+            title: $localize`Solid`,
+            type: 'basic',
+            link: '/docs/client/difference-solid',
+          },
         ],
       },
     ],
