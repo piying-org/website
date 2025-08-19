@@ -9,7 +9,7 @@ import Define from './const.txt';
 import { RouterLink } from '@angular/router';
 import { $localize } from '@cyia/localize';
 @Component({
-  selector: 'main-1',
+  selector: 'main[type=home]',
   templateUrl: './component.html',
   imports: [PiyingView, HilightCodeDirective, RouterLink],
 })

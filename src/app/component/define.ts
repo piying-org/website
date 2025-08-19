@@ -165,6 +165,10 @@ export const FieldGlobalConfig = {
     'main-1': {
       type: () =>
         import('./main-1/component').then((item) => item.Main1Component),
+      selector:'main',
+      attributes: {
+        type: 'home',
+      },
     },
     codeEditor: {
       selector: 'div',

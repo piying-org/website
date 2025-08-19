@@ -4,6 +4,6 @@ fieldset {
     display: none;
   }
 }
-html {
+html:not(:has(main[type=home])) {
   scrollbar-gutter: stable both-edges;
 }
