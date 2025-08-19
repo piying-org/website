@@ -12,6 +12,9 @@ import { $localize } from '@cyia/localize';
   selector: 'main[type=home]',
   templateUrl: './component.html',
   imports: [PiyingView, HilightCodeDirective, RouterLink],
+  host: {
+    class: 'h-full',
+  },
 })
 export class Main1Component {
   readonly title = $localize`前端表单解决方案`;
