@@ -18,7 +18,6 @@ function _tagged_template_literal(strings: string[], raw?: any) {
   ) as TemplateStringsArray;
 }
 function getId(headingText: string) {
-  // debugger
   const id = headingText
     .toLowerCase()
     .replace(/[^\w\s\-\p{Script=Hani}]/gu, '')
@@ -101,21 +100,8 @@ const marked = new Marked(
     },
   }),
 );
-const textList = new Set<string>();
 
-if (ngDevMode) {
-  (window as any).__getTranslate = () => {
-    const text = JSON.stringify([...textList].sort(), undefined, 4);
-    const url = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
-    const link = document.createElement('a');
-    link.download = 'doc.json';
-    link.href = url;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-  };
-}
+
 function needAddTranslate(value: string) {
   return !!value.trim() && /\p{Script=Hani}/u.test(value);
 }
@@ -137,9 +123,6 @@ marked.use({
         ) {
           let text: string;
           if (needAddTranslate(token.text)) {
-            if (ngDevMode) {
-              textList.add(token.text);
-            }
             text = $localize(_tagged_template_literal([token.text]));
           } else {
             text = token.text;
@@ -159,9 +142,6 @@ marked.use({
             const item = (token as Tokens.List).items[j];
             let text: string;
             if (needAddTranslate(item.text)) {
-              if (ngDevMode) {
-                textList.add(item.text);
-              }
               text = $localize(_tagged_template_literal([item.text]));
             } else {
               text = item.text;
