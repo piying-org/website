@@ -1,7 +1,8 @@
 # Action
 
 - 基于typeorm的[EntitySchema](https://typeorm.io/docs/entity/separating-entity-definition/#extending-schemas)封装,与装饰器基本相同,但是会有一些差别
-- 使用`EntitySchema`实现会有部分逻辑无法实现(@Tree,@VirtualColumn),这是由于typeorm两部分代码(EntitySchema,装饰器)可能没有同步更新导致的,正在想办法解决
+- 使用`EntitySchema`实现会有部分逻辑无法实现(@Tree),这是由于typeorm两部分代码(EntitySchema,装饰器)可能没有同步更新导致
+  > 已经提交[PR](https://github.com/typeorm/typeorm/pull/11606)
 
 ## entity
 
@@ -58,10 +59,6 @@ const { object, dataSource } = await createInstance({ tableTest: define });
 
 - `column({ generated: 'uuid' })`
 
-#### [@VirtualColumn](https://typeorm.io/docs/help/decorator-reference/#virtualcolumn)
-
-- 此装饰器的实现在`EntitySchema`中不存在
-
 ## columnPrimaryKey
 
 - [@PrimaryColumn](https://typeorm.io/docs/help/decorator-reference/#primarycolumn)
@@ -84,6 +81,25 @@ v.pipe(
 v.pipe(
   v.object({
     _id: v.pipe(v.string(), columnObjectId()),
+  }),
+);
+```
+
+## columnVirtual
+
+- [@VirtualColumn](https://typeorm.io/docs/help/decorator-reference/#virtualcolumn)
+
+```typescript
+v.pipe(
+  v.object({
+    id: v.pipe(v.string(), columnPrimaryKey({ primary: true, generated: "uuid" })),
+    k1: v.number(),
+    vk1: v.pipe(
+      v.number(),
+      columnVirtual({
+        query: (alias) => `SELECT k1 FROM "tableTest" WHERE "k1" = ${alias}."k1"`,
+      }),
+    ),
   }),
 );
 ```
