@@ -1,12 +1,12 @@
 import { Component, computed } from '@angular/core';
-import { PiWrapperBaseComponent } from '@piying/view-angular';
+import { PiyingViewWrapperBase } from '@piying/view-angular';
 import { summarize } from 'valibot';
 
 @Component({
   selector: 'app-formly-field-wrapper',
   templateUrl: './component.html',
 })
-export class FormlyFieldWC extends PiWrapperBaseComponent {
+export class FormlyFieldWC extends PiyingViewWrapperBase {
   errorStr$$ = computed(() => {
     const field = this.field$$();
     const valibot = field.form.control!.errors!['valibot'];

@@ -18,38 +18,39 @@ import { JoinItemWC } from './wrapper/join-wrapper/component';
 import { PanelWC } from './wrapper/panel-wrapper/component';
 import { TooltipWC } from './wrapper/tooltip/component';
 import { JsonSchemaLabelWC } from './wrapper/json-schema-label/component';
+import { InputFCC } from './input';
+import { InputNumberFCC } from './input-number';
+import { InputCheckboxFCC } from './input-checkbox';
+import { InputRangeFCC } from './input-range';
+import { InputFileFCC } from './input-file';
+import { TextareaFCC } from './textarea';
+import { DivNFCC } from './block';
+import { DemoNFCC } from './demo';
 const LazyRestGroup = () =>
   import('./group/rest-group/component').then((item) => item.default);
 export const FieldGlobalConfig = {
   types: {
     string: {
-      type: 'input',
+      type: InputFCC,
       attributes: {
         class: 'input',
       },
-      directives: [{ type: DefaultValueAccessor, selector: 'formControl' }],
     },
     number: {
-      type: 'input',
+      type: InputNumberFCC,
       attributes: {
-        type: 'number',
         class: 'input',
       },
-      directives: [{ type: NumberValueAccessor, selector: 'formControl' }],
     },
     radio: {
       type: () => import('./radio/component').then((a) => a.default),
     },
     boolean: {
-      type: 'input',
+      type: InputCheckboxFCC,
       attributes: {
-        type: 'checkbox',
         class: 'checkbox',
       },
       // wrappers: ['label'],
-      directives: [
-        { type: CheckboxControlValueAccessor, selector: 'formControl' },
-      ],
     },
     checkbox: {
       type: CheckboxComponent,
@@ -61,14 +62,10 @@ export const FieldGlobalConfig = {
       type: FieldsetFGC,
     },
     toggle: {
-      type: 'input',
+      type: InputCheckboxFCC,
       attributes: {
-        type: 'checkbox',
         class: 'toggle',
       },
-      directives: [
-        { type: CheckboxControlValueAccessor, selector: 'formControl' },
-      ],
     },
     picklist: {
       type: SelectComponent,
@@ -97,27 +94,22 @@ export const FieldGlobalConfig = {
       wrappers: ['label'],
     },
     range: {
-      type: 'input',
+      type: InputRangeFCC,
       attributes: {
-        type: 'range',
         class: 'range',
       },
-      directives: [{ type: RangeValueAccessor, selector: 'formControl' }],
     },
     fileInput: {
-      type: 'input',
+      type: InputFileFCC,
       attributes: {
-        type: 'file',
         class: 'file-input',
       },
-      directives: [{ type: FileInputDirective, selector: 'input' }],
     },
     textarea: {
-      type: 'textarea',
+      type: TextareaFCC,
       attributes: {
         class: 'textarea',
       },
-      directives: [{ type: DefaultValueAccessor, selector: 'formControl' }],
     },
 
     object: {
@@ -165,13 +157,12 @@ export const FieldGlobalConfig = {
     'main-1': {
       type: () =>
         import('./main-1/component').then((item) => item.Main1Component),
-      selector:'main',
+      selector: 'main',
       attributes: {
         type: 'home',
       },
     },
     codeEditor: {
-      selector: 'div',
       attributes: {
         type: 'code-editor',
         class: 'h-full',
@@ -180,7 +171,6 @@ export const FieldGlobalConfig = {
         import('./monaco-editor/component').then((item) => item.default),
     },
     jsonEditor: {
-      selector: 'div',
       attributes: {
         type: 'json-editor',
         class: 'h-full',
@@ -201,7 +191,7 @@ export const FieldGlobalConfig = {
       type: ButtonLinkComponent,
     },
     block: {
-      type: 'div',
+      type: DivNFCC,
     },
     'array-rw': {
       type: () => import('./array-rw/component').then((a) => a.default),
@@ -229,7 +219,7 @@ export const FieldGlobalConfig = {
       type: () => import('./form-helper/component').then((a) => a.default),
     },
     divider: {
-      type: 'div',
+      type: DivNFCC,
       attributes: {
         class: 'divider',
       },
@@ -258,24 +248,25 @@ export const FieldGlobalConfig = {
       },
     },
     firstName: {
-      type: 'input',
+      type: InputFCC,
       attributes: {
         class: 'input',
       },
-      directives: [{ type: DefaultValueAccessor, selector: 'formControl' }],
       props: {
         title: 'First Name',
       },
     },
     lastName: {
-      type: 'input',
+      type: InputFCC,
       attributes: {
         class: 'input',
       },
-      directives: [{ type: DefaultValueAccessor, selector: 'formControl' }],
       props: {
         title: 'Last Name',
       },
+    },
+    demo: {
+      type: DemoNFCC,
     },
   },
   wrappers: {

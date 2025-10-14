@@ -275,7 +275,7 @@ v.object({
 
 ```ts
 v.object({
-  list: v.pipe(v.array(v.string()), setComponent("array-rw"), setInputs({ defaultLength: 3, minLength: 2 })),
+  list: v.pipe(v.array(v.string()), setComponent("array-rw"), setInputs({  minLength: 2 })),
 });
 ```
 

@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
-import { PiWrapperBaseComponent } from '@piying/view-angular';
+import { PiyingViewWrapperBase } from '@piying/view-angular';
 export interface JoinItem {
   icon?: string;
   text?: string;
@@ -10,7 +10,7 @@ export interface JoinItem {
   templateUrl: './component.html',
   imports: [MatIcon],
 })
-export class JoinItemWC extends PiWrapperBaseComponent {
+export class JoinItemWC extends PiyingViewWrapperBase {
   prefix = input<JoinItem>();
   suffix = input<JoinItem>();
 }

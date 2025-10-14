@@ -1,7 +1,8 @@
 import * as _angular_core from '@angular/core';
 import { CreateEffectOptions, EffectRef, ElementRef, EventEmitter, InjectionToken, Injector, OnChanges, Signal, SimpleChanges, TemplateRef, Type, ViewContainerRef, WritableSignal } from '@angular/core';
+import { ControlValueAccessor as ControlValueAccessor$1 } from '@angular/forms';
 import * as _piying_valibot_visit from '@piying/valibot-visit';
-import { BaseSchemaHandle, ConvertOptions, DefaultSchema, EnumSchema as EnumSchema$1, IntersectSchema as IntersectSchema$1, LazySchema as LazySchema$1, MetadataAction as MetadataAction$1, RawConfig, RawConfigActionCommon, RawConfigCommon, Schema as Schema$1, SchemaOrPipe, TupleSchema as TupleSchema$1, UnionSchema as UnionSchema$1, VoidSchema as VoidSchema$1, asControl as asControl$1, asVirtualGroup as asVirtualGroup$1, changeObject, condition, getDefaults as getDefaults$1, getSchemaByIssuePath, getSchemaMetadata } from '@piying/valibot-visit';
+import { BaseSchemaHandle, ConvertOptions, DefaultSchema, EnumSchema as EnumSchema$1, IntersectSchema as IntersectSchema$1, LazySchema as LazySchema$1, MetadataAction as MetadataAction$1, ObjectSchema as ObjectSchema$1, RawConfig, RawConfigActionCommon, RawConfigCommon, Schema as Schema$1, SchemaOrPipe, TupleSchema as TupleSchema$1, UnionSchema as UnionSchema$1, VoidSchema as VoidSchema$1, asControl as asControl$1, asVirtualGroup as asVirtualGroup$1, changeObject, condition, getDefaults as getDefaults$1, getSchemaByIssuePath, getSchemaMetadata } from '@piying/valibot-visit';
 import { ClassValue } from 'clsx';
 import * as rxjs from 'rxjs';
 import { Observable, UnaryFunction } from 'rxjs';
@@ -11062,20 +11063,29 @@ export interface FieldFormConfig<T = any> {
 	defaultValue?: any;
 	validators?: ValidatorFn[];
 	asyncValidators?: AsyncValidatorFn[];
-	updateOn?: "change" | "blur";
-	activateIndex?: number;
-	type?: LogicType;
+	updateOn?: FormHooks;
 	/** auto */
 	required?: boolean;
 	/** array/group/logic group */
 	emptyValue?: any;
 	/** array  */
 	deletionMode?: ArrayDeletionMode;
+	/** group/array */
+	groupMode?: "loose" | "default" | "strict" | "reset";
+	groupKeySchema?: BaseSchema<any, any, any>;
+	/** logic group */
+	/** or在更新值时,会自动切换到第一个匹配的 */
+	disableOrUpdateActivate?: boolean;
 }
 export type FieldFormConfig$ = WritableSignal<FieldFormConfig>;
 export type FieldGroupConfig$ = WritableSignal<Omit<FieldFormConfig, "defaultValue">>;
 export type FieldArrayConfig$ = WritableSignal<Omit<FieldFormConfig, "defaultValue">>;
 export type FieldLogicGroupConfig$ = WritableSignal<Omit<FieldFormConfig, "defaultValue">>;
+export declare const enum UpdateType {
+	init = 0,
+	update = 1,
+	reset = 2
+}
 declare const ValidatorPending: unique symbol;
 export type ValidationErrors = {
 	[key: string]: any;
@@ -11084,13 +11094,13 @@ export interface ValidatorFn {
 	(control: AbstractControl): ValidationErrors | undefined;
 }
 export interface AsyncValidatorFn {
-	(control: AbstractControl): Promise<ValidationErrors | undefined> | Observable<ValidationErrors | undefined>;
+	(control: AbstractControl): Promise<ValidationErrors | undefined> | Observable<ValidationErrors | undefined> | Signal<ValidationErrors | undefined>;
 }
 declare const VALID = "VALID";
 declare const INVALID = "INVALID";
 declare const PENDING = "PENDING";
 export type VALID_STATUS = typeof VALID | typeof INVALID | typeof PENDING;
-export type FormHooks = "change" | "blur";
+export type FormHooks = "change" | "blur" | "submit";
 export type AbstractControlParams = ConstructorParameters<typeof AbstractControl<any>>;
 declare abstract class AbstractControl<TValue = any> {
 	#private;
@@ -11099,11 +11109,13 @@ declare abstract class AbstractControl<TValue = any> {
 	shouldInclude$$: Signal<boolean>;
 	readonly injector: Injector;
 	/** model的value */
-	abstract value$$: Signal<TValue | undefined>;
-	abstract children$$?: Signal<AbstractControl[]>;
+	value$$: Signal<TValue | undefined>;
+	/** 已激活的子级,用于校验获得返回值之类 */
+	activatedChildren$$?: Signal<AbstractControl[]>;
+	/** 通用的子级,用于查询之类 */
+	children$$?: Signal<AbstractControl[]>;
 	/** disabled */
 	readonly selfDisabled$$: Signal<boolean>;
-	readonly selfEnabled$$: Signal<boolean>;
 	/** `self` || `parent` */
 	readonly disabled$$: Signal<boolean>;
 	readonly enabled$$: Signal<boolean>;
@@ -11134,54 +11146,70 @@ declare abstract class AbstractControl<TValue = any> {
 	get value(): TValue | undefined;
 	required$$: Signal<boolean | undefined>;
 	readonly schemaParser: V.SafeParser<SchemaOrPipe, undefined>;
+	context: any;
 	constructor(rawSchema: SchemaOrPipe, injector: Injector);
 	setParent(parent: AbstractControl | undefined): void;
 	get valid(): boolean;
 	get invalid(): boolean;
 	get pending(): boolean;
-	selfUpdateOn$$: Signal<"change" | "blur" | undefined>;
 	updateOn$$: Signal<FormHooks>;
 	markAsTouched(): void;
 	markAllAsDirty(): void;
+	markAllAsPristine(): void;
 	markAllAsTouched(): void;
+	markAllAsUntouched(): void;
 	markAsUntouched(): void;
 	markAsDirty(): void;
 	markAsPristine(): void;
-	abstract reset(value?: any): void;
+	reset(value?: any): void;
 	getRawValue(): any;
 	get<P extends string | (string | number)[]>(path: P): AbstractControl | null;
 	get root(): AbstractControl;
-	abstract updateValue(value: any): void;
+	updateValue(value: any): void;
 	config$: FieldFormConfig$;
-	initConfig(config: any): void;
+	protected getInitValue(value: any): any;
 	find(name: string | number): AbstractControl | null;
 	setControl(name: string | number, control: AbstractControl): void;
+	/** 校验和获得值用 */
 	private reduceChildren;
 	get valueChanges(): Observable<any>;
 	status$$: Signal<VALID_STATUS>;
 	get statusChanges(): Observable<VALID_STATUS>;
+	/** 仅触发 updateOn: submit 时使用 */
+	emitSubmit(): void;
+	protected isUnChanged(): boolean;
+}
+declare class FieldGroupbase extends AbstractControl {
+	resetValue$: _angular_core.WritableSignal<any>;
+	updateValue(value: any): void;
+	protected inited: boolean;
+	reset(value?: any): void;
 }
 declare class FieldGroup<TControl extends {
 	[K in keyof TControl]: AbstractControl<any>;
-} = any> extends AbstractControl {
+} = any> extends FieldGroupbase {
 	#private;
 	value$$: _angular_core.Signal<any>;
+	fixedControls$: _angular_core.WritableSignal<Record<string, AbstractControl<any>>>;
+	resetControls$: _angular_core.WritableSignal<Record<string, AbstractControl<any>>>;
+	get controls(): {
+		[x: string]: AbstractControl<any>;
+	};
 	children$$: _angular_core.Signal<AbstractControl<any>[]>;
-	controls$: _angular_core.WritableSignal<Record<string, AbstractControl<any>>>;
-	get controls(): Record<string, AbstractControl<any>>;
-	registerControl(name: string, control: AbstractControl): AbstractControl<any>;
-	removeControl(name: string): void;
-	setControl(name: string, control: AbstractControl): void;
-	reset(value?: any): void;
+	removeRestControl(key: string): void;
+	setControl(key: string, control: AbstractControl): void;
 	getRawValue(): any;
-	find(name: string): AbstractControl | null;
-	looseValue$$: _angular_core.Signal<any>;
-	setInitValue(obj: any): void;
-	updateValue(value: any): void;
+	clear(): void;
+	find(key: string): AbstractControl | null;
+	getResetValue(inputValue: any): Record<string, any>;
 }
 declare class FieldControl<TValue = any> extends AbstractControl<TValue> {
 	#private;
-	children$$: undefined;
+	pendingStatus: WritableSignal<{
+		touched: boolean;
+		change: boolean;
+		value: undefined;
+	}>;
 	/** 视图变化时model值不变也要更新view */
 	private viewIndex$;
 	/** model输入值 */
@@ -11195,33 +11223,33 @@ declare class FieldControl<TValue = any> extends AbstractControl<TValue> {
 	/** view变更 */
 	viewValueChange(value: TValue | undefined): void;
 	updateValue(value: any, force?: boolean): void;
-	initConfig(config: any): void;
+	emitSubmit(): void;
+	updateInitValue(value: any): void;
 }
-declare class FieldArray<TControl extends AbstractControl<any> = any> extends AbstractControl {
+declare class FieldArray<TControl extends AbstractControl<any> = any> extends FieldGroupbase {
 	#private;
 	value$$: _angular_core.Signal<any>;
 	children$$: _angular_core.Signal<AbstractControl<any>[]>;
-	controls$: _angular_core.WritableSignal<AbstractControl<any>[]>;
+	fixedControls$: _angular_core.WritableSignal<AbstractControl<any>[]>;
+	resetControls$: _angular_core.WritableSignal<AbstractControl<any>[]>;
 	get controls(): AbstractControl<any>[];
-	removeAt(index: number): void;
-	setControl(index: number, control: TControl): void;
+	removeRestControl(key: number): void;
+	setControl(key: number, control: TControl): void;
 	get length(): number;
-	reset(value?: any[]): void;
-	getRawValue(): any[];
+	getRawValue(): any;
 	clear(): void;
-	private _adjustIndex;
-	find(name: number): AbstractControl;
-	beforeUpdateList: ((value: any[]) => void)[];
-	updateValue(value?: any[]): void;
+	find(key: number): AbstractControl;
+	getResetValue(value?: any[]): any[];
 }
 declare class FieldLogicGroup extends FieldArray {
-	/** 待定参数 */
+	#private;
 	activateIndex$: _angular_core.WritableSignal<number>;
 	type: _angular_core.WritableSignal<LogicType>;
-	activateControl$: _angular_core.WritableSignal<AbstractControl<any>[] | undefined>;
+	activateControls$: _angular_core.WritableSignal<AbstractControl<any>[] | undefined>;
 	value$$: _angular_core.Signal<any>;
-	getActivateControls(): AbstractControl<any>[];
+	activatedChildren$$: _angular_core.Signal<AbstractControl<any>[]>;
 	getValue(rawData: boolean): any;
+	reset(value?: any[]): void;
 	getRawValue(): any;
 	updateValue(value: any): void;
 }
@@ -11274,6 +11302,13 @@ declare class SortedArray<T> extends Array {
 	push(...items: any[]): number;
 }
 export type LazyImport<T> = () => Promise<T>;
+declare const markSymbol: unique symbol;
+declare function lazyMark<T>(fn: LazyImport<T>): {
+	[markSymbol]: LazyImport<T>;
+};
+export type LazyMarkType<T> = ReturnType<typeof lazyMark<T>>;
+declare function isLazyMark(input: any): boolean;
+declare function getLazyImport<T>(input: any): T | undefined;
 export interface ControlValueAccessor {
 	/**
 	 * @description
@@ -11381,9 +11416,14 @@ export interface ControlValueAccessor {
 	 */
 	setDisabledState?(isDisabled: boolean): void;
 }
-declare function createViewControlLink(fieldControl: Signal<FieldControl>, cva: ControlValueAccessor, injector: Injector): (() => any)[];
+declare function createViewControlLink(fieldControl: () => FieldControl, cva: ControlValueAccessor, injector: Injector): (destroy?: boolean) => void;
 declare function controlStatusList(fieldControl?: AbstractControl, skipDisabled?: boolean): string[];
 declare function fieldControlStatusClass(fieldControl?: AbstractControl, skipDisabled?: boolean): string;
+declare function initListen(input: any, control: AbstractControl, injector: Injector, fn: (input: any) => void): _angular_core.EffectRef;
+declare function getDeepError(control?: AbstractControl): {
+	control: AbstractControl<any>;
+	errors: PYVAC.ValidationErrors | undefined;
+}[];
 export interface LayoutAction<TInput = unknown> extends BaseMetadata<TInput> {
 	readonly type: "layout";
 	readonly reference: typeof layout$1;
@@ -11399,7 +11439,7 @@ declare class CoreSchemaHandle<Self extends CoreSchemaHandle<any, any>, RESOLVED
 	wrappers?: CoreRawWrapperConfig[];
 	attributes?: Record<string, any>;
 	alias?: string;
-	movePath?: QueryPath;
+	movePath?: KeyPath;
 	renderConfig?: FieldRenderConfig;
 	/** todo 非表单应该可选 */
 	formConfig: FieldFormConfig;
@@ -11414,6 +11454,9 @@ declare class CoreSchemaHandle<Self extends CoreSchemaHandle<any, any>, RESOLVED
 	arraySchema(schema: ArraySchema<BaseSchema<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ArrayIssue> | undefined>): void;
 	defaultSchema(schema: DefaultSchema): void;
 	tupleDefault(schema: TupleSchema$1): void;
+	objectDefault(schema: ObjectSchema$1): void;
+	recordSchema(key: V.BaseSchema<unknown, unknown, V.BaseIssue<unknown>>, value: V.BaseSchema<unknown, unknown, V.BaseIssue<unknown>>): void;
+	restSchema(schema: V.BaseSchema<unknown, unknown, V.BaseIssue<unknown>>): void;
 	enumSchema(schema: EnumSchema$1): void;
 	intersectBefore(schema: IntersectSchema$1): void;
 	logicItemSchema(schema: V.BaseSchema<unknown, unknown, V.BaseIssue<unknown>>, index: number, type: "intersect" | "union"): void;
@@ -11430,37 +11473,35 @@ declare function setInputs$1<T>(inputs: CoreRawViewInputs): _piying_valibot_visi
 declare function patchInputs$1<T>(inputs: CoreRawViewInputs): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function removeInputs<T>(list: string[]): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function asyncInputMerge(dataObj: Record<string, any>, data$: WritableSignal<any>): WritableSignal<any>;
-declare function patchAsyncFn(patchKey: "props" | "inputs" | "attributes"): <T>(dataObj: Record<string, (field: _PiResolvedCommonViewFieldConfig) => Promise<any> | Observable<any> | Signal<any> | (any & {})>, options?: {
+export type AsyncResult = Promise<any> | Observable<any> | Signal<any> | (any & {});
+export type AsyncProperty = (field: _PiResolvedCommonViewFieldConfig) => AsyncResult;
+declare function patchAsyncFn(patchKey: "props" | "inputs" | "attributes"): <T>(dataObj: Record<string, AsyncProperty>, options?: {
 	addPosition: "top" | "bottom";
 	hookName: "fieldResolved" | "allFieldsResolved";
 }) => _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
-declare const patchAsyncInputs$1: <T>(dataObj: Record<string, (field: _PiResolvedCommonViewFieldConfig) => Promise<any> | Observable<any> | Signal<any> | (any & {})>, options?: {
+declare const patchAsyncInputs$1: <T>(dataObj: Record<string, AsyncProperty>, options?: {
 	addPosition: "top" | "bottom";
 	hookName: "fieldResolved" | "allFieldsResolved";
 }) => _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function setAttributes$1<T>(attributes: CoreRawViewAttributes): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function patchAttributes$1<T>(attributes: CoreRawViewAttributes): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function removeAttributes<T>(list: string[]): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
-declare const patchAsyncAttributes$1: <T>(dataObj: Record<string, (field: PYVAC._PiResolvedCommonViewFieldConfig) => Promise<any> | rxjs.Observable<any> | _angular_core.Signal<any> | (any & {})>, options?: {
+declare const patchAsyncAttributes$1: <T>(dataObj: Record<string, PYVAC.AsyncProperty>, options?: {
 	addPosition: "top" | "bottom";
 	hookName: "fieldResolved" | "allFieldsResolved";
 }) => _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function setProps<T>(props: CoreRawProps): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function patchProps$1<T>(props: CoreRawProps): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function removeProps<T>(list: string[]): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
-declare const patchAsyncProps$1: <T>(dataObj: Record<string, (field: PYVAC._PiResolvedCommonViewFieldConfig) => Promise<any> | rxjs.Observable<any> | _angular_core.Signal<any> | (any & {})>, options?: {
+declare const patchAsyncProps$1: <T>(dataObj: Record<string, PYVAC.AsyncProperty>, options?: {
 	addPosition: "top" | "bottom";
 	hookName: "fieldResolved" | "allFieldsResolved";
 }) => _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function setOutputs<T>(outputs: CoreRawViewOutputs): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, AnyCoreSchemaHandle>;
 declare function patchOutputs$1<T>(outputs: CoreRawViewOutputs): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, AnyCoreSchemaHandle>;
 declare function removeOutputs<T>(list: string[]): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, AnyCoreSchemaHandle>;
-declare function mergeOutputFn(field: _PiResolvedCommonViewFieldConfig, outputs: CoreRawViewOutputs, options: {
-	position: "top" | "bottom";
-}): void;
-declare const mergeOutputs$1: <T>(outputs: Record<string, (...args: any[]) => void>, options?: {
-	position: "top" | "bottom";
-}) => _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, AnyCoreSchemaHandle>;
+declare function mergeOutputFn(field: _PiResolvedCommonViewFieldConfig, outputs: CoreRawViewOutputs): void;
+declare const mergeOutputs$1: <T>(outputs: Record<string, (...args: any[]) => void>) => _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, AnyCoreSchemaHandle>;
 export type EventChangeFn = (fn: (input: {
 	list: KeyPath | undefined;
 	output: string;
@@ -11476,6 +11517,11 @@ export type PatchWrappersOptions = {
 	position: "head" | "tail";
 };
 declare function patchWrappers<T>(wrappers: CoreRawWrapperConfig | CoreRawWrapperConfig[], options?: PatchWrappersOptions): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
+export type AsyncCoreRawWrapperConfig = Omit<Exclude<CoreRawWrapperConfig, string>, "inputs" | "attributes"> & {
+	inputs?: Record<string, AsyncProperty>;
+	attributes?: Record<string, AsyncProperty>;
+};
+declare function patchAsyncWrapper<T>(inputWrapper: AsyncCoreRawWrapperConfig, options?: PatchWrappersOptions): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function removeWrappers<T>(list: string[]): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function setAlias$1<T>(alias: string): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function renderConfig<T>(type: FieldRenderConfig): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
@@ -11497,20 +11543,15 @@ export interface ValueChangFnOptions {
 	list?: (KeyPath | undefined)[];
 	skipInitValue?: boolean;
 }
-export interface ChangeWhenOption<T extends _PiResolvedCommonViewFieldConfig = _PiResolvedCommonViewFieldConfig> {
-	fn: (fn: (input: ValueChangFnOptions) => Observable<{
-		field: _PiResolvedCommonViewFieldConfig;
-		input: ValueChangFnOptions;
-	}>) => void;
-}
 export type ValueChangeFn = (fn: (input?: ValueChangFnOptions) => Observable<{
 	field: _PiResolvedCommonViewFieldConfig;
 	list: any[];
+	listenFields: _PiResolvedCommonViewFieldConfig[];
 }>, field: _PiResolvedCommonViewFieldConfig) => void;
 declare function valueChangeFn(field: _PiResolvedCommonViewFieldConfig, input?: ValueChangFnOptions): Observable<{
 	list: any[];
 	field: _PiResolvedCommonViewFieldConfig;
-	listenFields: any[];
+	listenFields: _PiResolvedCommonViewFieldConfig[];
 }>;
 declare function valueChange$1<TInput>(listenFn: ValueChangeFn): _piying_valibot_visit.RawConfigAction<"viewRawConfig", TInput, PYVAC.AnyCoreSchemaHandle>;
 export interface HideWhenOption<T extends _PiResolvedCommonViewFieldConfig = _PiResolvedCommonViewFieldConfig> {
@@ -11532,6 +11573,7 @@ export interface DisableWhenOption<T extends _PiResolvedCommonViewFieldConfig = 
 declare function disableWhen$1<TInput>(options: DisableWhenOption): _piying_valibot_visit.RawConfigAction<"viewRawConfig", TInput, PYVAC.AnyCoreSchemaHandle>;
 declare function topClass$1<T>(className: ClassValue, merge?: boolean): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 declare function componentClass$1<T>(className: ClassValue, merge?: boolean): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
+declare function patchAsyncClass<T>(fn: (field: _PiResolvedCommonViewFieldConfig) => AsyncResult): _piying_valibot_visit.RawConfigAction<"viewRawConfig", T, PYVAC.AnyCoreSchemaHandle>;
 export interface NonFieldControlAction<TInput = unknown> extends BaseMetadata<TInput> {
 	readonly type: "nonFieldControl";
 	readonly reference: typeof nonFieldControl$1;
@@ -11560,8 +11602,6 @@ export type CoreResolvedComponentDefine = SetWrapper$<CoreRawComponentDefine, "a
 export interface HookConfig<RESOLVED_FIELD> {
 	/** 配置刚被解析 */
 	fieldResolved?: (field: RESOLVED_FIELD) => void;
-	/** 子级已经初始化,每次array添加都会触发 */
-	afterChildrenInit?: (field: RESOLVED_FIELD) => void;
 	/** 所有feilds初始化后执行,也就是可以进行表单监听 */
 	allFieldsResolved?: (field: RESOLVED_FIELD) => void;
 	/** todo 此hook暂时没有使用到 创建组件之前 */
@@ -11576,8 +11616,9 @@ export type PiResolvedCommonViewFieldConfig<SelfResolvedFn extends () => any, De
 	readonly keyPath?: KeyPath | undefined;
 	readonly fullPath: KeyPath;
 	readonly props: WritableSignal<Record<string, any>>;
-	fieldGroup?: WritableSignal<ReturnType<SelfResolvedFn>[]>;
-	fieldArray?: WritableSignal<ReturnType<SelfResolvedFn>[]>;
+	children?: Signal<ReturnType<SelfResolvedFn>[]>;
+	fixedChildren?: WritableSignal<ReturnType<SelfResolvedFn>[]>;
+	restChildren?: WritableSignal<ReturnType<SelfResolvedFn>[]>;
 	parent: ReturnType<SelfResolvedFn>;
 	readonly form: {
 		readonly control?: FieldGroup | FieldArray | FieldControl | FieldLogicGroup;
@@ -11590,8 +11631,8 @@ export type PiResolvedCommonViewFieldConfig<SelfResolvedFn extends () => any, De
 	readonly context?: any;
 	get: (keyPath: KeyPath, aliasNotFoundFn?: (name: string, field: PiResolvedCommonViewFieldConfig<any, any>) => PiResolvedCommonViewFieldConfig<any, any>) => ReturnType<SelfResolvedFn> | undefined;
 	action: {
-		set: (value: any, index?: number) => void;
-		remove: (index: number) => void;
+		set: (value: any, index?: any) => boolean;
+		remove: (index: any) => void;
 	};
 	readonly define?: Define;
 	wrappers: WritableSignal<CoreResolvedWrapperConfig[]>;
@@ -11604,13 +11645,13 @@ export type PiCommonDefaultConfig = Partial<Pick<CoreSchemaHandle<any, any>, "fo
 export interface FormBuilderOptions<T> {
 	form$$: Signal<FieldGroup>;
 	resolvedField$: WritableSignal<T>;
-	context: Signal<any>;
+	context: any;
 }
 export type CoreRawViewInputs = Record<string, any>;
 export type CoreRawViewAttributes = Record<string, any>;
 export type CoreRawProps = Record<string, any>;
 export interface CoreRawViewOutputs {
-	[name: string]: (event: any) => void;
+	[name: string]: (...args: any[]) => void;
 }
 export type CoreWrapperConfig1 = {
 	type: string | any | LazyImport<any>;
@@ -11642,24 +11683,27 @@ export interface BuildRootItem {
 }
 export interface BuildGroupItem<SchemaHandle extends CoreSchemaHandle<any, any>> {
 	type: "group";
+	templateField?: SchemaHandle;
 	fields: SchemaHandle[];
 	form: FieldGroup;
 	field: _PiResolvedCommonViewFieldConfig;
 	append: (input: _PiResolvedCommonViewFieldConfig) => void;
+	skipAppend?: boolean;
 }
 export interface BuildArrayItem<SchemaHandle extends CoreSchemaHandle<any, any>> {
 	type: "array";
 	templateField: SchemaHandle;
+	fields: SchemaHandle[];
 	form: FieldArray;
 	field: _PiResolvedCommonViewFieldConfig;
 	append: (input: _PiResolvedCommonViewFieldConfig) => void;
+	skipAppend?: boolean;
 }
 declare class FormBuilder<SchemaHandle extends CoreSchemaHandle<any, any>> {
 	#private;
 	buildRoot(item: BuildRootInputItem<SchemaHandle>): void;
 	allFieldInitHookCall(): void;
 	afterResolveConfig(rawConfig: SchemaHandle, config: _PiResolvedCommonViewFieldConfig): _PiResolvedCommonViewFieldConfig | undefined;
-	createArrayItem(parent: BuildGroupItem<SchemaHandle> | BuildArrayItem<SchemaHandle>, field: AnyCoreSchemaHandle, index: number): PiResolvedCommonViewFieldConfig<any, any>;
 	protected configMergeRaw<T extends SignalInputValue<any>>(list: T[], isArray: boolean, strategy: ConfigMergeStrategy): UnWrapSignal<NonNullable<T>>;
 	/**
 	 * 后面覆盖前面
@@ -11669,53 +11713,89 @@ declare class FormBuilder<SchemaHandle extends CoreSchemaHandle<any, any>> {
 export interface PiCommonConfig {
 	types?: Record<string, PiCommonDefaultConfig>;
 	defaultConfig?: PiCommonDefaultConfig;
-	defaultConfigMergeStrategy?: ConfigMergeStrategy | Record<DefaultConfigKey, ConfigMergeStrategy>;
+	defaultConfigMergeStrategy?: Record<DefaultConfigKey, ConfigMergeStrategy>;
 	wrappers?: Record<string, Omit<CoreWrapperConfig1, "type"> & {
 		type: any | LazyImport<any>;
 	}>;
 }
 export type DefaultConfigKey = Exclude<keyof PiCommonDefaultConfig, "type">;
 declare const PI_VIEW_CONFIG_TOKEN: InjectionToken<PiCommonConfig>;
+declare const PI_CONTEXT_TOKEN: InjectionToken<any>;
 declare function isGroup(schema: AnyCoreSchemaHandle): boolean | undefined;
 declare function isArray(schema: AnyCoreSchemaHandle): boolean;
+declare class PiyingViewGroupBase {
+	field$$: _angular_core.Signal<PVA.PiResolvedViewFieldConfig>;
+	props$$: _angular_core.Signal<Record<string, any>>;
+	children$$: _angular_core.Signal<PVA.PiResolvedViewFieldConfig[]>;
+	fixedChildren$$: _angular_core.Signal<PVA.PiResolvedViewFieldConfig[]>;
+	restChildren$$: _angular_core.Signal<PVA.PiResolvedViewFieldConfig[]>;
+	fieldTemplateRef: _angular_core.InputSignal<TemplateRef<any>>;
+	static ɵfac: _angular_core.ɵɵFactoryDeclaration<PiyingViewGroupBase, never>;
+	static ɵdir: _angular_core.ɵɵDirectiveDeclaration<PiyingViewGroupBase, never, never, {
+		"fieldTemplateRef": {
+			"alias": "fieldTemplateRef";
+			"required": true;
+			"isSignal": true;
+		};
+	}, {}, never, never, true, never>;
+}
+declare class PiyingViewGroup extends PiyingViewGroupBase {
+	static ɵfac: _angular_core.ɵɵFactoryDeclaration<PiyingViewGroup, never>;
+	static ɵcmp: _angular_core.ɵɵComponentDeclaration<PiyingViewGroup, "piying-view-group", never, {}, {}, never, never, true, never>;
+}
 export type DirectiveConfig<T = any> = {
 	/** string表示是标签,type<any>是组件或者指令 */
-	type: Type<T> | string;
+	type: Type<T>;
 	inputs?: Signal<Record<string, any>>;
 	outputs?: CoreRawViewOutputs;
 	model?: Record<string, WritableSignal<any>>;
-	selector?: string;
 	attributes?: Signal<CoreRawViewAttributes | undefined>;
-	contents?: ComponentContent;
 };
 /** todo 这个没有支持 */
 export interface RawDirectiveOutputs {
 	[name: string]: (event: any, field: PiResolvedViewFieldConfig) => void;
 }
 export interface DynamicComponentConfig {
-	type: Type<any> | string;
+	type: Type<any>;
 	module?: Type<any>;
 	attributes: Signal<CoreRawViewAttributes | undefined>;
-	selector?: string;
 	inputs: Signal<CoreRawViewInputs | undefined>;
 	directives?: DirectiveConfig[];
 	outputs?: CoreRawViewOutputs;
 	injector?: Injector;
-	contents?: ComponentContent;
 }
-export type ComponentContent = {
-	select?: string;
-	nodes?: any[];
-	text?: Signal<string>;
-}[];
 /** 解析后组件已经加载 ngcomponentoutlet */
 export type NgResolvedComponentDefine2 = Omit<NgResolvedComponentDefine1, "type"> & {
 	type: NgComponentDefine;
 };
 /** component,wrapper通用定义 */
 export type NgComponentDefine = {
-	component: Type<any> | string;
+	component: Type<any>;
 	module?: Type<any>;
+};
+declare class NgSchemaHandle extends CoreSchemaHandle<NgSchemaHandle, () => PiResolvedViewFieldConfig> {
+	type?: any;
+	directives?: NgDirectiveConfig[];
+}
+/** 指令配置 */
+export type NgDirectiveConfig = Omit<DirectiveConfig, "inputs" | "outputs"> & {
+	inputs?: Signal<Record<string, any>>;
+	outputs?: RawDirectiveOutputs;
+};
+/** 用于全局可选配置 */
+export type PiDefaultRawViewFieldConfig = Pick<NgSchemaHandle, "inputs" | "outputs" | "wrappers" | "formConfig" | "renderConfig" | "props" | "directives" | "attributes">;
+export type NgRawComponentDefine = Omit<CoreRawComponentDefine, "type"> & {
+	type: string | Type<any> | LazyImport<Type<any>> | NgComponentDefine | LazyImport<NgComponentDefine> | LazyMarkType<Type<any>> | LazyMarkType<NgComponentDefine>;
+};
+/** 解析后但是未加载 */
+export type NgResolvedComponentDefine1 = Omit<CoreResolvedComponentDefine, "type"> & {
+	type: Type<any> | LazyImport<Type<any>> | NgComponentDefine | LazyImport<NgComponentDefine> | LazyMarkType<Type<any>> | LazyMarkType<NgComponentDefine>;
+};
+export type PiResolvedViewFieldConfig = PiResolvedCommonViewFieldConfig<() => PiResolvedViewFieldConfig, NgResolvedComponentDefine1> & {
+	directives?: WritableSignal<NgDirectiveConfig[]>;
+};
+export type NgResolvedWraaperConfig = Omit<CoreResolvedWrapperConfig, "type"> & {
+	type: NgComponentDefine;
 };
 export type PiComponentDefaultConfig = NgRawComponentDefine & {
 	directives?: NgDirectiveConfig[];
@@ -11731,60 +11811,11 @@ export interface PiViewConfig {
 	}>;
 	defaultConfig?: PiDefaultRawViewFieldConfig;
 	/** merge 数组/对象会合并 replace 优先自身/组件/全局 */
-	defaultConfigMergeStrategy?: ConfigMergeStrategy | ConfigMergeStrategyObject;
+	defaultConfigMergeStrategy?: ConfigMergeStrategyObject;
 }
 declare const PI_VIEW_FIELD_TOKEN: InjectionToken<Signal<PiResolvedViewFieldConfig>>;
 declare const PI_COMPONENT_INDEX: InjectionToken<number>;
 declare const PI_COMPONENT_LIST_LISTEN: InjectionToken<EventEmitter<DynamicComponentConfig[]>>;
-declare class NgSchemaHandle extends CoreSchemaHandle<NgSchemaHandle, () => PiResolvedViewFieldConfig> {
-	type?: any;
-	contents?: ComponentContent;
-	directives?: NgDirectiveConfig[];
-}
-/** 指令配置 */
-export type NgDirectiveConfig = Omit<DirectiveConfig, "inputs" | "outputs"> & {
-	inputs?: Signal<Record<string, any>>;
-	outputs?: RawDirectiveOutputs;
-};
-/** 用于全局可选配置 */
-export type PiDefaultRawViewFieldConfig = Pick<NgSchemaHandle, "inputs" | "outputs" | "wrappers" | "formConfig" | "renderConfig" | "props" | "directives" | "attributes">;
-export type NgRawComponentDefine = Omit<CoreRawComponentDefine, "type"> & {
-	type: string | Type<any> | LazyImport<Type<any>> | NgComponentDefine | LazyImport<NgComponentDefine>;
-	selector?: string;
-};
-/** 解析后但是未加载 */
-export type NgResolvedComponentDefine1 = Omit<CoreResolvedComponentDefine, "type"> & {
-	type: string | Type<any> | LazyImport<Type<any>> | NgComponentDefine | LazyImport<NgComponentDefine>;
-	selector?: string;
-};
-export type PiResolvedViewFieldConfig = PiResolvedCommonViewFieldConfig<() => PiResolvedViewFieldConfig, NgResolvedComponentDefine1> & {
-	contents?: ComponentContent;
-	directives?: WritableSignal<NgDirectiveConfig[]>;
-};
-export type NgResolvedWraaperConfig = Omit<CoreResolvedWrapperConfig, "type"> & {
-	type: NgComponentDefine;
-};
-declare class PiyingViewGroupBase {
-	fields: _angular_core.InputSignal<PiResolvedViewFieldConfig[]>;
-	fieldTemplateRef: _angular_core.InputSignal<TemplateRef<any>>;
-	static ɵfac: _angular_core.ɵɵFactoryDeclaration<PiyingViewGroupBase, never>;
-	static ɵdir: _angular_core.ɵɵDirectiveDeclaration<PiyingViewGroupBase, never, never, {
-		"fields": {
-			"alias": "fields";
-			"required": true;
-			"isSignal": true;
-		};
-		"fieldTemplateRef": {
-			"alias": "fieldTemplateRef";
-			"required": true;
-			"isSignal": true;
-		};
-	}, {}, never, never, true, never>;
-}
-declare class PiyingViewGroup extends PiyingViewGroupBase {
-	static ɵfac: _angular_core.ɵɵFactoryDeclaration<PiyingViewGroup, never>;
-	static ɵcmp: _angular_core.ɵɵComponentDeclaration<PiyingViewGroup, "piying-view-group", never, {}, {}, never, never, true, never>;
-}
 export type NgConvertOptions = SetOptional<ConvertOptions, "handle"> & {
 	builder: typeof FormBuilder;
 	fieldGlobalConfig?: PiViewConfig;
@@ -11797,11 +11828,10 @@ declare class PiyingView implements OnChanges {
 	options: _angular_core.InputSignal<(Omit<SetOptional<NgConvertOptions, "handle" | "builder">, "fieldGlobalConfig"> & {
 		fieldGlobalConfig?: PiViewConfig;
 	}) | undefined>;
-	form$$: _angular_core.Signal<FieldControl<any> | FieldArray<any> | FieldGroup<any> | undefined>;
+	form$$: _angular_core.Signal<FieldArray<any> | FieldControl<any> | FieldGroup<any> | undefined>;
 	ngOnChanges(changes: SimpleChanges): void;
 	resolvedField$: _angular_core.WritableSignal<PiResolvedViewFieldConfig | undefined>;
-	groupInputsValue: (inputs: PiResolvedViewFieldConfig["inputs"], fields: PiResolvedViewFieldConfig[], fieldTemplateRef: TemplateRef<any>) => _angular_core.Signal<{
-		fields: PiResolvedViewFieldConfig[];
+	groupInputsValue: (inputs: PiResolvedViewFieldConfig["inputs"], fieldTemplateRef: TemplateRef<any>) => _angular_core.Signal<{
 		fieldTemplateRef: TemplateRef<any>;
 	}>;
 	resolvedComponent: (list: NgResolvedComponentDefine2 | undefined) => _angular_core.ResourceRef<NgResolvedComponentDefine2 | undefined> | {
@@ -11849,19 +11879,19 @@ declare class BaseComponent {
 	static ɵfac: _angular_core.ɵɵFactoryDeclaration<BaseComponent, never>;
 	static ɵdir: _angular_core.ɵɵDirectiveDeclaration<BaseComponent, never, never, {}, {}, never, never, true, never>;
 }
-declare class PiWrapperBaseComponent extends BaseComponent {
+declare class PiyingViewWrapperBase extends BaseComponent {
 	#private;
 	fieldComponentAnchor: _angular_core.Signal<ViewContainerRef | undefined>;
 	field$$: _angular_core.Signal<PVA.PiResolvedViewFieldConfig>;
 	props$$: _angular_core.Signal<Record<string, any>>;
 	createComponent(): void;
 	ngOnInit(): void;
-	static ɵfac: _angular_core.ɵɵFactoryDeclaration<PiWrapperBaseComponent, never>;
-	static ɵdir: _angular_core.ɵɵDirectiveDeclaration<PiWrapperBaseComponent, never, never, {}, {}, never, never, true, never>;
+	static ɵfac: _angular_core.ɵɵFactoryDeclaration<PiyingViewWrapperBase, never>;
+	static ɵdir: _angular_core.ɵɵDirectiveDeclaration<PiyingViewWrapperBase, never, never, {}, {}, never, never, true, never>;
 }
 declare const rawConfig$1: RawConfigCommon<NgSchemaHandle>;
 declare function setDirectives<T>(items: NgDirectiveConfig[]): _piying_valibot_visit.RawConfigAction<string, T, any>;
-declare function patchDirectives(items: NgDirectiveConfig[]): _piying_valibot_visit.RawConfigAction<string, unknown, any>;
+declare function patchDirectives<T>(items: NgDirectiveConfig[]): _piying_valibot_visit.RawConfigAction<string, T, any>;
 declare function patchAsyncDirective$1<T>(fn: (field: _PiResolvedCommonViewFieldConfig) => Omit<NgDirectiveConfig, "inputs"> & {
 	inputs?: Record<string, any>;
 }): _piying_valibot_visit.RawConfigAction<string, T, any>;
@@ -11870,6 +11900,20 @@ declare class AngularFormBuilder extends FormBuilder<NgSchemaHandle> {
 	afterResolveConfig(rawConfig: NgSchemaHandle, config: PiResolvedViewFieldConfig): PiResolvedViewFieldConfig;
 	static ɵfac: _angular_core.ɵɵFactoryDeclaration<AngularFormBuilder, never>;
 	static ɵprov: _angular_core.ɵɵInjectableDeclaration<AngularFormBuilder>;
+}
+declare class BaseControl<T = any> implements ControlValueAccessor$1 {
+	#private;
+	readonly defaultValue: any;
+	value$: _angular_core.WritableSignal<T>;
+	protected emitValue?: (value: any) => void;
+	registerOnChange(fn: any): void;
+	/** 同时发射和value变更 */
+	valueChange(value: any): void;
+	writeValue(obj: any): void;
+	registerOnTouched(fn: any): void;
+	touchedChange(): void;
+	disabled$: _angular_core.WritableSignal<boolean>;
+	setDisabledState(isDisabled: boolean): void;
 }
 declare class FocusDirective$1 {
 	#private;
@@ -11921,10 +11965,10 @@ declare namespace V {
 	export { AnySchema, ArgsAction, ArgsActionAsync, ArrayInput, ArrayIssue, ArrayPathItem, ArrayRequirement$1 as ArrayRequirement, ArrayRequirementAsync, ArraySchema, ArraySchemaAsync, AwaitActionAsync, BASE64_REGEX, BIC_REGEX, Base64Action, Base64Issue, BaseIssue, BaseMetadata, BaseSchema, BaseSchemaAsync, BaseTransformation, BaseTransformationAsync, BaseValidation, BaseValidationAsync, BicAction, BicIssue, BigintIssue, BigintSchema, BlobIssue, BlobSchema, BooleanIssue, BooleanSchema, Brand, BrandAction, BrandName, BrandSymbol, BytesAction, BytesIssue, CUID2_REGEX, CheckAction, CheckActionAsync, CheckIssue, CheckItemsAction, CheckItemsActionAsync, CheckItemsIssue, Class, Config, ContentInput, ContentRequirement, CreditCardAction, CreditCardIssue, Cuid2Action, Cuid2Issue, CustomIssue, CustomSchema, CustomSchemaAsync, DECIMAL_REGEX, DIGITS_REGEX, DateIssue, DateSchema, DecimalAction, DecimalIssue, Default, DefaultAsync, DefaultValue, DescriptionAction, DigitsAction, DigitsIssue, EMAIL_REGEX, EMOJI_REGEX, EmailAction, EmailIssue, EmojiAction, EmojiIssue, EmptyAction, EmptyIssue, EndsWithAction, EndsWithIssue, EntriesAction, EntriesInput, EntriesIssue, Enum, EnumIssue, EnumSchema, EnumValues, ErrorMessage, EveryItemAction, EveryItemIssue, ExactOptionalSchema, ExactOptionalSchemaAsync, ExcludesAction, ExcludesIssue, FailureDataset, Fallback, FallbackAsync, FileIssue, FileSchema, FilterItemsAction, FindItemAction, FiniteAction, FiniteIssue, FlatErrors, Flavor, FlavorAction, FlavorName, FlavorSymbol, FunctionIssue, FunctionSchema, GenericIssue, GenericMetadata, GenericPipeAction, GenericPipeActionAsync, GenericPipeItem, GenericPipeItemAsync, GenericSchema, GenericSchemaAsync, GenericTransformation, GenericTransformationAsync, GenericValidation, GenericValidationAsync, GlobalConfig, GraphemesAction, GraphemesIssue, GtValueAction, GtValueIssue, HEXADECIMAL_REGEX, HEX_COLOR_REGEX, HashAction, HashIssue, HashType, HexColorAction, HexColorIssue, HexadecimalAction, HexadecimalIssue, IMEI_REGEX, IPV4_REGEX, IPV6_REGEX, IP_REGEX, ISO_DATE_REGEX, ISO_DATE_TIME_REGEX, ISO_TIMESTAMP_REGEX, ISO_TIME_REGEX, ISO_TIME_SECOND_REGEX, ISO_WEEK_REGEX, ImeiAction, ImeiIssue, IncludesAction, IncludesIssue, InferDefault, InferDefaults, InferFallback, InferFallbacks, InferInput, InferIssue, InferMetadata, InferOutput, InstanceIssue, InstanceSchema, IntegerAction, IntegerIssue, IntersectIssue, IntersectOptions, IntersectOptionsAsync, IntersectSchema, IntersectSchemaAsync, IpAction, IpIssue, Ipv4Action, Ipv4Issue, Ipv6Action, Ipv6Issue, IsoDateAction, IsoDateIssue, IsoDateTimeAction, IsoDateTimeIssue, IsoTimeAction, IsoTimeIssue, IsoTimeSecondAction, IsoTimeSecondIssue, IsoTimestampAction, IsoTimestampIssue, IsoWeekAction, IsoWeekIssue, IssueDotPath, IssuePathItem, LazySchema, LazySchemaAsync, LengthAction, LengthInput, LengthIssue, Literal, LiteralIssue, LiteralSchema, LooseObjectIssue, LooseObjectSchema, LooseObjectSchemaAsync, LooseTupleIssue, LooseTupleSchema, LooseTupleSchemaAsync, LtValueAction, LtValueIssue, MAC48_REGEX, MAC64_REGEX, MAC_REGEX, Mac48Action, Mac48Issue, Mac64Action, Mac64Issue, MacAction, MacIssue, MapIssue, MapItemsAction, MapPathItem, MapSchema, MapSchemaAsync, MaxBytesAction, MaxBytesIssue, MaxEntriesAction, MaxEntriesIssue, MaxGraphemesAction, MaxGraphemesIssue, MaxLengthAction, MaxLengthIssue, MaxSizeAction, MaxSizeIssue, MaxValueAction, MaxValueIssue, MaxWordsAction, MaxWordsIssue, MetadataAction$1 as MetadataAction, MimeTypeAction, MimeTypeIssue, MinBytesAction, MinBytesIssue, MinEntriesAction, MinEntriesIssue, MinGraphemesAction, MinGraphemesIssue, MinLengthAction, MinLengthIssue, MinSizeAction, MinSizeIssue, MinValueAction, MinValueIssue, MinWordsAction, MinWordsIssue, MultipleOfAction, MultipleOfIssue, NANO_ID_REGEX, NanIssue, NanSchema, NanoIDAction, NanoIDIssue, NanoIdAction, NanoIdIssue, NeverIssue, NeverSchema, NonEmptyAction, NonEmptyIssue, NonNullableIssue, NonNullableSchema, NonNullableSchemaAsync, NonNullishIssue, NonNullishSchema, NonNullishSchemaAsync, NonOptionalIssue, NonOptionalSchema, NonOptionalSchemaAsync, NormalizeAction, NormalizeForm, NotBytesAction, NotBytesIssue, NotEntriesAction, NotEntriesIssue, NotGraphemesAction, NotGraphemesIssue, NotLengthAction, NotLengthIssue, NotSizeAction, NotSizeIssue, NotValueAction, NotValueIssue, NotValuesAction, NotValuesIssue, NotWordsAction, NotWordsIssue, NullIssue, NullSchema, NullableSchema, NullableSchemaAsync, NullishSchema, NullishSchemaAsync, NumberIssue, NumberSchema, OCTAL_REGEX, ObjectEntries, ObjectEntriesAsync, ObjectIssue, ObjectKeys, ObjectPathItem, ObjectSchema, ObjectSchemaAsync, ObjectWithRestIssue, ObjectWithRestSchema, ObjectWithRestSchemaAsync, OctalAction, OctalIssue, OptionalSchema, OptionalSchemaAsync, OutputDataset, ParseJsonAction, ParseJsonConfig, ParseJsonIssue, Parser, ParserAsync, PartialCheckAction, PartialCheckActionAsync, PartialCheckIssue, PartialDataset, PicklistIssue, PicklistOptions, PicklistSchema, PipeAction, PipeActionAsync, PipeItem, PipeItemAsync, PromiseIssue, PromiseSchema, RFC_EMAIL_REGEX, RawCheckAction, RawCheckActionAsync, RawCheckIssue, RawTransformAction, RawTransformActionAsync, RawTransformIssue, ReadonlyAction, RecordIssue, RecordSchema, RecordSchemaAsync, ReduceItemsAction, RegexAction, RegexIssue, ReturnsAction, ReturnsActionAsync, RfcEmailAction, RfcEmailIssue, SLUG_REGEX, SafeIntegerAction, SafeIntegerIssue, SafeParseResult, SafeParser, SafeParserAsync, SchemaWithFallback, SchemaWithFallbackAsync, SchemaWithOmit, SchemaWithPartial, SchemaWithPartialAsync, SchemaWithPick, SchemaWithPipe, SchemaWithPipeAsync, SchemaWithRequired, SchemaWithRequiredAsync, SchemaWithoutPipe, SetIssue, SetPathItem, SetSchema, SetSchemaAsync, SizeAction, SizeInput, SizeIssue, SlugAction, SlugIssue, SomeItemAction, SomeItemIssue, SortItemsAction, StandardProps, StartsWithAction, StartsWithIssue, StrictObjectIssue, StrictObjectSchema, StrictObjectSchemaAsync, StrictTupleIssue, StrictTupleSchema, StrictTupleSchemaAsync, StringIssue, StringSchema, StringifyJsonAction, StringifyJsonConfig, StringifyJsonIssue, SuccessDataset, SymbolIssue, SymbolSchema, TitleAction, ToLowerCaseAction, ToMaxValueAction, ToMinValueAction, ToUpperCaseAction, TransformAction, TransformActionAsync, TrimAction, TrimEndAction, TrimStartAction, TupleIssue, TupleItems, TupleItemsAsync, TupleSchema, TupleSchemaAsync, TupleWithRestIssue, TupleWithRestSchema, TupleWithRestSchemaAsync, ULID_REGEX, UUID_REGEX, UlidAction, UlidIssue, UndefinedIssue, UndefinedSchema, UndefinedableSchema, UndefinedableSchemaAsync, UnionIssue, UnionOptions, UnionOptionsAsync, UnionSchema, UnionSchemaAsync, UnknownDataset, UnknownPathItem, UnknownSchema, UrlAction, UrlIssue, UuidAction, UuidIssue, ValiError, ValueAction, ValueInput, ValueIssue, ValuesAction, ValuesIssue, VariantIssue, VariantOptions, VariantOptionsAsync, VariantSchema, VariantSchemaAsync, VoidIssue, VoidSchema, WordsAction, WordsIssue, _addIssue, _getByteCount, _getGraphemeCount, _getLastMetadata, _getStandardProps, _getWordCount, _isLuhnAlgo, _isValidObjectKey, _joinExpects, _stringify, any, args, argsAsync, array, arrayAsync, assert, awaitAsync, base64, bic, bigint, blob, boolean, brand, bytes, check, checkAsync, checkItems, checkItemsAsync, config, creditCard, cuid2, custom, customAsync, date, decimal, deleteGlobalConfig, deleteGlobalMessage, deleteSchemaMessage, deleteSpecificMessage, description, digits, email, emoji, empty, endsWith, entries, entriesFromList, entriesFromObjects, enum_, enum_ as enum, everyItem, exactOptional, exactOptionalAsync, excludes, fallback, fallbackAsync, file, filterItems, findItem, finite, flatten, flavor, forward, forwardAsync, function_, function_ as function, getDefault, getDefaults, getDefaultsAsync, getDescription, getDotPath, getFallback, getFallbacks, getFallbacksAsync, getGlobalConfig, getGlobalMessage, getMetadata, getSchemaMessage, getSpecificMessage, getTitle, graphemes, gtValue, hash, hexColor, hexadecimal, imei, includes, instance, integer, intersect, intersectAsync, ip, ipv4, ipv6, is, isOfKind, isOfType, isValiError, isoDate, isoDateTime, isoTime, isoTimeSecond, isoTimestamp, isoWeek, keyof, lazy, lazyAsync, length$1 as length, literal, looseObject, looseObjectAsync, looseTuple, looseTupleAsync, ltValue, mac, mac48, mac64, map$1 as map, mapAsync, mapItems, maxBytes, maxEntries, maxGraphemes, maxLength, maxSize, maxValue, maxWords, message, metadata, mimeType, minBytes, minEntries, minGraphemes, minLength, minSize, minValue, minWords, multipleOf, nan, nanoid, never, nonEmpty, nonNullable, nonNullableAsync, nonNullish, nonNullishAsync, nonOptional, nonOptionalAsync, normalize, notBytes, notEntries, notGraphemes, notLength, notSize, notValue, notValues, notWords, null_, null_ as null, nullable, nullableAsync, nullish, nullishAsync, number, object, objectAsync, objectWithRest, objectWithRestAsync, octal, omit, optional, optionalAsync, parse, parseAsync, parseJson, parser, parserAsync, partial, partialAsync, partialCheck, partialCheckAsync, pick, picklist, pipe, pipeAsync, promise, rawCheck, rawCheckAsync, rawTransform, rawTransformAsync, readonly, record, recordAsync, reduceItems, regex, required, requiredAsync, returns, returnsAsync, rfcEmail, safeInteger, safeParse, safeParseAsync, safeParser, safeParserAsync, set, setAsync, setGlobalConfig, setGlobalMessage, setSchemaMessage, setSpecificMessage, size, slug, someItem, sortItems, startsWith, strictObject, strictObjectAsync, strictTuple, strictTupleAsync, string, stringifyJson, summarize, symbol, title, toLowerCase, toMaxValue, toMinValue, toUpperCase, transform, transformAsync, trim, trimEnd, trimStart, tuple, tupleAsync, tupleWithRest, tupleWithRestAsync, ulid, undefined_, undefined_ as undefined, undefinedable, undefinedableAsync, union, unionAsync, unknown, unwrap, url, uuid, value, values, variant, variantAsync, void_, void_ as void, words };
 }
 declare namespace PVA {
-	export { AngularFormBuilder, ConfigMergeStrategyObject, NgDirectiveConfig, NgRawComponentDefine, NgResolvedComponentDefine1, NgResolvedWraaperConfig, NgSchemaHandle, PI_COMPONENT_INDEX, PI_COMPONENT_LIST_LISTEN, PI_VIEW_FIELD_TOKEN, PiComponentDefaultConfig, PiDefaultRawViewFieldConfig, PiResolvedViewFieldConfig, PiViewConfig, PiWrapperBaseComponent, PiyingView, PiyingViewGroup, PiyingViewGroupBase, asControl$1 as asControl, asVirtualGroup$1 as asVirtualGroup, condition, layout$1 as layout, patchAsyncDirective$1 as patchAsyncDirective, patchDirectives, rawConfig$1 as rawConfig, setDirectives };
+	export { AngularFormBuilder, BaseControl, ConfigMergeStrategyObject, NgDirectiveConfig, NgRawComponentDefine, NgResolvedComponentDefine1, NgResolvedWraaperConfig, NgSchemaHandle, PI_COMPONENT_INDEX, PI_COMPONENT_LIST_LISTEN, PI_VIEW_FIELD_TOKEN, PiComponentDefaultConfig, PiDefaultRawViewFieldConfig, PiResolvedViewFieldConfig, PiViewConfig, PiyingView, PiyingViewGroup, PiyingViewGroupBase, PiyingViewWrapperBase, asControl$1 as asControl, asVirtualGroup$1 as asVirtualGroup, condition, layout$1 as layout, patchAsyncDirective$1 as patchAsyncDirective, patchDirectives, rawConfig$1 as rawConfig, setDirectives };
 }
 declare namespace PYVAC {
-	export { AbstractControl, AbstractControlParams, AnyCoreSchemaHandle, ArraryIterable, ArrayDeletionMode, AsyncValidatorFn, BuildArrayItem, BuildGroupItem, BuildRootInputItem, BuildRootItem, ChangeWhenOption, ConfigMergeStrategy, ControlValueAccessor, CoreRawComponentDefine, CoreRawProps, CoreRawViewAttributes, CoreRawViewInputs, CoreRawViewOutputs, CoreRawWrapperConfig, CoreResolvedComponentDefine, CoreResolvedWrapperConfig, CoreSchemaHandle, CoreWrapperConfig1, DefaultConfigKey, DisableWhenOption, DisabledValueStrategy, EventChangeFn, FieldArray, FieldArrayConfig$, FieldControl, FieldFormConfig, FieldFormConfig$, FieldGroup, FieldGroupConfig$, FieldLogicGroup, FieldLogicGroupConfig$, FieldRenderConfig, FieldTransformerConfig, FormBuilder, FormBuilderOptions, FormHooks, HideWhenOption, HookConfig, HooksConfig, INVALID, KeyPath, LayoutAction, LazyImport, LogicType, MergeHooksConfig, NFCSchema$1 as NFCSchema, NonFieldControlAction, PENDING, PI_VIEW_CONFIG_TOKEN, PiCommonConfig, PiCommonDefaultConfig, PiResolvedCommonViewFieldConfig, QueryPath, RawConfig, RawKeyPath, SetOptional, SetReadonly, SetWrapper$, SetWrapper$$, SignalInputValue, SortedArray, ToObservableOptions, UnWrapSignal, VALID, VALID_STATUS, ValidationErrors, ValidatorFn, ValueChangFnOptions, ValueChangeFn, Wrapper$, Writeable, _PiResolvedCommonViewFieldConfig, arrayStartsWith, asControl$1 as asControl, asVirtualGroup$1 as asVirtualGroup, asyncInputMerge, changeObject, clone, componentClass$1 as componentClass, condition, controlStatusList, convert, createViewControlLink, disableWhen$1 as disableWhen, effectListen, fieldControlStatusClass, formConfig$1 as formConfig, getDefaults$1 as getDefaults, getSchemaByIssuePath, getSchemaMetadata, hideWhen$1 as hideWhen, isArray, isFieldArray, isFieldControl, isFieldGroup, isFieldLogicGroup, isGroup, layout$1 as layout, mergeHooks, mergeHooksFn, mergeOutputFn, mergeOutputs$1 as mergeOutputs, nonFieldControl$1 as nonFieldControl, outputChange$1 as outputChange, outputChangeFn, patchAsyncAttributes$1 as patchAsyncAttributes, patchAsyncFn, patchAsyncInputs$1 as patchAsyncInputs, patchAsyncProps$1 as patchAsyncProps, patchAttributes$1 as patchAttributes, patchHooks, patchInputs$1 as patchInputs, patchOutputs$1 as patchOutputs, patchProps$1 as patchProps, patchWrappers, rawConfig$1 as rawConfig, removeAttributes, removeHooks, removeInputs, removeOutputs, removeProps, removeWrappers, renderConfig, setAlias$1 as setAlias, setAttributes$1 as setAttributes, setComponent$1 as setComponent, setHooks, setInputs$1 as setInputs, setOutputs, setProps, setWrappers$1 as setWrappers, toArray, toObservable, topClass$1 as topClass, unWrapSignal, valueChange$1 as valueChange, valueChangeFn };
+	export { AbstractControl, AbstractControlParams, AnyCoreSchemaHandle, ArraryIterable, ArrayDeletionMode, AsyncCoreRawWrapperConfig, AsyncProperty, AsyncResult, AsyncValidatorFn, BuildArrayItem, BuildGroupItem, BuildRootInputItem, BuildRootItem, ConfigMergeStrategy, ControlValueAccessor, CoreRawComponentDefine, CoreRawProps, CoreRawViewAttributes, CoreRawViewInputs, CoreRawViewOutputs, CoreRawWrapperConfig, CoreResolvedComponentDefine, CoreResolvedWrapperConfig, CoreSchemaHandle, CoreWrapperConfig1, DefaultConfigKey, DisableWhenOption, DisabledValueStrategy, EventChangeFn, FieldArray, FieldArrayConfig$, FieldControl, FieldFormConfig, FieldFormConfig$, FieldGroup, FieldGroupConfig$, FieldLogicGroup, FieldLogicGroupConfig$, FieldRenderConfig, FieldTransformerConfig, FormBuilder, FormBuilderOptions, FormHooks, HideWhenOption, HookConfig, HooksConfig, INVALID, KeyPath, LayoutAction, LazyImport, LazyMarkType, LogicType, MergeHooksConfig, NFCSchema$1 as NFCSchema, NonFieldControlAction, PENDING, PI_CONTEXT_TOKEN, PI_VIEW_CONFIG_TOKEN, PiCommonConfig, PiCommonDefaultConfig, PiResolvedCommonViewFieldConfig, QueryPath, RawConfig, RawKeyPath, SetOptional, SetReadonly, SetWrapper$, SetWrapper$$, SignalInputValue, SortedArray, ToObservableOptions, UnWrapSignal, UpdateType, VALID, VALID_STATUS, ValidationErrors, ValidatorFn, ValueChangFnOptions, ValueChangeFn, Wrapper$, Writeable, _PiResolvedCommonViewFieldConfig, arrayStartsWith, asControl$1 as asControl, asVirtualGroup$1 as asVirtualGroup, asyncInputMerge, changeObject, clone, componentClass$1 as componentClass, condition, controlStatusList, convert, createViewControlLink, disableWhen$1 as disableWhen, effectListen, fieldControlStatusClass, formConfig$1 as formConfig, getDeepError, getDefaults$1 as getDefaults, getLazyImport, getSchemaByIssuePath, getSchemaMetadata, hideWhen$1 as hideWhen, initListen, isArray, isFieldArray, isFieldControl, isFieldGroup, isFieldLogicGroup, isGroup, isLazyMark, layout$1 as layout, lazyMark, mergeHooks, mergeHooksFn, mergeOutputFn, mergeOutputs$1 as mergeOutputs, nonFieldControl$1 as nonFieldControl, outputChange$1 as outputChange, outputChangeFn, patchAsyncAttributes$1 as patchAsyncAttributes, patchAsyncClass, patchAsyncFn, patchAsyncInputs$1 as patchAsyncInputs, patchAsyncProps$1 as patchAsyncProps, patchAsyncWrapper, patchAttributes$1 as patchAttributes, patchHooks, patchInputs$1 as patchInputs, patchOutputs$1 as patchOutputs, patchProps$1 as patchProps, patchWrappers, rawConfig$1 as rawConfig, removeAttributes, removeHooks, removeInputs, removeOutputs, removeProps, removeWrappers, renderConfig, setAlias$1 as setAlias, setAttributes$1 as setAttributes, setComponent$1 as setComponent, setHooks, setInputs$1 as setInputs, setOutputs, setProps, setWrappers$1 as setWrappers, toArray, toObservable, topClass$1 as topClass, unWrapSignal, valueChange$1 as valueChange, valueChangeFn };
 }
 
 export {

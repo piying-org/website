@@ -200,13 +200,13 @@ export function InputText(props: PiInputOptions) {
 ```
 ```typescript
 import { Component, computed } from '@angular/core';
-import { PiWrapperBaseComponent } from '@piying/view-angular';
+import { PiyingViewWrapperBase } from '@piying/view-angular';
 import { setGlobalConfig, summarize } from 'valibot';
 @Component({
   selector: 'label-wrapper',
   templateUrl: './component.html',
 })
-export class LabelWC extends PiWrapperBaseComponent {
+export class LabelWC extends PiyingViewWrapperBase {
 }
 ```
 </custom-tab>

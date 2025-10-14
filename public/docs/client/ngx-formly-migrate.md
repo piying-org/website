@@ -311,7 +311,7 @@
         setComponent('button'),
         patchInputs({ label: 'Toggle' }),
         mergeOutputs({
-          click: (event, field) => {
+          clicked: (event, field) => {
             field.context.disabled.next(!field.context.disabled.value);
           },
         }),
@@ -1090,7 +1090,7 @@
                 setComponent('button'),
                 patchInputs({ label: item }),
                 mergeOutputs({
-                  click: (_, field) => {
+                  clicked: (_, field) => {
                     // todo
                     fetch(`ngx-formly/json-schema/${item}_json`)
                       .then((item) => item.json())
@@ -1586,7 +1586,7 @@
         setComponent('button'),
         patchInputs({ label: 'With Function' }),
         mergeOutputs({
-          click: () => {
+          clicked: () => {
             alert('You clicked me!');
           },
         }),
@@ -1597,7 +1597,7 @@
         patchInputs({ label: 'JSON Only', classStyle: 'btn-info' }),
         v.title('Click this guy'),
         mergeOutputs({
-          click: (event, field) => {
+          clicked: (event, field) => {
             field.get(['#', 'someInput']).form.control.updateValue('clicked!');
           },
         }),

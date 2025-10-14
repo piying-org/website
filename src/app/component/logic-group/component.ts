@@ -26,7 +26,7 @@ export default class LogicFGC extends PiyingViewGroupBase {
     const list = flg.controls.filter((item, i) =>
       this.selectAny$().includes(i),
     );
-    flg.activateControl$.set(list);
+    flg.activateControls$.set(list);
   }
   oneOfChange() {
     if (typeof this.selectOr$() !== 'number') {

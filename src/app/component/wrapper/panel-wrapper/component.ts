@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PiWrapperBaseComponent } from '@piying/view-angular';
+import { PiyingViewWrapperBase } from '@piying/view-angular';
 export interface JoinItem {
   icon?: string;
   text?: string;
@@ -8,4 +8,4 @@ export interface JoinItem {
   selector: 'app-panel-wrapper',
   templateUrl: './component.html',
 })
-export class PanelWC extends PiWrapperBaseComponent {}
+export class PanelWC extends PiyingViewWrapperBase {}

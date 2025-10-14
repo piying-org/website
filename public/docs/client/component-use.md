@@ -57,14 +57,14 @@ v.object({
 - 静态属性
 
 ```ts
-v.pipe(v.string(), setInputs({ input1: 1 }));
+v.pipe(NFCSchema, setComponent("demo"), setInputs({ input1: 1 }));
 ```
 
 - 动态变更,支持Promise,Observable,Signal
 
 ```ts
 v.pipe(
-  v.string(),
+  NFCSchema, setComponent("demo"),
   patchAsyncInputs({
     input1: async (field) => {
       return 1;
@@ -79,7 +79,7 @@ v.pipe(
 
 ```ts
 v.pipe(
-  v.string(),
+  NFCSchema, setComponent("demo"),
   outputChange((fn) => {
     fn([{ list: undefined, output: "output1" }]).subscribe(({ field, list, listenFields }) => {});
   }),
