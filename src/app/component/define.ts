@@ -26,6 +26,7 @@ import { InputFileFCC } from './input-file';
 import { TextareaFCC } from './textarea';
 import { DivNFCC } from './block';
 import { DemoNFCC } from './demo';
+import { SelectorlessNFCC } from './selector-less';
 const LazyRestGroup = () =>
   import('./group/rest-group/component').then((item) => item.default);
 export const FieldGlobalConfig = {
@@ -267,6 +268,9 @@ export const FieldGlobalConfig = {
     },
     demo: {
       type: DemoNFCC,
+    },
+    'selectorless-demo': {
+      type: SelectorlessNFCC,
     },
   },
   wrappers: {

@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input, viewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { PiyingViewWrapperBase } from '@piying/view-angular';
 export interface JoinItem {
@@ -11,6 +11,8 @@ export interface JoinItem {
   imports: [MatIcon],
 })
 export class JoinItemWC extends PiyingViewWrapperBase {
+  static __version = 2;
+  templateRef = viewChild.required('templateRef');
   prefix = input<JoinItem>();
   suffix = input<JoinItem>();
 }

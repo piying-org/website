@@ -2,6 +2,14 @@
 
 - 如果您需要实现某种逻辑却没有头绪,欢迎[提问](https://github.com/piying-org/piying-view/issues)
 
+## 无标签组件(Angular)
+
+- 使用指定的语法可以实现无自定义选择器
+
+```ts
+v.pipe(NFCSchema, setComponent("selectorless-demo"),setWrappers(["label"]),v.title('selectorless'));
+```
+
 ## 创建多个组件
 
 - 默认提供了一个基础的object组件,用来展示内部子组件
@@ -64,7 +72,8 @@ v.pipe(NFCSchema, setComponent("demo"), setInputs({ input1: 1 }));
 
 ```ts
 v.pipe(
-  NFCSchema, setComponent("demo"),
+  NFCSchema,
+  setComponent("demo"),
   patchAsyncInputs({
     input1: async (field) => {
       return 1;
@@ -79,7 +88,8 @@ v.pipe(
 
 ```ts
 v.pipe(
-  NFCSchema, setComponent("demo"),
+  NFCSchema,
+  setComponent("demo"),
   outputChange((fn) => {
     fn([{ list: undefined, output: "output1" }]).subscribe(({ field, list, listenFields }) => {});
   }),
