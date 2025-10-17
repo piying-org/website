@@ -78,7 +78,6 @@ export const FieldGlobalConfig = {
     },
     dropdown: {
       type: DropdownComponent,
-      selector: 'div',
       attributes: {
         type: 'dropdown',
         class: 'dropdown',
@@ -87,7 +86,6 @@ export const FieldGlobalConfig = {
 
     rating: {
       type: RatingComponent,
-      selector: 'div',
       attributes: {
         type: 'rating',
         class: 'rating',
@@ -158,7 +156,6 @@ export const FieldGlobalConfig = {
     'main-1': {
       type: () =>
         import('./main-1/component').then((item) => item.Main1Component),
-      selector: 'main',
       attributes: {
         type: 'home',
       },
