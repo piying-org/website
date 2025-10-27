@@ -34,8 +34,21 @@ export const JsonPlaygroundRoute: Route = {
                     field
                       .get(['#', 'codeEditor'])!
                       .form.control!.valueChanges.pipe(
+                        map((value) => {
+                          if (!value) {
+                            return undefined;
+                          }
+                          try {
+                            let result = JSON.parse(value);
+                            if (typeof result !== 'object') {
+                              return undefined;
+                            }
+                            return { schema: result };
+                          } catch (error) {
+                            return undefined;
+                          }
+                        }),
                         filter(Boolean),
-                        map((value) => ({ schema: JSON.parse(value) })),
                       ),
                 }),
               ),
@@ -44,7 +57,7 @@ export const JsonPlaygroundRoute: Route = {
         ]),
         asVirtualGroup(),
         topClass('flex gap-4 *:flex-1 h-full mt-4'),
-        setWrappers(['block'])
+        setWrappers(['block']),
       ),
   },
 };
