@@ -8,6 +8,8 @@ import {
   NFCSchema,
   asVirtualGroup,
   patchInputs,
+  topClass,
+  setWrappers,
 } from '@piying/view-angular-core';
 import { debounceTime } from 'rxjs';
 import { SchemaViewRC } from '../component/schema-view/component';
@@ -65,7 +67,8 @@ export const PlaygroundGroupRoute: Route = {
               ),
               codeEditor: v.pipe(v.string(), setComponent('codeEditor')),
             }),
-            componentClass('flex flex-col gap-4'),
+            topClass('flex flex-col gap-4'),
+            setWrappers(['block']),
           ),
           v.pipe(
             v.object({
@@ -74,7 +77,8 @@ export const PlaygroundGroupRoute: Route = {
           ),
         ]),
         asVirtualGroup(),
-        componentClass('flex gap-4 *:flex-1 pt-4 h-[calc(100vh-4rem-4rem)]'),
+        setWrappers(['block']),
+        topClass('flex gap-4 *:flex-1 pt-4 h-[calc(100vh-4rem-4rem)]'),
       ),
   },
 };
@@ -98,7 +102,8 @@ export const PlaygroundSingleRoute: Route = {
           ),
         ]),
         asVirtualGroup(),
-        componentClass('flex gap-4 *:flex-1 h-full mt-4'),
+        topClass('flex gap-4 *:flex-1 h-full mt-4'),
+        setWrappers(['block']),
       ),
     model: async () => {
       const route = inject(ActivatedRoute);
