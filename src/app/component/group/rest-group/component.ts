@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, input, signal, viewChild } from '@angular/core';
 import { PiyingViewGroupBase } from '@piying/view-angular';
 import { isFieldGroup } from '@piying/view-angular-core';
 import { MatIcon } from '@angular/material/icon';
@@ -11,8 +11,10 @@ import { FormsModule } from '@angular/forms';
   imports: [NgTemplateOutlet, MatIcon, FormsModule],
 })
 export default class RestGroup extends PiyingViewGroupBase {
+  static __version = 2;
+  templateRef = viewChild.required('templateRef');
   addKey$ = signal('');
-  wrapperClass = input<any>();
+  wrapperClass = input<any>('flex flex-col gap-4');
 
   add() {
     if (this.isGroup$$()) {
@@ -31,4 +33,10 @@ export default class RestGroup extends PiyingViewGroupBase {
     }
   }
   isGroup$$ = computed(() => isFieldGroup(this.field$$().form.control));
+  hasChild$$ = computed(() => {
+    return (
+      !!this.field$$().fixedChildren?.().length ||
+      !!this.field$$().restChildren?.().length
+    );
+  });
 }

@@ -27,6 +27,7 @@ import { TextareaFCC } from './textarea';
 import { DivNFCC } from './block';
 import { DemoNFCC } from './demo';
 import { SelectorlessNFCC } from './selector-less';
+import { BlockWC } from './wrapper/block/component';
 const LazyRestGroup = () =>
   import('./group/rest-group/component').then((item) => item.default);
 export const FieldGlobalConfig = {
@@ -73,6 +74,10 @@ export const FieldGlobalConfig = {
       wrappers: ['label'],
     },
     multiselect: {
+      type: SelectComponent,
+      inputs: { multiple: true },
+    },
+    'multiselect-repeat': {
       type: SelectComponent,
       inputs: { multiple: true },
     },
@@ -142,6 +147,15 @@ export const FieldGlobalConfig = {
       type: LazyRestGroup,
     },
     record: {
+      type: LazyRestGroup,
+    },
+    'oneOf-condition': {
+      type: LazyRestGroup,
+    },
+    'anyOf-condition': {
+      type: LazyRestGroup,
+    },
+    'union': {
       type: LazyRestGroup,
     },
     intersect: {
@@ -228,7 +242,16 @@ export const FieldGlobalConfig = {
     'logic-group': {
       type: () => import('./logic-group/component').then((a) => a.default),
     },
+    'anyOf-select': {
+      type: () => import('./logic-group/component').then((a) => a.default),
+    },
+    'oneOf-select': {
+      type: () => import('./logic-group/component').then((a) => a.default),
+    },
     null: {
+      type: () => import('./null/component').then((a) => a.default),
+    },
+    any: {
       type: () => import('./null/component').then((a) => a.default),
     },
 
@@ -291,6 +314,9 @@ export const FieldGlobalConfig = {
     },
     tooltip: {
       type: TooltipWC,
+    },
+    block: {
+      type: BlockWC,
     },
   },
 } as PiViewConfig;

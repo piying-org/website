@@ -1108,6 +1108,7 @@
           ),
         ),
         setComponent('object'),
+        setWrappers(['block']),
         nonFieldControl(),
       ),
       jsonSchema: v.pipe(
@@ -1117,6 +1118,7 @@
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
+    patchInputs({wrapperClass:'flex gap-2 flex-wrap *:last:w-full'})
   ),
 }
 ```

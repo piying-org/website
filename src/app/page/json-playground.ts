@@ -4,6 +4,8 @@ import {
   patchAsyncInputs,
   componentClass,
   asVirtualGroup,
+  setWrappers,
+  topClass,
 } from '@piying/view-angular-core';
 import { filter, map } from 'rxjs';
 import { SchemaViewRC } from '../component/schema-view/component';
@@ -41,7 +43,8 @@ export const JsonPlaygroundRoute: Route = {
           ),
         ]),
         asVirtualGroup(),
-        componentClass('flex gap-4 *:flex-1 h-full mt-4'),
+        topClass('flex gap-4 *:flex-1 h-full mt-4'),
+        setWrappers(['block'])
       ),
   },
 };

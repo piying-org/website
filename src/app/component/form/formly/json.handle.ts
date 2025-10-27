@@ -20,6 +20,14 @@ export class JsonSchemaHandle extends NgSchemaHandle {
       this.attributes ??= {};
       this.attributes['class'] = 'h-[200px]';
     }
+    if (this.type === 'oneOf-select') {
+      this.props ??= {};
+      this.props['type'] = 'oneOf';
+    }
+    if (this.type === 'anyOf-select') {
+      this.props ??= {};
+      this.props['type'] = 'anyOf';
+    }
   }
 
   override validation(

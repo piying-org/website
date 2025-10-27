@@ -16,6 +16,8 @@ import { summarize } from 'valibot';
   templateUrl: './component.html',
 })
 export default class FormHelperComponent {
+  static __version = 2;
+  templateRef = viewChild.required('templateRef');
   anchor = viewChild<ElementRef<HTMLElement>>('anchor');
   field = inject(PI_VIEW_FIELD_TOKEN);
   value = computed(() => this.field().form.root.value$$());
