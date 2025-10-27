@@ -132,6 +132,11 @@ const Menu: NavigationItem[] = [
           },
         ],
       },
+      {
+        title: $localize`JsonSchema`,
+        type: 'basic',
+        link: '/docs/client/jsonschema',
+      },
     ],
   },
   {
