@@ -311,6 +311,18 @@
     "associatedMessageIds": {},
     "target": "Solid"
   },
+  "6012136154356762254": {
+    "id": "6012136154356762254",
+    "text": "JsonSchema",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "JsonSchema"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "JsonSchema"
+  },
   "4861050201669412280": {
     "id": "4861050201669412280",
     "text": "ORM",
