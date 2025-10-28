@@ -2,10 +2,11 @@
 
 - 目前进行实验性支持
 - [游乐场](https://piying-org.github.io/website/jsonschema-playground)
+- 对`JsonSchema`的支持本质上是将其转换为`Valibot`定义,然后进行解析
 
 ## 支持程度
 
-- 传入jsonschema不可存在死结
+- 传入度数据不可存在死结
   > 如果某些字段在验证过程中,始终失败,则为死结
 
 ```json
@@ -30,7 +31,7 @@
 }
 ```
 
-- 一个`schema`中只允许出现`allOf`/`oneOf`/`anyOf`/`if/then/else`其中之一
+- 一个`schema`中只允许出现`allOf`/`oneOf`/`anyOf`/`if/then/else`其中之一子模式
   > `not`不在此限制中
 
 ```json
@@ -42,7 +43,7 @@
 { "oneOf": [] }
 ```
 
-- `allOf`/`oneOf`/`anyOf`/`if/then/else`子模式内仅不支持子模式
+- `allOf`/`oneOf`/`anyOf`/`if/then/else`子模式内不支持子模式
 
 ```json
 {
@@ -59,7 +60,7 @@
 
 ## 需要注册组件
 
-- 参考[实现文件](https://github.com/piying-org/website/blob/master/src/app/component/define.ts)
+- [参考文件](https://github.com/piying-org/website/blob/master/src/app/component/define.ts)
 
 ### group
 
@@ -90,7 +91,8 @@
 
 #### oneOf-select/anyOf-select
 
-- 手动选择需要填写的部分
+- 需要组件中实现手动选择一个或多个子条件
+- [参考文件](https://github.com/piying-org/website/blob/master/src/app/component/logic-group/component.ts)
 
 ```json
 {
@@ -112,8 +114,6 @@
 ```
 
 #### loose_object/object_with_rest/object
-
-- 普通的对象
 
 ```json
 {
@@ -146,13 +146,14 @@
 
 #### intersect/union
 
-- 验证使用,可视为普通的object
+- 验证使用,可视为普通的object类型
 
 ### control
 
 #### picklist/multiselect/multiselect-repeat
 
-- 选择类型
+- 选择类型,会自动传入`options`输入属性,对应组件需要实现
+- 参考[实现文件](https://github.com/piying-org/website/blob/master/src/app/component/select/component.ts#L61)
 
 ```json
 {
@@ -225,7 +226,7 @@
 
 ## 调用
 
-- 参考[实现文件](https://github.com/piying-org/website/blob/master/src/app/component/json-schema/component.ts)
+- [参考文件](https://github.com/piying-org/website/blob/master/src/app/component/json-schema/component.ts)
 - 将`jsonschema`转换为`valibot`定义后,即可与传统的`piying`使用一致
 
 ```typescript
@@ -233,3 +234,40 @@ import { jsonSchemaToValibot } from "@piying/view-angular-core/adapter";
 
 jsonSchemaToValibot(jsonSchema);
 ```
+
+## 自定义actions
+
+- 在schema项中定义`actions`字段即可
+
+```json
+{
+  "type": "string",
+  "title": "Select 4: Radio button",
+  "enum": ["Option 1", "Option 2", "Option 3"],
+  "actions": [
+    {
+      "name": "setComponent",
+      "params": ["radio"]
+    }
+  ]
+}
+```
+
+- 如果传入其他自定义的actions,则需要注册
+- [参考文件](https://github.com/piying-org/website/blob/master/src/app/component/json-schema/component.ts#L56)
+
+```json
+{
+  "type": "string",
+  "actions": [
+    {
+      "name": "testTitle",
+      "params": []
+    }
+  ]
+}
+```
+
+## 其他
+
+- 如果遇到问题欢迎[反馈](https://github.com/piying-org/website/issues)

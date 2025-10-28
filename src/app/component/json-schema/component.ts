@@ -53,6 +53,11 @@ export default class JsonSchemaViewRC extends BaseControl {
           },
         },
       },
+      customActions: {
+        testTitle: () => {
+          return v.title('isTestTitle');
+        },
+      },
     });
   });
 
