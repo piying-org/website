@@ -1,8 +1,6 @@
 # Action
 
 - 基于typeorm的[EntitySchema](https://typeorm.io/docs/entity/separating-entity-definition/#extending-schemas)封装,与装饰器基本相同,但是会有一些差别
-- 使用`EntitySchema`实现会有部分逻辑无法实现(@Tree),这是由于typeorm两部分代码(EntitySchema,装饰器)可能没有同步更新导致
-  > 已经提交[PR](https://github.com/typeorm/typeorm/pull/11606)
 
 ## entity
 
@@ -393,7 +391,7 @@ const define = v.pipe(
 
 ### [Tree Entities](https://typeorm.io/docs/entity/tree-entities)
 
-- 因为EntitySchema不支持`trees`字段,所以`@Tree`不被支持
+- 普通树实体
 
 ```typescript
 type Lazy = v.GenericSchema<
@@ -434,4 +432,41 @@ const Category = v.pipe(
 );
 
 const { object, dataSource } = await createInstance({ Category });
+```
+
+- 定义树实体
+
+- [@Tree()](https://typeorm.io/docs/entity/tree-entities)
+
+```typescript
+type Lazy = v.GenericSchema<
+  {
+    parent: v.InferInput<typeof Category>;
+    children: v.InferInput<typeof Category>[];
+  },
+  {
+    parent: v.InferOutput<typeof Category>;
+    children: v.InferOutput<typeof Category>[];
+  }
+>;
+const CategoryLazy: Lazy = v.pipe(
+  v.object({
+    parent: v.pipe(
+      v.lazy(() => Category),
+      columnTreeParent(),
+    ),
+    children: v.pipe(
+      v.lazy(() => v.array(Category)),
+      columnTreeChildren(),
+    ),
+  }),
+);
+const CategoryCommon = v.pipe(
+  v.object({
+    id: IDSchema,
+    name: StrColumn,
+    description: StrColumn,
+  }),
+);
+const Category = v.pipe(v.intersect([CategoryLazy, CategoryCommon]), treeEntity({ type: "closure-table" }));
 ```
