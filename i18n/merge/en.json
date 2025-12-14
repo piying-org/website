@@ -1031,18 +1031,6 @@
     "associatedMessageIds": {},
     "target": "Use"
   },
-  "8008838338627228852": {
-    "id": "8008838338627228852",
-    "text": "使用`EntitySchema`实现会有部分逻辑无法实现(@Tree),这是由于typeorm两部分代码(EntitySchema,装饰器)可能没有同步更新导致\n> 已经提交[PR](https://github.com/typeorm/typeorm/pull/11606)",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "使用`EntitySchema`实现会有部分逻辑无法实现(@Tree),这是由于typeorm两部分代码(EntitySchema,装饰器)可能没有同步更新导致\n> 已经提交[PR](https://github.com/typeorm/typeorm/pull/11606)"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Using `EntitySchema` will result in certain logic being unimplementable (@Tree), likely due to asynchronous updates between TypeORM's two components (EntitySchema and decorators).  \n> The [PR](https://github.com/typeorm/typeorm/pull/11606) has already been submitted."
-  },
   "2614371932351079648": {
     "id": "2614371932351079648",
     "text": "使用`defer`动态创建控件",
@@ -1595,18 +1583,6 @@
     "associatedMessageIds": {},
     "target": "It is exactly the same as during normal development, configuring input/output and other properties at the definition location."
   },
-  "7053858755835087629": {
-    "id": "7053858755835087629",
-    "text": "因为EntitySchema不支持`trees`字段,所以`@Tree`不被支持",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "因为EntitySchema不支持`trees`字段,所以`@Tree`不被支持"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Since EntitySchema does not support the `trees` field, `@Tree` is not supported."
-  },
   "307240789270475179": {
     "id": "307240789270475179",
     "text": "国际化",
@@ -2026,6 +2002,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Define uniquely"
+  },
+  "9047555801294312731": {
+    "id": "9047555801294312731",
+    "text": "定义树实体\n",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "定义树实体\n"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Define tree entity\n"
   },
   "1331140998759919469": {
     "id": "1331140998759919469",
@@ -2578,6 +2566,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Is it disabled?"
+  },
+  "9162975939901846321": {
+    "id": "9162975939901846321",
+    "text": "普通树实体",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "普通树实体"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Regular tree entity"
   },
   "4275785325654317450": {
     "id": "4275785325654317450",
