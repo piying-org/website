@@ -407,6 +407,54 @@
     "associatedMessageIds": {},
     "target": "`looseTuple` 固定的数组项,不可添加,超过长度保留"
   },
+  "7323285653079580036": {
+    "id": "7323285653079580036",
+    "text": "`mapAsync`与`map`相同,可以获得field",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`mapAsync`与`map`相同,可以获得field"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`mapAsync`与`map`相同,可以获得field"
+  },
+  "7009146832353203172": {
+    "id": "7009146832353203172",
+    "text": "`map`类似数组/rxjs的`map`方法,信号值变更后进行运算",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`map`类似数组/rxjs的`map`方法,信号值变更后进行运算"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`map`类似数组/rxjs的`map`方法,信号值变更后进行运算"
+  },
+  "5965339728846425593": {
+    "id": "5965339728846425593",
+    "text": "`mergeAsync`与`merge`相同,可以获得field",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`mergeAsync`与`merge`相同,可以获得field"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`mergeAsync`与`merge`相同,可以获得field"
+  },
+  "1994002459584875238": {
+    "id": "1994002459584875238",
+    "text": "`merge`用于`outputs`/`events`,允许设置多个监听",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`merge`用于`outputs`/`events`,允许设置多个监听"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`merge`用于`outputs`/`events`,允许设置多个监听"
+  },
   "2457804126682227107": {
     "id": "2457804126682227107",
     "text": "`nullable` 字段处于非必填状态时",
@@ -455,29 +503,29 @@
     "associatedMessageIds": {},
     "target": "`object`/`strictObject` 自动过滤未定义的键值"
   },
-  "4470030639577542698": {
-    "id": "4470030639577542698",
-    "text": "`patchAsync`动态设置某些值,可以读取到field和上下文,支持`Promise`/`Observable`/`Signal`;非上述类型的值会直接返回",
+  "9134210059486152346": {
+    "id": "9134210059486152346",
+    "text": "`patchAsync`与`patch`相同,可以获得field和上下文,支持`Promise`/`Observable`/`Signal`;非上述类型的值会直接赋值",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "`patchAsync`动态设置某些值,可以读取到field和上下文,支持`Promise`/`Observable`/`Signal`;非上述类型的值会直接返回"
+      "`patchAsync`与`patch`相同,可以获得field和上下文,支持`Promise`/`Observable`/`Signal`;非上述类型的值会直接赋值"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "`patchAsync`动态设置某些值,可以读取到field和上下文,支持`Promise`/`Observable`/`Signal`;非上述类型的值会直接返回"
+    "target": "`patchAsync`与`patch`相同,可以获得field和上下文,支持`Promise`/`Observable`/`Signal`;非上述类型的值会直接赋值"
   },
-  "2705414149463736262": {
-    "id": "2705414149463736262",
-    "text": "`patch`与已有配置合并({...a,...b})\n> 需要注意的是,如果之前存在字段`xx`的配置,再次设置`xx`时,之前的值会被替换",
+  "2958776433449508242": {
+    "id": "2958776433449508242",
+    "text": "`patch`与已有配置合并({...a,...b})",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "`patch`与已有配置合并({...a,...b})\n> 需要注意的是,如果之前存在字段`xx`的配置,再次设置`xx`时,之前的值会被替换"
+      "`patch`与已有配置合并({...a,...b})"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "`patch`与已有配置合并({...a,...b})\n> 需要注意的是,如果之前存在字段`xx`的配置,再次设置`xx`时,之前的值会被替换"
+    "target": "`patch`与已有配置合并({...a,...b})"
   },
   "6631169515952339735": {
     "id": "6631169515952339735",
@@ -659,6 +707,30 @@
     "associatedMessageIds": {},
     "target": "`validators`表单验证\n> 推荐使用`valibot`的`v.check`"
   },
+  "6169823300869564946": {
+    "id": "6169823300869564946",
+    "text": "`属性名`: inputs/props/attributes/outputs/wrappers/events",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`属性名`: inputs/props/attributes/outputs/wrappers/events"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`属性名`: inputs/props/attributes/outputs/wrappers/events"
+  },
+  "525052460021035102": {
+    "id": "525052460021035102",
+    "text": "`方法名`: set/remove/patch/patchAsync/merge/mergeAsync/map/mapAsync",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`方法名`: set/remove/patch/patchAsync/merge/mergeAsync/map/mapAsync"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`方法名`: set/remove/patch/patchAsync/merge/mergeAsync/map/mapAsync"
+  },
   "9104834737937258726": {
     "id": "9104834737937258726",
     "text": "builder实现在源码`src/app/component/form/formly/translate.builder.ts`中",
@@ -815,6 +887,18 @@
     "associatedMessageIds": {},
     "target": "上下文"
   },
+  "2755207541936112304": {
+    "id": "2755207541936112304",
+    "text": "与`actions.class.top`类似,只不过是设置组件自身的",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "与`actions.class.top`类似,只不过是设置组件自身的"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "与`actions.class.top`类似,只不过是设置组件自身的"
+  },
   "162365918824879785": {
     "id": "162365918824879785",
     "text": "与`hideWhen`,`disableWhen`类似,支持多个控件监听",
@@ -826,18 +910,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "与`hideWhen`,`disableWhen`类似,支持多个控件监听"
-  },
-  "7144240952861836189": {
-    "id": "7144240952861836189",
-    "text": "与`actions.class.top`类似,只不过是设置组件自身的",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "与`actions.class.top`类似,只不过是设置组件自身的"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "与`actions.class.top`类似,只不过是设置组件自身的"
   },
   "910779403902234938": {
     "id": "910779403902234938",
@@ -2783,18 +2855,6 @@
     "associatedMessageIds": {},
     "target": "此概念[来源](https://valibot.dev/guides/mental-model/)于`valibot`"
   },
-  "6421390813137566869": {
-    "id": "6421390813137566869",
-    "text": "此类方法都是用来设置组件相关属性",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "此类方法都是用来设置组件相关属性"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "此类方法都是用来设置组件相关属性"
-  },
   "1763898646512759828": {
     "id": "1763898646512759828",
     "text": "比如JsonSchema中的`anyOf`,`oneOf`,可以轻松使用`v.intersect`,`v.union`对应的`FieldLogicGroup`进行动态切换处理",
@@ -2878,6 +2938,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "用于调整表单控件使用,非表单控件不需要"
+  },
+  "1610977603089499719": {
+    "id": "1610977603089499719",
+    "text": "用来设置组件相关属性",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "用来设置组件相关属性"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "用来设置组件相关属性"
   },
   "8787739137583531710": {
     "id": "8787739137583531710",
@@ -3479,17 +3551,17 @@
     "associatedMessageIds": {},
     "target": "触发值变更,开启异步获取值"
   },
-  "6516540704804860442": {
-    "id": "6516540704804860442",
-    "text": "让组件附加额外的能力,比如显示控件的标签,验证内容,前后缀等组件相关,共通的东西",
+  "2634130094020039918": {
+    "id": "2634130094020039918",
+    "text": "让组件附加额外的能力,比如`显示控件的标签`,`验证内容`,`前后缀`等组件相关,共通的东西",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "让组件附加额外的能力,比如显示控件的标签,验证内容,前后缀等组件相关,共通的东西"
+      "让组件附加额外的能力,比如`显示控件的标签`,`验证内容`,`前后缀`等组件相关,共通的东西"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "让组件附加额外的能力,比如显示控件的标签,验证内容,前后缀等组件相关,共通的东西"
+    "target": "让组件附加额外的能力,比如`显示控件的标签`,`验证内容`,`前后缀`等组件相关,共通的东西"
   },
   "1272938189012298083": {
     "id": "1272938189012298083",
