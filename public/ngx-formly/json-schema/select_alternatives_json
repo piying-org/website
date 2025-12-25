@@ -82,7 +82,7 @@
             ]
           },
           {
-            "name": "patchInputs",
+            "name": "actions.inputs.patch",
             "params": [
               {
                 "options": [

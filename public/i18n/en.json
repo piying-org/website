@@ -68,7 +68,7 @@
   "7124564648409890694": "Generally used when adapting to different libraries/frameworks.",
   "2695741515345689644": "Context",
   "162365918824879785": "Similar to `hideWhen` and `disableWhen`, it supports multiple controls for listening.",
-  "7144240952861836189": "Similar to `topClass`, but used to set the component's own class.",
+  "7144240952861836189": "Similar to `actions.class.top`, but used to set the component's own class.",
   "910779403902234938": "Similar to `valueChange`",
   "535154158469991585": "Consistent with the components as understood by everyone.",
   "3038796434602271152": "Provide a unified form development experience across different frameworks",

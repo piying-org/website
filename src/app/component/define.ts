@@ -4,7 +4,7 @@ import {
   NumberValueAccessor,
   RangeValueAccessor,
 } from '@angular/forms';
-import { PiViewConfig, PiyingViewGroup } from '@piying/view-angular';
+import { actions, PiViewConfig, PiyingViewGroup } from '@piying/view-angular';
 import { SelectComponent } from './select/component';
 import { RatingComponent } from './rating/component';
 import { FileInputDirective } from './file-input/file-input.directive';
@@ -34,86 +34,110 @@ export const FieldGlobalConfig = {
   types: {
     string: {
       type: InputFCC,
-      attributes: {
-        class: 'input',
-      },
+      actions: [
+        actions.attributes.set({
+          class: 'input',
+        }),
+      ],
     },
     number: {
       type: InputNumberFCC,
-      attributes: {
-        class: 'input',
-      },
+      actions: [
+        actions.attributes.set({
+          class: 'input',
+        }),
+      ],
     },
     radio: {
       type: () => import('./radio/component').then((a) => a.default),
     },
     boolean: {
       type: InputCheckboxFCC,
-      attributes: {
-        class: 'checkbox',
-      },
-      // wrappers: ['label'],
+      actions: [
+        actions.attributes.set({
+          class: 'checkbox',
+        }),
+      ],
     },
     checkbox: {
       type: CheckboxComponent,
-      props: {
-        hideTitle: true,
-      },
+
+      actions: [
+        actions.props.set({
+          hideTitle: true,
+        }),
+      ],
     },
     fieldset: {
       type: FieldsetFGC,
     },
     toggle: {
       type: InputCheckboxFCC,
-      attributes: {
-        class: 'toggle',
-      },
+
+      actions: [
+        actions.attributes.set({
+          class: 'toggle',
+        }),
+      ],
     },
     picklist: {
       type: SelectComponent,
-      wrappers: ['label'],
+      actions: [actions.wrappers.set([{ type: 'label' }])],
     },
     multiselect: {
       type: SelectComponent,
-      inputs: { multiple: true },
+      actions: [actions.inputs.set({ multiple: true })],
     },
     'multiselect-repeat': {
       type: SelectComponent,
-      inputs: { multiple: true },
+      actions: [actions.inputs.set({ multiple: true })],
     },
     dropdown: {
       type: DropdownComponent,
-      attributes: {
-        type: 'dropdown',
-        class: 'dropdown',
-      },
+      actions: [
+        actions.attributes.set({
+          type: 'dropdown',
+          class: 'dropdown',
+        }),
+      ],
     },
 
     rating: {
       type: RatingComponent,
-      attributes: {
-        type: 'rating',
-        class: 'rating',
-      },
-      wrappers: ['label'],
+      actions: [
+        actions.attributes.set({
+          type: 'rating',
+          class: 'rating',
+        }),
+        actions.wrappers.set([{ type: 'label' }]),
+      ],
     },
     range: {
       type: InputRangeFCC,
-      attributes: {
-        class: 'range',
-      },
+
+      actions: [
+        actions.attributes.set({
+          class: 'range',
+        }),
+      ],
     },
     fileInput: {
       type: InputFileFCC,
-      attributes: {
-        class: 'file-input',
-      },
+
+      actions: [
+        actions.attributes.set({
+          class: 'file-input',
+        }),
+      ],
     },
     textarea: {
       type: TextareaFCC,
-      attributes: {
-        class: 'textarea',
-      },
+
+      actions: [
+        actions.attributes.set({
+          class: 'textarea',
+        }),
+      ],
     },
 
     object: {
@@ -155,7 +179,7 @@ export const FieldGlobalConfig = {
     'anyOf-condition': {
       type: LazyRestGroup,
     },
-    'union': {
+    union: {
       type: LazyRestGroup,
     },
     intersect: {
@@ -170,25 +194,32 @@ export const FieldGlobalConfig = {
     'main-1': {
       type: () =>
         import('./main-1/component').then((item) => item.Main1Component),
-      attributes: {
-        type: 'home',
-      },
+
+      actions: [
+        actions.attributes.set({
+          type: 'home',
+        }),
+      ],
     },
     codeEditor: {
-      attributes: {
-        type: 'code-editor',
-        class: 'h-full',
-      },
       type: () =>
         import('./monaco-editor/component').then((item) => item.default),
+      actions: [
+        actions.attributes.set({
+          type: 'code-editor',
+          class: 'h-full',
+        }),
+      ],
     },
     jsonEditor: {
-      attributes: {
-        type: 'json-editor',
-        class: 'h-full',
-      },
       type: () =>
         import('./json-monaco-editor/component').then((item) => item.default),
+      actions: [
+        actions.attributes.set({
+          type: 'json-editor',
+          class: 'h-full',
+        }),
+      ],
     },
     evalView: {
       type: () =>
@@ -232,9 +263,11 @@ export const FieldGlobalConfig = {
     },
     divider: {
       type: DivNFCC,
-      attributes: {
-        class: 'divider',
-      },
+      actions: [
+        actions.attributes.set({
+          class: 'divider',
+        }),
+      ],
     },
     jsonSchema: {
       type: () => import('./json-schema/component').then((a) => a.default),
@@ -260,31 +293,37 @@ export const FieldGlobalConfig = {
     },
     salutation: {
       type: SelectComponent,
-      props: {
-        title: 'Salutation',
-        placeholder: 'Please Select',
-      },
-      inputs: {
-        options: ['Mr.', 'Ms.', 'Dr.', 'Dude'],
-      },
+      actions: [
+        actions.props.set({
+          title: 'Salutation',
+          placeholder: 'Please Select',
+        }),
+        actions.inputs.set({
+          options: ['Mr.', 'Ms.', 'Dr.', 'Dude'],
+        }),
+      ],
     },
     firstName: {
       type: InputFCC,
-      attributes: {
-        class: 'input',
-      },
-      props: {
-        title: 'First Name',
-      },
+      actions: [
+        actions.attributes.set({
+          class: 'input',
+        }),
+        actions.props.set({
+          title: 'First Name',
+        }),
+      ],
     },
     lastName: {
       type: InputFCC,
-      attributes: {
-        class: 'input',
-      },
-      props: {
-        title: 'Last Name',
-      },
+      actions: [
+        actions.attributes.set({
+          class: 'input',
+        }),
+        actions.props.set({
+          title: 'Last Name',
+        }),
+      ],
     },
     demo: {
       type: DemoNFCC,

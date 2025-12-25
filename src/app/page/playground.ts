@@ -2,14 +2,10 @@ import { inject } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 import {
   setComponent,
-  patchAsyncInputs,
   valueChange,
-  componentClass,
   NFCSchema,
   asVirtualGroup,
-  patchInputs,
-  topClass,
-  setWrappers,
+  actions,
 } from '@piying/view-angular-core';
 import { debounceTime } from 'rxjs';
 import { SchemaViewRC } from '../component/schema-view/component';
@@ -18,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
 const EvalViewDefine = v.pipe(
   NFCSchema,
   setComponent('evalView'),
-  patchAsyncInputs({
+  actions.inputs.patchAsync({
     configCode: (field) =>
       field
         .get(['#', 'codeEditor'])!
@@ -50,8 +46,8 @@ export const PlaygroundGroupRoute: Route = {
               list: v.pipe(
                 v.string(),
                 setComponent('picklist'),
-                patchInputs({ options: [] }),
-                patchAsyncInputs({
+                actions.inputs.patch({ options: [] }),
+                actions.inputs.patchAsync({
                   options: (field) => field.context.getList(),
                 }),
                 valueChange((fn) => {
@@ -67,8 +63,8 @@ export const PlaygroundGroupRoute: Route = {
               ),
               codeEditor: v.pipe(v.string(), setComponent('codeEditor')),
             }),
-            topClass('flex flex-col gap-4'),
-            setWrappers(['block']),
+            actions.class.top('flex flex-col gap-4'),
+            actions.wrappers.set(['block']),
           ),
           v.pipe(
             v.object({
@@ -77,8 +73,8 @@ export const PlaygroundGroupRoute: Route = {
           ),
         ]),
         asVirtualGroup(),
-        setWrappers(['block']),
-        topClass('flex gap-4 *:flex-1 pt-4 h-[calc(100vh-4rem-4rem)]'),
+        actions.wrappers.set(['block']),
+        actions.class.top('flex gap-4 *:flex-1 pt-4 h-[calc(100vh-4rem-4rem)]'),
       ),
   },
 };
@@ -93,7 +89,7 @@ export const PlaygroundSingleRoute: Route = {
             v.object({
               codeEditor: v.pipe(v.string(), setComponent('codeEditor')),
             }),
-            componentClass('flex flex-col gap-4'),
+            actions.class.component('flex flex-col gap-4'),
           ),
           v.pipe(
             v.object({
@@ -102,8 +98,8 @@ export const PlaygroundSingleRoute: Route = {
           ),
         ]),
         asVirtualGroup(),
-        topClass('flex gap-4 *:flex-1 h-full mt-4'),
-        setWrappers(['block']),
+        actions.class.top('flex gap-4 *:flex-1 h-full mt-4'),
+        actions.wrappers.set(['block']),
       ),
     model: async () => {
       const route = inject(ActivatedRoute);

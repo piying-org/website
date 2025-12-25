@@ -1,11 +1,8 @@
 import { Route } from '@angular/router';
 import {
   setComponent,
-  patchAsyncInputs,
-  componentClass,
   asVirtualGroup,
-  setWrappers,
-  topClass,
+  actions,
 } from '@piying/view-angular-core';
 import { filter, map } from 'rxjs';
 import { SchemaViewRC } from '../component/schema-view/component';
@@ -22,14 +19,14 @@ export const JsonPlaygroundRoute: Route = {
             v.object({
               codeEditor: v.pipe(v.string(), setComponent('jsonEditor')),
             }),
-            componentClass('flex flex-col gap-4'),
+            actions.class.component('flex flex-col gap-4'),
           ),
           v.pipe(
             v.object({
               jsonSchemaView: v.pipe(
                 v.any(),
                 setComponent('jsonSchema'),
-                patchAsyncInputs({
+                actions.inputs.patchAsync({
                   data: (field) =>
                     field
                       .get(['#', 'codeEditor'])!
@@ -56,8 +53,8 @@ export const JsonPlaygroundRoute: Route = {
           ),
         ]),
         asVirtualGroup(),
-        topClass('flex gap-4 *:flex-1 h-full mt-4'),
-        setWrappers(['block']),
+        actions.class.top('flex gap-4 *:flex-1 h-full mt-4'),
+        actions.wrappers.set(['block']),
       ),
   },
 };

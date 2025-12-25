@@ -50,7 +50,7 @@ export class EvalViewWC {
 
     return {
       fieldGlobalConfig: FieldGlobalConfig,
-      builder: getBuilderType(this.config2$.value().builderType),
+      builder: getBuilderType(this.config2$.value().builderType) as any,
       context: this.#context$$(),
     };
   });

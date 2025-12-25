@@ -2,12 +2,10 @@ import { Routes } from '@angular/router';
 import { SchemaViewRC } from './component/schema-view/component';
 import * as v from 'valibot';
 import {
-  componentClass,
+  actions,
   NFCSchema,
   setComponent,
-  setInputs,
-  setWrappers,
-  topClass,
+
   valueChange,
 } from '@piying/view-angular-core';
 import { MarkdownPage } from './component/markdown/component';
@@ -28,7 +26,7 @@ export const routes: Routes = [
                 __logo: v.pipe(
                   NFCSchema,
                   setComponent('button-link'),
-                  setInputs({
+                  actions.inputs.set({
                     href: '/',
                     type: 'img',
                     imgLink: './logo.svg',
@@ -37,12 +35,12 @@ export const routes: Routes = [
                 __block: v.pipe(
                   NFCSchema,
                   setComponent('block'),
-                  topClass('flex-1'),
+                  actions.class.top('flex-1'),
                 ),
                 __playground: v.pipe(
                   NFCSchema,
                   setComponent('button-link'),
-                  setInputs({
+                  actions.inputs.set({
                     href: '/playground/group/form',
                     label: $localize`游乐场`,
                   }),
@@ -50,29 +48,29 @@ export const routes: Routes = [
                 __viewLink: v.pipe(
                   NFCSchema,
                   setComponent('button-link'),
-                  setInputs({
+                  actions.inputs.set({
                     externalLink: 'https://github.com/piying-org/piying-view',
                     type: 'img',
                     imgLink: './img/github.svg',
                   }),
-                  setWrappers(['tooltip']),
+                  actions.wrappers.set(['tooltip']),
                   v.description('Piying View'),
                 ),
                 __ormLink: v.pipe(
                   NFCSchema,
                   setComponent('button-link'),
-                  setInputs({
+                  actions.inputs.set({
                     externalLink: 'https://github.com/piying-org/piying-orm',
                     type: 'img',
                     imgLink: './img/github.svg',
                   }),
-                  setWrappers(['tooltip']),
+                  actions.wrappers.set(['tooltip']),
                   v.description('Piying Orm'),
                 ),
                 __websiteLink: v.pipe(
                   NFCSchema,
                   setComponent('button-link'),
-                  setInputs({
+                  actions.inputs.set({
                     externalLink: 'https://github.com/piying-org/website',
                     type: 'img',
                     imgLink: './img/github.svg',
@@ -81,13 +79,13 @@ export const routes: Routes = [
                 language: v.pipe(
                   v.string(),
                   setComponent('dropdown'),
-                  setInputs({
+                  actions.inputs.set({
                     options: [
                       { label: '中文', value: 'zh-hans' },
                       { label: 'english', value: 'en' },
                     ],
                   }),
-                  topClass('dropdown-end', true),
+                  actions.class.top('dropdown-end', true),
                   valueChange((fn) => {
                     fn()
                       .pipe(skip(1))
@@ -101,7 +99,7 @@ export const routes: Routes = [
                   }),
                 ),
               }),
-              componentClass('flex xl:gap-4 w-full items-center'),
+              actions.class.component('flex xl:gap-4 w-full items-center'),
             ),
           }),
           setComponent('main'),

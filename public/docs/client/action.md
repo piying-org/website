@@ -99,7 +99,7 @@ outputChange((fn) => {
 - `patchAsync`动态设置某些值,可以读取到field和上下文,支持`Promise`/`Observable`/`Signal`;非上述类型的值会直接返回
 
 ```typescript
-patchAsyncInputs({
+actions.inputs.patchAsync({
   value1: (field) => {
     field.context;
     const subject = new BehaviorSubject(1);
@@ -110,21 +110,21 @@ patchAsyncInputs({
 
 
 
-## topClass
+## actions.class.top
 
 - 由于存在`wrapper`,所以布局的时候,顶层的组件不一定是定义组件,而有可能是wrapper,所以就需要使用此类进行设置
 - 默认为替换当前类,也可以设置`true`合并已有类
 
 ```typescript
-topClass("abcd", true);
+actions.class.top("abcd", true);
 ```
 
-## componentClass
+## actions.class.component
 
-- 与`topClass`类似,只不过是设置组件自身的
+- 与`actions.class.top`类似,只不过是设置组件自身的
 
 ```typescript
-componentClass("abcd");
+actions.class.component("abcd");
 ```
 
 ## layout

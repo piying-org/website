@@ -46,7 +46,7 @@ export class Main1Component {
   schemaCode = Define;
   options = {
     fieldGlobalConfig: FieldGlobalConfig,
-    builder: CustomNgBuilder,
+    builder: CustomNgBuilder as any,
   };
   model = {};
 }

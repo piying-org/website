@@ -275,7 +275,7 @@ v.object({
 
 ```ts
 v.object({
-  list: v.pipe(v.array(v.string()), setComponent("array-rw"), setInputs({  minLength: 2 })),
+  list: v.pipe(v.array(v.string()), setComponent("array-rw"), actions.inputs.set({  minLength: 2 })),
 });
 ```
 
@@ -286,11 +286,11 @@ v.object({
 ```ts
 v.pipe(
   v.object({
-    k1: v.pipe(v.string(), v.title("一级k1"), setWrappers(["label"])),
+    k1: v.pipe(v.string(), v.title("一级k1"), actions.wrappers.set(["label"])),
     o1: v.pipe(
       v.object({
-        k2: v.pipe(v.optional(v.string()), v.title("二级k2"), setWrappers(["label"])),
-        k3: v.pipe(v.optional(v.string()), v.title("二级k3"), setWrappers(["label"])),
+        k2: v.pipe(v.optional(v.string()), v.title("二级k2"), actions.wrappers.set(["label"])),
+        k3: v.pipe(v.optional(v.string()), v.title("二级k3"), actions.wrappers.set(["label"])),
       }),
       setComponent("fieldset"),
       v.title("一级o1"),
@@ -384,7 +384,7 @@ v.pipe(
       v.check((value) => {
         return value === "k2-value";
       }, "should input k2-value"),
-      setWrappers(["validator"]),
+      actions.wrappers.set(["validator"]),
     ),
   }),
 );
@@ -483,6 +483,6 @@ v.pipe(
       }, Object.create({})),
   ),
   setComponent("scrollGroup"),
-  setInputs({ scrollHeight: 500, placeholerHeight: 20 }),
+  actions.inputs.set({ scrollHeight: 500, placeholerHeight: 20 }),
 );
 ```

@@ -21,6 +21,6 @@ export class SchemaViewRC {
   options = {
     context: this.context,
     fieldGlobalConfig: FieldGlobalConfig,
-    builder: CustomNgBuilder,
+    builder: CustomNgBuilder as any,
   };
 }

@@ -14,25 +14,25 @@
       text: v.pipe(
         v.string(),
         v.title('Text'),
-        patchAttributes({ placeholder: 'Formly is terrific!' }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.attributes.patch({ placeholder: 'Formly is terrific!' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       nested: v.pipe(
         v.optional(
           v.object({
             story: v.pipe(
               v.optional(v.string()),
-              setWrappers(['label', 'validator']),
-              patchProps({ titlePosition: 'top' }),
+              actions.wrappers.set(['label', 'validator']),
+              actions.props.patch({ titlePosition: 'top' }),
               setComponent('textarea'),
               v.title('Some sweet story'),
               layout({ keyPath: ['..', '..'] }),
-              patchAttributes({
+              actions.attributes.patch({
                 placeholder:
                   'It allows you to build and maintain your forms with the ease of JavaScript :-)',
               }),
-              patchAsyncProps({
+              actions.props.patchAsync({
                 description: (field) =>
                   field.context.awesomeIsForced.pipe(
                     map((value) =>
@@ -40,23 +40,24 @@
                     ),
                   ),
               }),
-              patchAsyncDirective((field) => ({
-                type: FocusDirective,
-                inputs: { focus: field.context.awesomeIsForced },
-              })),
+              actions.directives.patchAsync(FocusDirective, [
+                actions.inputs.patchAsync({
+                  focus: (field) => field.context.awesomeIsForced,
+                }),
+              ]),
             ),
           }),
         ),
       ),
       awesome: v.pipe(
         v.optional(v.boolean()),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'right' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'right' }),
         disableWhen({
           listen: (fn, field) => field.context.awesomeIsForced,
         }),
         setComponent('checkbox'),
-        patchAsyncProps({
+        actions.props.patchAsync({
           title: (field) =>
             field.context.awesomeIsForced.pipe(
               map((item) =>
@@ -71,7 +72,9 @@
         v.optional(v.string()),
         setComponent('textarea'),
         v.title('Why Not?'),
-        patchAttributes({ placeholder: 'Type in here... I dare you' }),
+        actions.attributes.patch({
+          placeholder: 'Type in here... I dare you',
+        }),
         hideWhen({
           disabled: true,
           listen: (fn) =>
@@ -79,7 +82,7 @@
               map(({ list: [value] }) => value),
             ),
         }),
-        patchAsyncAttributes({
+        actions.attributes.patchAsync({
           placeholder: (field) =>
             field.context.awesomeIsForced.pipe(
               map((item) =>
@@ -89,15 +92,15 @@
               ),
             ),
         }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       custom: v.pipe(
         v.string(),
         setComponent('formly-custom-input-1'),
         v.title('Custom inlined'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -115,16 +118,16 @@
       text: v.pipe(
         v.string(),
         v.title('Text'),
-        patchAttributes({
+        actions.attributes.patch({
           placeholder: 'Type here to see the other field become enabled...',
         }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       text2: v.pipe(
         v.string(),
         v.title('Hey!'),
-        patchAttributes({
+        actions.attributes.patch({
           placeholder: 'This one is disabled if there is no text in the other input',
         }),
         disableWhen({
@@ -134,8 +137,8 @@
             );
           },
         }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -154,14 +157,14 @@
       firstName: v.pipe(
         v.optional(v.string(), 'This is a default value'),
         v.title('First Name (initialized via default value)'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       lastName: v.pipe(
         v.optional(v.string(), 'This is a default value'),
         v.title('Last Name (initialized via the model)'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       candy: v.pipe(
         v.optional(
@@ -169,21 +172,21 @@
           'milky_way',
         ),
         v.title('Favorite Candy (initialized via default value'),
-        patchInputs({
+        actions.inputs.patch({
           options: [
             { label: 'Snickers', value: 'snickers' },
             { label: 'Baby Ruth', value: 'baby_ruth' },
             { label: 'Milky Way', value: 'milky_way' },
           ],
         }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       agree: v.pipe(
         v.boolean(),
         v.title('Agree? (not initialized at all)'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'right' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'right' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -200,17 +203,17 @@
     v.object({
       name: v.pipe(
         v.optional(v.string()),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
         v.title('Name'),
-        patchAttributes({
+        actions.attributes.patch({
           placeholder: 'Type in here to display the hidden field',
         }),
       ),
       iLikeTwix: v.pipe(
         v.optional(v.boolean()),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'right' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'right' }),
         setComponent('checkbox'),
         v.title('I like twix'),
         hideWhen({
@@ -239,27 +242,27 @@
         v.string(),
         v.title('Debounce'),
         formConfig({ pipe: { toModel: pipe(debounceTime(2000)) } }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       updateOnBlur: v.pipe(
         v.string(),
         formConfig({ updateOn: 'blur' }),
         v.title('`updateOn` on Blur'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       updateOnSubmit: v.pipe(
         v.string(),
         formConfig({ updateOn: 'submit' }),
         v.title('`updateOn` on Submit'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(
         NFCSchema,
         setComponent('formHelper'),
-        patchInputs({ forceEnableSubmit: true }),
+        actions.inputs.patch({ forceEnableSubmit: true }),
       ),
     }),
   ),
@@ -274,23 +277,23 @@
     text: v.pipe(
       v.string(),
       v.title('Some awesome text'),
-      patchAttributes({
+      actions.attributes.patch({
         placeholder: 'Some sweet text',
       }),
-      setWrappers(['label', 'validator']),
-      patchProps({ titlePosition: 'top' }),
+      actions.wrappers.set(['label', 'validator']),
+      actions.props.patch({ titlePosition: 'top' }),
     ),
     candy: v.pipe(
       v.optional(v.picklist(['snickers', 'baby_ruth', 'milky_way'])),
-      patchInputs({
+      actions.inputs.patch({
         options: [
           { label: 'Snickers', value: 'snickers' },
           { label: 'Baby Ruth', value: 'baby_ruth' },
           { label: 'Milky Way', value: 'milky_way' },
         ],
       }),
-      setWrappers(['label', 'validator']),
-      patchProps({ titlePosition: 'top' }),
+      actions.wrappers.set(['label', 'validator']),
+      actions.props.patch({ titlePosition: 'top' }),
       v.title('Multiple Options'),
     ),
   }),
@@ -309,9 +312,9 @@
       __btnToggle: v.pipe(
         NFCSchema,
         setComponent('button'),
-        patchInputs({ label: 'Toggle' }),
-        mergeOutputs({
-          clicked: (event, field) => {
+        actions.inputs.patch({ label: 'Toggle' }),
+        actions.outputs.mergeAsync({
+          clicked: (field) => (event) => {
             field.context.disabled.next(!field.context.disabled.value);
           },
         }),
@@ -324,8 +327,8 @@
             return field.context.disabled;
           },
         }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
     }),
   ),
@@ -341,39 +344,39 @@
       name: v.pipe(
         v.string(),
         v.title('Name (required)'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       age: v.pipe(
         v.number(),
         v.title('Age (min= 18, max= 40)'),
         v.minValue(18),
         v.maxValue(40),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       password: v.pipe(
         v.string(),
         v.title('Password (minLength = 6)'),
         v.minLength(6),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       comment: v.pipe(
         v.string(),
         setComponent('textarea'),
         v.title('Comment (maxLength = 100)'),
         v.maxLength(100),
-        patchAttributes({ rows: 5 }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.attributes.patch({ rows: 5 }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       ip: v.pipe(
         v.string(),
         v.title('IP Address (pattern = /(d{1,3}.){3}d{1,3}/)'),
         v.ipv4(),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -403,8 +406,8 @@
             },
           ],
         }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -421,9 +424,9 @@
       username1: v.pipe(
         v.string(),
         v.title('Username (validated using `Promise`)'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
-        patchAttributes({ placeholder: 'Username' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
+        actions.attributes.patch({ placeholder: 'Username' }),
         formConfig({
           asyncValidators: [
             (control) => {
@@ -445,9 +448,9 @@
       username2: v.pipe(
         v.string(),
         v.title('Username (validated using `Observable`)'),
-        patchAttributes({ placeholder: 'Username' }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.attributes.patch({ placeholder: 'Username' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
         formConfig({
           asyncValidators: [
             (control) => {
@@ -480,10 +483,10 @@
     v.strictObject({
       username: v.pipe(
         v.string(),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
         v.title('Username (validated on `blur`)'),
-        patchAttributes({ placeholder: 'Username' }),
+        actions.attributes.patch({ placeholder: 'Username' }),
         formConfig({
           updateOn: 'blur',
           asyncValidators: [
@@ -516,9 +519,9 @@
       password: v.pipe(
         v.string(),
         v.title('Password'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
-        patchAttributes({
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
+        actions.attributes.patch({
           type: 'password',
           placeholder: 'Must be at least 3 characters',
         }),
@@ -527,9 +530,9 @@
       passwordConfirm: v.pipe(
         v.string(),
         v.title('Confirm Password'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
-        patchAttributes({
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
+        actions.attributes.patch({
           type: 'password',
           placeholder: 'Please re-enter your password',
         }),
@@ -560,10 +563,10 @@
         v.string(),
         v.title('Email'),
         v.email(),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
-        patchAttributes({ type: 'email' }),
-        patchAsyncProps({
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
+        actions.attributes.patch({ type: 'email' }),
+        actions.props.patchAsync({
           forceShowError: (field) => {
             return field.get(['#', 'showErrorState'])?.form.control
               ?.valueChanges;
@@ -572,8 +575,8 @@
       ),
       showErrorState: v.pipe(
         v.boolean(),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'right' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'right' }),
         v.title('Force show error state'),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
@@ -596,9 +599,9 @@
         v.string(),
         v.check((a) => !!a),
         v.title('Text'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
-        patchAttributes({ placeholder: 'This is required!' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
+        actions.attributes.patch({ placeholder: 'This is required!' }),
       ),
 
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
@@ -617,9 +620,9 @@
         v.string(),
         setComponent('textarea'),
         v.title('Textarea with specified rows'),
-        patchAttributes({ rows: 10, placeholder: 'This has 10 rows' }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.attributes.patch({ rows: 10, placeholder: 'This has 10 rows' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
     }),
   ),
@@ -640,10 +643,10 @@
           'hulk',
           'captain_marvel',
         ]),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
         v.title('Normal Select'),
-        patchInputs({
+        actions.inputs.patch({
           options: [
             { label: 'Iron Man', value: 'iron_man' },
             { label: 'Captain America', value: 'captain_america' },
@@ -661,10 +664,10 @@
           'hulk',
           'captain_marvel',
         ]),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
         v.title('Grouped Select'),
-        patchInputs({
+        actions.inputs.patch({
           options: [
             {
               label: 'Male',
@@ -694,10 +697,10 @@
           'hulk',
           'captain_marvel',
         ]),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
         v.title('Select with custom name/value/group'),
-        patchInputs({
+        actions.inputs.patch({
           optionConvert: {
             children: (item) => item.list,
             label: (item) => item.label,
@@ -735,10 +738,10 @@
           ]),
         ),
         asControl(),
-        componentClass('h-[200px]', true),
+        actions.class.component('h-[200px]', true),
         v.title('Multi-select'),
         setComponent('multiselect'),
-        patchInputs({
+        actions.inputs.patch({
           options: [
             { label: 'Iron Man', value: 'iron_man' },
             { label: 'Captain America', value: 'captain_america' },
@@ -747,8 +750,8 @@
             { label: 'Captain Marvel', value: 'captain_marvel' },
           ],
         }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -767,14 +770,14 @@
           firstName: v.pipe(
             v.optional(v.string()),
             v.title('First Name'),
-            setWrappers(['label', 'validator']),
-            patchProps({ titlePosition: 'top' }),
+            actions.wrappers.set(['label', 'validator']),
+            actions.props.patch({ titlePosition: 'top' }),
           ),
           lastName: v.pipe(
             v.optional(v.string()),
             v.title('Last Name'),
-            setWrappers(['label', 'validator']),
-            patchProps({ titlePosition: 'top' }),
+            actions.wrappers.set(['label', 'validator']),
+            actions.props.patch({ titlePosition: 'top' }),
             disableWhen({
               listen: (fn) =>
                 fn({ list: [['#', 'firstName']] }).pipe(
@@ -783,7 +786,7 @@
             }),
           ),
         }),
-        patchInputs({
+        actions.inputs.patch({
           wrapperClass: 'grid grid-cols-2 gap-4',
         }),
         setComponent('strict_object'),
@@ -794,28 +797,28 @@
           street: v.pipe(
             v.optional(v.string()),
             v.title('Street'),
-            patchProps({
+            actions.props.patch({
               itemClass: 'col-span-2',
             }),
-            setWrappers(['label', 'validator']),
-            patchProps({ titlePosition: 'top' }),
+            actions.wrappers.set(['label', 'validator']),
+            actions.props.patch({ titlePosition: 'top' }),
           ),
           cityName: v.pipe(
             v.optional(v.string()),
             v.title('City'),
-            setWrappers(['label', 'validator']),
-            patchProps({ titlePosition: 'top' }),
+            actions.wrappers.set(['label', 'validator']),
+            actions.props.patch({ titlePosition: 'top' }),
           ),
           zip: v.pipe(
             v.number(),
             v.title('Zip'),
             v.minValue(0),
             v.maxValue(99999),
-            setWrappers(['label', 'validator']),
-            patchProps({ titlePosition: 'top' }),
+            actions.wrappers.set(['label', 'validator']),
+            actions.props.patch({ titlePosition: 'top' }),
           ),
         }),
-        patchInputs({
+        actions.inputs.patch({
           wrapperClass: 'grid grid-cols-4 gap-4',
         }),
         v.title('Address:'),
@@ -828,14 +831,14 @@
             v.optional(v.string()),
             v.title('Other Input'),
             setComponent('textarea'),
-            setWrappers(['label', 'validator']),
-            patchProps({ titlePosition: 'top' }),
+            actions.wrappers.set(['label', 'validator']),
+            actions.props.patch({ titlePosition: 'top' }),
           ),
           otherToo: v.pipe(
             v.optional(v.boolean()),
             v.title('Other Checkbox'),
-            setWrappers(['label', 'validator']),
-            patchProps({ titlePosition: 'right' }),
+            actions.wrappers.set(['label', 'validator']),
+            actions.props.patch({ titlePosition: 'right' }),
           ),
         }),
         setComponent('strict_object')
@@ -856,25 +859,25 @@
     v.strictObject({
       email: v.pipe(
         v.string(),
-        patchAttributes({
+        actions.attributes.patch({
           type: 'email',
         }),
-        setWrappers(['formlyField']),
+        actions.wrappers.set(['formlyField']),
         v.title('Email'),
-        setWrappers(['formlyField']),
+        actions.wrappers.set(['formlyField']),
       ),
       password: v.pipe(
         v.string(),
-        patchAttributes({
+        actions.attributes.patch({
           type: 'password',
         }),
-        setWrappers(['formlyField']),
+        actions.wrappers.set(['formlyField']),
         v.title('Password'),
-        setWrappers(['formlyField']),
+        actions.wrappers.set(['formlyField']),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
-    componentClass('flex flex-col gap-2'),
+    actions.class.component('flex flex-col gap-2'),
   ),
 }
 ```
@@ -888,20 +891,20 @@
       left: v.pipe(
         v.string(),
         v.title('One add-on on the left (icon)'),
-        setWrappers([
+        actions.wrappers.set([
           'label',
           'validator',
           { type: 'joinItem', inputs: { prefix: { icon: 'attach_money' } } },
         ]),
-        patchProps({ titlePosition: 'top' }),
-        patchAttributes({
+        actions.props.patch({ titlePosition: 'top' }),
+        actions.attributes.patch({
           placeholder: 'Formly is terrific!',
         }),
       ),
       both: v.pipe(
         v.string(),
         v.title('One add-on on both side (left: icon, right: text)'),
-        setWrappers([
+        actions.wrappers.set([
           'label',
           'validator',
           {
@@ -912,15 +915,15 @@
             },
           },
         ]),
-        patchProps({ titlePosition: 'top' }),
-        patchAttributes({
+        actions.props.patch({ titlePosition: 'top' }),
+        actions.attributes.patch({
           placeholder: 'How great is this?',
         }),
       ),
       right: v.pipe(
         v.string(),
         v.title('One add-on on the right (icon)'),
-        setWrappers([
+        actions.wrappers.set([
           'label',
           'validator',
           {
@@ -930,8 +933,8 @@
             },
           },
         ]),
-        patchProps({ titlePosition: 'top' }),
-        patchAttributes({
+        actions.props.patch({ titlePosition: 'top' }),
+        actions.attributes.patch({
           placeholder: `Nice, isn't it??`,
         }),
       ),
@@ -958,7 +961,7 @@
     v.strictObject({
       lang: v.pipe(
         v.picklist(['fr', 'en']),
-        patchInputs({
+        actions.inputs.patch({
           options: [
             { label: 'fr', value: 'fr' },
             { label: 'en', value: 'en' },
@@ -972,7 +975,7 @@
             v.setGlobalConfig({ lang: value });
           });
         }),
-        patchAsyncProps({
+        actions.props.patchAsync({
           title: (field) => {
             return field.form.control?.valueChanges.pipe(
               map((item) => {
@@ -984,12 +987,12 @@
             );
           },
         }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       name: v.pipe(
         v.string(),
-        patchAsyncProps({
+        actions.props.patchAsync({
           title: (field) => {
             return field.get(['#', 'lang'])?.form.control?.valueChanges.pipe(
               map((item) => {
@@ -1001,8 +1004,8 @@
             );
           },
         }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1031,7 +1034,7 @@
     v.strictObject({
       lang: v.pipe(
         v.picklist(['fr', 'en']),
-        patchInputs({
+        actions.inputs.patch({
           options: [
             { label: 'fr', value: 'fr' },
             { label: 'en', value: 'en' },
@@ -1047,14 +1050,14 @@
           });
         }),
         v.title('FORM.LANG'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       name: v.pipe(
         v.string(),
         v.title('FORM.NAME'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1088,9 +1091,9 @@
               return v.pipe(
                 NFCSchema,
                 setComponent('button'),
-                patchInputs({ label: item }),
-                mergeOutputs({
-                  clicked: (_, field) => {
+                actions.inputs.patch({ label: item }),
+                actions.outputs.mergeAsync({
+                  clicked: (field) => (_) => {
                     // todo
                     fetch(`ngx-formly/json-schema/${item}_json`)
                       .then((item) => item.json())
@@ -1108,17 +1111,19 @@
           ),
         ),
         setComponent('object'),
-        setWrappers(['block']),
+        actions.wrappers.set(['block']),
         nonFieldControl(),
       ),
       jsonSchema: v.pipe(
         v.any(),
         setComponent('jsonSchema'),
-        patchInputs({ data: undefined }),
+        actions.inputs.patch({ data: undefined }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
-    patchInputs({wrapperClass:'flex gap-2 flex-wrap *:last:w-full'})
+    actions.inputs.patch({
+      wrapperClass: 'flex gap-2 flex-wrap *:last:w-full',
+    }),
   ),
 }
 ```
@@ -1135,7 +1140,7 @@
           v.array(
             v.pipe(
               v.string(),
-              patchAttributes({
+              actions.attributes.patch({
                 placeholder: 'Task name',
               }),
             ),
@@ -1143,8 +1148,8 @@
         ),
         v.title('TODO LIST'),
         setComponent('array-rw'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1163,19 +1168,19 @@
         v.optional(v.number(), 3),
         v.minValue(1),
         v.title('Investments count'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       investments: v.pipe(
         v.array(
           v.pipe(
             v.string(),
             v.title('Name of Investment:'),
-            setWrappers(['label', 'validator']),
-            patchProps({ titlePosition: 'top' }),
+            actions.wrappers.set(['label', 'validator']),
+            actions.props.patch({ titlePosition: 'top' }),
           ),
         ),
-        patchAsyncInputs({
+        actions.inputs.patchAsync({
           fixedLength: (field) => {
             return field.get(['#', 'investmentsCount'])?.form.control
               ?.valueChanges;
@@ -1203,12 +1208,12 @@
               firstname: v.pipe(
                 v.string(),
                 v.title('First name'),
-                setWrappers(['label', 'validator']),
+                actions.wrappers.set(['label', 'validator']),
               ),
               age: v.pipe(
                 v.number(),
                 v.title('Age'),
-                patchProps({ titlePosition: 'top' }),
+                actions.props.patch({ titlePosition: 'top' }),
               ),
             }),
             v.title('Personal data'),
@@ -1219,8 +1224,8 @@
               country: v.pipe(
                 v.string(),
                 v.title('Country'),
-                setWrappers(['label', 'validator']),
-                patchProps({ titlePosition: 'top' }),
+                actions.wrappers.set(['label', 'validator']),
+                actions.props.patch({ titlePosition: 'top' }),
               ),
             }),
             v.title('Destination'),
@@ -1232,8 +1237,8 @@
                 v.string(),
                 setComponent('date'),
                 v.title('Day of the trip'),
-                setWrappers(['label', 'validator']),
-                patchProps({ titlePosition: 'top' }),
+                actions.wrappers.set(['label', 'validator']),
+                actions.props.patch({ titlePosition: 'top' }),
               ),
             }),
             v.title('Day of the trip'),
@@ -1262,14 +1267,14 @@
               firstname: v.pipe(
                 v.string(),
                 v.title('First name'),
-                setWrappers(['label', 'validator']),
-                patchProps({ titlePosition: 'top' }),
+                actions.wrappers.set(['label', 'validator']),
+                actions.props.patch({ titlePosition: 'top' }),
               ),
               age: v.pipe(
                 v.number(),
                 v.title('Age'),
-                setWrappers(['label', 'validator']),
-                patchProps({ titlePosition: 'top' }),
+                actions.wrappers.set(['label', 'validator']),
+                actions.props.patch({ titlePosition: 'top' }),
               ),
             }),
             v.title('Personal data'),
@@ -1280,8 +1285,8 @@
               country: v.pipe(
                 v.string(),
                 v.title('Country'),
-                setWrappers(['label', 'validator']),
-                patchProps({ titlePosition: 'top' }),
+                actions.wrappers.set(['label', 'validator']),
+                actions.props.patch({ titlePosition: 'top' }),
               ),
             }),
             v.title('Destination'),
@@ -1293,8 +1298,8 @@
                 v.string(),
                 setComponent('date'),
                 v.title('Day of the trip'),
-                setWrappers(['label', 'validator']),
-                patchProps({ titlePosition: 'top' }),
+                actions.wrappers.set(['label', 'validator']),
+                actions.props.patch({ titlePosition: 'top' }),
               ),
             }),
             v.title('Day of the trip'),
@@ -1302,7 +1307,7 @@
           ),
         ]),
         setComponent('tabs'),
-        patchInputs({
+        actions.inputs.patch({
           stepsLike: true,
         }),
       ),
@@ -1321,22 +1326,22 @@
       input: v.pipe(
         v.optional(v.string()),
         v.title('Input Field'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       'default-password': v.pipe(
         v.optional(v.string()),
-        patchAttributes({ type: 'password' }),
+        actions.attributes.patch({ type: 'password' }),
         v.title('Default Password Field'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       'customized-password': v.pipe(
         v.optional(v.string()),
-        patchAttributes({ type: 'password' }),
+        actions.attributes.patch({ type: 'password' }),
         v.title('Password Field (with custom label)'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1354,7 +1359,7 @@
       sport: v.pipe(
         v.picklist(['1', '2']),
         v.title('Sport'),
-        patchInputs({
+        actions.inputs.patch({
           options: [
             { id: '1', name: 'Soccer' },
             { id: '2', name: 'Basketball' },
@@ -1364,13 +1369,13 @@
             value: (item) => item.id,
           },
         }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       team: v.pipe(
         v.picklist(['1', '2', '3', '4']),
         v.title('Sport'),
-        patchAsyncInputs({
+        actions.inputs.patchAsync({
           options: (field) => {
             let options = [
               { id: '1', name: 'Bayern Munich', sportId: '1' },
@@ -1388,19 +1393,19 @@
             );
           },
         }),
-        patchInputs({
+        actions.inputs.patch({
           optionConvert: {
             label: (item) => item.name,
             value: (item) => item.id,
           },
         }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       player: v.pipe(
         v.picklist(['1', '2', '3', '4', '5', '6', '7', '8']),
         v.title('Player'),
-        patchAsyncInputs({
+        actions.inputs.patchAsync({
           options: (field) => {
             let options = [
               { id: '1', name: 'Bayern Munich (Player 1)', teamId: '1' },
@@ -1422,14 +1427,14 @@
             );
           },
         }),
-        patchInputs({
+        actions.inputs.patch({
           optionConvert: {
             label: (item) => item.name,
             value: (item) => item.id,
           },
         }),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
 
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
@@ -1448,15 +1453,15 @@
       sport: v.pipe(
         v.picklist(['1', '2']),
         v.title('Sport'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
-        patchInputs({
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
+        actions.inputs.patch({
           optionConvert: {
             label: (item) => item.name,
             value: (item) => item.id,
           },
         }),
-        patchAsyncInputs({
+        actions.inputs.patchAsync({
           options: (field) =>
             of([
               { id: '1', name: 'Soccer' },
@@ -1483,20 +1488,20 @@
       firstName: v.pipe(
         v.string(),
         v.title('First Name'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       address: v.pipe(
         v.object({
           town: v.pipe(
             v.string(),
             v.title('Town'),
-            setWrappers(['label', 'validator']),
-            patchProps({ titlePosition: 'top' }),
+            actions.wrappers.set(['label', 'validator']),
+            actions.props.patch({ titlePosition: 'top' }),
           ),
         }),
         v.title('Address'),
-        setWrappers(['panel']),
+        actions.wrappers.set(['panel']),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1513,7 +1518,7 @@
       input: v.pipe(
         v.string(),
         v.title('Firstname'),
-        setWrappers([
+        actions.wrappers.set([
           'label',
           'validator',
           {
@@ -1524,7 +1529,7 @@
             },
           },
         ]),
-        patchProps({ titlePosition: 'top' }),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1541,35 +1546,35 @@
       Input: v.pipe(
         v.string(),
         v.title('Input with string hints'),
-        patchAttributes({ placeholder: 'Placeholder' }),
-        patchProps({
+        actions.attributes.patch({ placeholder: 'Placeholder' }),
+        actions.props.patch({
           hintStart:
             'hintStart accepts strings and TemplateRefs and is aligned to start',
           hintEnd:
             'hintEnd accepts strings and TemplateRefs and is aligned to end',
         }),
-        setWrappers(['formlyField']),
+        actions.wrappers.set(['formlyField']),
       ),
       Input2: v.pipe(
         v.string(),
         v.title('Input with template hints'),
-        patchAttributes({ placeholder: 'Placeholder' }),
-        patchProps({
+        actions.attributes.patch({ placeholder: 'Placeholder' }),
+        actions.props.patch({
           hintStart:
             'hintStart accepts strings and TemplateRefs and is aligned to start',
           hintEnd:
             'hintEnd accepts strings and TemplateRefs and is aligned to end',
         }),
-        setWrappers(['formlyField']),
+        actions.wrappers.set(['formlyField']),
       ),
       Input3: v.pipe(
         v.string(),
         v.title('Input with description'),
-        patchAttributes({
+        actions.attributes.patch({
           placeholder:
             'Description field accepts strings and gets aligned to start',
         }),
-        setWrappers(['formlyField']),
+        actions.wrappers.set(['formlyField']),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1586,8 +1591,8 @@
       __btn1: v.pipe(
         NFCSchema,
         setComponent('button'),
-        patchInputs({ label: 'With Function' }),
-        mergeOutputs({
+        actions.inputs.patch({ label: 'With Function' }),
+        actions.outputs.merge({
           clicked: () => {
             alert('You clicked me!');
           },
@@ -1596,22 +1601,22 @@
       __btn2: v.pipe(
         NFCSchema,
         setComponent('button'),
-        patchInputs({ label: 'JSON Only', classStyle: 'btn-info' }),
+        actions.inputs.patch({ label: 'JSON Only', classStyle: 'btn-info' }),
         v.title('Click this guy'),
-        mergeOutputs({
-          clicked: (event, field) => {
+        actions.outputs.mergeAsync({
+          clicked: (field) => (event) => {
             field.get(['#', 'someInput']).form.control.updateValue('clicked!');
           },
         }),
-        patchProps({
+        actions.props.patch({
           description: 'These can have labels and stuff too if you want....',
         }),
       ),
       someInput: v.pipe(
         v.string(),
         v.title('Some Input'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1645,20 +1650,20 @@
       salutation: v.pipe(
         v.string(),
         setComponent('salutation'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       firstName: v.pipe(
         v.optional(v.string()),
         setComponent('firstName'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       lastName: v.pipe(
         v.string(),
         setComponent('lastName'),
-        setWrappers(['label', 'validator']),
-        patchProps({ titlePosition: 'top' }),
+        actions.wrappers.set(['label', 'validator']),
+        actions.props.patch({ titlePosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),

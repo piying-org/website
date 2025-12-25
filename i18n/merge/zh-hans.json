@@ -829,15 +829,15 @@
   },
   "7144240952861836189": {
     "id": "7144240952861836189",
-    "text": "与`topClass`类似,只不过是设置组件自身的",
+    "text": "与`actions.class.top`类似,只不过是设置组件自身的",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "与`topClass`类似,只不过是设置组件自身的"
+      "与`actions.class.top`类似,只不过是设置组件自身的"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "与`topClass`类似,只不过是设置组件自身的"
+    "target": "与`actions.class.top`类似,只不过是设置组件自身的"
   },
   "910779403902234938": {
     "id": "910779403902234938",

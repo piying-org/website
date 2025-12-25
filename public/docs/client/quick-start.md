@@ -195,7 +195,7 @@ export function InputText(props: PiInputOptions) {
   @if (field$$().props()[&quot;title&quot;]; as title) {
     &lt;span class=&quot;label&quot;&gt;{{ title }}&lt;/span&gt;
   }
-  &lt;ng-container #fieldComponent&gt;&lt;/ng-container&gt;
+  &lt;ng-container insertField&gt;&lt;/ng-container&gt;
 &lt;/div&gt;
 ```
 ```typescript
@@ -467,8 +467,7 @@ export const FieldGlobalConfig = {
 ```typescript
 import { Component, OnInit } from '@angular/core';
 import {
-  patchInputs,
-  patchWrappers,
+  actions,
   setComponent,
 } from '@piying/view-angular-core';
 import * as v from 'valibot';
@@ -481,7 +480,7 @@ import { PiyingView } from '@piying/view-angular';
 export class PiyingPage {
   schema = v.pipe(
     v.object({
-      text1: v.pipe(v.optional(v.string()), v.title('text1-label'),setWrappers(['label'])),
+      text1: v.pipe(v.optional(v.string()), v.title('text1-label'),actions.wrappers.set(['label'])),
     }),
     v.title('form'),
     setComponent('fieldset')
@@ -499,12 +498,12 @@ export class PiyingPage {
 ```html
 &lt;script setup lang=&quot;ts&quot;&gt;
 import { PiyingView } from '@piying/view-vue'
-import { patchInputs, patchWrappers, setComponent } from '@piying/view-core'
+import { actions, setComponent } from '@piying/view-core'
 import * as v from 'valibot'
 import { ref } from 'vue'
 const schema = v.pipe(
   v.object({
-    text1: v.pipe(v.optional(v.string()), v.title('text1-label'),setWrappers(['label'])),
+    text1: v.pipe(v.optional(v.string()), v.title('text1-label'),actions.wrappers.set(['label'])),
   }),
   v.title('form'),
   setComponent('fieldset'),
@@ -530,11 +529,11 @@ const model = ref({})
 <custom-tab data-label="React">
 ```typescript
 import * as v from 'valibot';
-import { patchWrappers, setComponent, patchInputs } from '@piying/view-core';
+import { setComponent, actions } from '@piying/view-core';
 import { PiyingView } from '@piying/view-react';
 const schema = v.pipe(
   v.object({
-    text1: v.pipe(v.optional(v.string()), v.title('text1-label'), setWrappers(['label'])),
+    text1: v.pipe(v.optional(v.string()), v.title('text1-label'), actions.wrappers.set(['label'])),
   }),
   v.title('form'),
   setComponent('fieldset')
@@ -554,11 +553,11 @@ export function PiyingPage() {
 ```html
 &lt;script lang=&quot;ts&quot;&gt;
   import { PiyingView } from &apos;@piying/view-svelte&apos;;
-  import { patchWrappers, setComponent, patchInputs } from &apos;@piying/view-core&apos;;
+  import { setComponent, actions } from &apos;@piying/view-core&apos;;
   import * as v from &apos;valibot&apos;;
   const schema = v.pipe(
     v.object({
-      text1: v.pipe(v.optional(v.string()), v.title(&apos;text1-label&apos;), setWrappers(['label'])),
+      text1: v.pipe(v.optional(v.string()), v.title(&apos;text1-label&apos;), actions.wrappers.set(['label'])),
     }),
     v.title(&apos;form&apos;),
     setComponent(&apos;fieldset&apos;)
@@ -577,11 +576,11 @@ export function PiyingPage() {
 <custom-tab data-label="Solid">
 ```typescript
 import * as v from &apos;valibot&apos;;
-import { patchWrappers, setComponent, patchInputs } from &apos;@piying/view-core&apos;;
+import { setComponent, actions } from &apos;@piying/view-core&apos;;
 import { PiyingView } from &apos;@piying/view-solid&apos;;
 const schema = v.pipe(
   v.object({
-    text1: v.pipe(v.optional(v.string()), v.title(&apos;text1-label&apos;), setWrappers(['label'])),
+    text1: v.pipe(v.optional(v.string()), v.title(&apos;text1-label&apos;), actions.wrappers.set(['label'])),
   }),
   v.title(&apos;form&apos;),
   setComponent(&apos;fieldset&apos;)

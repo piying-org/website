@@ -1,5 +1,5 @@
 import { Component, viewChild } from '@angular/core';
-import { PiyingViewWrapperBase } from '@piying/view-angular';
+import { InsertFieldDirective } from '@piying/view-angular';
 export interface JoinItem {
   icon?: string;
   text?: string;
@@ -7,8 +7,9 @@ export interface JoinItem {
 @Component({
   selector: 'app-block',
   templateUrl: './component.html',
+  imports: [InsertFieldDirective],
 })
-export class BlockWC extends PiyingViewWrapperBase {
+export class BlockWC {
   static __version = 2;
   templateRef = viewChild.required('templateRef');
 }

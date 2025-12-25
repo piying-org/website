@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  effect,
   forwardRef,
   input,
 } from '@angular/core';
@@ -13,7 +14,7 @@ import { BaseControl } from '../form/base.component';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { jsonSchemaToValibot } from '@piying/view-angular-core/adapter';
 import * as v from 'valibot';
-import { patchProps, setWrappers } from '@piying/view-angular-core';
+import { actions } from '@piying/view-angular-core';
 @Component({
   selector: 'app-json-schema-view',
   templateUrl: './component.html',
@@ -41,12 +42,19 @@ export default class JsonSchemaViewRC extends BaseControl {
           afterResolve: (vSchema, jSchema, type) => {
             let result = vSchema;
             if (type === 'boolean') {
-              result = v.pipe(result, patchProps({ titlePosition: 'right' }));
+              result = v.pipe(
+                result,
+                actions.props.patch({ titlePosition: 'right' }),
+              );
             }
             if (type !== 'object') {
               result = v.pipe(
                 result,
-                setWrappers(['tooltip', 'jsonschema-label', 'validator']),
+                actions.wrappers.set([
+                  'tooltip',
+                  'jsonschema-label',
+                  'validator',
+                ]),
               );
             }
             return result;
@@ -64,7 +72,7 @@ export default class JsonSchemaViewRC extends BaseControl {
   model$$ = computed(() => this.data()!['model']);
   options = {
     fieldGlobalConfig: FieldGlobalConfig,
-    builder: CustomNgBuilder,
+    builder: CustomNgBuilder as any,
     handle: JsonSchemaHandle as any,
   };
 }

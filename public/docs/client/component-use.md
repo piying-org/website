@@ -7,7 +7,7 @@
 - 使用指定的语法可以实现无自定义选择器
 
 ```ts
-v.pipe(NFCSchema, setComponent("selectorless-demo"),setWrappers(["label"]),v.title('selectorless'));
+v.pipe(NFCSchema, setComponent("selectorless-demo"),actions.wrappers.set(["label"]),v.title('selectorless'));
 ```
 
 ## 创建多个组件
@@ -38,8 +38,8 @@ v.pipe(
 ```ts
 v.pipe(
   v.object({
-    k1: v.pipe(v.string(), v.title("k1-label"), setWrappers(["label"])),
-    k2: v.pipe(v.number(), v.title("k2-label"), v.minValue(10), setWrappers(["label", "validator"])),
+    k1: v.pipe(v.string(), v.title("k1-label"), actions.wrappers.set(["label"])),
+    k2: v.pipe(v.number(), v.title("k2-label"), v.minValue(10), actions.wrappers.set(["label", "validator"])),
   }),
   setComponent("fieldset"),
 );
@@ -65,7 +65,7 @@ v.object({
 - 静态属性
 
 ```ts
-v.pipe(NFCSchema, setComponent("demo"), setInputs({ input1: 1 }));
+v.pipe(NFCSchema, setComponent("demo"), actions.inputs.set({ input1: 1 }));
 ```
 
 - 动态变更,支持Promise,Observable,Signal
@@ -74,7 +74,7 @@ v.pipe(NFCSchema, setComponent("demo"), setInputs({ input1: 1 }));
 v.pipe(
   NFCSchema,
   setComponent("demo"),
-  patchAsyncInputs({
+  actions.inputs.patchAsync({
     input1: async (field) => {
       return 1;
     },

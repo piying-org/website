@@ -6,7 +6,7 @@
       >{{ field.props()["title"] }}{{ requiredLable }}</label
     >
   }
-  <ng-container #fieldComponent></ng-container>
+  <ng-container insertField></ng-container>
   <div class="col-span-10">
     @if (
       field.form.control?.errors &&

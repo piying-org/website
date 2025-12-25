@@ -1,4 +1,4 @@
-import { computed, Injectable, isSignal, linkedSignal } from '@angular/core';
+import { computed, Injectable, isSignal } from '@angular/core';
 import {
   AngularFormBuilder,
   PiResolvedViewFieldConfig,
@@ -16,24 +16,19 @@ export class TranslateNgBuilder extends AngularFormBuilder {
   ) {
     const parsed = super.afterResolveConfig(rawConfig, config);
     const props = parsed.props;
-    const inputs = parsed.inputs;
-    const options$$ = computed(
-      () => {
-        const value = getSignalValue(props);
-        return value?.['options'];
-      },
-      { equal: deepEqual },
-    );
-    const inputs$$ = linkedSignal(() => {
-      let value = getSignalValue(inputs);
-      if (rawConfig.type === 'picklist') {
-        const options = options$$();
-        if (options && !value.options) {
-          value = { ...value, options };
-        }
+
+    if (rawConfig.type === 'picklist') {
+      const options$$ = computed(
+        () => {
+          return parsed.props()?.['options'];
+        },
+        { equal: deepEqual },
+      );
+      const options = options$$();
+      if (options && !parsed.inputs()?.['options']) {
+        parsed.inputs.connect('options', options);
       }
-      return value;
-    });
+    }
     const propsData = props();
     config.context.lang.subscribe((lang: any) => {
       if (!lang) {
@@ -44,9 +39,6 @@ export class TranslateNgBuilder extends AngularFormBuilder {
         title: config.context['i18n'][lang][propsData['title']],
       }));
     });
-    return {
-      ...parsed,
-      inputs: inputs$$,
-    } as any;
+    return parsed;
   }
 }
