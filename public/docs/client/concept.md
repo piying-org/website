@@ -28,7 +28,7 @@ interface ControlValueAccessor {
 
 ### 包装器
 
-- 让组件附加额外的能力,比如显示控件的标签,验证内容,前后缀等组件相关,共通的东西
+- 让组件附加额外的能力,比如`显示控件的标签`,`验证内容`,`前后缀`等组件相关,共通的东西
 - 包装器让开发者在封装组件的时候可以仅考虑该组件的基本功能,减少了代码耦合,增加了可维护性
 
 ## 字段顺序
@@ -41,11 +41,14 @@ interface ControlValueAccessor {
 
 - [valibot](https://valibot.dev/guides/mental-model/)中的概念
 
-## Attributes/Inputs/Outputs/Props
+## Attributes/Events/Inputs/Outputs/Props
 
 - 配置中的属性输入虽然分为四种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件
 
 ### Attributes
+
+- html标签中的原生属性
+### Events
 
 - html标签中的原生属性
 

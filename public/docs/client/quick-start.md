@@ -200,13 +200,14 @@ export function InputText(props: PiInputOptions) {
 ```
 ```typescript
 import { Component, computed } from '@angular/core';
-import { PiyingViewWrapperBase } from '@piying/view-angular';
+import { InsertFieldDirective } from '@piying/view-angular';
 import { setGlobalConfig, summarize } from 'valibot';
 @Component({
   selector: 'label-wrapper',
   templateUrl: './component.html',
+  imports: [InsertFieldDirective],
 })
-export class LabelWC extends PiyingViewWrapperBase {
+export class LabelWC {
 }
 ```
 </custom-tab>

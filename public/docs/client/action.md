@@ -89,18 +89,26 @@ outputChange((fn) => {
 });
 ```
 
-## set/remove/patch/patchAsync(inputs/props/attributes/outputs/wrappers)
+## actions.[propertyName].[method]
 
-- 此类方法都是用来设置组件相关属性
+- `属性名`: inputs/props/attributes/outputs/wrappers/events
+- `方法名`: set/remove/patch/patchAsync/merge/mergeAsync/map/mapAsync
+- 用来设置组件相关属性
 - `set`替换当前输入设置
 - `remove`删除某一项
 - `patch`与已有配置合并({...a,...b})
-  > 需要注意的是,如果之前存在字段`xx`的配置,再次设置`xx`时,之前的值会被替换
-- `patchAsync`动态设置某些值,可以读取到field和上下文,支持`Promise`/`Observable`/`Signal`;非上述类型的值会直接返回
+- `patchAsync`与`patch`相同,可以获得field和上下文,支持`Promise`/`Observable`/`Signal`;非上述类型的值会直接赋值
+- `merge`用于`outputs`/`events`,允许设置多个监听
+- `mergeAsync`与`merge`相同,可以获得field
+- `map`类似数组/rxjs的`map`方法,信号值变更后进行运算
+- `mapAsync`与`map`相同,可以获得field
+
+### 举例
 
 ```typescript
 actions.inputs.patchAsync({
   value1: (field) => {
+    // context
     field.context;
     const subject = new BehaviorSubject(1);
     return subject;
@@ -108,9 +116,9 @@ actions.inputs.patchAsync({
 });
 ```
 
+## actions.class
 
-
-## actions.class.top
+### top
 
 - 由于存在`wrapper`,所以布局的时候,顶层的组件不一定是定义组件,而有可能是wrapper,所以就需要使用此类进行设置
 - 默认为替换当前类,也可以设置`true`合并已有类
@@ -119,7 +127,7 @@ actions.inputs.patchAsync({
 actions.class.top("abcd", true);
 ```
 
-## actions.class.component
+### bottom(component)
 
 - 与`actions.class.top`类似,只不过是设置组件自身的
 
@@ -137,10 +145,13 @@ layout({ keyPath: ["#"], priority: -2 });
 ```
 
 ## asVirtualGroup
+
 - 使用`intersect`时,会自动创建一个`LogicGroup`,使用此方法可以不创建控件组,而是一个普通的分组(等价于v.object)
 
 ## asControl
+
 - 使用`v.array(v.string())`时,如果不想表示为`FieldArray`,而是仅仅想视为一个普通的类型`FieldControl`时使用
 
 ## setAlias
+
 - 设置别名,用于路径查询
