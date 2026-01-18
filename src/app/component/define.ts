@@ -57,6 +57,7 @@ export const FieldGlobalConfig = {
         actions.attributes.set({
           class: 'checkbox',
         }),
+        actions.wrappers.set([{ type: 'label' }]),
       ],
     },
     checkbox: {

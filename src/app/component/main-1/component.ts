@@ -29,7 +29,7 @@ export class Main1Component {
     v.object({
       support: v.pipe(
         v.optional(
-          v.picklist(['Angular', 'Vue', 'React', 'Svelte', 'Solid']),
+          v.picklist(['Angular', 'Vue','Vue2', 'React', 'Svelte', 'Solid']),
           'Angular',
         ),
         v.title($localize`当前支持`),
@@ -39,7 +39,7 @@ export class Main1Component {
         setComponent('rating'),
         v.title($localize`评价`),
       ),
-      usePiying: v.pipe(v.boolean(), v.title($localize`使用皮影`)),
+      usePiying: v.pipe(v.optional(v.boolean()), v.title($localize`使用皮影`)),
     }),
     setComponent('fieldset'),
   );
