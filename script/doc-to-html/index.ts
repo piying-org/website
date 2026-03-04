@@ -19,7 +19,13 @@ export async function main() {
     for (const item of list) {
       let fp = path.join(cwd, item);
       let content = await fs.promises.readFile(fp, { encoding: 'utf-8' });
-      let result = await mdToHtml(content, language);
+      let result = await mdToHtml(
+        content,
+        path.posix
+          .normalize(path.relative(path.dirname(cwd), fp.slice(0, -3)))
+          .replaceAll('\\', '/'),
+        language,
+      );
       let prettierResult = await prettier.format(result, { parser: 'html' });
 
       let outputPath = path

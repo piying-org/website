@@ -6,19 +6,18 @@ import {
   signal,
   viewChild,
 } from '@angular/core';
-import { MarkdownDirective } from '../../../directive/markdown.directive';
+import { DomSanitizerPipe } from './DomSanitizer.pipe';
 @Component({
   selector: 'custom-tabs',
   templateUrl: './component.html',
-  imports: [MarkdownDirective],
+  imports: [DomSanitizerPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsWC {
   container = viewChild<ElementRef<HTMLElement>>('container');
   static index = 0;
   name = `custom-tabs-${TabsWC.index++}`;
-  list$ = signal<{ label: string; content: string }[]>([]);
-
+  list$ = signal<{ label: string; content: any }[]>([]);
   constructor() {
     effect((cleanFn) => {
       const containerEl = this.container()?.nativeElement;
@@ -47,7 +46,7 @@ export class TabsWC {
     this.list$.set(
       list.map((item) => ({
         label: item.dataset['label']?.trim() ?? '',
-        content: item.textContent?.trim() ?? '',
+        content: item.innerHTML,
       })),
     );
   }

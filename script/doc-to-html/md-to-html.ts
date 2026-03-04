@@ -1,11 +1,12 @@
 import { Directive, ElementRef, inject, input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Renderer, Tokens, Marked, lexer } from 'marked';
+import { Renderer, Tokens, Marked, lexer, RendererThis } from 'marked';
 import { markedHighlight } from 'marked-highlight';
-import { encode } from 'html-entities';
+import { decode, encode } from 'html-entities';
 import { $localize } from '@cyia/localize';
 import { codeToHtml } from './code-to-html';
 import fm from 'front-matter';
+import { createDirectives, Directive as MDirective } from 'marked-directive';
 
 function _tagged_template_literal(strings: string[], raw?: any) {
   if (!raw) {
@@ -79,18 +80,18 @@ const marked = new Marked(
     async: true,
     highlight: async (code, lang, info) => {
       const codeData = await codeToHtml(code, lang);
-      const currentIndex = codeIndex++;
-      CodeMap.set(currentIndex, code);
+      let currentIndex = codeIndex++;
       const tabName = `code-tab-${currentIndex}`;
+      let encodeData = encode(code);
       if (lang === 'ts') {
         return `<div class="tabs tabs-lift">
         <input type="radio" name="${tabName}" class="tab" aria-label="${$localize`预览`}" checked="checked"/>
         <div class="tab-content bg-base-100 border-base-300 p-6 code-tab-background">
-        <app-eval-view data-code-index="${currentIndex}"></app-eval-view>
+        <app-eval-view data-code="${encodeData}"></app-eval-view>
         </div>
         <input type="radio" name="${tabName}" class="tab" aria-label="${$localize`代码`}"/>
       <pre class="tab-content bg-base-100 border-base-300 p-6"><code class="language-${lang}"><div>${codeData}</div></code></pre>  
-        <app-open-playground data-code-index="${currentIndex}"></app-open-playground>
+        <app-open-playground data-code="${encodeData}"></app-open-playground>
 
         </div>`;
       }
@@ -101,7 +102,24 @@ const marked = new Marked(
 function needAddTranslate(value: string) {
   return !!value.trim() && /\p{Script=Hani}/u.test(value);
 }
-export async function mdToHtml(text: string, language: string) {
+function DRender(this: RendererThis, a: MDirective) {
+  let tokenList = a.tokens ?? [];
+  let content = this.parser.parse(tokenList).trim();
+  let attrs = Object.entries(a.attrs ?? {})
+    .map(([key, value]) => {
+      if (!value) {
+        return `data-${key}`;
+      }
+      value = `${value}`;
+      return `data-${key}=${decode(value!)}`;
+    })
+    .join(' ');
+  if (content.length) {
+    return `<${a.meta.name!} ${attrs}>${content}</${a.meta.name!}>`;
+  }
+  return `<${a.meta.name!} ${attrs}>${decode(a.text.trim())}</${a.meta.name!}>`;
+}
+export async function mdToHtml(text: string, link: string, language: string) {
   marked.use({
     hooks: {
       processAllTokens(tokens) {
@@ -152,12 +170,26 @@ export async function mdToHtml(text: string, language: string) {
       },
     },
   });
+  marked.use(
+    createDirectives([
+      {
+        level: 'container',
+        marker: ':1:',
+        renderer: DRender,
+      },
+      {
+        level: 'container',
+        marker: ':2:',
+        renderer: DRender,
+      },
+    ]),
+  );
   let mdResult = fm<Record<string, any>>(text);
 
   let content = await marked.parse(mdResult.body, {
     gfm: true,
     async: true,
-    renderer: new Renderer2(mdResult.attributes['link'] ?? ''),
+    renderer: new Renderer2(link),
   });
   return content;
 }

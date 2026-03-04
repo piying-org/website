@@ -33,6 +33,8 @@ jobs:
           node-version: "22.15.1"
       - name: Install dependencies
         run: npm i
+      - name: Build md
+        run: npm run md-to-html
       - name: Build
         run: npm run build
       - name: Upload artifact

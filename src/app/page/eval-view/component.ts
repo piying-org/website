@@ -9,7 +9,6 @@ import { PiyingView } from '@piying/view-angular';
 
 import { codeEval } from '../../component/playground-eval-view/code-eval';
 import { FieldGlobalConfig } from '../../component/define';
-import { CodeMap } from '../../directive/markdown.directive';
 
 import { getBuilderType } from '../../component/playground-eval-view/builder-type';
 @Component({
@@ -22,8 +21,7 @@ export class EvalViewWC {
   #el = inject<ElementRef<HTMLElement>>(ElementRef);
   config2$ = resource({
     params: () => {
-      const index = +this.#el.nativeElement.dataset['codeIndex']!;
-      const str = CodeMap.get(index)!;
+      const str = this.#el.nativeElement.dataset['code']!;
       return str;
     },
     loader: ({ params }) => {

@@ -12,11 +12,7 @@
       [checked]="$first"
     />
     <div class="tab-content border-base-300 bg-base-100">
-      <div
-        [markdown]="item.content"
-        class="md-container"
-        [fragmentScroll]="false"
-      ></div>
+      <div [innerHTML]="item.content | domSanitizer" class="md-container"></div>
     </div>
   }
 </div>

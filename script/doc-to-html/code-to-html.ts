@@ -7,6 +7,7 @@ export async function codeToHtml(text: string, lang: string) {
       light: 'github-light',
       dark: 'github-dark',
     },
+    colorReplacements: { '#fff': 'transparent' },
   });
   return html;
 }

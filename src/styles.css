@@ -64,3 +64,9 @@
 .pi-untouched.pi-invalid:not(.pi-dirty) > * {
   @apply border-warning;
 }
+.mockup-code pre:before {
+  margin-right: 0;
+}
+.mockup-code>pre:before {
+  margin-right: 2ch;
+}
