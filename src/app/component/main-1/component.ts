@@ -7,7 +7,6 @@ import { setComponent } from '@piying/view-angular-core';
 import { HilightCodeDirective } from '../../directive/hilight-code.directive';
 import Define from './const.txt';
 import { RouterLink } from '@angular/router';
-import { $localize } from '@cyia/localize';
 @Component({
   selector: 'main[type=home]',
   templateUrl: './component.html',

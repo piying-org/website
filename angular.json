@@ -13,13 +13,20 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "zh-hans",
+        "locales": {
+          "en": {
+            "translation": "src/locale/messages.en.xlf"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "allowedCommonJsDependencies": [
-              "rfdc"
-            ],
+            "localize": true,
+            "allowedCommonJsDependencies": ["rfdc"],
             "browser": "src/main.ts",
             "outputPath": {
               "base": "./dist/piying-website",
@@ -47,7 +54,8 @@
             "outputMode": "static",
             "ssr": {
               "entry": "src/server.ts"
-            }
+            },
+            "polyfills": ["@angular/localize/init"]
           },
           "configurations": {
             "production": {
@@ -64,13 +72,15 @@
                 }
               ],
               "outputHashing": "all",
-              "baseHref": "/website/"
+              "baseHref": "/website/",
+              "define": { "env": "'production'" }
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
-              "baseHref": "/website/"
+              "baseHref": "/website/",
+              "define": { "env": "'development'" }
             }
           },
           "defaultConfiguration": "production"
@@ -104,9 +114,8 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"],
+            "polyfills": ["@angular/localize/init"]
           }
         }
       }

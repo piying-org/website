@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="zh-hans" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="8044044696511750096" datatype="html">
+        <source>游乐场</source>
+        <target>Playground</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.routes.ts</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">160</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8689675581665875697" datatype="html">
+        <source>前端表单解决方案</source>
+        <target>Frontend Form Solution</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main-1/component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5908126940154456003" datatype="html">
+        <source>皮影提供了可以在任意平台上使用的
+          &lt;br /&gt;
+          快速组件布局,定位,事件融合监听及
+          &lt;br /&gt;
+          表单设计,验证,分区禁用,类型安全等功能</source>
+        <target>Piying provides fast component layout, positioning, event fusion listening, form design, validation, partition disabling, type safety, and other features that can be used on any platform.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main-1/component.ts</context>
+          <context context-type="linenumber">20,24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2562848814003371959" datatype="html">
+        <source>查看用例</source>
+        <target>View Use Cases</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main-1/component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7294049377722786661" datatype="html">
+        <source>快速开始</source>
+        <target>Quick Start</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main-1/component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">147</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8834528211326730134" datatype="html">
+        <source>当前支持</source>
+        <target>Current Support</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main-1/component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6524332794911304168" datatype="html">
+        <source>评价</source>
+        <target>Evaluation</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main-1/component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6270788596078726352" datatype="html">
+        <source>使用皮影</source>
+        <target>Using Piying</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main-1/component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7304804787084703335" datatype="html">
+        <source>首页</source>
+        <target>Home</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5663341488582522474" datatype="html">
+        <source>文档</source>
+        <target>Document</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7807636449017554161" datatype="html">
+        <source>介绍</source>
+        <target>Introduction</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3713218421079785836" datatype="html">
+        <source>客户端</source>
+        <target>Client</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8522361668357636719" datatype="html">
+        <source>概念</source>
+        <target>Concept</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6713287036079310806" datatype="html">
+        <source>表单</source>
+        <target>Form</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9216117865911519658" datatype="html">
+        <source>Action</source>
+        <target>Action</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">152</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6199461778127369329" datatype="html">
+        <source>验证</source>
+        <target>Verify</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7694252381790420250" datatype="html">
+        <source>路径查询</source>
+        <target>Path Query</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6347577505140945932" datatype="html">
+        <source>组件使用(用例)</source>
+        <target>Component Usage (Use Case)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6437329570367970266" datatype="html">
+        <source>表单使用(用例)</source>
+        <target>Form Usage (Use Case)</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4750362201975308629" datatype="html">
+        <source>迁移</source>
+        <target>Migration</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3737834286630446263" datatype="html">
+        <source>ngx-formly</source>
+        <target>ngx-formly</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1519951518158213347" datatype="html">
+        <source>vee-validate</source>
+        <target>vee-validate</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4512331068570345648" datatype="html">
+        <source>formik</source>
+        <target>formik</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2417676543005498525" datatype="html">
+        <source>react-hook-form</source>
+        <target>react-hook-form</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6891198962450371917" datatype="html">
+        <source>react-tanstack</source>
+        <target>react-tanstack</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3793258136716602256" datatype="html">
+        <source>差异</source>
+        <target>Difference</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">109</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1298133550706786507" datatype="html">
+        <source>Vue</source>
+        <target>Vue</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1407426312530771175" datatype="html">
+        <source>React</source>
+        <target>React</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">118</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8898860698337248041" datatype="html">
+        <source>Svelte</source>
+        <target>Svelte</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">123</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="592980626739521579" datatype="html">
+        <source>Solid</source>
+        <target>Solid</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">128</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6012136154356762254" datatype="html">
+        <source>JsonSchema</source>
+        <target>JsonSchema</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">135</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4861050201669412280" datatype="html">
+        <source>ORM</source>
+        <target>ORM</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9040732527768649808" datatype="html">
+        <source>源码</source>
+        <target>Source code</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">158</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="10689188723136809" datatype="html">
+        <source>联系我</source>
+        <target>Contact me</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">159</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7622084939928187453" datatype="html">
+        <source>JsonSchema游乐场</source>
+        <target>JsonSchema Playground</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">162</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -5,7 +5,9 @@ import { switchMap, map, catchError, of } from 'rxjs';
 import { MarkdownWebComponentService } from './markdown-web-component.service';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
-let language = localStorage.getItem('lang') ?? 'zh-hans';
+let language =
+  env === 'development' ? `${(localStorage.getItem('lang') ?? 'zh-hans')}/` : '';
+
 @Component({
   selector: '',
   templateUrl: './component.html',
@@ -21,7 +23,7 @@ export class MarkdownPage {
   data = this.#route.params.pipe(
     map(
       (item) =>
-        `resolved/docs/${language}/${[item['l1'], item['l2']].filter(Boolean).join('/')}.html`,
+        `resolved/docs/${language}${[item['l1'], item['l2']].filter(Boolean).join('/')}.html`,
     ),
     switchMap((url) => this.#http.get(url, { responseType: 'text' })),
     map((item) => {

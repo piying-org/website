@@ -5,13 +5,11 @@ import {
   actions,
   NFCSchema,
   setComponent,
-
   valueChange,
 } from '@piying/view-angular-core';
 import { MarkdownPage } from './component/markdown/component';
 import { PlaygroundGroupRoute, PlaygroundSingleRoute } from './page/playground';
 import { skip } from 'rxjs';
-import { $localize } from '@cyia/localize';
 import { JsonPlaygroundRoute } from './page/json-playground';
 export const routes: Routes = [
   {
@@ -93,7 +91,7 @@ export const routes: Routes = [
                         const last = localStorage.getItem('lang');
                         if (last !== list[0]) {
                           localStorage.setItem('lang', list[0]);
-                          location.reload();
+                          window.location.href = `/website/${list[0]}`;
                         }
                       });
                   }),
@@ -105,7 +103,7 @@ export const routes: Routes = [
           setComponent('main'),
         ),
       model: async () => ({
-        toolbar: { language: localStorage.getItem('lang') ?? 'zh-hans' },
+        toolbar: { language: $localize.locale },
       }),
     },
     children: [

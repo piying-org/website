@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Piying - Frontend Form Solution</title>
+    <meta
+      name="description"
+      content="前端表单解决方案;框架无关;强类型化;Frontend form solution; framework-agnostic; strongly typed; valibot define to form component;Vue;Angular;React;Svelte;Solid"
+    />
+    <meta charset="UTF-8" />
+    <script>
+      const browserLanguage = navigator.language;
+      if (!localStorage.getItem("lang")) {
+        if (browserLanguage.startsWith("zh")) {
+          localStorage.setItem("lang", "zh-hans");
+        } else {
+          localStorage.setItem("lang", "en");
+        }
+        window.location.href = `/website/${localStorage.getItem("lang")}`;
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

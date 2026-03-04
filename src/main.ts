@@ -1,28 +1,16 @@
-import { loadTranslations } from '@cyia/localize';
-import '@valibot/i18n/zh-CN';
+/// <reference types="@angular/localize" />
+
 import { setGlobalConfig } from 'valibot';
 
-const browserLanguage = navigator.language;
-if (!localStorage.getItem('lang')) {
-  localStorage.setItem(
-    'lang',
-    browserLanguage.startsWith('zh') ? 'zh-hans' : 'en',
-  );
-}
-const lang = localStorage.getItem('lang')!;
-if (lang === 'zh-hans') {
-  setGlobalConfig({ lang: 'zh-CN' });
-}
-Promise.all([import('./bootstrap'), fetch(`i18n/${lang}.json`)]).then(
-  ([{ bootstrap }, data]) =>
-    data
-      .json()
-      .then((data) => {
-        loadTranslations(data);
-      })
-      .catch((rej) => {
-        console.error(rej);
-        loadTranslations({});
-      })
-      .then(() => bootstrap()),
-);
+import { bootstrap } from './bootstrap';
+Promise.resolve()
+  .then(() => {
+    let locale = $localize.locale;
+    if (locale === 'zh-hans') {
+      return import('@valibot/i18n/zh-CN').then(() => {
+        setGlobalConfig({ lang: 'zh-CN' });
+      });
+    }
+    return;
+  })
+  .then(bootstrap);

@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && cp ./dist/piying-website/website/index.html ./dist/piying-website/website/404.html",
+    "build": "ng build --configuration development && cp ./dist/piying-website/website/en/index.html ./dist/piying-website/website/en/404.html&& cp ./dist/piying-website/website/zh-hans/index.html ./dist/piying-website/website/zh-hans/404.html && npm run md-to-html -- --prod && cp ./assets/* ./dist/piying-website/website",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:piying-website": "node dist/piying-website/server/server.mjs",
@@ -13,7 +13,8 @@
     "lint": "eslint --fix ./src && prettier ./src --write",
     "i18n:g": "tsx ./script/doc-extra.ts && i18n pl ./i18n/input/doc.json ./i18n/output/doc -n zh-hans --update && i18n ./src/app ./i18n/output/web -n zh-hans --update",
     "i18n:c": "i18n merge ./i18n/merge ./i18n/output/web ./i18n/output/doc && i18n convert ./i18n/merge ./public/i18n",
-    "md-to-html": "tsx ./script/doc-to-html/index.ts"
+    "md-to-html": "tsx ./script/doc-to-html/index.ts",
+    "i18n:1": "ng extract-i18n --output-path src/locale"
   },
   "prettier": {
     "overrides": [
@@ -60,6 +61,7 @@
     "@angular/build": "^20.1.0",
     "@angular/cli": "^20.1.0",
     "@angular/compiler-cli": "^20.1.0",
+    "@angular/localize": "^20.1.0",
     "@eslint/js": "^9.31.0",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/express": "^5.0.1",

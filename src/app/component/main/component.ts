@@ -17,7 +17,6 @@ import { PI_VIEW_FIELD_TOKEN, PiyingViewGroupBase } from '@piying/view-angular';
 import { NavigationComponent, NavigationItem } from '../navigation';
 import { filter, merge, of, map } from 'rxjs';
 import { MatIcon } from '@angular/material/icon';
-import { $localize } from '@cyia/localize';
 const Menu: NavigationItem[] = [
   {
     title: $localize`首页`,

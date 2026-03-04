@@ -4,8 +4,16 @@ import fs from 'fs';
 import { mdToHtml } from './md-to-html';
 import * as prettier from 'prettier';
 import { loadTranslations } from '@cyia/localize';
+let outputDir = process.argv.includes('--prod')
+  ? (language: string) => {
+      let prefix = path.join(process.cwd(), './dist/piying-website/website');
+      return `${prefix}/${language}/resolved/docs`;
+    }
+  : (language: string) => {
+      let prefix = path.join(process.cwd(), './public/resolved/docs');
+      return `${prefix}/${language}`;
+    };
 
-let outputDir = path.join(process.cwd(), './public/resolved/docs');
 export async function main() {
   let cwd = path.join(process.cwd(), './public/docs');
   let list = sync('./**/*.md', {
@@ -29,7 +37,7 @@ export async function main() {
       let prettierResult = await prettier.format(result, { parser: 'html' });
 
       let outputPath = path
-        .join(outputDir, language, item)
+        .join(outputDir(language), item)
         .replace(/\.md$/, '.html');
 
       await fs.promises.mkdir(path.dirname(outputPath), { recursive: true });
