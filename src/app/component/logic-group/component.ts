@@ -23,10 +23,10 @@ export default class LogicFGC extends PiyingViewGroupBase {
 
   anyOfChange() {
     const flg = this.field$$().form.control as FieldLogicGroup;
-    const list = flg.controls.filter((item, i) =>
-      this.selectAny$().includes(i),
+
+    flg.filterActivateControl$.set((item, index) =>
+      this.selectAny$().includes(index),
     );
-    flg.activateControls$.set(list);
   }
   oneOfChange() {
     if (typeof this.selectOr$() !== 'number') {

@@ -17,28 +17,19 @@ export class JsonSchemaHandle extends NgSchemaHandle {
       this.type = 'strict_object';
     }
     if (this.type === 'multiselect') {
-      this.attributes.update((data) => {
-        return {
-          ...data,
-          ['class']: 'h-[200px]',
-        };
-      });
+      this.attributes = {
+        ...this.attributes,
+        ['class']: 'h-[200px]',
+      };
     }
     if (this.type === 'oneOf-select') {
-      this.props.update((data) => {
-        return {
-          ...data,
-          ['type']: 'oneOf',
-        };
-      });
+      this.props = { ...this.props, ['type']: 'oneOf' };
     }
     if (this.type === 'anyOf-select') {
-      this.props.update((data) => {
-        return {
-          ...data,
-          ['type']: 'anyOf',
-        };
-      });
+      this.props = {
+        ...this.props,
+        ['type']: 'anyOf',
+      };
     }
   }
 

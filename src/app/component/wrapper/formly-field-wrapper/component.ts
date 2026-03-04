@@ -1,7 +1,10 @@
 import { Component, computed, inject } from '@angular/core';
-import { InsertFieldDirective, PI_VIEW_FIELD_TOKEN } from '@piying/view-angular';
+import {
+  InsertFieldDirective,
+  PI_VIEW_FIELD_TOKEN,
+} from '@piying/view-angular';
 import { summarize } from 'valibot';
-
+import { getDeepError } from '@piying/view-angular-core';
 @Component({
   selector: 'app-formly-field-wrapper',
   templateUrl: './component.html',
@@ -12,7 +15,7 @@ export class FormlyFieldWC {
   props$$ = computed(() => this.field$$().props());
   errorStr$$ = computed(() => {
     const field = this.field$$();
-    const valibot = field.form.control!.errors!['valibot'];
-    return summarize(valibot);
+    const valibot = getDeepError(field.form.control);
+    return valibot.map((item) => item.valibotIssueSummary).join('\n');
   });
 }

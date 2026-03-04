@@ -8,6 +8,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { PI_VIEW_FIELD_TOKEN } from '@piying/view-angular';
+import { getDeepError } from '@piying/view-angular-core';
 import JSONFormatter from 'json-formatter-js';
 import { summarize } from 'valibot';
 
@@ -53,13 +54,7 @@ export default class FormHelperComponent {
   }
   errorStr$$ = computed(() => {
     const field = this.field();
-    const valibot = field.form.root!.errors!['valibot'];
-    if (valibot) {
-      return summarize(valibot);
-    } else {
-      return Object.values(field.form.root!.errors!)
-        .map((item) => (typeof item === 'string' ? item : JSON.stringify(item)))
-        .join('\n');
-    }
+    const valibot = getDeepError(field.form.control);
+    return valibot.map((item) => item.valibotIssueSummary).join('\n');
   });
 }
