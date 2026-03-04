@@ -12,7 +12,8 @@
     "build:examples": "tsx ./script/demo-to-json.ts",
     "lint": "eslint --fix ./src && prettier ./src --write",
     "i18n:g": "tsx ./script/doc-extra.ts && i18n pl ./i18n/input/doc.json ./i18n/output/doc -n zh-hans --update && i18n ./src/app ./i18n/output/web -n zh-hans --update",
-    "i18n:c": "i18n merge ./i18n/merge ./i18n/output/web ./i18n/output/doc && i18n convert ./i18n/merge ./public/i18n"
+    "i18n:c": "i18n merge ./i18n/merge ./i18n/output/web ./i18n/output/doc && i18n convert ./i18n/merge ./public/i18n",
+    "md-to-html": "tsx ./script/doc-to-html/index.ts"
   },
   "prettier": {
     "overrides": [
@@ -41,6 +42,7 @@
     "@piying/view-angular": "2.6.2",
     "@valibot/i18n": "^1.0.0",
     "express": "^5.1.0",
+    "front-matter": "^4.0.2",
     "highlight.js": "^11.11.1",
     "html-entities": "^2.6.0",
     "json-formatter-js": "^2.5.23",
@@ -74,7 +76,8 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "postcss": "^8.5.6",
-    "prettier": "^3.6.2",
+    "prettier": "^3.8.1",
+    "shiki": "^4.0.1",
     "tsx": "^4.20.3",
     "typescript": "~5.8.2",
     "typescript-eslint": "^8.37.0"
