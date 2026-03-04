@@ -8,6 +8,7 @@ import { createCustomElement } from '@angular/elements';
 import { EvalViewWC } from '../../page/eval-view/component';
 import { OpenPlayGroundWC } from '../../page/open-playground/component';
 import { TabsWC } from './tabs/component';
+import { OpenCopyWC } from '../../page/copy-code/component';
 @Injectable({ providedIn: 'root' })
 export class MarkdownWebComponentService {
   #injector = inject(Injector);
@@ -17,7 +18,7 @@ export class MarkdownWebComponentService {
       return;
     }
 
-    for (const Item of [EvalViewWC, OpenPlayGroundWC, TabsWC]) {
+    for (const Item of [EvalViewWC, OpenPlayGroundWC, TabsWC, OpenCopyWC]) {
       const element = createCustomElement(Item, {
         injector: this.#injector,
       });

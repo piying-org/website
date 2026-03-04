@@ -92,7 +92,7 @@ const marked = new Marked(
         <input type="radio" name="${tabName}" class="tab" aria-label="${$localize`代码`}"/>
       <pre class="tab-content bg-base-100 border-base-300 p-6"><code class="language-${lang}"><div>${codeData}</div></code></pre>  
         <app-open-playground data-code="${encodeData}"></app-open-playground>
-
+        <app-copy data-value="${encodeData}"></app-copy>
         </div>`;
       }
       return codeData;
