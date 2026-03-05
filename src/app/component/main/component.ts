@@ -40,8 +40,24 @@ const Menu: NavigationItem[] = [
       },
       {
         title: $localize`概念`,
-        link: '/docs/client/concept',
-        type: 'basic',
+        type: 'group',
+        children: [
+          {
+            title: $localize`组件`,
+            link: '/docs/client/concept/component',
+            type: 'basic',
+          },
+          {
+            title: $localize`Action`,
+            link: '/docs/client/concept/action',
+            type: 'basic',
+          },
+          {
+            title: $localize`属性配置`,
+            link: '/docs/client/concept/field',
+            type: 'basic',
+          },
+        ],
       },
       {
         title: $localize`表单`,

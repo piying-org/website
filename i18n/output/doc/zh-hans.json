@@ -143,6 +143,90 @@
     "associatedMessageIds": {},
     "target": "`@xx` 查询别名为`xx`的控件\n> 当创建了一个数组项时,别名会创建一个单独的Map保存,如果查询不到的情况下,才会查询父级"
   },
+  "3169113022069916125": {
+    "id": "3169113022069916125",
+    "text": "`actions.attributes.mapAsync` 映射,可以读取field实例,类似Array.map",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`actions.attributes.mapAsync` 映射,可以读取field实例,类似Array.map"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`actions.attributes.mapAsync` 映射,可以读取field实例,类似Array.map"
+  },
+  "8573399497505334029": {
+    "id": "8573399497505334029",
+    "text": "`actions.attributes.patchAsync` 设置,可以读取field实例,返回支持的异步属性",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`actions.attributes.patchAsync` 设置,可以读取field实例,返回支持的异步属性"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`actions.attributes.patchAsync` 设置,可以读取field实例,返回支持的异步属性"
+  },
+  "5707047876316470200": {
+    "id": "5707047876316470200",
+    "text": "`actions.attributes.patch` 设置,增加",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`actions.attributes.patch` 设置,增加"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`actions.attributes.patch` 设置,增加"
+  },
+  "985718937200575067": {
+    "id": "985718937200575067",
+    "text": "`actions.attributes.remove` 删除",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`actions.attributes.remove` 删除"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`actions.attributes.remove` 删除"
+  },
+  "6232196164758298526": {
+    "id": "6232196164758298526",
+    "text": "`actions.attributes.set` 设置,会清空已有",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`actions.attributes.set` 设置,会清空已有"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`actions.attributes.set` 设置,会清空已有"
+  },
+  "7283249233356340343": {
+    "id": "7283249233356340343",
+    "text": "`actions.outputs.merge` 合并监听,允许某个事件被监听多次",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`actions.outputs.merge` 合并监听,允许某个事件被监听多次"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`actions.outputs.merge` 合并监听,允许某个事件被监听多次"
+  },
+  "3844858265876602406": {
+    "id": "3844858265876602406",
+    "text": "`actions.outputs.path` 监听事件,设置监听,重复设置会覆盖",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`actions.outputs.path` 监听事件,设置监听,重复设置会覆盖"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`actions.outputs.path` 监听事件,设置监听,重复设置会覆盖"
+  },
   "6767744056938281413": {
     "id": "6767744056938281413",
     "text": "`allOf`/`oneOf`/`anyOf`/`if/then/else`子模式内不支持子模式",
@@ -214,6 +298,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`change`控件值变更发射时更新"
+  },
+  "130820785883785666": {
+    "id": "130820785883785666",
+    "text": "`children`所有子项",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`children`所有子项"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`children`所有子项"
   },
   "5244256398521240053": {
     "id": "5244256398521240053",
@@ -358,6 +454,30 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`field.valueChanges`可以监听模型值变更"
+  },
+  "6555803015138505042": {
+    "id": "6555803015138505042",
+    "text": "`fieldResolved`仅当前配置已经解析",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`fieldResolved`仅当前配置已经解析"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`fieldResolved`仅当前配置已经解析"
+  },
+  "2932617297023838326": {
+    "id": "2932617297023838326",
+    "text": "`fixedChildren` 固定子项,比如`v.object({})`,`v.tuple([])`中的子级",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`fixedChildren` 固定子项,比如`v.object({})`,`v.tuple([])`中的子级"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`fixedChildren` 固定子项,比如`v.object({})`,`v.tuple([])`中的子级"
   },
   "3919685533196953785": {
     "id": "3919685533196953785",
@@ -539,6 +659,18 @@
     "associatedMessageIds": {},
     "target": "`pipe`输出值时可以进行防抖处理(rxjs pipe)"
   },
+  "6242894012574987174": {
+    "id": "6242894012574987174",
+    "text": "`piying`可以直接调用已经支持的前端框架大部分组件",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`piying`可以直接调用已经支持的前端框架大部分组件"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`piying`可以直接调用已经支持的前端框架大部分组件"
+  },
   "7157616577299485084": {
     "id": "7157616577299485084",
     "text": "`priority`表示优先级,数字越小,位置越靠前",
@@ -574,6 +706,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`remove`删除某一项"
+  },
+  "1799804426506301951": {
+    "id": "1799804426506301951",
+    "text": "`restChildren` 动态子项,比如`v.array(v.any())`,`v.record(v.any(),v.any())`",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`restChildren` 动态子项,比如`v.array(v.any())`,`v.record(v.any(),v.any())`"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`restChildren` 动态子项,比如`v.array(v.any())`,`v.record(v.any(),v.any())`"
   },
   "8765893958173617642": {
     "id": "8765893958173617642",
@@ -935,6 +1079,18 @@
     "associatedMessageIds": {},
     "target": "与大家理解的组件一致"
   },
+  "4258400301672206208": {
+    "id": "4258400301672206208",
+    "text": "与大家理解的组件一致;不同前端框架有不同的组件定义方式",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "与大家理解的组件一致;不同前端框架有不同的组件定义方式"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "与大家理解的组件一致;不同前端框架有不同的组件定义方式"
+  },
   "3038796434602271152": {
     "id": "3038796434602271152",
     "text": "为不同框架提供统一的表单开发体验",
@@ -1211,6 +1367,18 @@
     "associatedMessageIds": {},
     "target": "使用过不代表发射过值,可能是点击过一次,一般为触发`blur`后变成`touched`"
   },
+  "6795062932524592118": {
+    "id": "6795062932524592118",
+    "text": "依赖注入的注入器实例,通过它获得相关token及服务实例",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "依赖注入的注入器实例,通过它获得相关token及服务实例"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "依赖注入的注入器实例,通过它获得相关token及服务实例"
+  },
   "1385309905832843089": {
     "id": "1385309905832843089",
     "text": "值变化",
@@ -1427,6 +1595,18 @@
     "associatedMessageIds": {},
     "target": "分组"
   },
+  "8330240739818021215": {
+    "id": "8330240739818021215",
+    "text": "分组使用的字段,一般用来控制子级的显示",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "分组使用的字段,一般用来控制子级的显示"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "分组使用的字段,一般用来控制子级的显示"
+  },
   "6503772594833286737": {
     "id": "6503772594833286737",
     "text": "创建多个组件",
@@ -1486,6 +1666,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "包装器"
+  },
+  "879025844083639035": {
+    "id": "879025844083639035",
+    "text": "包装器可以在所有(非包装器)组件中使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "包装器可以在所有(非包装器)组件中使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "包装器可以在所有(非包装器)组件中使用"
   },
   "4760210203036118453": {
     "id": "4760210203036118453",
@@ -1583,6 +1775,42 @@
     "associatedMessageIds": {},
     "target": "可以使用`wrapper`套一层实现"
   },
+  "5874819782535843592": {
+    "id": "5874819782535843592",
+    "text": "可以使用valibot中内置的`Validation`作为表单验证器",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "可以使用valibot中内置的`Validation`作为表单验证器"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "可以使用valibot中内置的`Validation`作为表单验证器"
+  },
+  "7255915236269551060": {
+    "id": "7255915236269551060",
+    "text": "可以使用服务来获得外部数据",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "可以使用服务来获得外部数据"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "可以使用服务来获得外部数据"
+  },
+  "7222723822876440358": {
+    "id": "7222723822876440358",
+    "text": "可以包含其他组件",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "可以包含其他组件"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "可以包含其他组件"
+  },
   "4532287389479432541": {
     "id": "4532287389479432541",
     "text": "可以参考`formConfig`Action中的`validators`,`asyncValidators`",
@@ -1606,6 +1834,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "可以控制组件隐藏时,是否禁用控件"
+  },
+  "7343924493117712423": {
+    "id": "7343924493117712423",
+    "text": "可以视为属性配置;解析valibot定义后出现,保存组件的一些配置及控件的一些状态\n",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "可以视为属性配置;解析valibot定义后出现,保存组件的一些配置及控件的一些状态\n"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "可以视为属性配置;解析valibot定义后出现,保存组件的一些配置及控件的一些状态\n"
   },
   "2581458878695511711": {
     "id": "2581458878695511711",
@@ -1691,6 +1931,18 @@
     "associatedMessageIds": {},
     "target": "在使用`v.object({})`时,现代浏览器(除了IE11)的字段顺序都是可预测的;即优先非负整数升序键,然后是按照定义顺序来\n> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in"
   },
+  "1317684094328392800": {
+    "id": "1317684094328392800",
+    "text": "在普通组件的基础上,适配`ControlValueAccessor`",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "在普通组件的基础上,适配`ControlValueAccessor`"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "在普通组件的基础上,适配`ControlValueAccessor`"
+  },
   "8363092649005071624": {
     "id": "8363092649005071624",
     "text": "基于typeorm的[EntitySchema](https://typeorm.io/docs/entity/separating-entity-definition/#extending-schemas)封装,与装饰器基本相同,但是会有一些差别",
@@ -1738,6 +1990,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "增加包装器"
+  },
+  "330750448165117066": {
+    "id": "330750448165117066",
+    "text": "声明依赖注入中在该组件上实例化的服务",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "声明依赖注入中在该组件上实例化的服务"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "声明依赖注入中在该组件上实例化的服务"
   },
   "5100525730061425158": {
     "id": "5100525730061425158",
@@ -1822,6 +2086,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "大部分`Valibot`类型会被解析为`表单控件`类型"
+  },
+  "2296369096151930966": {
+    "id": "2296369096151930966",
+    "text": "大部分属性,可以使用actions预设工具设置:",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "大部分属性,可以使用actions预设工具设置:"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "大部分属性,可以使用actions预设工具设置:"
   },
   "1390322479774070306": {
     "id": "1390322479774070306",
@@ -1943,6 +2219,18 @@
     "associatedMessageIds": {},
     "target": "如果提供的Action不满足您的开发需要,可以自行封装"
   },
+  "3129736065543965056": {
+    "id": "3129736065543965056",
+    "text": "如果该组建没有适配`ControlValueAccessor`,那么`control`不存在",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "如果该组建没有适配`ControlValueAccessor`,那么`control`不存在"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "如果该组建没有适配`ControlValueAccessor`,那么`control`不存在"
+  },
   "8910414785452785786": {
     "id": "8910414785452785786",
     "text": "如果遇到问题欢迎[反馈](https://github.com/piying-org/website/issues)",
@@ -2063,6 +2351,18 @@
     "associatedMessageIds": {},
     "target": "完全兼容`valibot`的所有Action,可以完美的利用其验证及转换机制"
   },
+  "4862221497095553479": {
+    "id": "4862221497095553479",
+    "text": "定义中注册后可以直接使用;也可以手动指定",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "定义中注册后可以直接使用;也可以手动指定"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "定义中注册后可以直接使用;也可以手动指定"
+  },
   "582811462610856728": {
     "id": "582811462610856728",
     "text": "定义唯一",
@@ -2074,6 +2374,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "定义唯一"
+  },
+  "715588538805522954": {
+    "id": "715588538805522954",
+    "text": "定义时存在",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "定义时存在"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "定义时存在"
   },
   "9047555801294312731": {
     "id": "9047555801294312731",
@@ -2183,6 +2495,18 @@
     "associatedMessageIds": {},
     "target": "对`JsonSchema`的支持本质上是将其转换为`Valibot`定义,然后进行解析"
   },
+  "8698492505484532220": {
+    "id": "8698492505484532220",
+    "text": "对于存在`ng-content`/`slot`等投影/插槽类传参,则需要重新设计代码使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "对于存在`ng-content`/`slot`等投影/插槽类传参,则需要重新设计代码使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "对于存在`ng-content`/`slot`等投影/插槽类传参,则需要重新设计代码使用"
+  },
   "708296186019299339": {
     "id": "708296186019299339",
     "text": "将`jsonschema`转换为`valibot`定义后,即可与传统的`piying`使用一致",
@@ -2206,6 +2530,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "小部分场景因为视图和逻辑分离,所以需要使用静态解析,将定义先解析为对应模板并写入文件,再配合动态解析赋值"
+  },
+  "823887513999582671": {
+    "id": "823887513999582671",
+    "text": "属性设置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "属性设置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "属性设置"
   },
   "5132124811836452766": {
     "id": "5132124811836452766",
@@ -2267,6 +2603,30 @@
     "associatedMessageIds": {},
     "target": "并且可以完全不依赖视图中的任何内容,方便未来的不同库/框架的迁移与维护"
   },
+  "6626935110464514942": {
+    "id": "6626935110464514942",
+    "text": "应该设计为一个原子化组件,减少外部依赖",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "应该设计为一个原子化组件,减少外部依赖"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "应该设计为一个原子化组件,减少外部依赖"
+  },
+  "2073562449329473347": {
+    "id": "2073562449329473347",
+    "text": "当前只能通过解析valibot定义获得,不过可以通过不同的actions来修改相关配置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "当前只能通过解析valibot定义获得,不过可以通过不同的actions来修改相关配置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "当前只能通过解析valibot定义获得,不过可以通过不同的actions来修改相关配置"
+  },
   "3382540454341591138": {
     "id": "3382540454341591138",
     "text": "当前后端或者其他输入解析也需要此验证时,建议使用",
@@ -2290,6 +2650,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "当前支持"
+  },
+  "9148597695556634326": {
+    "id": "9148597695556634326",
+    "text": "当前配置上的form状态",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "当前配置上的form状态"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "当前配置上的form状态"
   },
   "7364950739177326435": {
     "id": "7364950739177326435",
@@ -2591,6 +2963,18 @@
     "associatedMessageIds": {},
     "target": "支持程度"
   },
+  "1098006338928199480": {
+    "id": "1098006338928199480",
+    "text": "支持组件的各种设置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "支持组件的各种设置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "支持组件的各种设置"
+  },
   "7753728397451924514": {
     "id": "7753728397451924514",
     "text": "支持自动解析嵌套定义,转换为表定义",
@@ -2602,6 +2986,30 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "支持自动解析嵌套定义,转换为表定义"
+  },
+  "1823888539139910255": {
+    "id": "1823888539139910255",
+    "text": "支持表单多级输出转换,",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "支持表单多级输出转换,"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "支持表单多级输出转换,"
+  },
+  "2896847924846822801": {
+    "id": "2896847924846822801",
+    "text": "支持表单控件的输入/输出,验证,数据转换等相关逻辑",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "支持表单控件的输入/输出,验证,数据转换等相关逻辑"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "支持表单控件的输入/输出,验证,数据转换等相关逻辑"
   },
   "4168624687289523901": {
     "id": "4168624687289523901",
@@ -2663,6 +3071,18 @@
     "associatedMessageIds": {},
     "target": "普通组件"
   },
+  "7540623359440042576": {
+    "id": "7540623359440042576",
+    "text": "普通组件没有类型,因此也没有自动映射,需要指定组件映射名或者直接将组件定义传入",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "普通组件没有类型,因此也没有自动映射,需要指定组件映射名或者直接将组件定义传入"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "普通组件没有类型,因此也没有自动映射,需要指定组件映射名或者直接将组件定义传入"
+  },
   "4784491009468222538": {
     "id": "4784491009468222538",
     "text": "更多支持待实现",
@@ -2710,6 +3130,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "查看"
+  },
+  "5952822374683018399": {
+    "id": "5952822374683018399",
+    "text": "查询其他的属性配置;通过[路径查询](docs/client/path-query)获得当前定义上的其他属性配置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "查询其他的属性配置;通过[路径查询](docs/client/path-query)获得当前定义上的其他属性配置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "查询其他的属性配置;通过[路径查询](docs/client/path-query)获得当前定义上的其他属性配置"
   },
   "4360347568520305234": {
     "id": "4360347568520305234",
@@ -3107,6 +3539,18 @@
     "associatedMessageIds": {},
     "target": "监听控件的值变更"
   },
+  "3341405220717360588": {
+    "id": "3341405220717360588",
+    "text": "目前大多数时候使用`allFieldsResolved`,也就是所有field解析完毕,但是还没有初始化组件",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "目前大多数时候使用`allFieldsResolved`,也就是所有field解析完毕,但是还没有初始化组件"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "目前大多数时候使用`allFieldsResolved`,也就是所有field解析完毕,但是还没有初始化组件"
+  },
   "2315738666343864903": {
     "id": "2315738666343864903",
     "text": "目前的封装中,分为`cva`(ControlValueAccessor缩写),用于导出自动注册,开发者只需要按照固定代码导出即可;`cvaa`(ControlValueAccessorAdapter缩写),用于注册组件,不同库/框架中有不同实现,但是原理相同,需要将对应的值,事件绑定到对应的组件上即可",
@@ -3118,6 +3562,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "目前的封装中,分为`cva`(ControlValueAccessor缩写),用于导出自动注册,开发者只需要按照固定代码导出即可;`cvaa`(ControlValueAccessorAdapter缩写),用于注册组件,不同库/框架中有不同实现,但是原理相同,需要将对应的值,事件绑定到对应的组件上即可"
+  },
+  "4365090971529177212": {
+    "id": "4365090971529177212",
+    "text": "目前的设计中,分为`cva`(ControlValueAccessor缩写),用于导出自动注册,开发者只需要按照固定代码导出即可;`cvaa`(ControlValueAccessorAdapter缩写),用于注册组件,不同库/框架中有不同实现,但是原理相同,需要将对应的值,事件绑定到对应的组件上即可",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "目前的设计中,分为`cva`(ControlValueAccessor缩写),用于导出自动注册,开发者只需要按照固定代码导出即可;`cvaa`(ControlValueAccessorAdapter缩写),用于注册组件,不同库/框架中有不同实现,但是原理相同,需要将对应的值,事件绑定到对应的组件上即可"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "目前的设计中,分为`cva`(ControlValueAccessor缩写),用于导出自动注册,开发者只需要按照固定代码导出即可;`cvaa`(ControlValueAccessorAdapter缩写),用于注册组件,不同库/框架中有不同实现,但是原理相同,需要将对应的值,事件绑定到对应的组件上即可"
   },
   "5348514885094917792": {
     "id": "5348514885094917792",
@@ -3323,6 +3779,18 @@
     "associatedMessageIds": {},
     "target": "组件实现"
   },
+  "8855311767663785460": {
+    "id": "8855311767663785460",
+    "text": "组件属性",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "组件属性"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "组件属性"
+  },
   "3586633598391480504": {
     "id": "3586633598391480504",
     "text": "组件注册支持懒加载",
@@ -3334,6 +3802,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "组件注册支持懒加载"
+  },
+  "85716235412489092": {
+    "id": "85716235412489092",
+    "text": "组件的实例可以参考[快速开始](docs/client/quick-start)中的例子和demo",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "组件的实例可以参考[快速开始](docs/client/quick-start)中的例子和demo"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "组件的实例可以参考[快速开始](docs/client/quick-start)中的例子和demo"
   },
   "2160878348380850726": {
     "id": "2160878348380850726",
@@ -3539,6 +4019,18 @@
     "associatedMessageIds": {},
     "target": "视图变更过?强制更新:仅与上次不同才更新,同时设置表单值"
   },
+  "2730850528719278383": {
+    "id": "2730850528719278383",
+    "text": "解析时传入的上下文",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "解析时传入的上下文"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "解析时传入的上下文"
+  },
   "8468751852537010668": {
     "id": "8468751852537010668",
     "text": "触发值变更,开启异步获取值",
@@ -3623,6 +4115,18 @@
     "associatedMessageIds": {},
     "target": "设计上来讲`Props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现"
   },
+  "791421212478389271": {
+    "id": "791421212478389271",
+    "text": "设计上来讲`props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设计上来讲`props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设计上来讲`props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现"
+  },
   "9099612979882518592": {
     "id": "9099612979882518592",
     "text": "该函数输入为一个函数,其输入变量为当前的`SchemaHandle`,可以处理所有暴露的变量",
@@ -3634,6 +4138,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "该函数输入为一个函数,其输入变量为当前的`SchemaHandle`,可以处理所有暴露的变量"
+  },
+  "8652580632179148785": {
+    "id": "8652580632179148785",
+    "text": "该服务的作用域为在当前组件及其子级,也就是可以通过它来进行组件间的数据通讯",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "该服务的作用域为在当前组件及其子级,也就是可以通过它来进行组件间的数据通讯"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "该服务的作用域为在当前组件及其子级,也就是可以通过它来进行组件间的数据通讯"
   },
   "1231540176232516907": {
     "id": "1231540176232516907",
@@ -3682,6 +4198,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "路径查询在`outputChange`,`valueChange`,`hideWhen`,`disableWhen`等Action中被使用"
+  },
+  "2863249439826723137": {
+    "id": "2863249439826723137",
+    "text": "转换",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "转换"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "转换"
   },
   "8296903281769967667": {
     "id": "8296903281769967667",
@@ -3947,6 +4475,18 @@
     "associatedMessageIds": {},
     "target": "配置中的属性输入虽然分为四种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件"
   },
+  "4289398073232534927": {
+    "id": "4289398073232534927",
+    "text": "配置中的属性输入虽然分为多种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "配置中的属性输入虽然分为多种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "配置中的属性输入虽然分为多种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件"
+  },
   "367359449842309647": {
     "id": "367359449842309647",
     "text": "配置的通用属性,可以在当前组件/包装器中使用",
@@ -3958,6 +4498,30 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "配置的通用属性,可以在当前组件/包装器中使用"
+  },
+  "8341680220354987742": {
+    "id": "8341680220354987742",
+    "text": "配置的通用属性,设置可以在当前组件/包装器中使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "配置的通用属性,设置可以在当前组件/包装器中使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "配置的通用属性,设置可以在当前组件/包装器中使用"
+  },
+  "52740241527664589": {
+    "id": "52740241527664589",
+    "text": "限制",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "限制"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "限制"
   },
   "6933856329582536302": {
     "id": "6933856329582536302",
@@ -4210,5 +4774,17 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "默认提供了一个基础的object组件,用来展示内部子组件"
+  },
+  "4049547774694746509": {
+    "id": "4049547774694746509",
+    "text": "默认的valibot`transform`仅支持视图到模型转换,如果需要回显,则需要配置`formConfig({ transfomer: { toView(value, control) {} } })`",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "默认的valibot`transform`仅支持视图到模型转换,如果需要回显,则需要配置`formConfig({ transfomer: { toView(value, control) {} } })`"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "默认的valibot`transform`仅支持视图到模型转换,如果需要回显,则需要配置`formConfig({ transfomer: { toView(value, control) {} } })`"
   }
 }

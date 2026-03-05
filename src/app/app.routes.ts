@@ -115,6 +115,10 @@ export const routes: Routes = [
         path: 'docs/:l1/:l2',
         component: MarkdownPage,
       },
+      {
+        path: 'docs/:l1/:l2/:l3',
+        component: MarkdownPage,
+      },
       PlaygroundGroupRoute,
       PlaygroundSingleRoute,
       JsonPlaygroundRoute,

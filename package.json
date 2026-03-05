@@ -4,17 +4,16 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && cp ./dist/piying-website/website/en/index.html ./dist/piying-website/website/en/404.html&& cp ./dist/piying-website/website/zh-hans/index.html ./dist/piying-website/website/zh-hans/404.html && npm run md-to-html && cp ./assets/* ./dist/piying-website/website",
+    "build": "npm run md-to-html && ng build && cp ./dist/piying-website/website/en/index.html ./dist/piying-website/website/en/404.html&& cp ./dist/piying-website/website/zh-hans/index.html ./dist/piying-website/website/zh-hans/404.html && cp ./assets/* ./dist/piying-website/website",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:piying-website": "node dist/piying-website/server/server.mjs",
     "build:online-type": "dts-bundle-generator ./src/declaration/online-type.ts --project ./tsconfig.online-type.json -o public/declaration/online-type.d.ts --external-inlines valibot --external-inlines @piying/view-angular --external-inlines @piying/view-angular-core --no-check --no-banner --inline-declare-global --inline-declare-externals --export-referenced-types",
     "build:examples": "tsx ./script/demo-to-json.ts",
     "lint": "eslint --fix ./src && prettier ./src --write",
-    "i18n:g": "tsx ./script/doc-extra.ts && i18n pl ./i18n/input/doc.json ./i18n/output/doc -n zh-hans --update && i18n ./src/app ./i18n/output/web -n zh-hans --update",
+    "i18n:g": "tsx ./script/doc-extra.ts && i18n pl ./i18n/input/doc.json ./i18n/output/doc -n zh-hans --update && ng extract-i18n --output-path src/locale",
     "i18n:c": "i18n merge ./i18n/merge ./i18n/output/web ./i18n/output/doc && i18n convert ./i18n/merge ./public/i18n",
-    "md-to-html": "tsx ./script/doc-to-html/index.ts",
-    "i18n:1": "ng extract-i18n --output-path src/locale"
+    "md-to-html": "tsx ./script/doc-to-html/index.ts"
   },
   "prettier": {
     "overrides": [

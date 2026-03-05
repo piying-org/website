@@ -22,7 +22,7 @@ export class MarkdownPage {
   data = this.#route.params.pipe(
     map(
       (item) =>
-        `resolved/docs/${locale}/${[item['l1'], item['l2']].filter(Boolean).join('/')}.html`,
+        `resolved/docs/${locale}/${[item['l1'], item['l2'], item['l3']].filter(Boolean).join('/')}.html`,
     ),
     switchMap((url) => this.#http.get(url, { responseType: 'text' })),
     map((item) => {
