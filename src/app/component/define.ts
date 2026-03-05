@@ -7,12 +7,11 @@ import { FormlyFieldWC } from './wrapper/formly-field-wrapper/component';
 import { JoinItemWC } from './wrapper/join-wrapper/component';
 import { PanelWC } from './wrapper/panel-wrapper/component';
 import { TooltipWC } from './wrapper/tooltip/component';
-import { JsonSchemaLabelWC } from './wrapper/json-schema-label/component';
-import { DivNFCC } from './block';
 import { DemoNFCC } from './demo';
 import { SelectorlessNFCC } from './selector-less';
-import { BlockWC } from './wrapper/block/component';
 import * as FCCGroup from '@piying-lib/angular-daisyui/field-control';
+import { LabelWC } from '@piying-lib/angular-daisyui/wrapper';
+import { DivNFCC, DivWC } from '@piying-lib/angular-core';
 import { setComponent } from '@piying/view-angular-core';
 const LazyRestGroup = () =>
   import('./group/rest-group/component').then((item) => item.default);
@@ -189,7 +188,7 @@ export const FieldGlobalConfig = {
         ),
     },
     button: {
-      type: () => import('./button/component').then((a) => a.default),
+      type: () => import('@piying-lib/angular-daisyui/non-field-control').then((a) => a.ButtonNFCC),
     },
     'button-link': {
       type: ButtonLinkComponent,
@@ -250,7 +249,15 @@ export const FieldGlobalConfig = {
     },
 
     date: {
-      type: () => import('./date/component').then((a) => a.default),
+      type: () =>
+        import('@piying-lib/angular-daisyui/field-control').then(
+          (a) => a.InputFCC,
+        ),
+      actions: [
+        actions.inputs.patch({
+          type: 'date',
+        }),
+      ],
     },
     salutation: {
       actions: [
@@ -287,6 +294,11 @@ export const FieldGlobalConfig = {
     },
     'selectorless-demo': {
       type: SelectorlessNFCC,
+      actions: [
+        actions.props.patch({
+          labelPosition: 'left',
+        }),
+      ],
     },
   },
   wrappers: {
@@ -303,16 +315,16 @@ export const FieldGlobalConfig = {
       type: PanelWC,
     },
     label: {
-      type: JsonSchemaLabelWC,
+      type: LabelWC,
     },
     'jsonschema-label': {
-      type: JsonSchemaLabelWC,
+      type: LabelWC,
     },
     tooltip: {
       type: TooltipWC,
     },
     block: {
-      type: BlockWC,
+      type: DivWC,
     },
   },
 } as PiViewConfig;

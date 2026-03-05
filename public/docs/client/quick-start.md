@@ -312,15 +312,15 @@ export function LabelWrapper(props: { children: any }) {
   const isRequired = createSignalConvert(() => !!field.form.control?.required$$());
   const wrapperClass = createMemo(() => {
     return clsx("flex gap-2", {
-      "flex-col": props2()["titlePosition"] === "top",
-      "items-center": props2()["titlePosition"] !== "top",
+      "flex-col": props2()["labelPosition"] === "top",
+      "items-center": props2()["labelPosition"] !== "top",
     });
   });
   const title = createMemo(() => props2()["title"]);
   return (
     <>
       <div class={wrapperClass()}>
-        <Show when={(!props2()["titlePosition"] || props2()["titlePosition"] === "left" || props2()["titlePosition"] === "top") && props2()["title"]}>
+        <Show when={(!props2()["labelPosition"] || props2()["labelPosition"] === "left" || props2()["labelPosition"] === "top") && props2()["title"]}>
           <label for={attributes()?.["id"]}>
             <Show when={isRequired()}>
               <span class="text-red-500">*</span>
@@ -329,7 +329,7 @@ export function LabelWrapper(props: { children: any }) {
           </label>
         </Show>
         {props.children}
-        <Show when={props2()["titlePosition"] === "right" && props2()["title"]}>
+        <Show when={props2()["labelPosition"] === "right" && props2()["title"]}>
           <label for={attributes()?.["id"]}>
             <Show when={isRequired()}>
               <span class="text-red-500">*</span>

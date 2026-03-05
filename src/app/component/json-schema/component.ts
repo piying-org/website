@@ -44,7 +44,7 @@ export default class JsonSchemaViewRC extends BaseControl {
             if (type === 'boolean') {
               result = v.pipe(
                 result,
-                actions.props.patch({ titlePosition: 'right' }),
+                actions.props.patch({ labelPosition: 'right' }),
               );
             }
             if (type !== 'object') {

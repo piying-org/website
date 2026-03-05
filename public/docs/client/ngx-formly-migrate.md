@@ -16,7 +16,7 @@
         v.title('Text'),
         actions.attributes.patch({ placeholder: 'Formly is terrific!' }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       nested: v.pipe(
         v.optional(
@@ -24,7 +24,7 @@
             story: v.pipe(
               v.optional(v.string()),
               actions.wrappers.set(['label', 'validator']),
-              actions.props.patch({ titlePosition: 'top' }),
+              actions.props.patch({ labelPosition: 'top' }),
               setComponent('textarea'),
               v.title('Some sweet story'),
               layout({ keyPath: ['..', '..'] }),
@@ -52,7 +52,7 @@
       awesome: v.pipe(
         v.optional(v.boolean()),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'right' }),
+        actions.props.patch({ labelPosition: 'right' }),
         disableWhen({
           listen: (fn, field) => field.context.awesomeIsForced,
         }),
@@ -93,14 +93,14 @@
             ),
         }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       custom: v.pipe(
         v.string(),
         setComponent('formly-custom-input-1'),
         v.title('Custom inlined'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -122,7 +122,7 @@
           placeholder: 'Type here to see the other field become enabled...',
         }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       text2: v.pipe(
         v.string(),
@@ -138,7 +138,7 @@
           },
         }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -158,13 +158,13 @@
         v.optional(v.string(), 'This is a default value'),
         v.title('First Name (initialized via default value)'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       lastName: v.pipe(
         v.optional(v.string(), 'This is a default value'),
         v.title('Last Name (initialized via the model)'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       candy: v.pipe(
         v.optional(
@@ -180,13 +180,13 @@
           ],
         }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       agree: v.pipe(
         v.boolean(),
         v.title('Agree? (not initialized at all)'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'right' }),
+        actions.props.patch({ labelPosition: 'right' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -204,7 +204,7 @@
       name: v.pipe(
         v.optional(v.string()),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         v.title('Name'),
         actions.attributes.patch({
           placeholder: 'Type in here to display the hidden field',
@@ -213,7 +213,7 @@
       iLikeTwix: v.pipe(
         v.optional(v.boolean()),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'right' }),
+        actions.props.patch({ labelPosition: 'right' }),
         setComponent('checkbox'),
         v.title('I like twix'),
         hideWhen({
@@ -243,21 +243,21 @@
         v.title('Debounce'),
         formConfig({ pipe: { toModel: pipe(debounceTime(2000)) } }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       updateOnBlur: v.pipe(
         v.string(),
         formConfig({ updateOn: 'blur' }),
         v.title('`updateOn` on Blur'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       updateOnSubmit: v.pipe(
         v.string(),
         formConfig({ updateOn: 'submit' }),
         v.title('`updateOn` on Submit'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(
         NFCSchema,
@@ -281,7 +281,7 @@
         placeholder: 'Some sweet text',
       }),
       actions.wrappers.set(['label', 'validator']),
-      actions.props.patch({ titlePosition: 'top' }),
+      actions.props.patch({ labelPosition: 'top' }),
     ),
     candy: v.pipe(
       v.optional(v.picklist(['snickers', 'baby_ruth', 'milky_way'])),
@@ -293,7 +293,7 @@
         ],
       }),
       actions.wrappers.set(['label', 'validator']),
-      actions.props.patch({ titlePosition: 'top' }),
+      actions.props.patch({ labelPosition: 'top' }),
       v.title('Multiple Options'),
     ),
   }),
@@ -312,8 +312,8 @@
       __btnToggle: v.pipe(
         NFCSchema,
         setComponent('button'),
-        actions.inputs.patch({ label: 'Toggle' }),
-        actions.outputs.mergeAsync({
+        actions.inputs.patch({ content: 'Toggle' }),
+        actions.inputs.patchAsync({
           clicked: (field) => (event) => {
             field.context.disabled.next(!field.context.disabled.value);
           },
@@ -328,7 +328,7 @@
           },
         }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
     }),
   ),
@@ -345,7 +345,7 @@
         v.string(),
         v.title('Name (required)'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       age: v.pipe(
         v.number(),
@@ -353,14 +353,14 @@
         v.minValue(18),
         v.maxValue(40),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       password: v.pipe(
         v.string(),
         v.title('Password (minLength = 6)'),
         v.minLength(6),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       comment: v.pipe(
         v.string(),
@@ -369,14 +369,14 @@
         v.maxLength(100),
         actions.attributes.patch({ rows: 5 }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       ip: v.pipe(
         v.string(),
         v.title('IP Address (pattern = /(d{1,3}.){3}d{1,3}/)'),
         v.ipv4(),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -407,7 +407,7 @@
           ],
         }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -425,7 +425,7 @@
         v.string(),
         v.title('Username (validated using `Promise`)'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         actions.attributes.patch({ placeholder: 'Username' }),
         formConfig({
           asyncValidators: [
@@ -450,7 +450,7 @@
         v.title('Username (validated using `Observable`)'),
         actions.attributes.patch({ placeholder: 'Username' }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         formConfig({
           asyncValidators: [
             (control) => {
@@ -484,7 +484,7 @@
       username: v.pipe(
         v.string(),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         v.title('Username (validated on `blur`)'),
         actions.attributes.patch({ placeholder: 'Username' }),
         formConfig({
@@ -520,7 +520,7 @@
         v.string(),
         v.title('Password'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         actions.attributes.patch({
           type: 'password',
           placeholder: 'Must be at least 3 characters',
@@ -531,7 +531,7 @@
         v.string(),
         v.title('Confirm Password'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         actions.attributes.patch({
           type: 'password',
           placeholder: 'Please re-enter your password',
@@ -564,7 +564,7 @@
         v.title('Email'),
         v.email(),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         actions.attributes.patch({ type: 'email' }),
         actions.props.patchAsync({
           forceShowError: (field) => {
@@ -576,7 +576,7 @@
       showErrorState: v.pipe(
         v.boolean(),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'right' }),
+        actions.props.patch({ labelPosition: 'right' }),
         v.title('Force show error state'),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
@@ -600,7 +600,7 @@
         v.check((a) => !!a),
         v.title('Text'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         actions.attributes.patch({ placeholder: 'This is required!' }),
       ),
 
@@ -622,7 +622,7 @@
         v.title('Textarea with specified rows'),
         actions.attributes.patch({ rows: 10, placeholder: 'This has 10 rows' }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
     }),
   ),
@@ -644,7 +644,7 @@
           'captain_marvel',
         ]),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         v.title('Normal Select'),
         actions.inputs.patch({
           options: [
@@ -665,7 +665,7 @@
           'captain_marvel',
         ]),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         v.title('Grouped Select'),
         actions.inputs.patch({
           options: [
@@ -698,7 +698,7 @@
           'captain_marvel',
         ]),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         v.title('Select with custom name/value/group'),
         actions.inputs.patch({
           optionConvert: {
@@ -751,7 +751,7 @@
           ],
         }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -771,13 +771,13 @@
             v.optional(v.string()),
             v.title('First Name'),
             actions.wrappers.set(['label', 'validator']),
-            actions.props.patch({ titlePosition: 'top' }),
+            actions.props.patch({ labelPosition: 'top' }),
           ),
           lastName: v.pipe(
             v.optional(v.string()),
             v.title('Last Name'),
             actions.wrappers.set(['label', 'validator']),
-            actions.props.patch({ titlePosition: 'top' }),
+            actions.props.patch({ labelPosition: 'top' }),
             disableWhen({
               listen: (fn) =>
                 fn({ list: [['#', 'firstName']] }).pipe(
@@ -801,13 +801,13 @@
               itemClass: 'col-span-2',
             }),
             actions.wrappers.set(['label', 'validator']),
-            actions.props.patch({ titlePosition: 'top' }),
+            actions.props.patch({ labelPosition: 'top' }),
           ),
           cityName: v.pipe(
             v.optional(v.string()),
             v.title('City'),
             actions.wrappers.set(['label', 'validator']),
-            actions.props.patch({ titlePosition: 'top' }),
+            actions.props.patch({ labelPosition: 'top' }),
           ),
           zip: v.pipe(
             v.number(),
@@ -815,7 +815,7 @@
             v.minValue(0),
             v.maxValue(99999),
             actions.wrappers.set(['label', 'validator']),
-            actions.props.patch({ titlePosition: 'top' }),
+            actions.props.patch({ labelPosition: 'top' }),
           ),
         }),
         actions.inputs.patch({
@@ -832,13 +832,13 @@
             v.title('Other Input'),
             setComponent('textarea'),
             actions.wrappers.set(['label', 'validator']),
-            actions.props.patch({ titlePosition: 'top' }),
+            actions.props.patch({ labelPosition: 'top' }),
           ),
           otherToo: v.pipe(
             v.optional(v.boolean()),
             v.title('Other Checkbox'),
             actions.wrappers.set(['label', 'validator']),
-            actions.props.patch({ titlePosition: 'right' }),
+            actions.props.patch({ labelPosition: 'right' }),
           ),
         }),
         setComponent('strict_object')
@@ -896,7 +896,7 @@
           'validator',
           { type: 'joinItem', inputs: { prefix: { icon: 'attach_money' } } },
         ]),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         actions.attributes.patch({
           placeholder: 'Formly is terrific!',
         }),
@@ -915,7 +915,7 @@
             },
           },
         ]),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         actions.attributes.patch({
           placeholder: 'How great is this?',
         }),
@@ -933,7 +933,7 @@
             },
           },
         ]),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         actions.attributes.patch({
           placeholder: `Nice, isn't it??`,
         }),
@@ -988,7 +988,7 @@
           },
         }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       name: v.pipe(
         v.string(),
@@ -1005,7 +1005,7 @@
           },
         }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1051,13 +1051,13 @@
         }),
         v.title('FORM.LANG'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       name: v.pipe(
         v.string(),
         v.title('FORM.NAME'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1091,8 +1091,8 @@
               return v.pipe(
                 NFCSchema,
                 setComponent('button'),
-                actions.inputs.patch({ label: item }),
-                actions.outputs.mergeAsync({
+                actions.inputs.patch({ content: item }),
+                actions.inputs.patchAsync({
                   clicked: (field) => (_) => {
                     // todo
                     fetch(`ngx-formly/json-schema/${item}_json`)
@@ -1149,7 +1149,7 @@
         v.title('TODO LIST'),
         setComponent('array-rw'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1169,7 +1169,7 @@
         v.minValue(1),
         v.title('Investments count'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       investments: v.pipe(
         v.array(
@@ -1177,7 +1177,7 @@
             v.string(),
             v.title('Name of Investment:'),
             actions.wrappers.set(['label', 'validator']),
-            actions.props.patch({ titlePosition: 'top' }),
+            actions.props.patch({ labelPosition: 'top' }),
           ),
         ),
         actions.inputs.patchAsync({
@@ -1213,7 +1213,7 @@
               age: v.pipe(
                 v.number(),
                 v.title('Age'),
-                actions.props.patch({ titlePosition: 'top' }),
+                actions.props.patch({ labelPosition: 'top' }),
               ),
             }),
             v.title('Personal data'),
@@ -1225,7 +1225,7 @@
                 v.string(),
                 v.title('Country'),
                 actions.wrappers.set(['label', 'validator']),
-                actions.props.patch({ titlePosition: 'top' }),
+                actions.props.patch({ labelPosition: 'top' }),
               ),
             }),
             v.title('Destination'),
@@ -1238,7 +1238,7 @@
                 setComponent('date'),
                 v.title('Day of the trip'),
                 actions.wrappers.set(['label', 'validator']),
-                actions.props.patch({ titlePosition: 'top' }),
+                actions.props.patch({ labelPosition: 'top' }),
               ),
             }),
             v.title('Day of the trip'),
@@ -1268,13 +1268,13 @@
                 v.string(),
                 v.title('First name'),
                 actions.wrappers.set(['label', 'validator']),
-                actions.props.patch({ titlePosition: 'top' }),
+                actions.props.patch({ labelPosition: 'top' }),
               ),
               age: v.pipe(
                 v.number(),
                 v.title('Age'),
                 actions.wrappers.set(['label', 'validator']),
-                actions.props.patch({ titlePosition: 'top' }),
+                actions.props.patch({ labelPosition: 'top' }),
               ),
             }),
             v.title('Personal data'),
@@ -1286,7 +1286,7 @@
                 v.string(),
                 v.title('Country'),
                 actions.wrappers.set(['label', 'validator']),
-                actions.props.patch({ titlePosition: 'top' }),
+                actions.props.patch({ labelPosition: 'top' }),
               ),
             }),
             v.title('Destination'),
@@ -1299,7 +1299,7 @@
                 setComponent('date'),
                 v.title('Day of the trip'),
                 actions.wrappers.set(['label', 'validator']),
-                actions.props.patch({ titlePosition: 'top' }),
+                actions.props.patch({ labelPosition: 'top' }),
               ),
             }),
             v.title('Day of the trip'),
@@ -1327,21 +1327,21 @@
         v.optional(v.string()),
         v.title('Input Field'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       'default-password': v.pipe(
         v.optional(v.string()),
         actions.attributes.patch({ type: 'password' }),
         v.title('Default Password Field'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       'customized-password': v.pipe(
         v.optional(v.string()),
         actions.attributes.patch({ type: 'password' }),
         v.title('Password Field (with custom label)'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1370,7 +1370,7 @@
           },
         }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       team: v.pipe(
         v.picklist(['1', '2', '3', '4']),
@@ -1400,7 +1400,7 @@
           },
         }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       player: v.pipe(
         v.picklist(['1', '2', '3', '4', '5', '6', '7', '8']),
@@ -1434,7 +1434,7 @@
           },
         }),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
 
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
@@ -1454,7 +1454,7 @@
         v.picklist(['1', '2']),
         v.title('Sport'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
         actions.inputs.patch({
           optionConvert: {
             label: (item) => item.name,
@@ -1489,7 +1489,7 @@
         v.string(),
         v.title('First Name'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       address: v.pipe(
         v.object({
@@ -1497,7 +1497,7 @@
             v.string(),
             v.title('Town'),
             actions.wrappers.set(['label', 'validator']),
-            actions.props.patch({ titlePosition: 'top' }),
+            actions.props.patch({ labelPosition: 'top' }),
           ),
         }),
         v.title('Address'),
@@ -1529,7 +1529,7 @@
             },
           },
         ]),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1591,9 +1591,9 @@
       __btn1: v.pipe(
         NFCSchema,
         setComponent('button'),
-        actions.inputs.patch({ label: 'With Function' }),
-        actions.outputs.merge({
-          clicked: () => {
+        actions.inputs.patch({ content: 'With Function' }),
+        actions.inputs.patchAsync({
+          clicked:()=> () => {
             alert('You clicked me!');
           },
         }),
@@ -1601,9 +1601,12 @@
       __btn2: v.pipe(
         NFCSchema,
         setComponent('button'),
-        actions.inputs.patch({ label: 'JSON Only', classStyle: 'btn-info' }),
+        actions.inputs.patch({ content: 'JSON Only' }),
+        actions.attributes.patch({
+          class:'btn-info'
+        }),
         v.title('Click this guy'),
-        actions.outputs.mergeAsync({
+        actions.inputs.patchAsync({
           clicked: (field) => (event) => {
             field.get(['#', 'someInput']).form.control.updateValue('clicked!');
           },
@@ -1616,7 +1619,7 @@
         v.string(),
         v.title('Some Input'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
@@ -1651,19 +1654,19 @@
         v.string(),
         setComponent('salutation'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       firstName: v.pipe(
         v.optional(v.string()),
         setComponent('firstName'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       lastName: v.pipe(
         v.string(),
         setComponent('lastName'),
         actions.wrappers.set(['label', 'validator']),
-        actions.props.patch({ titlePosition: 'top' }),
+        actions.props.patch({ labelPosition: 'top' }),
       ),
       __helper: v.pipe(NFCSchema, setComponent('formHelper')),
     }),
