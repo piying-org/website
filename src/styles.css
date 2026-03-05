@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@source '../node_modules/@piying-lib/angular-daisyui/fesm2022';
+@source '../node_modules/@piying-lib/angular-daisyui/preset-css/ts';
 .md-container {
   h1,
   h2,
@@ -55,18 +57,21 @@
   }
 }
 
-.pi-valid > * {
+.input.pi-valid,
+.pi-valid > .input {
   @apply border-success;
 }
-.pi-invalid > * {
+.input.pi-invalid,
+.pi-invalid > .input {
   @apply border-error;
 }
-.pi-untouched.pi-invalid:not(.pi-dirty) > * {
+.input.pi-untouched.pi-invalid:not(.pi-dirty),
+.pi-untouched.pi-invalid:not(.pi-dirty) > .input {
   @apply border-warning;
 }
 .mockup-code pre:before {
   margin-right: 0;
 }
-.mockup-code>pre:before {
+.mockup-code > pre:before {
   margin-right: 2ch;
 }

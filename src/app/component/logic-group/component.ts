@@ -2,13 +2,12 @@ import { NgTemplateOutlet } from '@angular/common';
 import { Component, computed, signal } from '@angular/core';
 import { PiyingViewGroupBase } from '@piying/view-angular';
 import { FieldLogicGroup } from '@piying/view-angular-core';
-import { SelectComponent } from '../select/component';
 import { FormsModule } from '@angular/forms';
-
+import { SelectFCC } from "@piying-lib/angular-daisyui/field-control";
 @Component({
   selector: 'app-logic-group',
   templateUrl: './component.html',
-  imports: [NgTemplateOutlet, SelectComponent, FormsModule],
+  imports: [NgTemplateOutlet, SelectFCC, FormsModule],
 })
 export default class LogicFGC extends PiyingViewGroupBase {
   list = computed(() =>

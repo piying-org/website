@@ -1,69 +1,59 @@
-import {
-  CheckboxControlValueAccessor,
-  DefaultValueAccessor,
-  NumberValueAccessor,
-  RangeValueAccessor,
-} from '@angular/forms';
 import { actions, PiViewConfig, PiyingViewGroup } from '@piying/view-angular';
-import { SelectComponent } from './select/component';
-import { RatingComponent } from './rating/component';
-import { FileInputDirective } from './file-input/file-input.directive';
 import { FieldsetFGC } from './fieldset/component';
 import { ButtonLinkComponent } from './link/component';
 import { ValidWC } from './wrapper/valid/component';
 import { DropdownComponent } from './dropdown/component';
-import { CheckboxComponent } from './checkbox/component';
 import { FormlyFieldWC } from './wrapper/formly-field-wrapper/component';
 import { JoinItemWC } from './wrapper/join-wrapper/component';
 import { PanelWC } from './wrapper/panel-wrapper/component';
 import { TooltipWC } from './wrapper/tooltip/component';
 import { JsonSchemaLabelWC } from './wrapper/json-schema-label/component';
-import { InputFCC } from './input';
-import { InputNumberFCC } from './input-number';
-import { InputCheckboxFCC } from './input-checkbox';
-import { InputRangeFCC } from './input-range';
-import { InputFileFCC } from './input-file';
-import { TextareaFCC } from './textarea';
 import { DivNFCC } from './block';
 import { DemoNFCC } from './demo';
 import { SelectorlessNFCC } from './selector-less';
 import { BlockWC } from './wrapper/block/component';
+import * as FCCGroup from '@piying-lib/angular-daisyui/field-control';
+import { setComponent } from '@piying/view-angular-core';
 const LazyRestGroup = () =>
   import('./group/rest-group/component').then((item) => item.default);
+const selectActions = [
+  setComponent(FCCGroup.SelectFCC),
+  actions.wrappers.set([{ type: 'label' }]),
+  actions.inputs.mapAsync((field) => {
+    let props = field.props;
+    return (value) => {
+      return { options: props()['options'], ...value };
+    };
+  }),
+];
 export const FieldGlobalConfig = {
   types: {
     string: {
-      type: InputFCC,
-      actions: [
-        actions.attributes.set({
-          class: 'input',
-        }),
-      ],
+      type: FCCGroup.InputFCC,
     },
     number: {
-      type: InputNumberFCC,
+      type: FCCGroup.InputFCC,
       actions: [
-        actions.attributes.set({
-          class: 'input',
+        actions.inputs.patch({
+          type: 'number',
         }),
       ],
     },
     radio: {
-      type: () => import('./radio/component').then((a) => a.default),
+      type: () =>
+        import('@piying-lib/angular-daisyui/field-control').then(
+          (a) => a.RadioFCC,
+        ),
     },
     boolean: {
-      type: InputCheckboxFCC,
       actions: [
-        actions.attributes.set({
-          class: 'checkbox',
-        }),
+        setComponent(FCCGroup.CheckboxFCC),
         actions.wrappers.set([{ type: 'label' }]),
       ],
     },
     checkbox: {
-      type: CheckboxComponent,
-
       actions: [
+        setComponent(FCCGroup.CheckboxFCC),
         actions.props.set({
           hideTitle: true,
         }),
@@ -73,25 +63,16 @@ export const FieldGlobalConfig = {
       type: FieldsetFGC,
     },
     toggle: {
-      type: InputCheckboxFCC,
-
-      actions: [
-        actions.attributes.set({
-          class: 'toggle',
-        }),
-      ],
+      actions: [setComponent(FCCGroup.ToggleFCC)],
     },
     picklist: {
-      type: SelectComponent,
-      actions: [actions.wrappers.set([{ type: 'label' }])],
+      actions: selectActions,
     },
     multiselect: {
-      type: SelectComponent,
-      actions: [actions.inputs.set({ multiple: true })],
+      actions: [...selectActions, actions.inputs.set({ multiple: true })],
     },
     'multiselect-repeat': {
-      type: SelectComponent,
-      actions: [actions.inputs.set({ multiple: true })],
+      actions: [...selectActions, actions.inputs.set({ multiple: true })],
     },
     dropdown: {
       type: DropdownComponent,
@@ -104,41 +85,20 @@ export const FieldGlobalConfig = {
     },
 
     rating: {
-      type: RatingComponent,
+      type: FCCGroup.RatingFCC,
       actions: [
-        actions.attributes.set({
-          type: 'rating',
-          class: 'rating',
-        }),
         actions.wrappers.set([{ type: 'label' }]),
+        actions.inputs.patch({ max: 6 }),
       ],
     },
     range: {
-      type: InputRangeFCC,
-
-      actions: [
-        actions.attributes.set({
-          class: 'range',
-        }),
-      ],
+      type: FCCGroup.RangeFCC,
     },
     fileInput: {
-      type: InputFileFCC,
-
-      actions: [
-        actions.attributes.set({
-          class: 'file-input',
-        }),
-      ],
+      type: FCCGroup.FileInputFCC,
     },
     textarea: {
-      type: TextareaFCC,
-
-      actions: [
-        actions.attributes.set({
-          class: 'textarea',
-        }),
-      ],
+      type: FCCGroup.TextareaFCC,
     },
 
     object: {
@@ -293,11 +253,13 @@ export const FieldGlobalConfig = {
       type: () => import('./date/component').then((a) => a.default),
     },
     salutation: {
-      type: SelectComponent,
       actions: [
+        ...selectActions,
+        actions.attributes.set({
+          placeholder: 'Please Select',
+        }),
         actions.props.set({
           title: 'Salutation',
-          placeholder: 'Please Select',
         }),
         actions.inputs.set({
           options: ['Mr.', 'Ms.', 'Dr.', 'Dude'],
@@ -305,22 +267,16 @@ export const FieldGlobalConfig = {
       ],
     },
     firstName: {
-      type: InputFCC,
+      type: FCCGroup.InputFCC,
       actions: [
-        actions.attributes.set({
-          class: 'input',
-        }),
         actions.props.set({
           title: 'First Name',
         }),
       ],
     },
     lastName: {
-      type: InputFCC,
+      type: FCCGroup.InputFCC,
       actions: [
-        actions.attributes.set({
-          class: 'input',
-        }),
         actions.props.set({
           title: 'Last Name',
         }),

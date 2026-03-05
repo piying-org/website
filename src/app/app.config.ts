@@ -11,6 +11,7 @@ import {
   withEventReplay,
 } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { ThemeService } from '@piying-lib/angular-daisyui/service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,5 +26,6 @@ export const appConfig: ApplicationConfig = {
     ),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
+    ThemeService,
   ],
 };
