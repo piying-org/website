@@ -8,9 +8,8 @@
     />
     <meta charset="UTF-8" />
     <script>
-      const browserLanguage = navigator.language;
       if (!localStorage.getItem("lang")) {
-        if (browserLanguage.startsWith("zh")) {
+        if (navigator.language.startsWith("zh")) {
           localStorage.setItem("lang", "zh-hans");
         } else {
           localStorage.setItem("lang", "en");
