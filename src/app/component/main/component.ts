@@ -60,6 +60,11 @@ const Menu: NavigationItem[] = [
         ],
       },
       {
+        title: `Api`,
+        link: '/docs/client/api',
+        type: 'basic',
+      },
+      {
         title: $localize`表单`,
         link: '/docs/client/form',
         type: 'basic',

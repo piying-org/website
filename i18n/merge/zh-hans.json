@@ -287,6 +287,18 @@
     "associatedMessageIds": {},
     "target": "`blur` touchedChange触发时更新(一般为blur事件触发)"
   },
+  "8640552069097997916": {
+    "id": "8640552069097997916",
+    "text": "`btn1`被提升到根级",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`btn1`被提升到根级"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`btn1`被提升到根级"
+  },
   "3871154599357482551": {
     "id": "3871154599357482551",
     "text": "`change`控件值变更发射时更新",
@@ -875,6 +887,18 @@
     "associatedMessageIds": {},
     "target": "`方法名`: set/remove/patch/patchAsync/merge/mergeAsync/map/mapAsync"
   },
+  "4170238025272207414": {
+    "id": "4170238025272207414",
+    "text": "actions通用方法",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "actions通用方法"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "actions通用方法"
+  },
   "9104834737937258726": {
     "id": "9104834737937258726",
     "text": "builder实现在源码`src/app/component/form/formly/translate.builder.ts`中",
@@ -910,6 +934,30 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "html标签中的原生属性"
+  },
+  "713394539855480504": {
+    "id": "713394539855480504",
+    "text": "inputs/outputs/attributes/events均含有以下方法,可以进行设置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "inputs/outputs/attributes/events均含有以下方法,可以进行设置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "inputs/outputs/attributes/events均含有以下方法,可以进行设置"
+  },
+  "5454201658283574613": {
+    "id": "5454201658283574613",
+    "text": "list为路径查询列表,设置`undefined`时表示自身组件",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "list为路径查询列表,设置`undefined`时表示自身组件"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "list为路径查询列表,设置`undefined`时表示自身组件"
   },
   "9082023173940517025": {
     "id": "9082023173940517025",
@@ -1415,6 +1463,18 @@
     "associatedMessageIds": {},
     "target": "值变更监听"
   },
+  "3302987462476279002": {
+    "id": "3302987462476279002",
+    "text": "值变更监听，监听字段值的变化并执行回调",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "值变更监听，监听字段值的变化并执行回调"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "值变更监听，监听字段值的变化并执行回调"
+  },
   "744543685870474142": {
     "id": "744543685870474142",
     "text": "值恢复为默认值(如果没有传入)",
@@ -1462,6 +1522,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "允许启用部分子级"
+  },
+  "5005882652320368539": {
+    "id": "5005882652320368539",
+    "text": "允许进行动态数据转换",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "允许进行动态数据转换"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "允许进行动态数据转换"
   },
   "968701223811806626": {
     "id": "968701223811806626",
@@ -1619,6 +1691,18 @@
     "associatedMessageIds": {},
     "target": "创建多个组件"
   },
+  "7836336784978857925": {
+    "id": "7836336784978857925",
+    "text": "动态修改提供者列表",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "动态修改提供者列表"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "动态修改提供者列表"
+  },
   "3627400046970749431": {
     "id": "3627400046970749431",
     "text": "动态变更,支持Promise,Observable,Signal",
@@ -1702,6 +1786,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "包装器让开发者在封装组件的时候可以仅考虑该组件的基本功能,减少了代码耦合,增加了可维护性"
+  },
+  "2804817727804777513": {
+    "id": "2804817727804777513",
+    "text": "原始配置，允许直接访问和修改 field 配置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "原始配置，允许直接访问和修改 field 配置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "原始配置，允许直接访问和修改 field 配置"
   },
   "6423523306744619472": {
     "id": "6423523306744619472",
@@ -1847,6 +1943,18 @@
     "associatedMessageIds": {},
     "target": "可以视为属性配置;解析valibot定义后出现,保存组件的一些配置及控件的一些状态\n"
   },
+  "7146363175491698180": {
+    "id": "7146363175491698180",
+    "text": "可以设置`disabled`属性来表示隐藏时字段是否禁用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "可以设置`disabled`属性来表示隐藏时字段是否禁用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "可以设置`disabled`属性来表示隐藏时字段是否禁用"
+  },
   "2581458878695511711": {
     "id": "2581458878695511711",
     "text": "可以访问到父级,根据其他字段的值判断",
@@ -1930,6 +2038,30 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "在使用`v.object({})`时,现代浏览器(除了IE11)的字段顺序都是可预测的;即优先非负整数升序键,然后是按照定义顺序来\n> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in"
+  },
+  "2955508825275832733": {
+    "id": "2955508825275832733",
+    "text": "在当前定义的内层增加类(也就是当前组件)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "在当前定义的内层增加类(也就是当前组件)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "在当前定义的内层增加类(也就是当前组件)"
+  },
+  "4558525893167051827": {
+    "id": "4558525893167051827",
+    "text": "在当前定义的顶层增加类",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "在当前定义的顶层增加类"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "在当前定义的顶层增加类"
   },
   "1317684094328392800": {
     "id": "1317684094328392800",
@@ -2519,6 +2651,18 @@
     "associatedMessageIds": {},
     "target": "将`jsonschema`转换为`valibot`定义后,即可与传统的`piying`使用一致"
   },
+  "3863185068838724890": {
+    "id": "3863185068838724890",
+    "text": "将定义设置为表单控件",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "将定义设置为表单控件"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "将定义设置为表单控件"
+  },
   "4268176488185084713": {
     "id": "4268176488185084713",
     "text": "小部分场景因为视图和逻辑分离,所以需要使用静态解析,将定义先解析为对应模板并写入文件,再配合动态解析赋值",
@@ -2939,6 +3083,18 @@
     "associatedMessageIds": {},
     "target": "控制`组件`何时隐藏"
   },
+  "7625640870738568780": {
+    "id": "7625640870738568780",
+    "text": "提供者配置，用于在字段的 injector 中添加服务",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "提供者配置，用于在字段的 injector 中添加服务"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "提供者配置，用于在字段的 injector 中添加服务"
+  },
   "8437133365005831241": {
     "id": "8437133365005831241",
     "text": "支持valibot验证/自定义验证,与表单自定义验证",
@@ -3107,6 +3263,18 @@
     "associatedMessageIds": {},
     "target": "服务端"
   },
+  "7442783481235199675": {
+    "id": "7442783481235199675",
+    "text": "未设置,返回FieldLogicGroup",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "未设置,返回FieldLogicGroup"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "未设置,返回FieldLogicGroup"
+  },
   "2445983431105943030": {
     "id": "2445983431105943030",
     "text": "权重越大,组件越靠后",
@@ -3118,6 +3286,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "权重越大,组件越靠后"
+  },
+  "2026001556702579205": {
+    "id": "2026001556702579205",
+    "text": "条件控制，根据环境或条件执行不同的 actions",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "条件控制，根据环境或条件执行不同的 actions"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "条件控制，根据环境或条件执行不同的 actions"
   },
   "8152002435617929948": {
     "id": "8152002435617929948",
@@ -3623,6 +3803,18 @@
     "associatedMessageIds": {},
     "target": "确保当前项目可以正常运行"
   },
+  "8993336620477100318": {
+    "id": "8993336620477100318",
+    "text": "禁用条件，根据值的变化动态控制字段是否禁用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "禁用条件，根据值的变化动态控制字段是否禁用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "禁用条件，根据值的变化动态控制字段是否禁用"
+  },
   "9022547548969003731": {
     "id": "9022547548969003731",
     "text": "禁用状态取决于两个值,自身是否禁用和父级是否禁用,满足其一即禁用",
@@ -3923,6 +4115,18 @@
     "associatedMessageIds": {},
     "target": "融合"
   },
+  "2662313105577665109": {
+    "id": "2662313105577665109",
+    "text": "补丁方式添加提供者",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "补丁方式添加提供者"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "补丁方式添加提供者"
+  },
   "6713287036079310806": {
     "id": "6713287036079310806",
     "text": "表单",
@@ -4055,6 +4259,30 @@
     "associatedMessageIds": {},
     "target": "让组件附加额外的能力,比如`显示控件的标签`,`验证内容`,`前后缀`等组件相关,共通的东西"
   },
+  "9029658236649773068": {
+    "id": "9029658236649773068",
+    "text": "设置交叉类型为group表单,可以用于更好的页面布局使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置交叉类型为group表单,可以用于更好的页面布局使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设置交叉类型为group表单,可以用于更好的页面布局使用"
+  },
+  "364970751317063018": {
+    "id": "364970751317063018",
+    "text": "设置别名,方便查询",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置别名,方便查询"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设置别名,方便查询"
+  },
   "1272938189012298083": {
     "id": "1272938189012298083",
     "text": "设置别名,用于路径查询",
@@ -4067,6 +4295,18 @@
     "associatedMessageIds": {},
     "target": "设置别名,用于路径查询"
   },
+  "7215496009976051449": {
+    "id": "7215496009976051449",
+    "text": "设置后,返回FieldGroup",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置后,返回FieldGroup"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设置后,返回FieldGroup"
+  },
   "1192900917152810887": {
     "id": "1192900917152810887",
     "text": "设置后状态恢复到`untouched`,`pristine`",
@@ -4078,6 +4318,114 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "设置后状态恢复到`untouched`,`pristine`"
+  },
+  "3369943678322556370": {
+    "id": "3369943678322556370",
+    "text": "设置属性,会覆盖已存在的值",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置属性,会覆盖已存在的值"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设置属性,会覆盖已存在的值"
+  },
+  "774367619797326439": {
+    "id": "774367619797326439",
+    "text": "设置属性,会覆盖所有值",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置属性,会覆盖所有值"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设置属性,会覆盖所有值"
+  },
+  "6148033787167600718": {
+    "id": "6148033787167600718",
+    "text": "设置属性,允许使用field,并返回一个异步的值(Promise,Signal,Observable)动态更新",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置属性,允许使用field,并返回一个异步的值(Promise,Signal,Observable)动态更新"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设置属性,允许使用field,并返回一个异步的值(Promise,Signal,Observable)动态更新"
+  },
+  "1081081979367090482": {
+    "id": "1081081979367090482",
+    "text": "设置提供者（会覆盖所有已有的提供者）",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置提供者（会覆盖所有已有的提供者）"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设置提供者（会覆盖所有已有的提供者）"
+  },
+  "4331176794462268019": {
+    "id": "4331176794462268019",
+    "text": "设置渲染配置（如 hidden、priority 等）",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置渲染配置（如 hidden、priority 等）"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设置渲染配置（如 hidden、priority 等）"
+  },
+  "3214546382841522954": {
+    "id": "3214546382841522954",
+    "text": "设置组件优先级或者提升组件位置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置组件优先级或者提升组件位置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设置组件优先级或者提升组件位置"
+  },
+  "1367500699918504497": {
+    "id": "1367500699918504497",
+    "text": "设置组件类型",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置组件类型"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设置组件类型"
+  },
+  "458097909472498200": {
+    "id": "458097909472498200",
+    "text": "设置表单控件不关联 formControl;也就是该控件被设置为一个普通的组件",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置表单控件不关联 formControl;也就是该控件被设置为一个普通的组件"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设置表单控件不关联 formControl;也就是该控件被设置为一个普通的组件"
+  },
+  "2096377056530296399": {
+    "id": "2096377056530296399",
+    "text": "设置表单配置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置表单配置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "设置表单配置"
   },
   "8402003515067659904": {
     "id": "8402003515067659904",
@@ -4343,6 +4691,18 @@
     "associatedMessageIds": {},
     "target": "选择类型,会自动传入`options`输入属性,对应组件需要实现"
   },
+  "3503935297635445401": {
+    "id": "3503935297635445401",
+    "text": "通常用于控件的类型定义是一个对象/数组,但是不需要分开用多个控件表示,而是像普通控件一样输出",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "通常用于控件的类型定义是一个对象/数组,但是不需要分开用多个控件表示,而是像普通控件一样输出"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "通常用于控件的类型定义是一个对象/数组,但是不需要分开用多个控件表示,而是像普通控件一样输出"
+  },
   "3495916946674036777": {
     "id": "3495916946674036777",
     "text": "通用`signal`类型的值需要转换为solid`signal`才支持动态变更",
@@ -4354,6 +4714,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "通用`signal`类型的值需要转换为solid`signal`才支持动态变更"
+  },
+  "6228005948062275225": {
+    "id": "6228005948062275225",
+    "text": "通用配置，用于设置渲染和表单配置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "通用配置，用于设置渲染和表单配置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "通用配置，用于设置渲染和表单配置"
   },
   "5822582136818176348": {
     "id": "5822582136818176348",
@@ -4522,6 +4894,30 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "限制"
+  },
+  "8539469130608253947": {
+    "id": "8539469130608253947",
+    "text": "隐藏条件，根据值的变化动态控制字段是否隐藏",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "隐藏条件，根据值的变化动态控制字段是否隐藏"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "隐藏条件，根据值的变化动态控制字段是否隐藏"
+  },
+  "1357377159883930936": {
+    "id": "1357377159883930936",
+    "text": "需要在组件的options中配置`environments`",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "需要在组件的options中配置`environments`"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "需要在组件的options中配置`environments`"
   },
   "6933856329582536302": {
     "id": "6933856329582536302",

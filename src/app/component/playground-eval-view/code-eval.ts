@@ -20,7 +20,7 @@ export async function codeEval(code: string) {
       'debounceTime',
       'v',
       `let {FocusDirective}=directive;
-      let {NFCSchema,setComponent,disableWhen,hideWhen,rawConfig,outputChange,valueChange,setAlias,layout,asVirtualGroup,formConfig,asControl,nonFieldControl}=pyvac;
+      let {NFCSchema,setComponent,disableWhen,hideWhen,rawConfig,outputChange,valueChange,setAlias,layout,asVirtualGroup,formConfig,asControl,nonFieldControl,condition,renderConfig}=pyvac;
       let {actions}=pyva;
       return ${code}`,
     )(
