@@ -89,10 +89,12 @@ export const routes: Routes = [
                     fn()
                       .pipe(skip(1))
                       .subscribe(({ list }) => {
-                        const last = localStorage.getItem('lang');
-                        if (last !== list[0]) {
-                          localStorage.setItem('lang', list[0]);
-                          window.location.href = `/website/${list[0]}`;
+                        if (typeof localStorage !== 'undefined') {
+                          const last = localStorage.getItem('lang');
+                          if (last !== list[0]) {
+                            localStorage.setItem('lang', list[0]);
+                            window.location.href = `/website/${list[0]}`;
+                          }
                         }
                       });
                   }),
