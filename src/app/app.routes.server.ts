@@ -2,7 +2,14 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 
 export const serverRoutes: ServerRoute[] = [
   {
-    path: '**',
+    path: 'docs/:l1/:l2',
     renderMode: RenderMode.Prerender,
+    getPrerenderParams: async () => {
+      return [{ l1: 'client', l2: 'quick-start' }];
+    },
+  },
+  {
+    path: '**',
+    renderMode: RenderMode.Client,
   },
 ];
