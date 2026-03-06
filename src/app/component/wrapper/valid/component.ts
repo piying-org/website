@@ -7,7 +7,6 @@ import {
   fieldControlStatusClass,
   getDeepError,
 } from '@piying/view-angular-core';
-import { summarize } from 'valibot';
 
 @Component({
   selector: 'valid-wrapper',

@@ -24,16 +24,12 @@ export class MarkdownPage {
   #eleRef = inject<ElementRef<HTMLElement>>(ElementRef);
   #params = toSignal(this.#route.params);
   data = resource({
-    params: () => {
-      return this.#params();
-    },
+    params: () => this.#params(),
     loader: (input) => {
-      let item = input.params;
-      let url = `resolved/docs/${locale}/${[item['l1'], item['l2'], item['l3']].filter(Boolean).join('/')}.html`;
+      const item = input.params;
+      const url = `resolved/docs/${locale}/${[item['l1'], item['l2'], item['l3']].filter(Boolean).join('/')}.html`;
       return firstValueFrom(this.#http.get(url, { responseType: 'text' }))
-        .then((item) => {
-          return this.#domSanitizer.bypassSecurityTrustHtml(item);
-        })
+        .then((item) => this.#domSanitizer.bypassSecurityTrustHtml(item))
         .catch((error) => {
           console.error(error);
           this.#router.navigate(['/']);
@@ -43,7 +39,7 @@ export class MarkdownPage {
   });
 
   constructor() {
-    let mwc = inject(MarkdownWebComponentService);
+    const mwc = inject(MarkdownWebComponentService);
     afterNextRender(() => {
       mwc.init();
       const fragment = this.#route.snapshot.fragment;

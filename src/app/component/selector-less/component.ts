@@ -1,4 +1,4 @@
-import { Component, input, output, viewChild } from '@angular/core';
+import { Component, viewChild } from '@angular/core';
 
 @Component({
   selector: 'selectorless-nfcc',

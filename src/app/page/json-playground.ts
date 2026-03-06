@@ -36,7 +36,7 @@ export const JsonPlaygroundRoute: Route = {
                             return undefined;
                           }
                           try {
-                            let result = JSON.parse(value);
+                            const result = JSON.parse(value);
                             if (typeof result !== 'object') {
                               return undefined;
                             }

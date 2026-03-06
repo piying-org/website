@@ -18,12 +18,9 @@ export class TranslateNgBuilder extends AngularFormBuilder {
     const props = parsed.props;
 
     if (rawConfig.type === 'picklist') {
-      const options$$ = computed(
-        () => {
-          return parsed.props()?.['options'];
-        },
-        { equal: deepEqual },
-      );
+      const options$$ = computed(() => parsed.props()?.['options'], {
+        equal: deepEqual,
+      });
       const options = options$$();
       if (options && !parsed.inputs()?.['options']) {
         parsed.inputs.connect('options', options);

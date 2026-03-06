@@ -33,10 +33,9 @@ export default class RestGroup extends PiyingViewGroupBase {
     }
   }
   isGroup$$ = computed(() => isFieldGroup(this.field$$().form.control));
-  hasChild$$ = computed(() => {
-    return (
+  hasChild$$ = computed(
+    () =>
       !!this.field$$().fixedChildren?.().length ||
-      !!this.field$$().restChildren?.().length
-    );
-  });
+      !!this.field$$().restChildren?.().length,
+  );
 }

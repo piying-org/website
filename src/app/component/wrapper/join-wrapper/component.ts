@@ -1,4 +1,4 @@
-import { Component, inject, input, viewChild } from '@angular/core';
+import { Component, input, viewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { InsertFieldDirective } from '@piying/view-angular';
 export interface JoinItem {

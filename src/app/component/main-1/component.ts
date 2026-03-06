@@ -28,7 +28,7 @@ export class Main1Component {
     v.object({
       support: v.pipe(
         v.optional(
-          v.picklist(['Angular', 'Vue','Vue2', 'React', 'Svelte', 'Solid']),
+          v.picklist(['Angular', 'Vue', 'Vue2', 'React', 'Svelte', 'Solid']),
           'Angular',
         ),
         v.title($localize`当前支持`),

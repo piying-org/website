@@ -3,7 +3,7 @@ import { Component, computed, signal } from '@angular/core';
 import { PiyingViewGroupBase } from '@piying/view-angular';
 import { FieldLogicGroup } from '@piying/view-angular-core';
 import { FormsModule } from '@angular/forms';
-import { SelectFCC } from "@piying-lib/angular-daisyui/field-control";
+import { SelectFCC } from '@piying-lib/angular-daisyui/field-control';
 @Component({
   selector: 'app-logic-group',
   templateUrl: './component.html',

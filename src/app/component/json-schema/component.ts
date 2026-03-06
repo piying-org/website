@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  effect,
   forwardRef,
   input,
 } from '@angular/core';
@@ -32,8 +31,8 @@ import { actions } from '@piying/view-angular-core';
 export default class JsonSchemaViewRC extends BaseControl {
   data = input<Record<string, any>>();
 
-  schema$$ = computed(() => {
-    return jsonSchemaToValibot(this.data()!['schema'], {
+  schema$$ = computed(() =>
+    jsonSchemaToValibot(this.data()!['schema'], {
       schemaHandle: {
         afterResolve(vSchema, jSchema) {
           return vSchema;
@@ -62,12 +61,10 @@ export default class JsonSchemaViewRC extends BaseControl {
         },
       },
       customActions: {
-        testTitle: () => {
-          return v.title('isTestTitle');
-        },
+        testTitle: () => v.title('isTestTitle'),
       },
-    });
-  });
+    }),
+  );
 
   model$$ = computed(() => this.data()!['model']);
   options = {

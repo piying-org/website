@@ -19,16 +19,16 @@ export class JsonSchemaHandle extends NgSchemaHandle {
     if (this.type === 'multiselect') {
       this.attributes = {
         ...this.attributes,
-        ['class']: 'h-[200px]',
+        class: 'h-[200px]',
       };
     }
     if (this.type === 'oneOf-select') {
-      this.props = { ...this.props, ['type']: 'oneOf' };
+      this.props = { ...this.props, type: 'oneOf' };
     }
     if (this.type === 'anyOf-select') {
       this.props = {
         ...this.props,
-        ['type']: 'anyOf',
+        type: 'anyOf',
       };
     }
   }

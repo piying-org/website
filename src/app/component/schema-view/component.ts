@@ -22,9 +22,7 @@ export class SchemaViewRC {
   context = this.route.snapshot.data['context']?.();
   schema = this.route.snapshot.data['schema']();
   model = resource({
-    loader: async () => {
-      return this.route.snapshot.data['model']?.() || defaultValue;
-    },
+    loader: async () => this.route.snapshot.data['model']?.() || defaultValue,
   });
   options = {
     context: this.context,

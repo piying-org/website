@@ -10,7 +10,6 @@ import {
 import { PI_VIEW_FIELD_TOKEN } from '@piying/view-angular';
 import { getDeepError } from '@piying/view-angular-core';
 import JSONFormatter from 'json-formatter-js';
-import { summarize } from 'valibot';
 
 @Component({
   selector: '',

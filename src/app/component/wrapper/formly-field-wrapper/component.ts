@@ -3,7 +3,6 @@ import {
   InsertFieldDirective,
   PI_VIEW_FIELD_TOKEN,
 } from '@piying/view-angular';
-import { summarize } from 'valibot';
 import { getDeepError } from '@piying/view-angular-core';
 @Component({
   selector: 'app-formly-field-wrapper',

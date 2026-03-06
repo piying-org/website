@@ -103,11 +103,9 @@ export const routes: Routes = [
           }),
           setComponent('main'),
         ),
-      model: async () => {
-        return {
-          toolbar: { language: locale },
-        };
-      },
+      model: async () => ({
+        toolbar: { language: locale },
+      }),
     },
     children: [
       {

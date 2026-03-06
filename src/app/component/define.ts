@@ -19,10 +19,8 @@ const selectActions = [
   setComponent(FCCGroup.SelectFCC),
   actions.wrappers.set([{ type: 'label' }]),
   actions.inputs.mapAsync((field) => {
-    let props = field.props;
-    return (value) => {
-      return { options: props()['options'], ...value };
-    };
+    const props = field.props;
+    return (value) => ({ options: props()['options'], ...value });
   }),
 ];
 export const FieldGlobalConfig = {
@@ -188,7 +186,10 @@ export const FieldGlobalConfig = {
         ),
     },
     button: {
-      type: () => import('@piying-lib/angular-daisyui/non-field-control').then((a) => a.ButtonNFCC),
+      type: () =>
+        import('@piying-lib/angular-daisyui/non-field-control').then(
+          (a) => a.ButtonNFCC,
+        ),
     },
     'button-link': {
       type: ButtonLinkComponent,
