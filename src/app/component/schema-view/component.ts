@@ -2,7 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
+  Injector,
   resource,
+  runInInjectionContext,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PiyingView } from '@piying/view-angular';
@@ -17,12 +19,16 @@ const defaultValue = Promise.resolve(undefined);
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SchemaViewRC {
-  route = inject(ActivatedRoute);
-
-  context = this.route.snapshot.data['context']?.();
-  schema = this.route.snapshot.data['schema']();
+  #route = inject(ActivatedRoute);
+  #injector = inject(Injector);
+  context = this.#route.snapshot.data['context']?.();
+  schema = this.#route.snapshot.data['schema']();
   model = resource({
-    loader: async () => this.route.snapshot.data['model']?.() || defaultValue,
+    loader: async () => {
+      return runInInjectionContext(this.#injector, () => {
+        return this.#route.snapshot.data['model']?.() || defaultValue;
+      });
+    },
   });
   options = {
     context: this.context,
