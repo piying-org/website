@@ -1,16 +1,20 @@
-import { Component, ElementRef, inject } from '@angular/core';
+import {
+  afterNextRender,
+  Component,
+  ElementRef,
+  inject,
+  resource,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AsyncPipe } from '@angular/common';
-import { switchMap, map, catchError, of } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
 import { MarkdownWebComponentService } from './markdown-web-component.service';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { locale } from '../../const/locate';
-
+import { toSignal } from '@angular/core/rxjs-interop';
 @Component({
   selector: '',
   templateUrl: './component.html',
-  imports: [AsyncPipe],
 })
 export class MarkdownPage {
   #route = inject(ActivatedRoute);
@@ -18,44 +22,50 @@ export class MarkdownPage {
   #http = inject(HttpClient);
   #domSanitizer = inject(DomSanitizer);
   #eleRef = inject<ElementRef<HTMLElement>>(ElementRef);
-
-  data = this.#route.params.pipe(
-    map(
-      (item) =>
-        `resolved/docs/${locale}/${[item['l1'], item['l2'], item['l3']].filter(Boolean).join('/')}.html`,
-    ),
-    switchMap((url) => this.#http.get(url, { responseType: 'text' })),
-    map((item) => {
-      return this.#domSanitizer.bypassSecurityTrustHtml(item);
-    }),
-    catchError(() => {
-      this.#router.navigate(['/']);
-      return of('');
-    }),
-  );
+  #params = toSignal(this.#route.params);
+  data = resource({
+    params: () => {
+      return this.#params();
+    },
+    loader: (input) => {
+      let item = input.params;
+      let url = `resolved/docs/${locale}/${[item['l1'], item['l2'], item['l3']].filter(Boolean).join('/')}.html`;
+      return firstValueFrom(this.#http.get(url, { responseType: 'text' }))
+        .then((item) => {
+          return this.#domSanitizer.bypassSecurityTrustHtml(item);
+        })
+        .catch((error) => {
+          console.error(error);
+          this.#router.navigate(['/']);
+          return '';
+        });
+    },
+  });
 
   constructor() {
-    inject(MarkdownWebComponentService).init();
-    const fragment = this.#route.snapshot.fragment;
-
-    if (fragment) {
-      const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          const el = this.#eleRef.nativeElement.querySelector(`#${fragment}`);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-            setTimeout(() => {
+    let mwc = inject(MarkdownWebComponentService);
+    afterNextRender(() => {
+      mwc.init();
+      const fragment = this.#route.snapshot.fragment;
+      if (fragment) {
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            const el = this.#eleRef.nativeElement.querySelector(`#${fragment}`);
+            if (el) {
               el.scrollIntoView({ behavior: 'smooth' });
-            }, 200);
-            observer.disconnect();
-          }
+              setTimeout(() => {
+                el.scrollIntoView({ behavior: 'smooth' });
+              }, 200);
+              observer.disconnect();
+            }
+          });
         });
-      });
 
-      observer.observe(this.#eleRef.nativeElement, {
-        childList: true,
-        subtree: true,
-      });
-    }
+        observer.observe(this.#eleRef.nativeElement, {
+          childList: true,
+          subtree: true,
+        });
+      }
+    });
   }
 }
