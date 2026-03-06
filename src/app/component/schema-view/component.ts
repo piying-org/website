@@ -24,11 +24,11 @@ export class SchemaViewRC {
   context = this.#route.snapshot.data['context']?.();
   schema = this.#route.snapshot.data['schema']();
   model = resource({
-    loader: async () => {
-      return runInInjectionContext(this.#injector, () => {
-        return this.#route.snapshot.data['model']?.() || defaultValue;
-      });
-    },
+    loader: async () =>
+      runInInjectionContext(
+        this.#injector,
+        () => this.#route.snapshot.data['model']?.() || defaultValue,
+      ),
   });
   options = {
     context: this.context,

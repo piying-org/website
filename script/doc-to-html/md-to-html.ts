@@ -1,5 +1,3 @@
-import { Directive, ElementRef, inject, input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Renderer, Tokens, Marked, lexer, RendererThis } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 import { decode, encode } from 'html-entities';
@@ -80,9 +78,9 @@ const marked = new Marked(
     async: true,
     highlight: async (code, lang, info) => {
       const codeData = await codeToHtml(code, lang);
-      let currentIndex = codeIndex++;
+      const currentIndex = codeIndex++;
       const tabName = `code-tab-${currentIndex}`;
-      let encodeData = encode(code);
+      const encodeData = encode(code);
       if (lang === 'ts') {
         return `<div class="tabs tabs-lift">
         <input type="radio" name="${tabName}" class="tab" aria-label="${$localize`预览`}" checked="checked"/>
@@ -103,9 +101,9 @@ function needAddTranslate(value: string) {
   return !!value.trim() && /\p{Script=Hani}/u.test(value);
 }
 function DRender(this: RendererThis, a: MDirective) {
-  let tokenList = a.tokens ?? [];
-  let content = this.parser.parse(tokenList).trim();
-  let attrs = Object.entries(a.attrs ?? {})
+  const tokenList = a.tokens ?? [];
+  const content = this.parser.parse(tokenList).trim();
+  const attrs = Object.entries(a.attrs ?? {})
     .map(([key, value]) => {
       if (!value) {
         return `data-${key}`;
@@ -184,9 +182,9 @@ export async function mdToHtml(text: string, link: string, language: string) {
       },
     ]),
   );
-  let mdResult = fm<Record<string, any>>(text);
+  const mdResult = fm<Record<string, any>>(text);
 
-  let content = await marked.parse(mdResult.body, {
+  const content = await marked.parse(mdResult.body, {
     gfm: true,
     async: true,
     renderer: new Renderer2(link),

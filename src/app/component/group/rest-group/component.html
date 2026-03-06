@@ -4,7 +4,7 @@
       class="fieldset bg-base-200 border-base-300 rounded-box border p-4 w-full"
     >
       <legend class="fieldset-legend">
-        {{ field$$().props()["title"] ?? field$$().keyPath?.join(".") }}
+        {{ field$$().props()['title'] ?? field$$().keyPath?.join('.') }}
       </legend>
       <ng-template #fieldItem let-field="field">
         @if (!field.renderConfig().hidden) {

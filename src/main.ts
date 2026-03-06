@@ -14,7 +14,5 @@ Promise.resolve()
     }
     return;
   })
-  .then(() => {
-    return bootstrapApplication(App, appConfig);
-  })
+  .then(() => bootstrapApplication(App, appConfig))
   .catch((err) => console.error(err));

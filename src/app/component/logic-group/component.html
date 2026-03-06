@@ -1,5 +1,5 @@
-@let type = field$$().props()["type"];
-@if (type === "anyOf") {
+@let type = field$$().props()['type'];
+@if (type === 'anyOf') {
   <app-select
     [options]="list()"
     [multiple]="true"
@@ -16,7 +16,7 @@
       }
     }
   </div>
-} @else if (type === "oneOf") {
+} @else if (type === 'oneOf') {
   <app-select
     [options]="list()"
     [(ngModel)]="selectOr$"

@@ -2,15 +2,15 @@ import { sync } from 'fast-glob';
 import fs from 'fs';
 import path from 'path';
 function main() {
-  let dir = path.join(process.cwd(), './src/examples');
-  let list = fs.readdirSync(dir);
-  let obj = {} as Record<string, any[]>;
+  const dir = path.join(process.cwd(), './src/examples');
+  const list = fs.readdirSync(dir);
+  const obj = {} as Record<string, any[]>;
   for (const name of list) {
-    let stat = fs.statSync(path.join(dir, name));
+    const stat = fs.statSync(path.join(dir, name));
     if (!stat.isDirectory()) {
       continue;
     }
-    let fileList = sync('*.ts', { cwd: path.join(dir, name) });
+    const fileList = sync('*.ts', { cwd: path.join(dir, name) });
     obj[name] = [];
     for (const item of fileList) {
       obj[name].push({

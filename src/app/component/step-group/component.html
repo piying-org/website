@@ -1,6 +1,6 @@
 <ul class="steps">
   @for (field of field$$().children!(); track field.id || $index) {
-    @let label1 = field.props()["title"] || "Tab" + ($index + 1);
+    @let label1 = field.props()['title'] || 'Tab' + ($index + 1);
     <li
       class="step step-primary"
       [class.step-primary]="field.form.control?.valid"

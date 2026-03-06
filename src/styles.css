@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "daisyui";
 @source '../node_modules/@piying-lib/angular-daisyui/fesm2022';
 @source '../node_modules/@piying-lib/angular-daisyui/preset-css/ts';

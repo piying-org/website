@@ -10,20 +10,10 @@
     "serve:ssr:piying-website": "node dist/piying-website/server/server.mjs",
     "build:online-type": "dts-bundle-generator ./src/declaration/online-type.ts --project ./tsconfig.online-type.json -o public/declaration/online-type.d.ts --external-inlines valibot --external-inlines @piying/view-angular --external-inlines @piying/view-angular-core --no-check --no-banner --inline-declare-global --inline-declare-externals --export-referenced-types",
     "build:examples": "tsx ./script/demo-to-json.ts",
-    "lint": "eslint --fix ./src && prettier ./src --write",
+    "lint": "eslint --fix ./src && prettier ./src --write && eslint --fix ./script && prettier ./script --write ",
     "i18n:g": "tsx ./script/doc-extra.ts && i18n pl ./i18n/input/doc.json ./i18n/output/doc -n zh-hans --update && ng extract-i18n --output-path src/locale",
     "i18n:c": "i18n merge ./i18n/merge ./i18n/output/web ./i18n/output/doc && i18n convert ./i18n/merge ./public/i18n",
     "md-to-html": "tsx ./script/doc-to-html/index.ts"
-  },
-  "prettier": {
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
   },
   "private": true,
   "dependencies": {
@@ -72,7 +62,7 @@
     "daisyui": "^5.5.19",
     "dts-bundle-generator": "^9.5.1",
     "eslint": "^9.31.0",
-    "eslint-plugin-unused-imports": "^4.1.4",
+    "eslint-plugin-unused-imports": "^4.4.1",
     "fast-glob": "^3.3.3",
     "jasmine-core": "~5.8.0",
     "karma": "~6.4.0",
@@ -85,6 +75,6 @@
     "shiki": "^4.0.1",
     "tsx": "^4.20.3",
     "typescript": "~5.8.2",
-    "typescript-eslint": "^8.37.0"
+    "typescript-eslint": "^8.56.1"
   }
 }

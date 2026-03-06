@@ -7,8 +7,8 @@
   />
   <div class="flex flex-col gap-2">
     @for (field of searchFields$$(); track field.id || $index) {
-      @if (field.props()["title"]) {
-        <label class="label">{{ field.props()["title"] }}</label>
+      @if (field.props()['title']) {
+        <label class="label">{{ field.props()['title'] }}</label>
       }
       <ng-container
         *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: field }"

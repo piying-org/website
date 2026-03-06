@@ -4,31 +4,31 @@ import fs from 'fs';
 import { mdToHtml } from './md-to-html';
 import * as prettier from 'prettier';
 import { loadTranslations } from '@cyia/localize';
-let outputDir = path.join(process.cwd(), './public/resolved/docs');
+const outputDir = path.join(process.cwd(), './public/resolved/docs');
 
 export async function main() {
-  let cwd = path.join(process.cwd(), './public/docs');
-  let list = sync('./**/*.md', {
+  const cwd = path.join(process.cwd(), './public/docs');
+  const list = sync('./**/*.md', {
     cwd: cwd,
   });
   for (const language of ['zh-hans', 'en']) {
     if (language !== 'zh-hans') {
-      let transData = await import(`../../public/i18n/${language}.json`);
+      const transData = await import(`../../public/i18n/${language}.json`);
       loadTranslations(transData.default);
     }
     for (const item of list) {
-      let fp = path.join(cwd, item);
-      let content = await fs.promises.readFile(fp, { encoding: 'utf-8' });
-      let result = await mdToHtml(
+      const fp = path.join(cwd, item);
+      const content = await fs.promises.readFile(fp, { encoding: 'utf-8' });
+      const result = await mdToHtml(
         content,
         path.posix
           .normalize(path.relative(path.dirname(cwd), fp.slice(0, -3)))
           .replaceAll('\\', '/'),
         language,
       );
-      let prettierResult = await prettier.format(result, { parser: 'html' });
+      const prettierResult = await prettier.format(result, { parser: 'html' });
 
-      let outputPath = path
+      const outputPath = path
         .join(outputDir, language, item)
         .replace(/\.md$/, '.html');
 

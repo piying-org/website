@@ -1,6 +1,6 @@
 <div class="tabs tabs-border">
   @for (field of field$$().children!(); track field.id || $index) {
-    @let label = field.props()["title"] || "Tab" + ($index + 1);
+    @let label = field.props()['title'] || 'Tab' + ($index + 1);
     <input
       type="radio"
       [name]="name"
