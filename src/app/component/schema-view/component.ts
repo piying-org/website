@@ -23,7 +23,7 @@ export class SchemaViewRC {
   schema = this.route.snapshot.data['schema']();
   model = resource({
     loader: async () => {
-      this.route.snapshot.data['model']?.() || defaultValue;
+      return this.route.snapshot.data['model']?.() || defaultValue;
     },
   });
   options = {

@@ -11,6 +11,7 @@ import { MarkdownPage } from './component/markdown/component';
 import { PlaygroundGroupRoute, PlaygroundSingleRoute } from './page/playground';
 import { skip } from 'rxjs';
 import { JsonPlaygroundRoute } from './page/json-playground';
+import { locale } from './const/locate';
 export const routes: Routes = [
   {
     path: '',
@@ -102,9 +103,11 @@ export const routes: Routes = [
           }),
           setComponent('main'),
         ),
-      model: async () => ({
-        toolbar: { language: $localize.locale },
-      }),
+      model: async () => {
+        return {
+          toolbar: { language: locale },
+        };
+      },
     },
     children: [
       {
