@@ -2111,6 +2111,18 @@
     "associatedMessageIds": {},
     "target": "Essentially equivalent to `any[]`"
   },
+  "2794079030534891039": {
+    "id": "2794079030534891039",
+    "text": "基础禁用配置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "基础禁用配置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Basic Disabled Configuration"
+  },
   "2307902717393215001": {
     "id": "2307902717393215001",
     "text": "增加包装器",
@@ -3250,6 +3262,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "More support to be implemented"
+  },
+  "7481930537364833908": {
+    "id": "7481930537364833908",
+    "text": "更新时机配置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "更新时机配置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Update Timing Configuration"
   },
   "2395404919385499367": {
     "id": "2395404919385499367",
@@ -4415,18 +4439,6 @@
     "associatedMessageIds": {},
     "target": "Set the form control to be unassociated with `formControl`; i.e., the control is configured as a plain component."
   },
-  "2096377056530296399": {
-    "id": "2096377056530296399",
-    "text": "设置表单配置",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "设置表单配置"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Set form configuration"
-  },
   "8402003515067659904": {
     "id": "8402003515067659904",
     "text": "设置设置表单值",
@@ -4558,6 +4570,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Transformation"
+  },
+  "7652959117664957119": {
+    "id": "7652959117664957119",
+    "text": "输入输出转换",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "输入输出转换"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Input-Output Conversion"
   },
   "8296903281769967667": {
     "id": "8296903281769967667",

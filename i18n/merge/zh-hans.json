@@ -2111,6 +2111,18 @@
     "associatedMessageIds": {},
     "target": "基本等价于`any[]`"
   },
+  "2794079030534891039": {
+    "id": "2794079030534891039",
+    "text": "基础禁用配置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "基础禁用配置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "基础禁用配置"
+  },
   "2307902717393215001": {
     "id": "2307902717393215001",
     "text": "增加包装器",
@@ -3250,6 +3262,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "更多支持待实现"
+  },
+  "7481930537364833908": {
+    "id": "7481930537364833908",
+    "text": "更新时机配置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "更新时机配置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "更新时机配置"
   },
   "2395404919385499367": {
     "id": "2395404919385499367",
@@ -4415,18 +4439,6 @@
     "associatedMessageIds": {},
     "target": "设置表单控件不关联 formControl;也就是该控件被设置为一个普通的组件"
   },
-  "2096377056530296399": {
-    "id": "2096377056530296399",
-    "text": "设置表单配置",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "设置表单配置"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "设置表单配置"
-  },
   "8402003515067659904": {
     "id": "8402003515067659904",
     "text": "设置设置表单值",
@@ -4558,6 +4570,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "转换"
+  },
+  "7652959117664957119": {
+    "id": "7652959117664957119",
+    "text": "输入输出转换",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "输入输出转换"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "输入输出转换"
   },
   "8296903281769967667": {
     "id": "8296903281769967667",
