@@ -7,7 +7,7 @@
 - 设置组件类型
 
 ```ts
-v.pipe(v.string(), setComponent("textarea"));
+v.pipe(v.string(), setComponent('textarea'));
 ```
 
 ### actions通用方法
@@ -19,7 +19,7 @@ v.pipe(v.string(), setComponent("textarea"));
 - 设置属性,会覆盖所有值
 
 ```ts
-v.pipe(NFCSchema, setComponent("button"), actions.attributes.set({ id: "id1", "data-k1": "1" }), actions.attributes.set({ id: "id2" }));
+v.pipe(NFCSchema, setComponent('button'), actions.attributes.set({ id: 'id1', 'data-k1': '1' }), actions.attributes.set({ id: 'id2' }));
 ```
 
 #### patch
@@ -27,7 +27,7 @@ v.pipe(NFCSchema, setComponent("button"), actions.attributes.set({ id: "id1", "d
 - 设置属性,会覆盖已存在的值
 
 ```ts
-v.pipe(NFCSchema, setComponent("button"), actions.attributes.patch({ id: "id1", "data-k1": "1" }), actions.attributes.patch({ id: "id2" }));
+v.pipe(NFCSchema, setComponent('button'), actions.attributes.patch({ id: 'id1', 'data-k1': '1' }), actions.attributes.patch({ id: 'id2' }));
 ```
 
 #### patchAsync
@@ -35,7 +35,7 @@ v.pipe(NFCSchema, setComponent("button"), actions.attributes.patch({ id: "id1", 
 - 设置属性,会覆盖所有值
 
 ```ts
-v.pipe(NFCSchema, setComponent("button"), actions.attributes.set({ id: "id1", "data-k1": "1" }), actions.attributes.set({ id: "id2" }));
+v.pipe(NFCSchema, setComponent('button'), actions.attributes.set({ id: 'id1', 'data-k1': '1' }), actions.attributes.set({ id: 'id2' }));
 ```
 
 #### patch
@@ -43,7 +43,7 @@ v.pipe(NFCSchema, setComponent("button"), actions.attributes.set({ id: "id1", "d
 - 设置属性,会覆盖已存在的值
 
 ```ts
-v.pipe(NFCSchema, setComponent("button"), actions.attributes.patch({ id: "id1", "data-k1": "1" }), actions.attributes.patch({ id: "id2" }));
+v.pipe(NFCSchema, setComponent('button'), actions.attributes.patch({ id: 'id1', 'data-k1': '1' }), actions.attributes.patch({ id: 'id2' }));
 ```
 
 #### patchAsync
@@ -51,13 +51,13 @@ v.pipe(NFCSchema, setComponent("button"), actions.attributes.patch({ id: "id1", 
 - 设置属性,允许使用field,并返回一个异步的值(Promise,Signal,Observable)动态更新
 
 ```ts
-v.pipe(NFCSchema, setComponent("button"), actions.inputs.patchAsync({ content: () => "1" }));
+v.pipe(NFCSchema, setComponent('button'), actions.inputs.patchAsync({ content: () => '1' }));
 ```
 
 ```ts
 v.pipe(
   NFCSchema,
-  setComponent("button"),
+  setComponent('button'),
   actions.inputs.patchAsync({
     content: () => {
       let ob = new BehaviorSubject(0);
@@ -80,15 +80,15 @@ v.pipe(
 ```ts
 v.pipe(
   NFCSchema,
-  setComponent("button"),
+  setComponent('button'),
   actions.props.patch({
-    value: "1",
+    value: '1',
   }),
   actions.inputs.mapAsync((field) => {
     return (value) => {
       return {
         ...value,
-        content: field.props()["value"],
+        content: field.props()['value'],
       };
     };
   }),
@@ -100,13 +100,13 @@ v.pipe(
 - 在当前定义的顶层增加类
 
 ```ts
-v.pipe(v.string(), actions.wrappers.set(["block"]), actions.class.top("testa"));
+v.pipe(v.string(), actions.wrappers.set(['block']), actions.class.top('testa'));
 ```
 
 - 在当前定义的内层增加类(也就是当前组件)
 
 ```ts
-v.pipe(v.string(), actions.wrappers.set(["block"]), actions.class.bottom("testa"));
+v.pipe(v.string(), actions.wrappers.set(['block']), actions.class.bottom('testa'));
 ```
 
 ### setAlias
@@ -115,14 +115,14 @@ v.pipe(v.string(), actions.wrappers.set(["block"]), actions.class.bottom("testa"
 
 ```ts
 v.object({
-  value1: v.pipe(v.string(), setAlias("value1")),
+  value1: v.pipe(v.string(), setAlias('value1')),
   __btn: v.pipe(
     NFCSchema,
-    setComponent("button"),
+    setComponent('button'),
     actions.inputs.patchAsync({
       clicked: (field) => {
         return () => {
-          console.log(field.get(["@value1"]));
+          console.log(field.get(['@value1']));
         };
       },
     }),
@@ -138,17 +138,17 @@ v.object({
 v.object({
   __btn1: v.pipe(
     NFCSchema,
-    setComponent("button"),
+    setComponent('button'),
     actions.inputs.patch({
-      content: "btn1",
+      content: 'btn1',
     }),
   ),
   __btn2: v.pipe(
     NFCSchema,
-    setComponent("button"),
+    setComponent('button'),
     layout({ priority: -1 }),
     actions.inputs.patch({
-      content: "btn2",
+      content: 'btn2',
     }),
   ),
 });
@@ -162,22 +162,22 @@ v.object({
     v.object({
       __btn1: v.pipe(
         NFCSchema,
-        setComponent("button"),
+        setComponent('button'),
         actions.inputs.patch({
-          content: "btn1",
+          content: 'btn1',
         }),
-        layout({ keyPath: ["#"] }),
+        layout({ keyPath: ['#'] }),
       ),
     }),
-    v.title("l1-label"),
-    actions.wrappers.patch(["label"]),
+    v.title('l1-label'),
+    actions.wrappers.patch(['label']),
   ),
 
   __btn2: v.pipe(
     NFCSchema,
-    setComponent("button"),
+    setComponent('button'),
     actions.inputs.patch({
-      content: "btn2",
+      content: 'btn2',
     }),
   ),
 });
@@ -195,9 +195,9 @@ v.pipe(
     v.string(),
     v.pipe(
       NFCSchema,
-      setComponent("button"),
+      setComponent('button'),
       actions.inputs.patch({
-        content: "test",
+        content: 'test',
       }),
       actions.inputs.patchAsync({
         clicked: (field) => {
@@ -220,9 +220,9 @@ v.pipe(
     v.string(),
     v.pipe(
       NFCSchema,
-      setComponent("button"),
+      setComponent('button'),
       actions.inputs.patch({
-        content: "test",
+        content: 'test',
       }),
       actions.inputs.patchAsync({
         clicked: (field) => {
@@ -253,14 +253,14 @@ v.object({
     v.object({
       k2: v.string(),
     }),
-    setComponent("textarea"),
+    setComponent('textarea'),
     asControl(),
   ),
   __btn1: v.pipe(
     NFCSchema,
-    setComponent("button"),
+    setComponent('button'),
     actions.inputs.patch({
-      content: "test",
+      content: 'test',
     }),
     actions.inputs.patchAsync({
       clicked: (field) => {
@@ -283,10 +283,10 @@ v.object({
   key1: v.pipe(
     v.string(),
     condition({
-      environments: ["default"],
+      environments: ['default'],
       actions: [
         rawConfig((item) => {
-          item.inputs = { ...item.inputs, type: "date" };
+          item.inputs = { ...item.inputs, type: 'date' };
           return item;
         }),
       ],
@@ -303,7 +303,7 @@ v.object({
 v.pipe(
   v.string(),
   rawConfig((item) => {
-    item.inputs = { ...item.inputs, type: "date" };
+    item.inputs = { ...item.inputs, type: 'date' };
     return item;
   }),
 );
@@ -319,18 +319,20 @@ v.pipe(
 
 ```ts
 v.object({
-  k1: v.pipe(v.pipe(v.optional(v.string(), "k2  hidden")), renderConfig({ hidden: true })),
+  k1: v.pipe(v.pipe(v.optional(v.string(), 'k2  hidden')), renderConfig({ hidden: true })),
   k2: v.pipe(v.string(), renderConfig({ hidden: false })),
 });
 ```
 
 #### formConfig
 
-- 设置表单配置
+- 基础禁用配置
 
 ```ts
 v.pipe(v.string(), formConfig({ disabled: true }));
 ```
+
+- 输入输出转换
 
 ```ts
 v.pipe(
@@ -338,10 +340,10 @@ v.pipe(
   formConfig({
     transfomer: {
       toView(value, control) {
-        return `1${value ?? ""}`;
+        return `1${value ?? ''}`;
       },
       toModel(value, control) {
-        return (value ?? "").slice(1);
+        return (value ?? '').slice(1);
       },
     },
   }),
@@ -353,6 +355,12 @@ v.pipe(
     },
   }),
 );
+```
+
+- 更新时机配置
+
+```ts
+v.pipe(v.string(), formConfig({ updateOn: 'blur' }));
 ```
 
 ### hideWhen
@@ -369,7 +377,7 @@ v.object({
       disabled: true,
       listen: (fn, field) => {
         return fn({
-          list: [["..", "enable"]],
+          list: [['..', 'enable']],
         }).pipe(map((item) => !item.list[0]));
       },
     }),
@@ -387,7 +395,7 @@ v.pipe(
   v.string(),
   valueChange((listen) => {
     listen({ list: [undefined] }).subscribe((value) => {
-      console.log("value change", value);
+      console.log('value change', value);
     });
   }),
 );
@@ -399,10 +407,10 @@ v.object({
   value: v.pipe(
     v.string(),
     valueChange((listen) => {
-      listen({ list: [undefined, ["..", "enable"]] }).subscribe((value) => {
-        console.log("value list", value.list);
-        console.log("field", value.field);
-        console.log("listenFields", value.listenFields);
+      listen({ list: [undefined, ['..', 'enable']] }).subscribe((value) => {
+        console.log('value list', value.list);
+        console.log('field', value.field);
+        console.log('listenFields', value.listenFields);
       });
     }),
   ),
@@ -421,7 +429,7 @@ v.object({
     disableWhen({
       listen: (fn, field) => {
         return fn({
-          list: [["..", "enable"]],
+          list: [['..', 'enable']],
         }).pipe(map((item) => !item.list[0]));
       },
     }),
