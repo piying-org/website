@@ -1,9 +1,11 @@
 import {
   ApplicationConfig,
+  inject,
+  provideAppInitializer,
   provideBrowserGlobalErrorListeners,
   provideZonelessChangeDetection,
 } from '@angular/core';
-import { provideRouter, withInMemoryScrolling } from '@angular/router';
+import { provideRouter, Router, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
 import {
@@ -27,5 +29,12 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
     ThemeService,
+    provideAppInitializer(() => {
+      let router = localStorage.getItem('router');
+      if (router) {
+        return inject(Router).navigateByUrl(router);
+      }
+      return;
+    }),
   ],
 };

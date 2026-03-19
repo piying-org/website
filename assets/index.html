@@ -8,14 +8,18 @@
     />
     <meta charset="UTF-8" />
     <script>
-      if (!localStorage.getItem("lang")) {
-        if (navigator.language.startsWith("zh")) {
-          localStorage.setItem("lang", "zh-hans");
+      if (!localStorage.getItem('lang')) {
+        if (navigator.language.startsWith('zh')) {
+          localStorage.setItem('lang', 'zh-hans');
         } else {
-          localStorage.setItem("lang", "en");
+          localStorage.setItem('lang', 'en');
         }
       }
-      window.location.href = `/website/${localStorage.getItem("lang")}`;
+      localStorage.setItem(
+        'router',
+        location.pathname.split('/').slice(3).join('/'),
+      );
+      window.location.href = `/website/${localStorage.getItem('lang')}`;
     </script>
   </head>
   <body></body>
