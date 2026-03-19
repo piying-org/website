@@ -1,10 +1,10 @@
-#
+# Svelte使用差异与配置说明
 
 ## 组件中获取配置实例
 
 ```typescript
-import { PI_VIEW_FIELD_TOKEN } from "@piying/view-svelte";
-import { getContext } from "svelte";
+import { PI_VIEW_FIELD_TOKEN } from '@piying/view-svelte';
+import { getContext } from 'svelte';
 const field = getContext<PI_VIEW_FIELD_TOKEN>(PI_VIEW_FIELD_TOKEN);
 ```
 
@@ -14,7 +14,7 @@ const field = getContext<PI_VIEW_FIELD_TOKEN>(PI_VIEW_FIELD_TOKEN);
 - `cvaa`用于和现有的表单控件进行绑定
 
 ```typescript
-import { useControlValueAccessor } from "@piying/view-svelte";
+import { useControlValueAccessor } from '@piying/view-svelte';
 const { cva, cvaa } = useControlValueAccessor();
 export { cva };
 ```

@@ -1,4 +1,316 @@
 {
+  "8757790982047344627": {
+    "id": "8757790982047344627",
+    "text": "**Valibot 兼容**：完整支持 Valibot 的验证与转换机制",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**Valibot 兼容**：完整支持 Valibot 的验证与转换机制"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Valibot Compatibility**: Full support for Valibot’s validation and transformation mechanisms."
+  },
+  "3414067855718826397": {
+    "id": "3414067855718826397",
+    "text": "**Valibot 验证**（先执行）",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**Valibot 验证**（先执行）"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Valibot Validation** (executed first)"
+  },
+  "4924912414602181025": {
+    "id": "4924912414602181025",
+    "text": "**互斥模式**：一个`schema`中只允许出现`allOf`/`oneOf`/`anyOf`/`if/then/else`其中之一子模式\n\n> `not`不在此限制中",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**互斥模式**：一个`schema`中只允许出现`allOf`/`oneOf`/`anyOf`/`if/then/else`其中之一子模式\n\n> `not`不在此限制中"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Exclusive Mode**: Within a single `schema`, only one of the following sub-schemas is permitted: `allOf`, `oneOf`, `anyOf`, or `if/then/else`.\n\n> Note: `not` is exempt from this restriction."
+  },
+  "5466273525220233455": {
+    "id": "5466273525220233455",
+    "text": "**优先级规则**：`const`/`enum`出现时优先转换，忽略其他验证\n\n> 当出现限定范围的字段时，优先实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**优先级规则**：`const`/`enum`出现时优先转换，忽略其他验证\n\n> 当出现限定范围的字段时，优先实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Priority Rules**: When `const` or `enum` appears, prioritize conversion and ignore other validations.  \n> When fields with restricted ranges appear, prioritize their implementation."
+  },
+  "8980164201452649119": {
+    "id": "8980164201452649119",
+    "text": "**参考**：[select/component.ts#L61](https://github.com/piying-org/website/blob/master/src/app/component/select/component.ts#L61)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**参考**：[select/component.ts#L61](https://github.com/piying-org/website/blob/master/src/app/component/select/component.ts#L61)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Reference**: [select/component.ts#L61](https://github.com/piying-org/website/blob/master/src/app/component/select/component.ts#L61)"
+  },
+  "8575441115149645544": {
+    "id": "8575441115149645544",
+    "text": "**参考文件**：[logic-group/component.ts](https://github.com/piying-org/website/blob/master/src/app/component/logic-group/component.ts)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**参考文件**：[logic-group/component.ts](https://github.com/piying-org/website/blob/master/src/app/component/logic-group/component.ts)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Reference File**: [logic-group/component.ts](https://github.com/piying-org/website/blob/master/src/app/component/logic-group/component.ts)"
+  },
+  "7818645840194579620": {
+    "id": "7818645840194579620",
+    "text": "**嵌套限制**：`allOf`/`oneOf`/`anyOf`/`if/then/else`子模式内不支持嵌套子模式",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**嵌套限制**：`allOf`/`oneOf`/`anyOf`/`if/then/else`子模式内不支持嵌套子模式"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Nested Restrictions**: Nested sub-schemas are not supported within `allOf`/`oneOf`/`anyOf`/`if/then/else` sub-schemas."
+  },
+  "1849262189535220912": {
+    "id": "1849262189535220912",
+    "text": "**引用限制**：`$ref`仅支持单文件，不支持远程引用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**引用限制**：`$ref`仅支持单文件，不支持远程引用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Reference Limitation**: `$ref` supports only single-file references and does not support remote references."
+  },
+  "2872365100731335382": {
+    "id": "2872365100731335382",
+    "text": "**控件自带验证**（后执行）",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**控件自带验证**（后执行）"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Built-in Control Validation** (executed later)"
+  },
+  "2496302162431936292": {
+    "id": "2496302162431936292",
+    "text": "**死结检测**：传入数据不可存在死结\n\n> 如果某些字段在验证过程中始终失败，则为死结",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**死结检测**：传入数据不可存在死结\n\n> 如果某些字段在验证过程中始终失败，则为死结"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Deadlock Detection**: The input data must not contain deadlocks.\n\n> A deadlock occurs when certain fields consistently fail validation."
+  },
+  "2658606750595334951": {
+    "id": "2658606750595334951",
+    "text": "**用途**：验证使用，可视为普通的 object 类型",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**用途**：验证使用，可视为普通的 object 类型"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Purpose**: For verification purposes; can be treated as a standard object type."
+  },
+  "5890920013726990546": {
+    "id": "5890920013726990546",
+    "text": "**统一API**：为不同框架提供一致的开发体验",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**统一API**：为不同框架提供一致的开发体验"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Unified API**: Provides a consistent development experience across different frameworks."
+  },
+  "6145764009852872512": {
+    "id": "6145764009852872512",
+    "text": "**语义化配置**：减少开发心智负担",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**语义化配置**：减少开发心智负担"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Semantic Configuration**: Reduces Development Cognitive Load"
+  },
+  "9208398397262469683": {
+    "id": "9208398397262469683",
+    "text": "**说明**：选择类型，会自动传入`options`输入属性，对应组件需要实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**说明**：选择类型，会自动传入`options`输入属性，对应组件需要实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Note**: Selecting a type will automatically pass the `options` input property, and the corresponding component needs to implement this."
+  },
+  "6374930396784857436": {
+    "id": "6374930396784857436",
+    "text": "**适用场景**：子模式下存在相同字段时使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**适用场景**：子模式下存在相同字段时使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Applicable Scenario**: Used when identical fields exist within sub-patterns."
+  },
+  "4145663188548163903": {
+    "id": "4145663188548163903",
+    "text": "**适用场景**：需要组件中实现手动选择一个或多个子条件",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**适用场景**：需要组件中实现手动选择一个或多个子条件"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**Applicable Scenarios**: Cases where the component needs to support manual selection of one or multiple sub-conditions."
+  },
+  "6911189206167593747": {
+    "id": "6911189206167593747",
+    "text": "**高内聚低耦合**：通过配置动态调整功能",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "**高内聚低耦合**：通过配置动态调整功能"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "**High Cohesion, Low Coupling**: Achieved through configurable dynamic adjustment functionality."
+  },
+  "3709470440695473588": {
+    "id": "3709470440695473588",
+    "text": "Action 是 Valibot 中的元数据设置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Action 是 Valibot 中的元数据设置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`Action` is the metadata setting in Valibot."
+  },
+  "5536909806410012465": {
+    "id": "5536909806410012465",
+    "text": "Action 是 [Valibot]((https://valibot.dev/guides/mental-model/))中元数据设置的扩展，现用于配置组件行为、表单控件、事件监听等。",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Action 是 [Valibot]((https://valibot.dev/guides/mental-model/))中元数据设置的扩展，现用于配置组件行为、表单控件、事件监听等。"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`Action` is an extension of metadata configuration in [Valibot](https://valibot.dev/guides/mental-model/), now used to configure component behavior, form controls, event listeners, and more."
+  },
+  "3074834580096191824": {
+    "id": "3074834580096191824",
+    "text": "Action 详解",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Action 详解"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Action Explanation"
+  },
+  "395690554152305165": {
+    "id": "395690554152305165",
+    "text": "CVA 来源于 Angular，目前各框架均有不同实现，但原理相同",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "CVA 来源于 Angular，目前各框架均有不同实现，但原理相同"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "CVA originates from Angular, and although different frameworks have their own implementations, the underlying principle remains the same."
+  },
+  "3319629943948605929": {
+    "id": "3319629943948605929",
+    "text": "Field 简介",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Field 简介"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Field Introduction"
+  },
+  "8445596658531838190": {
+    "id": "8445596658531838190",
+    "text": "Field 详解",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Field 详解"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Field Explanation"
+  },
+  "4390113919511409776": {
+    "id": "4390113919511409776",
+    "text": "Formik 迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Formik 迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Formik Migration"
+  },
+  "2673055299243491294": {
+    "id": "2673055299243491294",
+    "text": "JsonSchema 支持",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "JsonSchema 支持"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "JsonSchema support"
+  },
+  "868737651115031004": {
+    "id": "868737651115031004",
+    "text": "Ngx-Formly 迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Ngx-Formly 迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Ngx-Formly Migration"
+  },
   "7011568823392026912": {
     "id": "7011568823392026912",
     "text": "ORM介绍",
@@ -11,17 +323,149 @@
     "associatedMessageIds": {},
     "target": "Introduction to ORM"
   },
-  "3845628124501689714": {
-    "id": "3845628124501689714",
-    "text": "[valibot](https://valibot.dev/guides/mental-model/)中的概念",
+  "5384161878901358572": {
+    "id": "5384161878901358572",
+    "text": "Pipe 是 Valibot 中的数据转换管道",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "[valibot](https://valibot.dev/guides/mental-model/)中的概念"
+      "Pipe 是 Valibot 中的数据转换管道"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Concepts from [valibot](https://valibot.dev/guides/mental-model/)"
+    "target": "Pipe is a data transformation pipeline in Valibot."
+  },
+  "5320204002397249415": {
+    "id": "5320204002397249415",
+    "text": "React Hook Form 迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "React Hook Form 迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "React Hook Form Migration"
+  },
+  "1653154294775555661": {
+    "id": "1653154294775555661",
+    "text": "React TanStack Form 迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "React TanStack Form 迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "React TanStack Form Migration"
+  },
+  "8171131031218313363": {
+    "id": "8171131031218313363",
+    "text": "React使用差异与配置说明",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "React使用差异与配置说明"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "React Usage Differences and Configuration Instructions"
+  },
+  "1740574346378255393": {
+    "id": "1740574346378255393",
+    "text": "Schema 定义固定，但组件布局可以动态调整",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Schema 定义固定，但组件布局可以动态调整"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The schema definition is fixed, but the component layout can be dynamically adjusted."
+  },
+  "6673372307040260549": {
+    "id": "6673372307040260549",
+    "text": "Solid使用差异与配置说明",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Solid使用差异与配置说明"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Solid: Differences and Configuration Instructions"
+  },
+  "1265189858861077401": {
+    "id": "1265189858861077401",
+    "text": "Svelte使用差异与配置说明",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Svelte使用差异与配置说明"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Svelte Differences and Configuration Guide"
+  },
+  "7446378414532863323": {
+    "id": "7446378414532863323",
+    "text": "Valibot 中的 Schema 概念，用于定义表单结构",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Valibot 中的 Schema 概念，用于定义表单结构"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The Schema concept in Valibot is used to define form structures."
+  },
+  "1840571413902530101": {
+    "id": "1840571413902530101",
+    "text": "Valibot 提供了预制的国际化支持：",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Valibot 提供了预制的国际化支持："
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Valibot provides built-in internationalization support."
+  },
+  "6286800543060634582": {
+    "id": "6286800543060634582",
+    "text": "Valibot 验证",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Valibot 验证"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Valibot validation"
+  },
+  "1034008199854217750": {
+    "id": "1034008199854217750",
+    "text": "Vee-Validate 迁移",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Vee-Validate 迁移"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Vee-Validate Migration"
+  },
+  "808879451258844060": {
+    "id": "808879451258844060",
+    "text": "Vue使用差异与配置说明",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "Vue使用差异与配置说明"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Vue Usage Differences and Configuration Instructions"
   },
   "5547561574669585495": {
     "id": "5547561574669585495",
@@ -59,18 +503,6 @@
     "associatedMessageIds": {},
     "target": "[Reference file](https://github.com/piying-org/website/blob/master/src/app/component/json-schema/component.ts)"
   },
-  "5362782095342552132": {
-    "id": "5362782095342552132",
-    "text": "[参考文件](https://github.com/piying-org/website/blob/master/src/app/component/logic-group/component.ts)",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "[参考文件](https://github.com/piying-org/website/blob/master/src/app/component/logic-group/component.ts)"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "[Reference file](https://github.com/piying-org/website/blob/master/src/app/component/logic-group/component.ts)"
-  },
   "1300767165377959025": {
     "id": "1300767165377959025",
     "text": "[客户端](https://github.com/piying-org/piying-view)",
@@ -83,161 +515,29 @@
     "associatedMessageIds": {},
     "target": "[Client](https://github.com/piying-org/piying-view)"
   },
-  "2543986353130029467": {
-    "id": "2543986353130029467",
-    "text": "[游乐场](https://piying-org.github.io/website/jsonschema-playground)",
+  "8686651784574837352": {
+    "id": "8686651784574837352",
+    "text": "[概念](docs/client/concept/action)",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "[游乐场](https://piying-org.github.io/website/jsonschema-playground)"
+      "[概念](docs/client/concept/action)"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "[Playground](https://piying-org.github.io/website/jsonschema-playground)"
+    "target": "[Concept](docs/client/concept/action)"
   },
-  "3725591429090425021": {
-    "id": "3725591429090425021",
-    "text": "`#` 查询根级配置",
+  "7493736215908356003": {
+    "id": "7493736215908356003",
+    "text": "`NFCSchema`：`NonFieldControlSchema`，用于定义非表单控件",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "`#` 查询根级配置"
+      "`NFCSchema`：`NonFieldControlSchema`，用于定义非表单控件"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "`#` Query root-level configuration"
-  },
-  "5009229534551249592": {
-    "id": "5009229534551249592",
-    "text": "`$ref`仅支持单文件,不支持远程引用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`$ref`仅支持单文件,不支持远程引用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "The `$ref` keyword only supports single files and does not support remote references."
-  },
-  "4113782251005630579": {
-    "id": "4113782251005630579",
-    "text": "`..` 查询父级\n> 任何情况下`['aa']`都表示查询当前级别的自己为`aa`的控件,所以如果要查询同级别的控件,需要`['..','aa']`",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`..` 查询父级\n> 任何情况下`['aa']`都表示查询当前级别的自己为`aa`的控件,所以如果要查询同级别的控件,需要`['..','aa']`"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`..` Query parent level  \n> In any case, `['aa']` represents querying the control whose name is `aa` at the current level. Therefore, if you want to query controls at the same level, you need to use `['..','aa']`."
-  },
-  "1395061638591271723": {
-    "id": "1395061638591271723",
-    "text": "`@xx` 查询别名为`xx`的控件\n> 当创建了一个数组项时,别名会创建一个单独的Map保存,如果查询不到的情况下,才会查询父级",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`@xx` 查询别名为`xx`的控件\n> 当创建了一个数组项时,别名会创建一个单独的Map保存,如果查询不到的情况下,才会查询父级"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`@xx` queries the control with the alias `xx`  \n> When an array item is created, the alias creates a separate Map to store it. Only if the query fails, it will then query the parent."
-  },
-  "3169113022069916125": {
-    "id": "3169113022069916125",
-    "text": "`actions.attributes.mapAsync` 映射,可以读取field实例,类似Array.map",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`actions.attributes.mapAsync` 映射,可以读取field实例,类似Array.map"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`actions.attributes.mapAsync` performs a mapping operation, allowing access to field instances, similar to `Array.map`."
-  },
-  "8573399497505334029": {
-    "id": "8573399497505334029",
-    "text": "`actions.attributes.patchAsync` 设置,可以读取field实例,返回支持的异步属性",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`actions.attributes.patchAsync` 设置,可以读取field实例,返回支持的异步属性"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`actions.attributes.patchAsync`: Setting—can read the field instance and return supported asynchronous properties."
-  },
-  "5707047876316470200": {
-    "id": "5707047876316470200",
-    "text": "`actions.attributes.patch` 设置,增加",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`actions.attributes.patch` 设置,增加"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`actions.attributes.patch` configuration, add"
-  },
-  "985718937200575067": {
-    "id": "985718937200575067",
-    "text": "`actions.attributes.remove` 删除",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`actions.attributes.remove` 删除"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`actions.attributes.remove` — Remove"
-  },
-  "6232196164758298526": {
-    "id": "6232196164758298526",
-    "text": "`actions.attributes.set` 设置,会清空已有",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`actions.attributes.set` 设置,会清空已有"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`actions.attributes.set` — Setting (this operation clears existing attributes)."
-  },
-  "7283249233356340343": {
-    "id": "7283249233356340343",
-    "text": "`actions.outputs.merge` 合并监听,允许某个事件被监听多次",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`actions.outputs.merge` 合并监听,允许某个事件被监听多次"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`actions.outputs.merge` — Merge listener, allowing a specific event to be listened to multiple times."
-  },
-  "3844858265876602406": {
-    "id": "3844858265876602406",
-    "text": "`actions.outputs.path` 监听事件,设置监听,重复设置会覆盖",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`actions.outputs.path` 监听事件,设置监听,重复设置会覆盖"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`actions.outputs.path`: Listens to events, sets a listener; setting it again will overwrite the previous configuration."
-  },
-  "6767744056938281413": {
-    "id": "6767744056938281413",
-    "text": "`allOf`/`oneOf`/`anyOf`/`if/then/else`子模式内不支持子模式",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`allOf`/`oneOf`/`anyOf`/`if/then/else`子模式内不支持子模式"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Subschemas within `allOf`/`oneOf`/`anyOf`/`if/then/else` are not supported"
+    "target": "`NFCSchema`: `NonFieldControlSchema`, used to define non-form controls."
   },
   "2884683988417577326": {
     "id": "2884683988417577326",
@@ -263,30 +563,6 @@
     "associatedMessageIds": {},
     "target": "`array` dynamically add child items"
   },
-  "6598202871436380788": {
-    "id": "6598202871436380788",
-    "text": "`asyncValidators`异步表单验证",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`asyncValidators`异步表单验证"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`asyncValidators` Asynchronous Form Validation"
-  },
-  "6574109078389591972": {
-    "id": "6574109078389591972",
-    "text": "`blur` touchedChange触发时更新(一般为blur事件触发)",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`blur` touchedChange触发时更新(一般为blur事件触发)"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Update when `touchend` triggers (typically triggered by a blur event)"
-  },
   "8640552069097997916": {
     "id": "8640552069097997916",
     "text": "`btn1`被提升到根级",
@@ -299,30 +575,6 @@
     "associatedMessageIds": {},
     "target": "`btn1` is promoted to the root level."
   },
-  "3871154599357482551": {
-    "id": "3871154599357482551",
-    "text": "`change`控件值变更发射时更新",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`change`控件值变更发射时更新"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Update when the `change` control value change is emitted"
-  },
-  "130820785883785666": {
-    "id": "130820785883785666",
-    "text": "`children`所有子项",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`children`所有子项"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`children` All child items"
-  },
   "5244256398521240053": {
     "id": "5244256398521240053",
     "text": "`comment` 根据`v.title`,`v.description`自动生成",
@@ -334,18 +586,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`comment` generated automatically based on `v.title` and `v.description`"
-  },
-  "3342359738790497607": {
-    "id": "3342359738790497607",
-    "text": "`const`/`enum`出现时优先转换,忽略其他验证\n> 即当出现限定范围的字段时,优先实现",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`const`/`enum`出现时优先转换,忽略其他验证\n> 即当出现限定范围的字段时,优先实现"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Prioritize conversion when `const`/`enum` appears, ignoring other validations.  \n> That is, when a field with a limited range appears, prioritize implementation."
   },
   "4411053764251150929": {
     "id": "4411053764251150929",
@@ -383,54 +623,6 @@
     "associatedMessageIds": {},
     "target": "`default` Optional default value"
   },
-  "2238330843842140472": {
-    "id": "2238330843842140472",
-    "text": "`deletionMode`array子项被删除时,应该设置为undefined还是跳过;默认为跳过",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`deletionMode`array子项被删除时,应该设置为undefined还是跳过;默认为跳过"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "When an item in the `deletionMode` array is deleted, it should be set to `undefined` or skipped; the default is to skip."
-  },
-  "7407254321873464146": {
-    "id": "7407254321873464146",
-    "text": "`disabledValue`禁用时值是否删除(默认删除)",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`disabledValue`禁用时值是否删除(默认删除)"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`disabledValue` Whether the value is removed when disabled (default is removed)"
-  },
-  "4155813805759541408": {
-    "id": "4155813805759541408",
-    "text": "`disabled`是否禁用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`disabled`是否禁用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`disabled` disabled"
-  },
-  "4807674892919679758": {
-    "id": "4807674892919679758",
-    "text": "`emptyValue`当值为空时,返回的默认值\n> 仅适用于`array/group/logic group`",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`emptyValue`当值为空时,返回的默认值\n> 仅适用于`array/group/logic group`"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`emptyValue` The default value returned when the value is empty  \n> Applies only to `array/group/logic group`"
-  },
   "2672008421021469298": {
     "id": "2672008421021469298",
     "text": "`enum` picklist的值",
@@ -443,65 +635,17 @@
     "associatedMessageIds": {},
     "target": "The value of the `enum` picklist"
   },
-  "1188943212461243169": {
-    "id": "1188943212461243169",
-    "text": "`field.statusChanges`可以监听模型值变更",
+  "668762331322562229": {
+    "id": "668762331322562229",
+    "text": "`intersect` ,`union`为逻辑分组,提供更复杂的业务",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "`field.statusChanges`可以监听模型值变更"
+      "`intersect` ,`union`为逻辑分组,提供更复杂的业务"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "`field.statusChanges` can listen for changes in the model value."
-  },
-  "2716168256524936229": {
-    "id": "2716168256524936229",
-    "text": "`field.valueChanges`可以监听模型值变更",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`field.valueChanges`可以监听模型值变更"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`field.valueChanges` can listen for changes in the model value."
-  },
-  "6555803015138505042": {
-    "id": "6555803015138505042",
-    "text": "`fieldResolved`仅当前配置已经解析",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`fieldResolved`仅当前配置已经解析"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`fieldResolved` is only enabled when the current configuration has been resolved."
-  },
-  "2932617297023838326": {
-    "id": "2932617297023838326",
-    "text": "`fixedChildren` 固定子项,比如`v.object({})`,`v.tuple([])`中的子级",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`fixedChildren` 固定子项,比如`v.object({})`,`v.tuple([])`中的子级"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`fixedChildren`: Fixed child elements, such as those within `v.object({})` or `v.tuple([])`."
-  },
-  "3919685533196953785": {
-    "id": "3919685533196953785",
-    "text": "`hidden`控制是否隐藏",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`hidden`控制是否隐藏"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`hidden` controls whether to hide or not."
+    "target": "`intersect` and `union` are logical grouping operations that enable more complex business logic."
   },
   "8009353098870898924": {
     "id": "8009353098870898924",
@@ -539,54 +683,6 @@
     "associatedMessageIds": {},
     "target": "`looseTuple` Fixed array items, cannot be added, exceeding the length is retained"
   },
-  "7323285653079580036": {
-    "id": "7323285653079580036",
-    "text": "`mapAsync`与`map`相同,可以获得field",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`mapAsync`与`map`相同,可以获得field"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`mapAsync` is the same as `map`; you can obtain the field."
-  },
-  "7009146832353203172": {
-    "id": "7009146832353203172",
-    "text": "`map`类似数组/rxjs的`map`方法,信号值变更后进行运算",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`map`类似数组/rxjs的`map`方法,信号值变更后进行运算"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`map` works like the array’s `map` method (or RxJS’s `map`). It performs the computation after the signal’s value changes."
-  },
-  "5965339728846425593": {
-    "id": "5965339728846425593",
-    "text": "`mergeAsync`与`merge`相同,可以获得field",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`mergeAsync`与`merge`相同,可以获得field"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`mergeAsync` is the same as `merge`; you can obtain the field."
-  },
-  "1994002459584875238": {
-    "id": "1994002459584875238",
-    "text": "`merge`用于`outputs`/`events`,允许设置多个监听",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`merge`用于`outputs`/`events`,允许设置多个监听"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`merge` is used in `outputs`/`events`, allowing multiple listeners to be set."
-  },
   "2457804126682227107": {
     "id": "2457804126682227107",
     "text": "`nullable` 字段处于非必填状态时",
@@ -611,18 +707,6 @@
     "associatedMessageIds": {},
     "target": "The `objectWithRest` section has fixed key values, as well as some optional keys that can be added."
   },
-  "5776185434218354072": {
-    "id": "5776185434218354072",
-    "text": "`object`/`intersect`/`union`/`tuple`/`array`等可以包含子组件的Schema",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`object`/`intersect`/`union`/`tuple`/`array`等可以包含子组件的Schema"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Schemas that can contain sub-components, such as `object`/`intersect`/`union`/`tuple`/`array`"
-  },
   "698410466507448577": {
     "id": "698410466507448577",
     "text": "`object`/`strictObject` 自动过滤未定义的键值",
@@ -634,42 +718,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`object`/`strictObject` automatically filter out undefined keys"
-  },
-  "9134210059486152346": {
-    "id": "9134210059486152346",
-    "text": "`patchAsync`与`patch`相同,可以获得field和上下文,支持`Promise`/`Observable`/`Signal`;非上述类型的值会直接赋值",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`patchAsync`与`patch`相同,可以获得field和上下文,支持`Promise`/`Observable`/`Signal`;非上述类型的值会直接赋值"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`patchAsync` works the same as `patch`; it can obtain fields and contexts, and supports `Promise`/`Observable`/`Signal`. Values that are not of the supported types will be assigned directly."
-  },
-  "2958776433449508242": {
-    "id": "2958776433449508242",
-    "text": "`patch`与已有配置合并({...a,...b})",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`patch`与已有配置合并({...a,...b})"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`patch` merges the existing configuration with the new one.({...a,...b})"
-  },
-  "6631169515952339735": {
-    "id": "6631169515952339735",
-    "text": "`pipe`输出值时可以进行防抖处理(rxjs pipe)",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`pipe`输出值时可以进行防抖处理(rxjs pipe)"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "When outputting the value of `pipe`, debouncing can be applied (rxjs pipe)"
   },
   "6242894012574987174": {
     "id": "6242894012574987174",
@@ -695,6 +743,18 @@
     "associatedMessageIds": {},
     "target": "`priority` indicates the priority level; the smaller the number, the earlier the position."
   },
+  "8635547750176503926": {
+    "id": "8635547750176503926",
+    "text": "`rawConfig` 允许修改底层设置，方便开发者自行定义",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "`rawConfig` 允许修改底层设置，方便开发者自行定义"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "`rawConfig` allows modification of underlying settings, enabling developers to customize them as needed."
+  },
   "3393251207971501349": {
     "id": "3393251207971501349",
     "text": "`record` 无固定键值,全部为可添加键值\n> 目前仅支持key为string类型",
@@ -706,42 +766,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`record` has no fixed key values; all keys are addable.  \n> Currently, only string-type keys are supported."
-  },
-  "5375731654841658008": {
-    "id": "5375731654841658008",
-    "text": "`remove`删除某一项",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`remove`删除某一项"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`remove` Delete an item"
-  },
-  "1799804426506301951": {
-    "id": "1799804426506301951",
-    "text": "`restChildren` 动态子项,比如`v.array(v.any())`,`v.record(v.any(),v.any())`",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`restChildren` 动态子项,比如`v.array(v.any())`,`v.record(v.any(),v.any())`"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`restChildren`: dynamic child items, such as `v.array(v.any())` or `v.record(v.any(), v.any())`."
-  },
-  "8765893958173617642": {
-    "id": "8765893958173617642",
-    "text": "`set`替换当前输入设置",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`set`替换当前输入设置"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`set` replaces the current input settings"
   },
   "6305542520898877390": {
     "id": "6305542520898877390",
@@ -766,30 +790,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Values of type `signal` need to be converted to `state` to support dynamic changes."
-  },
-  "1355092974482054796": {
-    "id": "1355092974482054796",
-    "text": "`submit` 调用控件的`emitSubmit`方法后更新(一般为form的submit事件后调用)",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`submit` 调用控件的`emitSubmit`方法后更新(一般为form的submit事件后调用)"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Update after calling the `emitSubmit` method of the `submit` control (typically invoked after the form's submit event)"
-  },
-  "1432372443952387797": {
-    "id": "1432372443952387797",
-    "text": "`transfomer`输入/输出值时进行转换",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`transfomer`输入/输出值时进行转换"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Convert input/output values of `transfomer`"
   },
   "1518819030445482137": {
     "id": "1518819030445482137",
@@ -827,18 +827,6 @@
     "associatedMessageIds": {},
     "target": "`type` Some basic types can be automatically assigned values."
   },
-  "5736131001182624386": {
-    "id": "5736131001182624386",
-    "text": "`updateOn`合适输出值",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`updateOn`合适输出值"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "The appropriate output value for `updateOn`"
-  },
   "8092751764605584214": {
     "id": "8092751764605584214",
     "text": "`v.intersect()`+`asVirtualGroup`可以进行多级虚拟组",
@@ -850,54 +838,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "`v.intersect()` + `asVirtualGroup` can perform multi-level virtual groups"
-  },
-  "362221883486026609": {
-    "id": "362221883486026609",
-    "text": "`validators`表单验证\n> 推荐使用`valibot`的`v.check`",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`validators`表单验证\n> 推荐使用`valibot`的`v.check`"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`validators` form validation  \n> It is recommended to use `valibot`'s `v.check`"
-  },
-  "6169823300869564946": {
-    "id": "6169823300869564946",
-    "text": "`属性名`: inputs/props/attributes/outputs/wrappers/events",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`属性名`: inputs/props/attributes/outputs/wrappers/events"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`propertyName`: inputs/props/attributes/outputs/wrappers/events"
-  },
-  "525052460021035102": {
-    "id": "525052460021035102",
-    "text": "`方法名`: set/remove/patch/patchAsync/merge/mergeAsync/map/mapAsync",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "`方法名`: set/remove/patch/patchAsync/merge/mergeAsync/map/mapAsync"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`Method name`: set/remove/patch/patch/patch"
-  },
-  "4170238025272207414": {
-    "id": "4170238025272207414",
-    "text": "actions通用方法",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "actions通用方法"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "General methods for actions"
   },
   "9104834737937258726": {
     "id": "9104834737937258726",
@@ -911,161 +851,77 @@
     "associatedMessageIds": {},
     "target": "The builder is implemented in the source code `src/app/component/form/formly/translate.builder.ts`."
   },
-  "8506936725857513883": {
-    "id": "8506936725857513883",
-    "text": "formik 迁移",
+  "7176354480017941178": {
+    "id": "7176354480017941178",
+    "text": "control 类型",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "formik 迁移"
+      "control 类型"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "formik Migration"
+    "target": "control type"
   },
-  "1226656929959948072": {
-    "id": "1226656929959948072",
-    "text": "html标签中的原生属性",
+  "7686790904977565874": {
+    "id": "7686790904977565874",
+    "text": "group 类型",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "html标签中的原生属性"
+      "group 类型"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Native attributes in HTML tags"
+    "target": "group type"
   },
-  "713394539855480504": {
-    "id": "713394539855480504",
-    "text": "inputs/outputs/attributes/events均含有以下方法,可以进行设置",
+  "3595840572945355997": {
+    "id": "3595840572945355997",
+    "text": "null 类型",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "inputs/outputs/attributes/events均含有以下方法,可以进行设置"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`inputs`, `outputs`, `attributes`, and `events` all contain the following methods, which can be configured."
-  },
-  "5454201658283574613": {
-    "id": "5454201658283574613",
-    "text": "list为路径查询列表,设置`undefined`时表示自身组件",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "list为路径查询列表,设置`undefined`时表示自身组件"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "`list` is the path query list; setting it to `undefined` indicates the current component itself."
-  },
-  "9082023173940517025": {
-    "id": "9082023173940517025",
-    "text": "ngx-formly 迁移",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "ngx-formly 迁移"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "ngx-formly migration"
-  },
-  "7787280144996095787": {
-    "id": "7787280144996095787",
-    "text": "null类型",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "null类型"
+      "null 类型"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "null type"
   },
-  "8977992715275135017": {
-    "id": "8977992715275135017",
-    "text": "react-hook-form 迁移",
+  "7631315122159448138": {
+    "id": "7631315122159448138",
+    "text": "⚙️ 自定义 actions",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "react-hook-form 迁移"
+      "⚙️ 自定义 actions"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "react-hook-form Migration"
+    "target": "⚙️ Custom Actions"
   },
-  "1955247720079056793": {
-    "id": "1955247720079056793",
-    "text": "react-tanstack 迁移",
+  "1077010478750501804": {
+    "id": "1077010478750501804",
+    "text": "✅ 支持程度",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "react-tanstack 迁移"
+      "✅ 支持程度"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "React-TanStack Migration"
+    "target": "✅ Level of Support"
   },
-  "7297245665835292883": {
-    "id": "7297245665835292883",
-    "text": "valibot的验证会先工作,验证成功后,再执行控件验证",
+  "2542108689910060247": {
+    "id": "2542108689910060247",
+    "text": "一次定义，多端使用",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "valibot的验证会先工作,验证成功后,再执行控件验证"
+      "一次定义，多端使用"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Valibot's validation will take effect first. After the validation is successful, the control validation will be executed."
-  },
-  "7015531191039297663": {
-    "id": "7015531191039297663",
-    "text": "valibot验证",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "valibot验证"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "valibot validation"
-  },
-  "73906890455136876": {
-    "id": "73906890455136876",
-    "text": "vee-validate 迁移",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "vee-validate 迁移"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "vee-validate Migration"
-  },
-  "8246346384856016430": {
-    "id": "8246346384856016430",
-    "text": "一个`schema`中只允许出现`allOf`/`oneOf`/`anyOf`/`if/then/else`其中之一子模式\n> `not`不在此限制中",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "一个`schema`中只允许出现`allOf`/`oneOf`/`anyOf`/`if/then/else`其中之一子模式\n> `not`不在此限制中"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Within a `schema`, only one of the subschemas `allOf`, `oneOf`, `anyOf`, or `if/then/else` is allowed to appear.  \n> `not` is not subject to this restriction."
-  },
-  "7124564648409890694": {
-    "id": "7124564648409890694",
-    "text": "一般为适配不同的库/框架时使用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "一般为适配不同的库/框架时使用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Generally used when adapting to different libraries/frameworks."
+    "target": "Define once, use across multiple platforms"
   },
   "2695741515345689644": {
     "id": "2695741515345689644",
@@ -1079,53 +935,17 @@
     "associatedMessageIds": {},
     "target": "Context"
   },
-  "2755207541936112304": {
-    "id": "2755207541936112304",
-    "text": "与`actions.class.top`类似,只不过是设置组件自身的",
+  "348802195577669618": {
+    "id": "348802195577669618",
+    "text": "不受限于固定的展示形式，完全按设计需求定制",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "与`actions.class.top`类似,只不过是设置组件自身的"
+      "不受限于固定的展示形式，完全按设计需求定制"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "\"Similar to `actions.class.top`, but it is used to set the component itself.\""
-  },
-  "162365918824879785": {
-    "id": "162365918824879785",
-    "text": "与`hideWhen`,`disableWhen`类似,支持多个控件监听",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "与`hideWhen`,`disableWhen`类似,支持多个控件监听"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Similar to `hideWhen` and `disableWhen`, it supports multiple controls for listening."
-  },
-  "910779403902234938": {
-    "id": "910779403902234938",
-    "text": "与`valueChange`类似",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "与`valueChange`类似"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Similar to `valueChange`"
-  },
-  "535154158469991585": {
-    "id": "535154158469991585",
-    "text": "与大家理解的组件一致",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "与大家理解的组件一致"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Consistent with the components as understood by everyone."
+    "target": "Not constrained by fixed display formats; fully customizable according to design requirements."
   },
   "4258400301672206208": {
     "id": "4258400301672206208",
@@ -1139,17 +959,41 @@
     "associatedMessageIds": {},
     "target": "Consistent with the component definitions understood by users; different front-end frameworks have varying component definition approaches."
   },
-  "3038796434602271152": {
-    "id": "3038796434602271152",
-    "text": "为不同框架提供统一的表单开发体验",
+  "7829638920862402197": {
+    "id": "7829638920862402197",
+    "text": "两种验证方式",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "为不同框架提供统一的表单开发体验"
+      "两种验证方式"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Provide a unified form development experience across different frameworks"
+    "target": "Two verification methods"
+  },
+  "4351525553114511910": {
+    "id": "4351525553114511910",
+    "text": "为什么选择皮影？",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "为什么选择皮影？"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Why Shadow Puppetry?"
+  },
+  "5408723909780252643": {
+    "id": "5408723909780252643",
+    "text": "为组件附加通用能力（标签、验证、前后缀等）",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "为组件附加通用能力（标签、验证、前后缀等）"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Attach generic capabilities to components (e.g., labels, validation, prefixes/suffixes)."
   },
   "8916537472669748089": {
     "id": "8916537472669748089",
@@ -1187,6 +1031,30 @@
     "associatedMessageIds": {},
     "target": "You can also use group to perform validation only in specific groups."
   },
+  "3566774717899615900": {
+    "id": "3566774717899615900",
+    "text": "也可手动指定组件类型\n> 如果组件仅使用一次时可直接指定，否则推荐先注册再使用",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "也可手动指定组件类型\n> 如果组件仅使用一次时可直接指定，否则推荐先注册再使用"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Component types can also be manually specified.  \n> If a component is used only once, it can be directly specified; otherwise, it is recommended to register it first before use."
+  },
+  "2306560387785709408": {
+    "id": "2306560387785709408",
+    "text": "也可自定义 object 组件，修改显示方式",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "也可自定义 object 组件，修改显示方式"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "You can also customize the object component and modify its display method."
+  },
   "2119146926133144794": {
     "id": "2119146926133144794",
     "text": "事件输出",
@@ -1199,17 +1067,17 @@
     "associatedMessageIds": {},
     "target": "Event Output"
   },
-  "2370971840764051165": {
-    "id": "2370971840764051165",
-    "text": "事件输出允许同时监听多个组件,多个输出,然后根据其输出逻辑关系处理",
+  "7166742758907816640": {
+    "id": "7166742758907816640",
+    "text": "事件输出允许同时监听多个组件、多个输出，然后根据其输出逻辑关系处理",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "事件输出允许同时监听多个组件,多个输出,然后根据其输出逻辑关系处理"
+      "事件输出允许同时监听多个组件、多个输出，然后根据其输出逻辑关系处理"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Event output allows listening to multiple components and multiple outputs at the same time, and then processes them based on their output logic relationships."
+    "target": "Event output allows simultaneously monitoring multiple components and multiple outputs, then processing them based on their output logic relationships."
   },
   "8468647149273983149": {
     "id": "8468647149273983149",
@@ -1259,41 +1127,41 @@
     "associatedMessageIds": {},
     "target": "In any case, you can add `v.array()` to define a type that is not specified in the type definition, indicating it as an array."
   },
-  "6169673985170922788": {
-    "id": "6169673985170922788",
-    "text": "传入一个`string[]`,比如`['aa','bb']`",
+  "5436211604858948447": {
+    "id": "5436211604858948447",
+    "text": "优势：代码管理更方便，支持框架间无缝迁移",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "传入一个`string[]`,比如`['aa','bb']`"
+      "优势：代码管理更方便，支持框架间无缝迁移"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Pass in a `string[]`, for example `['aa','bb']`"
+    "target": "Advantages: Easier code management and seamless migration between frameworks."
   },
-  "5144126760365565094": {
-    "id": "5144126760365565094",
-    "text": "传入度数据不可存在死结\n> 如果某些字段在验证过程中,始终失败,则为死结",
+  "6776446543847913566": {
+    "id": "6776446543847913566",
+    "text": "传入一个 `string[]`，比如 `['aa','bb']`，表示从左到右逐级查询。",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "传入度数据不可存在死结\n> 如果某些字段在验证过程中,始终失败,则为死结"
+      "传入一个 `string[]`，比如 `['aa','bb']`，表示从左到右逐级查询。"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Ingress data cannot contain deadlocks.  \n> If certain fields consistently fail during validation, they constitute a deadlock."
+    "target": "Pass in a `string[]`, such as `['aa', 'bb']`, to indicate hierarchical querying from left to right."
   },
-  "1029023685462150272": {
-    "id": "1029023685462150272",
-    "text": "使开发者更加关注于逻辑和布局,从琐碎事物中解放出来",
+  "8705795380940507160": {
+    "id": "8705795380940507160",
+    "text": "传统表单：视图、逻辑、类型需要分别定义,并存在强耦合",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "使开发者更加关注于逻辑和布局,从琐碎事物中解放出来"
+      "传统表单：视图、逻辑、类型需要分别定义,并存在强耦合"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Enable developers to focus more on logic and layout, freeing them from trivial matters."
+    "target": "Traditional forms: views, logic, and types must be defined separately and exhibit strong coupling."
   },
   "4362706441482076330": {
     "id": "4362706441482076330",
@@ -1307,6 +1175,30 @@
     "associatedMessageIds": {},
     "target": "Use"
   },
+  "849784649572635843": {
+    "id": "849784649572635843",
+    "text": "使用 `FieldLogicGroup` 轻松实现条件切换",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "使用 `FieldLogicGroup` 轻松实现条件切换"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Easily implement conditional switching using `FieldLogicGroup`."
+  },
+  "3919840468737053971": {
+    "id": "3919840468737053971",
+    "text": "使用 `v.string()` 时自动查找注册的 `string` 配置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "使用 `v.string()` 时自动查找注册的 `string` 配置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Automatically looks up registered `string` configurations when using `v.string()`."
+  },
   "2614371932351079648": {
     "id": "2614371932351079648",
     "text": "使用`defer`动态创建控件",
@@ -1319,29 +1211,29 @@
     "associatedMessageIds": {},
     "target": "Create controls dynamically using `defer`"
   },
-  "2379821979264704524": {
-    "id": "2379821979264704524",
-    "text": "使用`intersect`时,会自动创建一个`LogicGroup`,使用此方法可以不创建控件组,而是一个普通的分组(等价于v.object)",
+  "8255116324706206231": {
+    "id": "8255116324706206231",
+    "text": "使用`intersect`时,会自动创建一个`LogicGroup`;使用后设置为普通 group 表单，用于更好的页面布局\n",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "使用`intersect`时,会自动创建一个`LogicGroup`,使用此方法可以不创建控件组,而是一个普通的分组(等价于v.object)"
+      "使用`intersect`时,会自动创建一个`LogicGroup`;使用后设置为普通 group 表单，用于更好的页面布局\n"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "When using `intersect`, a `LogicGroup` is automatically created. Using this method allows you to create a regular group instead of a control group (equivalent to `v.object`)."
+    "target": "When using `intersect`, a `LogicGroup` is automatically created; after use, it can be set as a regular group form for better page layout."
   },
-  "8363812595432782256": {
-    "id": "8363812595432782256",
-    "text": "使用`v.array(v.string())`时,如果不想表示为`FieldArray`,而是仅仅想视为一个普通的类型`FieldControl`时使用",
+  "6762058735634474714": {
+    "id": "6762058735634474714",
+    "text": "使用`v.array(v.string())`时,如果不想表示为`FieldArray`,而是仅仅想视为一个普通的类型`FieldControl`时使用;可能需要配合`setComponent`",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "使用`v.array(v.string())`时,如果不想表示为`FieldArray`,而是仅仅想视为一个普通的类型`FieldControl`时使用"
+      "使用`v.array(v.string())`时,如果不想表示为`FieldArray`,而是仅仅想视为一个普通的类型`FieldControl`时使用;可能需要配合`setComponent`"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "When using `v.array(v.string())`, if you do not want to represent it as `FieldArray`, but instead just want to treat it as a regular type `FieldControl`, use"
+    "target": "When using `v.array(v.string())`, if you do not wish to represent it as a `FieldArray` but instead want to treat it merely as a regular type `FieldControl`, you may need to use `setComponent` in conjunction."
   },
   "3293556844005822763": {
     "id": "3293556844005822763",
@@ -1367,6 +1259,18 @@
     "associatedMessageIds": {},
     "target": "You can use object to define multi-level data structures."
   },
+  "154747289674256516": {
+    "id": "154747289674256516",
+    "text": "使用后必须使用 `setComponent` 手动指定组件名",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "使用后必须使用 `setComponent` 手动指定组件名"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "After use, you must manually specify the component name using `setComponent`."
+  },
   "4906175811249072254": {
     "id": "4906175811249072254",
     "text": "使用展示",
@@ -1391,53 +1295,65 @@
     "associatedMessageIds": {},
     "target": "Using the specified syntax, custom selectors can be avoided."
   },
-  "7460961669942764224": {
-    "id": "7460961669942764224",
-    "text": "使用此声明后,一定要使用`setComponent`手动指定一个确定的组件名",
+  "6495048014279987165": {
+    "id": "6495048014279987165",
+    "text": "使用方式",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "使用此声明后,一定要使用`setComponent`手动指定一个确定的组件名"
+      "使用方式"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "After using this declaration, you must manually specify a definite component name using `setComponent`."
+    "target": "Usage Method"
   },
-  "1690593954229013269": {
-    "id": "1690593954229013269",
-    "text": "使用过不代表发射过值,可能是点击过一次,一般为触发`blur`后变成`touched`",
+  "1800743867994001168": {
+    "id": "1800743867994001168",
+    "text": "使用示例",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "使用过不代表发射过值,可能是点击过一次,一般为触发`blur`后变成`touched`"
+      "使用示例"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Using it does not necessarily mean that a value has been emitted; it could simply mean that it was clicked once. Generally, it becomes `touched` after triggering `blur`."
+    "target": "Usage Example"
   },
-  "6795062932524592118": {
-    "id": "6795062932524592118",
-    "text": "依赖注入的注入器实例,通过它获得相关token及服务实例",
+  "6182384100572282357": {
+    "id": "6182384100572282357",
+    "text": "依赖注入",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "依赖注入的注入器实例,通过它获得相关token及服务实例"
+      "依赖注入"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "The injector instance for dependency injection, through which relevant tokens and service instances are obtained."
+    "target": "Dependency Injection"
   },
-  "1385309905832843089": {
-    "id": "1385309905832843089",
-    "text": "值变化",
+  "1135046579789509236": {
+    "id": "1135046579789509236",
+    "text": "依赖注入的注入器实例，通过它获得相关 token 及服务实例",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "值变化"
+      "依赖注入的注入器实例，通过它获得相关 token 及服务实例"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Value change"
+    "target": "The injector instance for dependency injection, used to obtain the corresponding tokens and service instances."
+  },
+  "7958281210640487054": {
+    "id": "7958281210640487054",
+    "text": "值变化流程",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "值变化流程"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Value Change Process"
   },
   "7539788671656705072": {
     "id": "7539788671656705072",
@@ -1463,41 +1379,17 @@
     "associatedMessageIds": {},
     "target": "Value Change Listener"
   },
-  "3302987462476279002": {
-    "id": "3302987462476279002",
-    "text": "值变更监听，监听字段值的变化并执行回调",
+  "2903863312431914637": {
+    "id": "2903863312431914637",
+    "text": "值更新时机（updateOn）",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "值变更监听，监听字段值的变化并执行回调"
+      "值更新时机（updateOn）"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Value change listener: monitors changes to field values and executes a callback."
-  },
-  "744543685870474142": {
-    "id": "744543685870474142",
-    "text": "值恢复为默认值(如果没有传入)",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "值恢复为默认值(如果没有传入)"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Value is restored to the default value (if not provided)"
-  },
-  "1006437792698791656": {
-    "id": "1006437792698791656",
-    "text": "值更新时机(updateOn)",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "值更新时机(updateOn)"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Update timing (updateOn)"
+    "target": "Update Timing (updateOn)"
   },
   "7979054654573832849": {
     "id": "7979054654573832849",
@@ -1511,66 +1403,6 @@
     "associatedMessageIds": {},
     "target": "The ControlValueAccessor is a design used to connect form controls with components, originating from [Angular](https://angular.dev/api/forms/ControlValueAccessor)."
   },
-  "6025431985508552731": {
-    "id": "6025431985508552731",
-    "text": "允许启用部分子级",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "允许启用部分子级"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Allow enabling partial child nodes"
-  },
-  "5005882652320368539": {
-    "id": "5005882652320368539",
-    "text": "允许进行动态数据转换",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "允许进行动态数据转换"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Allow dynamic data transformation."
-  },
-  "968701223811806626": {
-    "id": "968701223811806626",
-    "text": "关键字",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "关键字"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Keyword"
-  },
-  "115620263628314702": {
-    "id": "115620263628314702",
-    "text": "其中`intersect`配合`asVirtualGroup`可以创建一个逻辑上的普通分组,方便布局",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "其中`intersect`配合`asVirtualGroup`可以创建一个逻辑上的普通分组,方便布局"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "In which `intersect` combined with `asVirtualGroup` can create a logical normal group, facilitating layout."
-  },
-  "4922114282869370679": {
-    "id": "4922114282869370679",
-    "text": "其他",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "其他"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Other"
-  },
   "8245665266367653205": {
     "id": "8245665266367653205",
     "text": "其他列装饰器实现",
@@ -1583,13 +1415,13 @@
     "associatedMessageIds": {},
     "target": "Other column decorator implementations"
   },
-  "4224547679097374544": {
-    "id": "4224547679097374544",
-    "text": "其他未知的类型",
+  "4990775908140990925": {
+    "id": "4990775908140990925",
+    "text": "其他未知类型",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "其他未知的类型"
+      "其他未知类型"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
@@ -1619,17 +1451,29 @@
     "associatedMessageIds": {},
     "target": "Other decorators correspond to"
   },
-  "8225983412930701792": {
-    "id": "8225983412930701792",
-    "text": "几乎所有的`皮影Action`都来源于此Action",
+  "861169564007887983": {
+    "id": "861169564007887983",
+    "text": "内置 actions",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "几乎所有的`皮影Action`都来源于此Action"
+      "内置 actions"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Almost all `Piying Action` originates from this Action."
+    "target": "Built-in actions"
+  },
+  "4416785523058166259": {
+    "id": "4416785523058166259",
+    "text": "几乎所有皮影 Action 的基础",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "几乎所有皮影 Action 的基础"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The foundation of almost all shadow puppetry actions"
   },
   "6612840890007855543": {
     "id": "6612840890007855543",
@@ -1643,17 +1487,17 @@
     "associatedMessageIds": {},
     "target": "Partition Disable"
   },
-  "453488653227783738": {
-    "id": "453488653227783738",
-    "text": "分发到FieldControl级`updateValue`",
+  "2172467783239062353": {
+    "id": "2172467783239062353",
+    "text": "分发到 FieldControl 级 `updateValue`",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "分发到FieldControl级`updateValue`"
+      "分发到 FieldControl 级 `updateValue`"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Distribute to FieldControl level `updateValue`"
+    "target": "Distribute to the FieldControl-level `updateValue`"
   },
   "5423159681680587432": {
     "id": "5423159681680587432",
@@ -1667,17 +1511,17 @@
     "associatedMessageIds": {},
     "target": "Grouping"
   },
-  "8330240739818021215": {
-    "id": "8330240739818021215",
-    "text": "分组使用的字段,一般用来控制子级的显示",
+  "7619878259040491164": {
+    "id": "7619878259040491164",
+    "text": "分组使用的字段，一般用来控制子级的显示：",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "分组使用的字段,一般用来控制子级的显示"
+      "分组使用的字段，一般用来控制子级的显示："
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "The field used for grouping, typically employed to control the visibility of child elements."
+    "target": "Fields used for grouping, typically employed to control the display of child items:"
   },
   "6503772594833286737": {
     "id": "6503772594833286737",
@@ -1703,17 +1547,29 @@
     "associatedMessageIds": {},
     "target": "Dynamically modify the provider list"
   },
-  "3627400046970749431": {
-    "id": "3627400046970749431",
-    "text": "动态变更,支持Promise,Observable,Signal",
+  "6038887726173797781": {
+    "id": "6038887726173797781",
+    "text": "动态变更（支持 Promise/Observable/Signal）",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "动态变更,支持Promise,Observable,Signal"
+      "动态变更（支持 Promise/Observable/Signal）"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Dynamic changes, support Promise, Observable, Signal"
+    "target": "Dynamic Updates (Supports Promise/Observable/Signal)"
+  },
+  "8840356462369257853": {
+    "id": "8840356462369257853",
+    "text": "动态数据映射",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "动态数据映射"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Dynamic Data Mapping"
   },
   "2199030438708211389": {
     "id": "2199030438708211389",
@@ -1727,17 +1583,17 @@
     "associatedMessageIds": {},
     "target": "Dynamic parsing part"
   },
-  "2949907352473512786": {
-    "id": "2949907352473512786",
-    "text": "包含输入值`writeValue`,值变更注册函数`registerOnChange`,已用状态注册函数`registerOnTouched`,是否禁用`setDisabledState`",
+  "865061359929541394": {
+    "id": "865061359929541394",
+    "text": "包括：`object`、`intersect`、`union`、`tuple`、`array`等类型",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "包含输入值`writeValue`,值变更注册函数`registerOnChange`,已用状态注册函数`registerOnTouched`,是否禁用`setDisabledState`"
+      "包括：`object`、`intersect`、`union`、`tuple`、`array`等类型"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Includes input value `writeValue`, value change registration function `registerOnChange`, used status registration function `registerOnTouched`, and disabled state `setDisabledState`"
+    "target": "Including types such as `object`, `intersect`, `union`, `tuple`, and `array`."
   },
   "776239771134497672": {
     "id": "776239771134497672",
@@ -1775,42 +1631,6 @@
     "associatedMessageIds": {},
     "target": "The wrapper allows the component to have additional capabilities."
   },
-  "5172621049005916864": {
-    "id": "5172621049005916864",
-    "text": "包装器让开发者在封装组件的时候可以仅考虑该组件的基本功能,减少了代码耦合,增加了可维护性",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "包装器让开发者在封装组件的时候可以仅考虑该组件的基本功能,减少了代码耦合,增加了可维护性"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "The wrapper allows developers to focus only on the basic functionality of the component when encapsulating it, reducing code coupling and improving maintainability."
-  },
-  "2804817727804777513": {
-    "id": "2804817727804777513",
-    "text": "原始配置，允许直接访问和修改 field 配置",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "原始配置，允许直接访问和修改 field 配置"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Original configuration, allowing direct access and modification of field configurations."
-  },
-  "6423523306744619472": {
-    "id": "6423523306744619472",
-    "text": "参考[实现文件](https://github.com/piying-org/website/blob/master/src/app/component/select/component.ts#L61)",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "参考[实现文件](https://github.com/piying-org/website/blob/master/src/app/component/select/component.ts#L61)"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Refer to the [implementation file](https://github.com/piying-org/website/blob/master/src/app/component/select/component.ts#L61)."
-  },
   "1226005654707305742": {
     "id": "1226005654707305742",
     "text": "双向关联时因为循环引用的关系,需要将循环部分的类型和定义单独声明,然后使用`intersect`",
@@ -1835,29 +1655,41 @@
     "associatedMessageIds": {},
     "target": "Change Listening"
   },
-  "114311007129277470": {
-    "id": "114311007129277470",
-    "text": "只能验证自身,无法以上下文值来验证\n> 如果要通过上下文来验证只能将验证写到父级",
+  "5280867365546349227": {
+    "id": "5280867365546349227",
+    "text": "只能验证自身，无法以上下文值来验证\n> 如需通过上下文验证，请将验证写到父级",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "只能验证自身,无法以上下文值来验证\n> 如果要通过上下文来验证只能将验证写到父级"
+      "只能验证自身，无法以上下文值来验证\n> 如需通过上下文验证，请将验证写到父级"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Can only verify itself, cannot verify using context values  \n> If you want to verify using context, you can only write the verification in the parent level"
+    "target": "Can only validate itself; cannot validate based on contextual values.  \n> To validate using context, move the validation logic to the parent."
   },
-  "1397180211717585555": {
-    "id": "1397180211717585555",
-    "text": "可以使用`v.check`自定义验证",
+  "5167289791097541140": {
+    "id": "5167289791097541140",
+    "text": "可以使用 Valibot 中内置的 `Validation` 作为表单验证器：",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "可以使用`v.check`自定义验证"
+      "可以使用 Valibot 中内置的 `Validation` 作为表单验证器："
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "You can use `v.check` for custom validation."
+    "target": "You can use the built-in `Validation` from Valibot as a form validator."
+  },
+  "6626727439888967112": {
+    "id": "6626727439888967112",
+    "text": "可以使用 `v.check` 自定义验证",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "可以使用 `v.check` 自定义验证"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Custom validation can be implemented using `v.check`."
   },
   "8748914583681704519": {
     "id": "8748914583681704519",
@@ -1870,18 +1702,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "You can use `wrapper` to wrap it once."
-  },
-  "5874819782535843592": {
-    "id": "5874819782535843592",
-    "text": "可以使用valibot中内置的`Validation`作为表单验证器",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "可以使用valibot中内置的`Validation`作为表单验证器"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "You can use the built-in `Validation` from Valibot as a form validator."
   },
   "7255915236269551060": {
     "id": "7255915236269551060",
@@ -1907,77 +1727,77 @@
     "associatedMessageIds": {},
     "target": "Can include other components."
   },
-  "4532287389479432541": {
-    "id": "4532287389479432541",
-    "text": "可以参考`formConfig`Action中的`validators`,`asyncValidators`",
+  "8983860378242645861": {
+    "id": "8983860378242645861",
+    "text": "可以访问父级，根据其他字段的值判断",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "可以参考`formConfig`Action中的`validators`,`asyncValidators`"
+      "可以访问父级，根据其他字段的值判断"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "You can refer to the `validators` and `asyncValidators` in the `formConfig` Action."
+    "target": "Can access the parent and determine based on the values of other fields."
   },
-  "3651018542783350810": {
-    "id": "3651018542783350810",
-    "text": "可以控制组件隐藏时,是否禁用控件",
+  "8481984808160891973": {
+    "id": "8481984808160891973",
+    "text": "可以通过依赖注入/上下文等方式查询 `PI_VIEW_FIELD_TOKEN` 获取 `Field` 配置",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "可以控制组件隐藏时,是否禁用控件"
+      "可以通过依赖注入/上下文等方式查询 `PI_VIEW_FIELD_TOKEN` 获取 `Field` 配置"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Can control whether the component is disabled when it is hidden."
+    "target": "`PI_VIEW_FIELD_TOKEN` can be queried via dependency injection, context, or similar mechanisms to retrieve the `Field` configuration."
   },
-  "7343924493117712423": {
-    "id": "7343924493117712423",
-    "text": "可以视为属性配置;解析valibot定义后出现,保存组件的一些配置及控件的一些状态\n",
+  "2610913500565478040": {
+    "id": "2610913500565478040",
+    "text": "可参考 `formConfig` Action 中的 `validators`、`asyncValidators`",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "可以视为属性配置;解析valibot定义后出现,保存组件的一些配置及控件的一些状态\n"
+      "可参考 `formConfig` Action 中的 `validators`、`asyncValidators`"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Can be considered as attribute configuration; after parsing Valibot definitions, it saves the component’s configurations and control states."
+    "target": "You may refer to the `validators` and `asyncValidators` in the `formConfig` Action."
   },
-  "7146363175491698180": {
-    "id": "7146363175491698180",
-    "text": "可以设置`disabled`属性来表示隐藏时字段是否禁用",
+  "2399970166081027981": {
+    "id": "2399970166081027981",
+    "text": "可增加包装器，添加标签和验证等附加功能",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "可以设置`disabled`属性来表示隐藏时字段是否禁用"
+      "可增加包装器，添加标签和验证等附加功能"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "The `disabled` attribute can be set to indicate whether the field is disabled when hidden."
+    "target": "A wrapper can be added to incorporate additional features such as labeling and validation."
   },
-  "2581458878695511711": {
-    "id": "2581458878695511711",
-    "text": "可以访问到父级,根据其他字段的值判断",
+  "1687476396875044188": {
+    "id": "1687476396875044188",
+    "text": "可定义 `card`、`tabs`、`navbar` 等容器\n> 在一定程度上替代了[slot](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/slot)",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "可以访问到父级,根据其他字段的值判断"
+      "可定义 `card`、`tabs`、`navbar` 等容器\n> 在一定程度上替代了[slot](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/slot)"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Can access the parent, and determine based on the values of other fields."
+    "target": "Containers such as `card`, `tabs`, and `navbar` can be defined,  \n> which, to a certain extent, replace the `<slot>` element (see [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/slot))."
   },
-  "474774252514192179": {
-    "id": "474774252514192179",
-    "text": "可以通过依赖注入/上下文等方式查询`PI_VIEW_FIELD_TOKEN`,获取当前定义配置",
+  "1974411843846931774": {
+    "id": "1974411843846931774",
+    "text": "可通过 `layout({ priority: -1 })` 调整顺序（默认为 `0`，越小越靠前）",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "可以通过依赖注入/上下文等方式查询`PI_VIEW_FIELD_TOKEN`,获取当前定义配置"
+      "可通过 `layout({ priority: -1 })` 调整顺序（默认为 `0`，越小越靠前）"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "It is possible to query `PI_VIEW_FIELD_TOKEN` through methods such as dependency injection or context to obtain the current definition configuration."
+    "target": "The order can be adjusted using `layout({ priority: -1 })` (default is `0`, with smaller values appearing earlier)."
   },
   "5379927071334708594": {
     "id": "5379927071334708594",
@@ -2015,53 +1835,29 @@
     "associatedMessageIds": {},
     "target": "Internationalization"
   },
-  "8471318006888843352": {
-    "id": "8471318006888843352",
-    "text": "在schema项中定义`actions`字段即可",
+  "6710253357213125818": {
+    "id": "6710253357213125818",
+    "text": "在 schema 项中定义`actions`字段即可",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "在schema项中定义`actions`字段即可"
+      "在 schema 项中定义`actions`字段即可"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "You can define the `actions` field within the schema item."
+    "target": "Define the `actions` field in the schema item."
   },
-  "3462149794073679144": {
-    "id": "3462149794073679144",
-    "text": "在使用`v.object({})`时,现代浏览器(除了IE11)的字段顺序都是可预测的;即优先非负整数升序键,然后是按照定义顺序来\n> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in",
+  "2234812800890710256": {
+    "id": "2234812800890710256",
+    "text": "在当前定义的顶层增加类(顶级的wrapper或组件)",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "在使用`v.object({})`时,现代浏览器(除了IE11)的字段顺序都是可预测的;即优先非负整数升序键,然后是按照定义顺序来\n> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in"
+      "在当前定义的顶层增加类(顶级的wrapper或组件)"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "When using `v.object({})`, the field order in modern browsers (excluding IE11) is predictable: non-negative integer keys are prioritized in ascending order, followed by keys in the order they were defined.  \n> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in"
-  },
-  "2955508825275832733": {
-    "id": "2955508825275832733",
-    "text": "在当前定义的内层增加类(也就是当前组件)",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "在当前定义的内层增加类(也就是当前组件)"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Add a class within the currently defined inner scope (i.e., the current component)."
-  },
-  "4558525893167051827": {
-    "id": "4558525893167051827",
-    "text": "在当前定义的顶层增加类",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "在当前定义的顶层增加类"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Add a class at the current top-level definition"
+    "target": "Add a class (top-level wrapper or component) at the current top-level definition."
   },
   "1317684094328392800": {
     "id": "1317684094328392800",
@@ -2075,6 +1871,18 @@
     "associatedMessageIds": {},
     "target": "Based on standard components, adapt the `ControlValueAccessor`."
   },
+  "5393918151913045361": {
+    "id": "5393918151913045361",
+    "text": "基于 Valibot 定义的强类型结构,可以被解析为组件",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "基于 Valibot 定义的强类型结构,可以被解析为组件"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Strongly typed structures defined based on Valibot can be parsed into components."
+  },
   "8363092649005071624": {
     "id": "8363092649005071624",
     "text": "基于typeorm的[EntitySchema](https://typeorm.io/docs/entity/separating-entity-definition/#extending-schemas)封装,与装饰器基本相同,但是会有一些差别",
@@ -2087,29 +1895,17 @@
     "associatedMessageIds": {},
     "target": "Encapsulated based on TypeORM's [EntitySchema](https://typeorm.io/docs/entity/separating-entity-definition/#extending-schemas), it is largely similar to decorators, but with some differences."
   },
-  "101391695118785140": {
-    "id": "101391695118785140",
-    "text": "基本等价于`Record<string,any>`",
+  "2386370748121086064": {
+    "id": "2386370748121086064",
+    "text": "基础使用",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "基本等价于`Record<string,any>`"
+      "基础使用"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Essentially equivalent to `Record<string, any>`"
-  },
-  "3302785712164298218": {
-    "id": "3302785712164298218",
-    "text": "基本等价于`any[]`",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "基本等价于`any[]`"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Essentially equivalent to `any[]`"
+    "target": "Basic Usage"
   },
   "2794079030534891039": {
     "id": "2794079030534891039",
@@ -2122,18 +1918,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Basic Disabled Configuration"
-  },
-  "2307902717393215001": {
-    "id": "2307902717393215001",
-    "text": "增加包装器",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "增加包装器"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Add wrapper"
   },
   "330750448165117066": {
     "id": "330750448165117066",
@@ -2171,53 +1955,65 @@
     "associatedMessageIds": {},
     "target": "Multiple wrappers can be combined in various ways to generate more diverse display effects for components, while reducing code coupling and making maintenance easier."
   },
-  "7002639287169650545": {
-    "id": "7002639287169650545",
-    "text": "大部分[formik](https://formik.org/)用例已被实现",
+  "3128027319230857771": {
+    "id": "3128027319230857771",
+    "text": "多字段监听",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "大部分[formik](https://formik.org/)用例已被实现"
+      "多字段监听"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Most [formik](https://formik.org/) use cases have been implemented"
+    "target": "Multi-field listening"
   },
-  "1445583293361222639": {
-    "id": "1445583293361222639",
-    "text": "大部分[react-hook-form](https://react-hook-form.com/)用例已被实现",
+  "1671744360221108631": {
+    "id": "1671744360221108631",
+    "text": "大部分 [Formik](https://formik.org/) 用例已被实现",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "大部分[react-hook-form](https://react-hook-form.com/)用例已被实现"
+      "大部分 [Formik](https://formik.org/) 用例已被实现"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Most use cases of [react-hook-form](https://react-hook-form.com/) have been implemented."
+    "target": "Most [Formik](https://formik.org/) use cases have been implemented."
   },
-  "544077418470170737": {
-    "id": "544077418470170737",
-    "text": "大部分[react-tanstack](https://tanstack.com/form/latest)用例已被实现",
+  "1717730610835033510": {
+    "id": "1717730610835033510",
+    "text": "大部分 [React Hook Form](https://react-hook-form.com/) 用例已被实现",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "大部分[react-tanstack](https://tanstack.com/form/latest)用例已被实现"
+      "大部分 [React Hook Form](https://react-hook-form.com/) 用例已被实现"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Most [react-tanstack](https://tanstack.com/form/latest) use cases have been implemented"
+    "target": "Most [React Hook Form](https://react-hook-form.com/) use cases have been implemented."
   },
-  "4684763114963851055": {
-    "id": "4684763114963851055",
-    "text": "大部分[vee-validate](https://vee-validate.logaretm.com/v4/)用例已被实现",
+  "3535776238266685352": {
+    "id": "3535776238266685352",
+    "text": "大部分 [React TanStack Form](https://tanstack.com/form/latest) 用例已被实现",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "大部分[vee-validate](https://vee-validate.logaretm.com/v4/)用例已被实现"
+      "大部分 [React TanStack Form](https://tanstack.com/form/latest) 用例已被实现"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Most [vee-validate](https://vee-validate.logaretm.com/v4/) use cases have been implemented"
+    "target": "Most [React TanStack Form](https://tanstack.com/form/latest) use cases have been implemented."
+  },
+  "6170300047394993615": {
+    "id": "6170300047394993615",
+    "text": "大部分 [Vee-Validate](https://vee-validate.logaretm.com/v4/) 用例已被实现",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "大部分 [Vee-Validate](https://vee-validate.logaretm.com/v4/) 用例已被实现"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Most [Vee-Validate](https://vee-validate.logaretm.com/v4/) use cases have been implemented."
   },
   "5261099120925019731": {
     "id": "5261099120925019731",
@@ -2231,77 +2027,53 @@
     "associatedMessageIds": {},
     "target": "Most `Valibot` types will be parsed into `form control` types."
   },
-  "2296369096151930966": {
-    "id": "2296369096151930966",
-    "text": "大部分属性,可以使用actions预设工具设置:",
+  "7472330202392718172": {
+    "id": "7472330202392718172",
+    "text": "大部分属性可以使用 actions 预设工具设置：",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "大部分属性,可以使用actions预设工具设置:"
+      "大部分属性可以使用 actions 预设工具设置："
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Most properties can be configured using the built-in actions tools."
+    "target": "Most attributes can be set using the predefined actions tool."
   },
-  "1390322479774070306": {
-    "id": "1390322479774070306",
-    "text": "大部分的表单控件,输入输出是等价的,也就是控件输入`a`=>发射输出`a`,传入`a`=>写入到控件中`a`",
+  "8745948417780217498": {
+    "id": "8745948417780217498",
+    "text": "如果传入其他自定义的 actions，则需要注册",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "大部分的表单控件,输入输出是等价的,也就是控件输入`a`=>发射输出`a`,传入`a`=>写入到控件中`a`"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Most form controls have equivalent input and output, meaning that inputting `a` into the control emits output `a`, and passing `a` writes `a` into the control."
-  },
-  "1954030243254152628": {
-    "id": "1954030243254152628",
-    "text": "如果传入其他自定义的actions,则需要注册",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "如果传入其他自定义的actions,则需要注册"
+      "如果传入其他自定义的 actions，则需要注册"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "If other custom actions are passed in, they need to be registered."
   },
-  "487050286487460845": {
-    "id": "487050286487460845",
-    "text": "如果值没有异常/没有禁用或维持之前的值,那么可以发射获取到,否则跳过",
+  "3029773925418765486": {
+    "id": "3029773925418765486",
+    "text": "如果值没有异常或没有禁用，则发射获取到的值，否则跳过",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "如果值没有异常/没有禁用或维持之前的值,那么可以发射获取到,否则跳过"
+      "如果值没有异常或没有禁用，则发射获取到的值，否则跳过"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "If the value is not abnormal, not disabled, or remains at the previous value, it can be emitted and acquired; otherwise, skip it."
+    "target": "If the value is not anomalous and not disabled, emit the retrieved value; otherwise, skip it."
   },
-  "7063445168910863237": {
-    "id": "7063445168910863237",
-    "text": "如果值禁用,不发射值",
+  "298391251952805778": {
+    "id": "298391251952805778",
+    "text": "如果值禁用，不发射值",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "如果值禁用,不发射值"
+      "如果值禁用，不发射值"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "If disabled, the value is not emitted."
-  },
-  "765239162614039149": {
-    "id": "765239162614039149",
-    "text": "如果您想修改字段的显示顺序,除了调整定义顺序以外,还可以使用`layout({priority: -1 })`,默认为`0`,越小越靠前,越大越靠后",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "如果您想修改字段的显示顺序,除了调整定义顺序以外,还可以使用`layout({priority: -1 })`,默认为`0`,越小越靠前,越大越靠后"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "If you want to modify the display order of a field, in addition to adjusting the definition order, you can also use `layout({priority: -1})`. The default value is `0`. The smaller the value, the earlier it appears; the larger the value, the later it appears."
+    "target": "If disabled, no value is emitted."
   },
   "4614411276941932807": {
     "id": "4614411276941932807",
@@ -2327,17 +2099,29 @@
     "associatedMessageIds": {},
     "target": "If you have any related projects requiring consultation or customization, feel free to contact me."
   },
-  "1309088439206701149": {
-    "id": "1309088439206701149",
-    "text": "如果您遇到相关迁移问题,欢迎反馈",
+  "5433336448826896083": {
+    "id": "5433336448826896083",
+    "text": "如果您遇到相关迁移问题，欢迎在 GitHub 上 [提出问题](https://github.com/piying-org/piying-view/issues)",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "如果您遇到相关迁移问题,欢迎反馈"
+      "如果您遇到相关迁移问题，欢迎在 GitHub 上 [提出问题](https://github.com/piying-org/piying-view/issues)"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "If you encounter any related migration issues, feel free to provide feedback."
+    "target": "If you encounter any migration-related issues, please feel free to [open an issue](https://github.com/piying-org/piying-view/issues) on GitHub."
+  },
+  "1171313089787342768": {
+    "id": "1171313089787342768",
+    "text": "如果您需要实现某种逻辑,欢迎[提问](https://github.com/piying-org/piying-view/issues)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "如果您需要实现某种逻辑,欢迎[提问](https://github.com/piying-org/piying-view/issues)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "If you need to implement a specific logic, please feel free to [submit an issue](https://github.com/piying-org/piying-view/issues)."
   },
   "4178018493549220877": {
     "id": "4178018493549220877",
@@ -2351,29 +2135,29 @@
     "associatedMessageIds": {},
     "target": "If you need to implement a certain logic but have no idea where to start, feel free to [ask a question](https://github.com/piying-org/piying-view/issues)"
   },
-  "3128056493328850661": {
-    "id": "3128056493328850661",
-    "text": "如果提供的Action不满足您的开发需要,可以自行封装",
+  "3248859777983406159": {
+    "id": "3248859777983406159",
+    "text": "如果查询的字段不存在，将返回 `undefined`。",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "如果提供的Action不满足您的开发需要,可以自行封装"
+      "如果查询的字段不存在，将返回 `undefined`。"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "If the provided Action does not meet your development needs, you can encapsulate it yourself."
+    "target": "If the queried field does not exist, `undefined` will be returned."
   },
-  "3129736065543965056": {
-    "id": "3129736065543965056",
-    "text": "如果该组建没有适配`ControlValueAccessor`,那么`control`不存在",
+  "2430621831079287994": {
+    "id": "2430621831079287994",
+    "text": "如果该组件没有适配 `ControlValueAccessor`，那么 `control` 不存在",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "如果该组建没有适配`ControlValueAccessor`,那么`control`不存在"
+      "如果该组件没有适配 `ControlValueAccessor`，那么 `control` 不存在"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "If the component is not adapted with `ControlValueAccessor`, then `control` does not exist."
+    "target": "If the component does not implement `ControlValueAccessor`, then `control` does not exist."
   },
   "8910414785452785786": {
     "id": "8910414785452785786",
@@ -2387,17 +2171,29 @@
     "associatedMessageIds": {},
     "target": "If you encounter any issues, feel free to [feedback](https://github.com/piying-org/website/issues)."
   },
-  "7777068612636590861": {
-    "id": "7777068612636590861",
-    "text": "子模式下存在相同字段时使用",
+  "1048674684468040142": {
+    "id": "1048674684468040142",
+    "text": "子级字段",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "子模式下存在相同字段时使用"
+      "子级字段"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Use when there are same fields under sub schema"
+    "target": "Child field"
+  },
+  "8948972069146348820": {
+    "id": "8948972069146348820",
+    "text": "字段不存在",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "字段不存在"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Field does not exist"
   },
   "3975329606844517378": {
     "id": "3975329606844517378",
@@ -2435,17 +2231,17 @@
     "associatedMessageIds": {},
     "target": "The order of fields affects the display order of components."
   },
-  "6838409664838680812": {
-    "id": "6838409664838680812",
-    "text": "字符串",
+  "8066956158574375709": {
+    "id": "8066956158574375709",
+    "text": "字符串类型支持",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "字符串"
+      "字符串类型支持"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "string"
+    "target": "String type support"
   },
   "4707791770500562346": {
     "id": "4707791770500562346",
@@ -2471,29 +2267,29 @@
     "associatedMessageIds": {},
     "target": "Install the following dependencies"
   },
-  "3552506689223504236": {
-    "id": "3552506689223504236",
-    "text": "完全兼容`valibot`中的所有验证Action",
+  "426307113973745288": {
+    "id": "426307113973745288",
+    "text": "完全兼容 Valibot 中的所有验证 Action",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "完全兼容`valibot`中的所有验证Action"
+      "完全兼容 Valibot 中的所有验证 Action"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Fully compatible with all validation Actions in `valibot`"
+    "target": "Fully compatible with all validation actions in Valibot."
   },
-  "6566760398672362764": {
-    "id": "6566760398672362764",
-    "text": "完全兼容`valibot`的所有Action,可以完美的利用其验证及转换机制",
+  "6990836290106180150": {
+    "id": "6990836290106180150",
+    "text": "完整的逻辑表达能力",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "完全兼容`valibot`的所有Action,可以完美的利用其验证及转换机制"
+      "完整的逻辑表达能力"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Fully compatible with all Actions of `valibot`, allowing perfect utilization of its validation and transformation mechanisms."
+    "target": "Complete logical expression ability"
   },
   "4862221497095553479": {
     "id": "4862221497095553479",
@@ -2506,18 +2302,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "It can be used directly after registration in the definition, or manually specified."
-  },
-  "582811462610856728": {
-    "id": "582811462610856728",
-    "text": "定义唯一",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "定义唯一"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Define uniquely"
   },
   "715588538805522954": {
     "id": "715588538805522954",
@@ -2543,18 +2327,6 @@
     "associatedMessageIds": {},
     "target": "Define tree entity\n"
   },
-  "1331140998759919469": {
-    "id": "1331140998759919469",
-    "text": "定义的Schema类型虽然固定的,但是每个定义对应的组件是可以移动的\n> 这样,你就可以定制属于设计要求的表单而不是有限的展示",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "定义的Schema类型虽然固定的,但是每个定义对应的组件是可以移动的\n> 这样,你就可以定制属于设计要求的表单而不是有限的展示"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Although the defined Schema types are fixed, the components corresponding to each definition can be moved.  \n> This way, you can create forms tailored to your design requirements, rather than being limited to predefined layouts."
-  },
   "3481468223856261201": {
     "id": "3481468223856261201",
     "text": "实现`组件`的时候,只需要实现最核心的组件内容即可,不需要将验证/标签/提示内容一并实现",
@@ -2567,17 +2339,17 @@
     "associatedMessageIds": {},
     "target": "When implementing the `component`, only the core content of the component needs to be implemented, without the need to also implement validation/label/prompt content."
   },
-  "6638605237028209118": {
-    "id": "6638605237028209118",
-    "text": "实现与ngx-formly官网例子一样的用例",
+  "5299947202684169718": {
+    "id": "5299947202684169718",
+    "text": "实现与 Ngx-Formly 官网例子一样的用例",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "实现与ngx-formly官网例子一样的用例"
+      "实现与 Ngx-Formly 官网例子一样的用例"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Achieve the same use case as the example on the ngx-formly official website"
+    "target": "Implement the same use case as the official Ngx-Formly website examples."
   },
   "3110630370524537134": {
     "id": "3110630370524537134",
@@ -2627,18 +2399,6 @@
     "associatedMessageIds": {},
     "target": "Client Introduction"
   },
-  "2349298587408875253": {
-    "id": "2349298587408875253",
-    "text": "对`JsonSchema`的支持本质上是将其转换为`Valibot`定义,然后进行解析",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "对`JsonSchema`的支持本质上是将其转换为`Valibot`定义,然后进行解析"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Support for `JsonSchema` essentially involves converting it into a `Valibot` definition, which is then parsed."
-  },
   "8698492505484532220": {
     "id": "8698492505484532220",
     "text": "对于存在`ng-content`/`slot`等投影/插槽类传参,则需要重新设计代码使用",
@@ -2651,29 +2411,29 @@
     "associatedMessageIds": {},
     "target": "For cases involving projection/slotted parameters, such as `ng-content`/`slot`, the code must be redesigned to accommodate them."
   },
-  "708296186019299339": {
-    "id": "708296186019299339",
-    "text": "将`jsonschema`转换为`valibot`定义后,即可与传统的`piying`使用一致",
+  "8582870902797691330": {
+    "id": "8582870902797691330",
+    "text": "将`jsonschema`转换为`valibot`定义后，即可与传统的`piying`使用一致",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "将`jsonschema`转换为`valibot`定义后,即可与传统的`piying`使用一致"
+      "将`jsonschema`转换为`valibot`定义后，即可与传统的`piying`使用一致"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "After converting `jsonschema` into `valibot` definitions, it can be used consistently with traditional `piying`."
+    "target": "After converting `jsonschema` to `valibot` definitions, it becomes consistent with the traditional `piying` usage."
   },
-  "3863185068838724890": {
-    "id": "3863185068838724890",
-    "text": "将定义设置为表单控件",
+  "5492617712290510705": {
+    "id": "5492617712290510705",
+    "text": "将定义设置为表单控件，通常用于对象/数组类型(v.array(),v.group())但视为普通控件",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "将定义设置为表单控件"
+      "将定义设置为表单控件，通常用于对象/数组类型(v.array(),v.group())但视为普通控件"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Set the definition as a form control"
+    "target": "Set the definition as a form control, typically used for object/array types (e.g., `v.array()`, `v.group()`), but treated as a regular control."
   },
   "4268176488185084713": {
     "id": "4268176488185084713",
@@ -2686,6 +2446,30 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "In some small scenarios, static parsing is required because the view and logic are separated. The definitions are first parsed into corresponding templates and written to files, then combined with dynamic parsing for assignment."
+  },
+  "8722310609965174582": {
+    "id": "8722310609965174582",
+    "text": "属性操作",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "属性操作"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Attribute Operations"
+  },
+  "6945282764874657502": {
+    "id": "6945282764874657502",
+    "text": "属性类型",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "属性类型"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Attribute Type"
   },
   "823887513999582671": {
     "id": "823887513999582671",
@@ -2711,17 +2495,17 @@
     "associatedMessageIds": {},
     "target": "Nested definition"
   },
-  "1848599926346604220": {
-    "id": "1848599926346604220",
-    "text": "布尔值",
+  "3877088151384251736": {
+    "id": "3877088151384251736",
+    "text": "布尔值类型",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "布尔值"
+      "布尔值类型"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Boolean"
+    "target": "Boolean type"
   },
   "7343278444451428466": {
     "id": "7343278444451428466",
@@ -2735,6 +2519,18 @@
     "associatedMessageIds": {},
     "target": "Layout Move"
   },
+  "2740556189290022004": {
+    "id": "2740556189290022004",
+    "text": "带 `$` 符号的属于 `Signal` 类型",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "带 `$` 符号的属于 `Signal` 类型"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Items prefixed with the `$` symbol belong to the `Signal` type."
+  },
   "374306519133786673": {
     "id": "374306519133786673",
     "text": "平台无关,同一个定义可以可以被多个框架使用",
@@ -2746,18 +2542,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Platform-agnostic, the same definition can be used by multiple frameworks."
-  },
-  "5913788669104605843": {
-    "id": "5913788669104605843",
-    "text": "并且可以完全不依赖视图中的任何内容,方便未来的不同库/框架的迁移与维护",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "并且可以完全不依赖视图中的任何内容,方便未来的不同库/框架的迁移与维护"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "And it can be completely independent of any content in the view, making it easy to migrate and maintain across different libraries/frameworks in the future."
   },
   "6626935110464514942": {
     "id": "6626935110464514942",
@@ -2771,29 +2555,29 @@
     "associatedMessageIds": {},
     "target": "It should be designed as an atomic component to minimize external dependencies."
   },
-  "2073562449329473347": {
-    "id": "2073562449329473347",
-    "text": "当前只能通过解析valibot定义获得,不过可以通过不同的actions来修改相关配置",
+  "3598609951476674323": {
+    "id": "3598609951476674323",
+    "text": "异步设置（支持 Promise/Signal/Observable）",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "当前只能通过解析valibot定义获得,不过可以通过不同的actions来修改相关配置"
+      "异步设置（支持 Promise/Signal/Observable）"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Currently, it can only be obtained by parsing the Valibot definition; however, the relevant configuration can be modified through different actions."
+    "target": "Asynchronous configuration (supports Promise/Signal/Observable)"
   },
-  "3382540454341591138": {
-    "id": "3382540454341591138",
-    "text": "当前后端或者其他输入解析也需要此验证时,建议使用",
+  "7437144568462368105": {
+    "id": "7437144568462368105",
+    "text": "当创建了一个数组项时，别名会创建一个单独的 Map 保存。如果查询不到的情况下，才会查询父级。",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "当前后端或者其他输入解析也需要此验证时,建议使用"
+      "当创建了一个数组项时，别名会创建一个单独的 Map 保存。如果查询不到的情况下，才会查询父级。"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "It is recommended to use this verification when front-end, back-end, or other input parsing also requires it."
+    "target": "When an array item is created, an alias generates a separate Map for storage. If the query fails to find the item, it then searches the parent level."
   },
   "8834528211326730134": {
     "id": "8834528211326730134",
@@ -2807,17 +2591,17 @@
     "associatedMessageIds": {},
     "target": "Current Support"
   },
-  "9148597695556634326": {
-    "id": "9148597695556634326",
-    "text": "当前配置上的form状态",
+  "5496708930612876728": {
+    "id": "5496708930612876728",
+    "text": "当前配置上的 form 状态",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "当前配置上的form状态"
+      "当前配置上的 form 状态"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "The form state in the current configuration"
+    "target": "The current form state in the configuration"
   },
   "7364950739177326435": {
     "id": "7364950739177326435",
@@ -2843,18 +2627,6 @@
     "associatedMessageIds": {},
     "target": "When it is necessary to adjust the layout, style, and related display of multiple components, grouping is required.  \n> Can be used when working with `object`/`intersect`/`union`/`tuple`/`array` types."
   },
-  "8188504147277309000": {
-    "id": "8188504147277309000",
-    "text": "当验证比较复杂,希望在当前控件上处理时,建议使用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "当验证比较复杂,希望在当前控件上处理时,建议使用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "When validation is more complex and needs to be handled on the current control, it is recommended to use"
-  },
   "2463240481454031191": {
     "id": "2463240481454031191",
     "text": "必须实现部分,用来将定义动态解析为配置",
@@ -2879,77 +2651,65 @@
     "associatedMessageIds": {},
     "target": "Quick Start"
   },
-  "9089392007205821708": {
-    "id": "9089392007205821708",
-    "text": "您也可以自定义object组件,修改显示方式",
+  "8994833830154860603": {
+    "id": "8994833830154860603",
+    "text": "您可以访问 [Formik 迁移示例](https://piying-org.github.io/formik-migration/) 查看用例对照",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "您也可以自定义object组件,修改显示方式"
+      "您可以访问 [Formik 迁移示例](https://piying-org.github.io/formik-migration/) 查看用例对照"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "You can also customize the object component and modify the display method."
+    "target": "You can visit the [Formik Migration Examples](https://piying-org.github.io/formik-migration/) to view side-by-side usage comparisons."
   },
-  "4765646126677866654": {
-    "id": "4765646126677866654",
-    "text": "您可以简单的理解为元数据设置",
+  "7865411499009331278": {
+    "id": "7865411499009331278",
+    "text": "您可以访问 [Formly 迁移示例](https://piying-org.github.io/formly-migration/) 查看用例对照",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "您可以简单的理解为元数据设置"
+      "您可以访问 [Formly 迁移示例](https://piying-org.github.io/formly-migration/) 查看用例对照"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "You can simply understand it as metadata settings."
+    "target": "You can visit the [Formly Migration Examples](https://piying-org.github.io/formly-migration/) to view side-by-side use case comparisons."
   },
-  "3005031519844821020": {
-    "id": "3005031519844821020",
-    "text": "您可以访问[formik-migration](https://piying-org.github.io/formik-migration/)查看用例对照",
+  "1397356046966856570": {
+    "id": "1397356046966856570",
+    "text": "您可以访问 [React Hook Form 迁移示例](https://piying-org.github.io/react-hook-form-migration/) 查看用例对照",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "您可以访问[formik-migration](https://piying-org.github.io/formik-migration/)查看用例对照"
+      "您可以访问 [React Hook Form 迁移示例](https://piying-org.github.io/react-hook-form-migration/) 查看用例对照"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "You can visit [formik-migration](https://piying-org.github.io/formik-migration/) to view the use case comparison."
+    "target": "You can visit the [React Hook Form Migration Examples](https://piying-org.github.io/react-hook-form-migration/) to view use-case comparisons."
   },
-  "8788809178570272365": {
-    "id": "8788809178570272365",
-    "text": "您可以访问[react-hook-form-migration](https://piying-org.github.io/react-hook-form-migration/)查看用例对照",
+  "5947362396194331442": {
+    "id": "5947362396194331442",
+    "text": "您可以访问 [React TanStack Form 迁移示例](https://piying-org.github.io/react-tanstack-migration/) 查看用例对照",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "您可以访问[react-hook-form-migration](https://piying-org.github.io/react-hook-form-migration/)查看用例对照"
+      "您可以访问 [React TanStack Form 迁移示例](https://piying-org.github.io/react-tanstack-migration/) 查看用例对照"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "You can visit [react-hook-form-migration](https://piying-org.github.io/react-hook-form-migration/) to view the use case comparison."
+    "target": "You can visit the [React TanStack Form Migration Examples](https://piying-org.github.io/react-tanstack-migration/) to view use-case comparisons."
   },
-  "8002117704968980938": {
-    "id": "8002117704968980938",
-    "text": "您可以访问[react-tanstack-migration](https://piying-org.github.io/react-tanstack-migration/)查看用例对照",
+  "6846451473909313735": {
+    "id": "6846451473909313735",
+    "text": "您可以访问 [Vee-Validate 迁移示例](https://piying-org.github.io/vee-validate-migration/) 查看用例对照",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "您可以访问[react-tanstack-migration](https://piying-org.github.io/react-tanstack-migration/)查看用例对照"
+      "您可以访问 [Vee-Validate 迁移示例](https://piying-org.github.io/vee-validate-migration/) 查看用例对照"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "You can visit [react-tanstack-migration](https://piying-org.github.io/react-tanstack-migration/) to view the use case comparison."
-  },
-  "3797350592871670720": {
-    "id": "3797350592871670720",
-    "text": "您可以访问[vee-validate-migration](https://piying-org.github.io/vee-validate-migration/)查看用例对照",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "您可以访问[vee-validate-migration](https://piying-org.github.io/vee-validate-migration/)查看用例对照"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "You can visit [vee-validate-migration](https://piying-org.github.io/vee-validate-migration/) to view the use case comparison."
+    "target": "You can visit the [Vee-Validate Migration Examples](https://piying-org.github.io/vee-validate-migration/) to view usage comparisons."
   },
   "9064739616984463993": {
     "id": "9064739616984463993",
@@ -2963,18 +2723,6 @@
     "associatedMessageIds": {},
     "target": "All libraries/frameworks implement the most basic `PiyingViewGroup`, but this has no styling or layout, so it is often necessary to customize it according to specific requirements."
   },
-  "1047498010145358144": {
-    "id": "1047498010145358144",
-    "text": "所有的设置操作,都是基于`rawConfig`封装,该方法允许修改很多底层设置,方便开发者自行定义",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "所有的设置操作,都是基于`rawConfig`封装,该方法允许修改很多底层设置,方便开发者自行定义"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "All configuration operations are based on `rawConfig`, which allows modifying many low-level settings and enables developers to define their own configurations freely."
-  },
   "5465334838190556816": {
     "id": "5465334838190556816",
     "text": "所有要使用的组件,最好都在配置中先进行注册,方便引用",
@@ -2986,6 +2734,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "All components to be used are best registered in the configuration first, for easier reference."
+  },
+  "781951193613019197": {
+    "id": "781951193613019197",
+    "text": "所有设置操作都基于 `rawConfig` 封装",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "所有设置操作都基于 `rawConfig` 封装"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "All configuration operations are encapsulated based on `rawConfig`."
   },
   "2830977981871555039": {
     "id": "2830977981871555039",
@@ -2999,6 +2759,30 @@
     "associatedMessageIds": {},
     "target": "Open your project for viewing."
   },
+  "1400640932654841427": {
+    "id": "1400640932654841427",
+    "text": "技术特点",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "技术特点"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Technical Features"
+  },
+  "7225661345287213890": {
+    "id": "7225661345287213890",
+    "text": "接收 `SchemaHandle` 参数，允许直接访问和修改 field 配置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "接收 `SchemaHandle` 参数，允许直接访问和修改 field 配置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Accepts a `SchemaHandle` parameter, enabling direct access to and modification of field configurations."
+  },
   "1919759939723675241": {
     "id": "1919759939723675241",
     "text": "控件",
@@ -3010,54 +2794,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Control"
-  },
-  "7795916880776255786": {
-    "id": "7795916880776255786",
-    "text": "控件使用过/未使用过",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "控件使用过/未使用过"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Control Used / Not Used"
-  },
-  "5354614879321574496": {
-    "id": "5354614879321574496",
-    "text": "控件发出值使用;直接使用仅会模拟发出值,视图部分不变",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "控件发出值使用;直接使用仅会模拟发出值,视图部分不变"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "The control emits values using; direct use will only simulate emitting values, and the view part remains unchanged."
-  },
-  "1687569991007947524": {
-    "id": "1687569991007947524",
-    "text": "控件发射过值/未发射过值",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "控件发射过值/未发射过值"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Control has emitted value / has not emitted value"
-  },
-  "606899609963268264": {
-    "id": "606899609963268264",
-    "text": "控件的值目前验证有效/无效/正在验证中",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "控件的值目前验证有效/无效/正在验证中"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "The control's value is currently valid/invalid/being validated."
   },
   "1492717589176276329": {
     "id": "1492717589176276329",
@@ -3071,17 +2807,17 @@
     "associatedMessageIds": {},
     "target": "The control has built-in validation."
   },
-  "6456124296692621622": {
-    "id": "6456124296692621622",
-    "text": "控制`控件`何时禁用,支持多控件监听",
+  "2729894382224123290": {
+    "id": "2729894382224123290",
+    "text": "控制`控件`何时禁用",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "控制`控件`何时禁用,支持多控件监听"
+      "控制`控件`何时禁用"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Control when the `Piying` is disabled, supports listening for multiple controls"
+    "target": "Control when the `control` is disabled"
   },
   "6298819955888704613": {
     "id": "6298819955888704613",
@@ -3107,6 +2843,30 @@
     "associatedMessageIds": {},
     "target": "Provider configuration, used to add services to the field’s injector."
   },
+  "8765222497567065751": {
+    "id": "8765222497567065751",
+    "text": "支持 `anyOf`、`oneOf` 等复杂逻辑",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "支持 `anyOf`、`oneOf` 等复杂逻辑"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Supports complex logical constructs such as `anyOf` and `oneOf`."
+  },
+  "211365152943082675": {
+    "id": "211365152943082675",
+    "text": "支持Vue2与Vue3",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "支持Vue2与Vue3"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Supports Vue 2 and Vue 3"
+  },
   "8437133365005831241": {
     "id": "8437133365005831241",
     "text": "支持valibot验证/自定义验证,与表单自定义验证",
@@ -3119,29 +2879,53 @@
     "associatedMessageIds": {},
     "target": "Supports valibot validation / custom validation, and form custom validation"
   },
-  "4710107915747411643": {
-    "id": "4710107915747411643",
-    "text": "支持程度",
+  "1796413505409385784": {
+    "id": "1796413505409385784",
+    "text": "支持嵌套子组件的 Schema 类型",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "支持程度"
+      "支持嵌套子组件的 Schema 类型"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Level of support"
+    "target": "Support for Schema types with nested sub-components"
   },
-  "1098006338928199480": {
-    "id": "1098006338928199480",
-    "text": "支持组件的各种设置",
+  "6865269075782746314": {
+    "id": "6865269075782746314",
+    "text": "支持模型→视图、视图→模型的独立转换",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "支持组件的各种设置"
+      "支持模型→视图、视图→模型的独立转换"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Various settings for support components"
+    "target": "Support for independent conversion between model and view, and between view and model."
+  },
+  "9084546566674941989": {
+    "id": "9084546566674941989",
+    "text": "支持的框架",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "支持的框架"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Supported Frameworks"
+  },
+  "3891955707218560052": {
+    "id": "3891955707218560052",
+    "text": "支持组件的各种设置：",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "支持组件的各种设置："
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Various settings for the component:"
   },
   "7753728397451924514": {
     "id": "7753728397451924514",
@@ -3155,17 +2939,17 @@
     "associatedMessageIds": {},
     "target": "Support automatic parsing of nested definitions and convert them into table definitions"
   },
-  "1823888539139910255": {
-    "id": "1823888539139910255",
-    "text": "支持表单多级输出转换,",
+  "3105886512689434425": {
+    "id": "3105886512689434425",
+    "text": "支持表单多级输出转换：",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "支持表单多级输出转换,"
+      "支持表单多级输出转换："
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Supports multi-level output conversion for forms."
+    "target": "Supports multi-level output transformation for forms."
   },
   "2896847924846822801": {
     "id": "2896847924846822801",
@@ -3179,6 +2963,18 @@
     "associatedMessageIds": {},
     "target": "Supports input/output, validation, and data transformation logic for form controls."
   },
+  "5441866703328000104": {
+    "id": "5441866703328000104",
+    "text": "数据流分离",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "数据流分离"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Data Stream Separation"
+  },
   "4168624687289523901": {
     "id": "4168624687289523901",
     "text": "数组",
@@ -3191,29 +2987,65 @@
     "associatedMessageIds": {},
     "target": "Array"
   },
-  "3784039512983085411": {
-    "id": "3784039512983085411",
-    "text": "无标签组件(Angular)",
+  "5612831681601413661": {
+    "id": "5612831681601413661",
+    "text": "数组语法",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "无标签组件(Angular)"
+      "数组语法"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Untagged Components (Angular)"
+    "target": "Array syntax"
   },
-  "3227391238436785570": {
-    "id": "3227391238436785570",
-    "text": "是否禁用",
+  "7078336918022920679": {
+    "id": "7078336918022920679",
+    "text": "数组项的别名",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "是否禁用"
+      "数组项的别名"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Is it disabled?"
+    "target": "Alias for array items"
+  },
+  "6687694076314430029": {
+    "id": "6687694076314430029",
+    "text": "方法说明",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "方法说明"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Method Description"
+  },
+  "217450718183296691": {
+    "id": "217450718183296691",
+    "text": "无标签组件(Angular selectorless)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "无标签组件(Angular selectorless)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Labelless Component (Angular selectorless)"
+  },
+  "7317752067194108603": {
+    "id": "7317752067194108603",
+    "text": "是皮影表单定义的基础单元",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "是皮影表单定义的基础单元"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "It is the fundamental unit for defining shadow table forms."
   },
   "9162975939901846321": {
     "id": "9162975939901846321",
@@ -3287,18 +3119,6 @@
     "associatedMessageIds": {},
     "target": "Server"
   },
-  "7442783481235199675": {
-    "id": "7442783481235199675",
-    "text": "未设置,返回FieldLogicGroup",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "未设置,返回FieldLogicGroup"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Not set; returns `FieldLogicGroup`."
-  },
   "2445983431105943030": {
     "id": "2445983431105943030",
     "text": "权重越大,组件越靠后",
@@ -3335,29 +3155,65 @@
     "associatedMessageIds": {},
     "target": "View"
   },
-  "5952822374683018399": {
-    "id": "5952822374683018399",
-    "text": "查询其他的属性配置;通过[路径查询](docs/client/path-query)获得当前定义上的其他属性配置",
+  "7603394216273509934": {
+    "id": "7603394216273509934",
+    "text": "查询其他的属性配置；通过 [路径查询](docs/client/path-query) 获得当前定义上的其他属性配置",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "查询其他的属性配置;通过[路径查询](docs/client/path-query)获得当前定义上的其他属性配置"
+      "查询其他的属性配置；通过 [路径查询](docs/client/path-query) 获得当前定义上的其他属性配置"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Query other property configurations; obtain the other property configurations defined on the current node via [path query](docs/client/path-query)."
+    "target": "Query other attribute configurations; obtain the other attribute configurations defined for the current entity via [path query](docs/client/path-query)."
   },
-  "4360347568520305234": {
-    "id": "4360347568520305234",
-    "text": "查询方法",
+  "7953722204576224518": {
+    "id": "7953722204576224518",
+    "text": "查询别名字段",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "查询方法"
+      "查询别名字段"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Query Method"
+    "target": "Query alias field"
+  },
+  "4638303600237867074": {
+    "id": "4638303600237867074",
+    "text": "查询子级字段",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "查询子级字段"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Query child fields"
+  },
+  "7350482073924369749": {
+    "id": "7350482073924369749",
+    "text": "查询根级字段",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "查询根级字段"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Query root-level fields"
+  },
+  "2390488610249437859": {
+    "id": "2390488610249437859",
+    "text": "查询父级字段",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "查询父级字段"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Query parent field"
   },
   "7013081777799027431": {
     "id": "7013081777799027431",
@@ -3371,41 +3227,41 @@
     "associatedMessageIds": {},
     "target": "Tree Entity Definition Reference"
   },
-  "8106903195162391340": {
-    "id": "8106903195162391340",
-    "text": "根级`updateValue`",
+  "1707265755336628440": {
+    "id": "1707265755336628440",
+    "text": "核心",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "根级`updateValue`"
+      "核心"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Core"
+  },
+  "8597034955799666690": {
+    "id": "8597034955799666690",
+    "text": "根级 `updateValue`",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "根级 `updateValue`"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Root-level `updateValue`"
   },
-  "8522361668357636719": {
-    "id": "8522361668357636719",
-    "text": "概念",
+  "4892430476422894588": {
+    "id": "4892430476422894588",
+    "text": "模型 → 视图（Model → View）",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "概念"
+      "模型 → 视图（Model → View）"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Concept"
-  },
-  "6535642163714285376": {
-    "id": "6535642163714285376",
-    "text": "模型到视图",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "模型到视图"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Model to View"
+    "target": "Model → View"
   },
   "2405900560793537941": {
     "id": "2405900560793537941",
@@ -3431,18 +3287,6 @@
     "associatedMessageIds": {},
     "target": "This feature can also be used in components. Since components do not need to consider types, it is easy to perform various layouts. However, in forms, the data structure often does not match the view layout. In such cases, we need to move components while ensuring the data structure remains normal."
   },
-  "7815048335453190777": {
-    "id": "7815048335453190777",
-    "text": "此方法也支持直接指定组件定义,但是不推荐,因为会让维护变的困难\n> 除非此组件仅在此地方使用并且只使用一次,否则还是建议先注册再使用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "此方法也支持直接指定组件定义,但是不推荐,因为会让维护变的困难\n> 除非此组件仅在此地方使用并且只使用一次,否则还是建议先注册再使用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "This method also supports directly specifying the component definition, but it is not recommended as it can make maintenance more difficult.  \n> Unless this component is used only in this one place and only once, it is still recommended to register it first before using it."
-  },
   "2681719361718165007": {
     "id": "2681719361718165007",
     "text": "此方法仅用力标记主键,可以用`column`进行其他参数修改",
@@ -3454,18 +3298,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "This method only uses the `key` annotation to mark the primary key, and other parameters can be modified using `column`."
-  },
-  "1972490448761244080": {
-    "id": "1972490448761244080",
-    "text": "此方法单纯为表单更新值,也就是模型到视图",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "此方法单纯为表单更新值,也就是模型到视图"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "This method is purely for updating form values, that is, model to view."
   },
   "5741091804680144804": {
     "id": "5741091804680144804",
@@ -3479,30 +3311,6 @@
     "associatedMessageIds": {},
     "target": "This method can be omitted; when omitted, the registered key is used."
   },
-  "273695716961833550": {
-    "id": "273695716961833550",
-    "text": "此概念[来源](https://valibot.dev/guides/mental-model/)于`valibot`",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "此概念[来源](https://valibot.dev/guides/mental-model/)于`valibot`"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "This concept [source](https://valibot.dev/guides/mental-model/) is from `valibot`"
-  },
-  "1763898646512759828": {
-    "id": "1763898646512759828",
-    "text": "比如JsonSchema中的`anyOf`,`oneOf`,可以轻松使用`v.intersect`,`v.union`对应的`FieldLogicGroup`进行动态切换处理",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "比如JsonSchema中的`anyOf`,`oneOf`,可以轻松使用`v.intersect`,`v.union`对应的`FieldLogicGroup`进行动态切换处理"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "For example, `anyOf` and `oneOf` in JsonSchema can be easily handled dynamically using the corresponding `FieldLogicGroup` with `v.intersect` and `v.union`."
-  },
   "154151431220121768": {
     "id": "154151431220121768",
     "text": "注册组件",
@@ -3514,6 +3322,30 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Register Component"
+  },
+  "6245981723403101515": {
+    "id": "6245981723403101515",
+    "text": "注意：任何情况下 `[\"aa\"]` 都表示查询当前级别的名为 `aa` 的控件，所以如果要查询同级别的控件，需要使用 `[\"..\", \"aa\"]`。",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "注意：任何情况下 `[\"aa\"]` 都表示查询当前级别的名为 `aa` 的控件，所以如果要查询同级别的控件，需要使用 `[\"..\", \"aa\"]`。"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Note: In all cases, `[\"aa\"]` refers to querying a control named `aa` at the current level. Therefore, to query controls at the same level, you must use `[\"..\", \"aa\"]`."
+  },
+  "8395247600203914568": {
+    "id": "8395247600203914568",
+    "text": "添加提供者",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "添加提供者"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Add Provider"
   },
   "9040732527768649808": {
     "id": "9040732527768649808",
@@ -3539,6 +3371,30 @@
     "associatedMessageIds": {},
     "target": "Scroll Group"
   },
+  "3285924884866276942": {
+    "id": "3285924884866276942",
+    "text": "灵活的布局控制",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "灵活的布局控制"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Flexible layout control"
+  },
+  "924732439486030502": {
+    "id": "924732439486030502",
+    "text": "特殊说明",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "特殊说明"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Special Notes"
+  },
   "4540800242426995879": {
     "id": "4540800242426995879",
     "text": "特点",
@@ -3551,53 +3407,41 @@
     "associatedMessageIds": {},
     "target": "Features"
   },
-  "945863999624144498": {
-    "id": "945863999624144498",
-    "text": "状态",
+  "1997450512626816192": {
+    "id": "1997450512626816192",
+    "text": "现代浏览器（除 IE11）支持可预测的字段顺序：优先非负整数升序键，然后按定义顺序",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "状态"
+      "现代浏览器（除 IE11）支持可预测的字段顺序：优先非负整数升序键，然后按定义顺序"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Status"
+    "target": "Modern browsers (excluding IE11) support predictable field ordering: non-negative integer keys in ascending order first, followed by keys in definition order."
   },
-  "8453387105142299540": {
-    "id": "8453387105142299540",
-    "text": "用于调整表单控件使用,非表单控件不需要",
+  "4435884239207170645": {
+    "id": "4435884239207170645",
+    "text": "用于自定义 Action 封装",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "用于调整表单控件使用,非表单控件不需要"
+      "用于自定义 Action 封装"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Used for adjusting form control usage; non-form controls do not require it."
+    "target": "For custom Action encapsulation"
   },
-  "1610977603089499719": {
-    "id": "1610977603089499719",
-    "text": "用来设置组件相关属性",
+  "5522070636604572009": {
+    "id": "5522070636604572009",
+    "text": "用于调整`表单控件`的行为：",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "用来设置组件相关属性"
+      "用于调整`表单控件`的行为："
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Used to set component‑related properties."
-  },
-  "8787739137583531710": {
-    "id": "8787739137583531710",
-    "text": "由于存在`wrapper`,所以布局的时候,顶层的组件不一定是定义组件,而有可能是wrapper,所以就需要使用此类进行设置",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "由于存在`wrapper`,所以布局的时候,顶层的组件不一定是定义组件,而有可能是wrapper,所以就需要使用此类进行设置"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Due to the existence of `wrapper`, when laying out, the top-level component may not necessarily be the defined component, but could be a `wrapper`, so it is necessary to use this class for configuration."
+    "target": "Used to adjust the behavior of `form controls`."
   },
   "1817036115592330459": {
     "id": "1817036115592330459",
@@ -3610,30 +3454,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Due to type safety considerations, switching is not supported in the design."
-  },
-  "7637968389472122461": {
-    "id": "7637968389472122461",
-    "text": "皮影允许在这两个阶段内分别进行处理,完成更复杂的业务逻辑",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "皮影允许在这两个阶段内分别进行处理,完成更复杂的业务逻辑"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Piying allows processing in these two phases separately, enabling more complex business logic to be completed."
-  },
-  "8764240188451861659": {
-    "id": "8764240188451861659",
-    "text": "皮影只需要一次Schema定义,就能解决默认值,验证,类型,组件样式布局等问题,使代码管理更加方便",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "皮影只需要一次Schema定义,就能解决默认值,验证,类型,组件样式布局等问题,使代码管理更加方便"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Piying requires only a single Schema definition to address issues such as default values, validation, data types, and component styling and layout, making code management much more convenient."
   },
   "5161075576289529940": {
     "id": "5161075576289529940",
@@ -3659,6 +3479,18 @@
     "associatedMessageIds": {},
     "target": "Piying implements `ControlValueAccessor` across all libraries/frameworks. By implementing the relevant methods, the component can automatically integrate with form controls."
   },
+  "5092772118531948426": {
+    "id": "5092772118531948426",
+    "text": "皮影基于这些概念扩展了更多功能",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "皮影基于这些概念扩展了更多功能"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Puppet Shadow has expanded its functionality based on these concepts."
+  },
   "7789523330151719193": {
     "id": "7789523330151719193",
     "text": "皮影如何支持不同平台",
@@ -3671,17 +3503,17 @@
     "associatedMessageIds": {},
     "target": "How does Piying support different platforms"
   },
-  "7636767885225758128": {
-    "id": "7636767885225758128",
-    "text": "皮影对于大多数普通的表单功能都已经完全覆盖,所以下面列举的问题是皮影相较于主流库而言解决",
+  "3287804109855788689": {
+    "id": "3287804109855788689",
+    "text": "皮影支持两种验证方式：Valibot 验证和控件自带验证。",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "皮影对于大多数普通的表单功能都已经完全覆盖,所以下面列举的问题是皮影相较于主流库而言解决"
+      "皮影支持两种验证方式：Valibot 验证和控件自带验证。"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Piying has already fully covered most of the common form functions, so the issues listed below are problems that Piying addresses compared to mainstream libraries."
+    "target": "Puppeteer supports two validation methods: Valibot validation and built-in control validation."
   },
   "1441961653256688942": {
     "id": "1441961653256688942",
@@ -3694,6 +3526,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "piying is a metadata definition traverser/parser that depends on valibot"
+  },
+  "3553540802275819065": {
+    "id": "3553540802275819065",
+    "text": "皮影是一套跨框架的表单解决方案，通过统一的 Schema 定义，实现一次编码，多端通用。",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "皮影是一套跨框架的表单解决方案，通过统一的 Schema 定义，实现一次编码，多端通用。"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Puppeteer Forms is a cross-framework form solution that enables “write once, deploy everywhere” by defining forms uniformly via a shared Schema."
   },
   "281676609128782551": {
     "id": "281676609128782551",
@@ -3719,53 +3563,29 @@
     "associatedMessageIds": {},
     "target": "Piying currently only supports compatibility with `typeorm`."
   },
-  "7787939913870368146": {
-    "id": "7787939913870368146",
-    "text": "皮影解决了哪些问题?",
+  "795000318036507934": {
+    "id": "795000318036507934",
+    "text": "皮影：一次 Schema 定义，解决默认值、验证、类型、布局等问题",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "皮影解决了哪些问题?"
+      "皮影：一次 Schema 定义，解决默认值、验证、类型、布局等问题"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "What problems does Piying solve?"
+    "target": "Puppet Shadow: A single schema definition to address default values, validation, types, and layout issues."
   },
-  "3078219601194290126": {
-    "id": "3078219601194290126",
-    "text": "监听控件的值变更",
+  "3782921320785300439": {
+    "id": "3782921320785300439",
+    "text": "监听`控件`的值变更，支持多控件监听",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "监听控件的值变更"
+      "监听`控件`的值变更，支持多控件监听"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Monitor the value change of the control"
-  },
-  "3341405220717360588": {
-    "id": "3341405220717360588",
-    "text": "目前大多数时候使用`allFieldsResolved`,也就是所有field解析完毕,但是还没有初始化组件",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "目前大多数时候使用`allFieldsResolved`,也就是所有field解析完毕,但是还没有初始化组件"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Currently, `allFieldsResolved` is used most of the time, which means all fields have been resolved, but the component has not yet been initialized."
-  },
-  "2315738666343864903": {
-    "id": "2315738666343864903",
-    "text": "目前的封装中,分为`cva`(ControlValueAccessor缩写),用于导出自动注册,开发者只需要按照固定代码导出即可;`cvaa`(ControlValueAccessorAdapter缩写),用于注册组件,不同库/框架中有不同实现,但是原理相同,需要将对应的值,事件绑定到对应的组件上即可",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "目前的封装中,分为`cva`(ControlValueAccessor缩写),用于导出自动注册,开发者只需要按照固定代码导出即可;`cvaa`(ControlValueAccessorAdapter缩写),用于注册组件,不同库/框架中有不同实现,但是原理相同,需要将对应的值,事件绑定到对应的组件上即可"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "In the current packaging, there are two main components:  \n`cva` (short for ControlValueAccessor), used for exporting auto-registration; developers only need to follow a fixed code pattern to export it.  \n`cvaa` (short for ControlValueAccessorAdapter), used for registering components. Although different implementations exist across various libraries/frameworks, the underlying principle remains the same: bind the corresponding values and events to the respective components."
+    "target": "Listen to value changes of `widgets`, supporting multi-widget listening."
   },
   "4365090971529177212": {
     "id": "4365090971529177212",
@@ -3779,42 +3599,6 @@
     "associatedMessageIds": {},
     "target": "In the current design, there are two types: `CVA` (short for ControlValueAccessor), used for automatic registration—developers only need to export their code following a predefined pattern; and `CVAA` (short for ControlValueAccessorAdapter), used for component registration. Although implementations may vary across different libraries or frameworks, the underlying principle remains the same: bind the corresponding values and events to the relevant components."
   },
-  "5348514885094917792": {
-    "id": "5348514885094917792",
-    "text": "目前进行实验性支持",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "目前进行实验性支持"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Currently conducting experimental support"
-  },
-  "2409706136399915545": {
-    "id": "2409706136399915545",
-    "text": "直接与组件绑定的类,表单中的最基础单位",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "直接与组件绑定的类,表单中的最基础单位"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Classes directly bound to components, the most basic unit in a form"
-  },
-  "1649386923063805849": {
-    "id": "1649386923063805849",
-    "text": "相关设置更加语义化,减少开发心智;并允许自定义封装",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "相关设置更加语义化,减少开发心智;并允许自定义封装"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "The relevant settings are more semantic, reducing the cognitive load on developers, and allowing customizable encapsulation."
-  },
   "4387785588122997235": {
     "id": "4387785588122997235",
     "text": "确保当前项目可以正常运行",
@@ -3827,29 +3611,17 @@
     "associatedMessageIds": {},
     "target": "Ensure that the current project can run properly."
   },
-  "8993336620477100318": {
-    "id": "8993336620477100318",
-    "text": "禁用条件，根据值的变化动态控制字段是否禁用",
+  "3910211093824238340": {
+    "id": "3910211093824238340",
+    "text": "示例",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "禁用条件，根据值的变化动态控制字段是否禁用"
+      "示例"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Disable condition: Dynamically controls whether a field is disabled based on value changes."
-  },
-  "9022547548969003731": {
-    "id": "9022547548969003731",
-    "text": "禁用状态取决于两个值,自身是否禁用和父级是否禁用,满足其一即禁用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "禁用状态取决于两个值,自身是否禁用和父级是否禁用,满足其一即禁用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "The disabled state depends on two values: whether the element itself is disabled and whether the parent is disabled. If either condition is met, the element is disabled."
+    "target": "Example"
   },
   "3037208995363320451": {
     "id": "3037208995363320451",
@@ -3886,18 +3658,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Simplify orm definition"
-  },
-  "8503537271966715252": {
-    "id": "8503537271966715252",
-    "text": "类型",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "类型"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Type"
   },
   "1940695139573952801": {
     "id": "1940695139573952801",
@@ -3946,18 +3706,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Component"
-  },
-  "1703399233571506045": {
-    "id": "1703399233571506045",
-    "text": "组件中实现了`ControlValueAccessor`的组件",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "组件中实现了`ControlValueAccessor`的组件"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Components that implement `ControlValueAccessor`"
   },
   "9162775487966748992": {
     "id": "9162775487966748992",
@@ -4043,6 +3791,30 @@
     "associatedMessageIds": {},
     "target": "Quick layout of components, merged listening, automatic lazy loading, package decoration"
   },
+  "6781761425945707705": {
+    "id": "6781761425945707705",
+    "text": "组件类型",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "组件类型"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Component Type"
+  },
+  "3356463113262621740": {
+    "id": "3356463113262621740",
+    "text": "组合查询",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "组合查询"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Composite Query"
+  },
   "2613907245914625651": {
     "id": "2613907245914625651",
     "text": "绑定表单",
@@ -4054,30 +3826,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Bind Form"
-  },
-  "5493866923233199135": {
-    "id": "5493866923233199135",
-    "text": "绝大多数表单,只做了`Group`,`Array`,`Control`三种控件,但是缺少了逻辑或/与,这就让某些逻辑实现变得复杂",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "绝大多数表单,只做了`Group`,`Array`,`Control`三种控件,但是缺少了逻辑或/与,这就让某些逻辑实现变得复杂"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Most forms only implement three types of controls: `Group`, `Array`, and `Control`, but they are missing logical operators such as OR/AND, which makes certain logical implementations more complex."
-  },
-  "5832641937296301997": {
-    "id": "5832641937296301997",
-    "text": "绝大多数表单,视图部分,逻辑部分,类型部分都需要分开定义,才能正常使用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "绝大多数表单,视图部分,逻辑部分,类型部分都需要分开定义,才能正常使用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Most forms, view sections, logic sections, and type sections need to be defined separately in order to function properly."
   },
   "10689188723136809": {
     "id": "10689188723136809",
@@ -4103,13 +3851,13 @@
     "associatedMessageIds": {},
     "target": "Auto-generated attributes (can be overridden)"
   },
-  "6481481906481760357": {
-    "id": "6481481906481760357",
-    "text": "自定义actions",
+  "7280090128140361760": {
+    "id": "7280090128140361760",
+    "text": "自定义 actions",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "自定义actions"
+      "自定义 actions"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
@@ -4127,6 +3875,30 @@
     "associatedMessageIds": {},
     "target": "Customize form group control to manage the display of internal forms"
   },
+  "5183545599220618601": {
+    "id": "5183545599220618601",
+    "text": "若需定义为非表单控件，可使用 NFCSchema(`v.optional(v.void())`)",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "若需定义为非表单控件，可使用 NFCSchema(`v.optional(v.void())`)"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "If it needs to be defined as a non-form control, you can use `NFCSchema(v.optional(v.void()))`."
+  },
+  "2491633785704924922": {
+    "id": "2491633785704924922",
+    "text": "获取帮助",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "获取帮助"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Get Help"
+  },
   "1449128930929163424": {
     "id": "1449128930929163424",
     "text": "融合",
@@ -4138,18 +3910,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Integration"
-  },
-  "2662313105577665109": {
-    "id": "2662313105577665109",
-    "text": "补丁方式添加提供者",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "补丁方式添加提供者"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Adding a provider via patching"
   },
   "6713287036079310806": {
     "id": "6713287036079310806",
@@ -4163,18 +3923,6 @@
     "associatedMessageIds": {},
     "target": "Form"
   },
-  "5187765671250522473": {
-    "id": "5187765671250522473",
-    "text": "表单中带`$$`属于`Signal`",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "表单中带`$$`属于`Signal`"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Fields in the form with `$$` belong to `Signal`"
-  },
   "6654092053584961242": {
     "id": "6654092053584961242",
     "text": "表单使用",
@@ -4187,17 +3935,41 @@
     "associatedMessageIds": {},
     "target": "Form Usage"
   },
-  "9215945142942412391": {
-    "id": "9215945142942412391",
-    "text": "表单控件的model-view/view-model分离",
+  "8402669567296337643": {
+    "id": "8402669567296337643",
+    "text": "表单方法",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "表单控件的model-view/view-model分离"
+      "表单方法"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Separation of model-view/view-model in form controls"
+    "target": "Form Method"
+  },
+  "1223360046266610627": {
+    "id": "1223360046266610627",
+    "text": "表单是皮影的核心组成部分，通过 Schema 定义来构建表单结构和行为。",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "表单是皮影的核心组成部分，通过 Schema 定义来构建表单结构和行为。"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "The form is the core component of the puppet, with its structure and behavior defined through Schema."
+  },
+  "4749624316053639956": {
+    "id": "4749624316053639956",
+    "text": "表单状态",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "表单状态"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Form Status"
   },
   "3603990046363629496": {
     "id": "3603990046363629496",
@@ -4211,17 +3983,53 @@
     "associatedMessageIds": {},
     "target": "Type safety of forms, input/output conversion, validation, partitioned disable"
   },
-  "6143418680809879742": {
-    "id": "6143418680809879742",
-    "text": "视图到模型",
+  "9033640498521588134": {
+    "id": "9033640498521588134",
+    "text": "表单类型",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "视图到模型"
+      "表单类型"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "View to Model"
+    "target": "Form Type"
+  },
+  "6700810572163805426": {
+    "id": "6700810572163805426",
+    "text": "覆盖前面的设置",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "覆盖前面的设置"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Override the previous settings"
+  },
+  "2186853281094082222": {
+    "id": "2186853281094082222",
+    "text": "覆盖已存在的值",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "覆盖已存在的值"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Overwrite existing values"
+  },
+  "6416416834537761028": {
+    "id": "6416416834537761028",
+    "text": "视图 → 模型（View → Model）",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "视图 → 模型（View → Model）"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "View → Model"
   },
   "7124801705648377725": {
     "id": "7124801705648377725",
@@ -4247,53 +4055,53 @@
     "associatedMessageIds": {},
     "target": "Has the view changed? Force update: update only if different from the last time, and simultaneously set the form value."
   },
-  "2730850528719278383": {
-    "id": "2730850528719278383",
-    "text": "解析时传入的上下文",
+  "3095253807158194085": {
+    "id": "3095253807158194085",
+    "text": "解析 Valibot 定义后出现的属性配置对象，保存组件配置和控件状态。",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "解析时传入的上下文"
+      "解析 Valibot 定义后出现的属性配置对象，保存组件配置和控件状态。"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Context passed during parsing"
+    "target": "Parse the property configuration object defined after Valibot, and save the component configuration and control state."
   },
-  "8468751852537010668": {
-    "id": "8468751852537010668",
-    "text": "触发值变更,开启异步获取值",
+  "5089741841095109279": {
+    "id": "5089741841095109279",
+    "text": "解析时传入的上下文,可以在所有字段中使用",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "触发值变更,开启异步获取值"
+      "解析时传入的上下文,可以在所有字段中使用"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Trigger value change, enable asynchronous value retrieval"
+    "target": "The context passed during parsing can be used across all fields."
   },
-  "2634130094020039918": {
-    "id": "2634130094020039918",
-    "text": "让组件附加额外的能力,比如`显示控件的标签`,`验证内容`,`前后缀`等组件相关,共通的东西",
+  "3076645677488547017": {
+    "id": "3076645677488547017",
+    "text": "触发值变更，开启异步获取值",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "让组件附加额外的能力,比如`显示控件的标签`,`验证内容`,`前后缀`等组件相关,共通的东西"
+      "触发值变更，开启异步获取值"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Enable components to acquire extra capabilities, such as `displaying widget labels`, `validating content`, `adding prefixes and suffixes`, and other common functionalities."
+    "target": "Trigger value change, enabling asynchronous value retrieval."
   },
-  "9029658236649773068": {
-    "id": "9029658236649773068",
-    "text": "设置交叉类型为group表单,可以用于更好的页面布局使用",
+  "7527264240871860828": {
+    "id": "7527264240871860828",
+    "text": "让开发者专注于组件基本功能，减少耦合",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "设置交叉类型为group表单,可以用于更好的页面布局使用"
+      "让开发者专注于组件基本功能，减少耦合"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Set the cross type to “group” form, which can be used for better page layout."
+    "target": "Enable developers to focus on core component functionality and reduce coupling."
   },
   "364970751317063018": {
     "id": "364970751317063018",
@@ -4307,77 +4115,29 @@
     "associatedMessageIds": {},
     "target": "Set an alias for easier querying."
   },
-  "1272938189012298083": {
-    "id": "1272938189012298083",
-    "text": "设置别名,用于路径查询",
+  "6960322651517020458": {
+    "id": "6960322651517020458",
+    "text": "设置前",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "设置别名,用于路径查询"
+      "设置前"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Set an alias, used for path queries."
+    "target": "Before Setup"
   },
-  "7215496009976051449": {
-    "id": "7215496009976051449",
-    "text": "设置后,返回FieldGroup",
+  "4788954656443027535": {
+    "id": "4788954656443027535",
+    "text": "设置后",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "设置后,返回FieldGroup"
+      "设置后"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "After configuration, return the FieldGroup."
-  },
-  "1192900917152810887": {
-    "id": "1192900917152810887",
-    "text": "设置后状态恢复到`untouched`,`pristine`",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "设置后状态恢复到`untouched`,`pristine`"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "After setting, the status is restored to `untouched`, `pristine`"
-  },
-  "3369943678322556370": {
-    "id": "3369943678322556370",
-    "text": "设置属性,会覆盖已存在的值",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "设置属性,会覆盖已存在的值"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Setting an attribute will overwrite the existing value."
-  },
-  "774367619797326439": {
-    "id": "774367619797326439",
-    "text": "设置属性,会覆盖所有值",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "设置属性,会覆盖所有值"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Setting properties will override all values."
-  },
-  "6148033787167600718": {
-    "id": "6148033787167600718",
-    "text": "设置属性,允许使用field,并返回一个异步的值(Promise,Signal,Observable)动态更新",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "设置属性,允许使用field,并返回一个异步的值(Promise,Signal,Observable)动态更新"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Set the property to allow the use of `field`, and return an asynchronous value (Promise, Signal, or Observable) for dynamic updates."
+    "target": "After setting"
   },
   "1081081979367090482": {
     "id": "1081081979367090482",
@@ -4391,65 +4151,41 @@
     "associatedMessageIds": {},
     "target": "Setting the provider (will override all existing providers)"
   },
-  "4331176794462268019": {
-    "id": "4331176794462268019",
-    "text": "设置渲染配置（如 hidden、priority 等）",
+  "5566108816314649553": {
+    "id": "5566108816314649553",
+    "text": "设置组件自身的类,与`top`类似",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "设置渲染配置（如 hidden、priority 等）"
+      "设置组件自身的类,与`top`类似"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Set rendering configuration (e.g., hidden, priority, etc.)"
+    "target": "Set the component’s own class, similar to `top`."
   },
-  "3214546382841522954": {
-    "id": "3214546382841522954",
-    "text": "设置组件优先级或者提升组件位置",
+  "628231387744417993": {
+    "id": "628231387744417993",
+    "text": "设置表单值",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "设置组件优先级或者提升组件位置"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Set component priority or elevate component position"
-  },
-  "1367500699918504497": {
-    "id": "1367500699918504497",
-    "text": "设置组件类型",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "设置组件类型"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Set component type"
-  },
-  "458097909472498200": {
-    "id": "458097909472498200",
-    "text": "设置表单控件不关联 formControl;也就是该控件被设置为一个普通的组件",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "设置表单控件不关联 formControl;也就是该控件被设置为一个普通的组件"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Set the form control to be unassociated with `formControl`; i.e., the control is configured as a plain component."
-  },
-  "8402003515067659904": {
-    "id": "8402003515067659904",
-    "text": "设置设置表单值",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "设置设置表单值"
+      "设置表单值"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Set form values"
+  },
+  "4377866497959527405": {
+    "id": "4377866497959527405",
+    "text": "设置表单控件不关联 formControl，也就是该控件被设置为一个普通的组件",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "设置表单控件不关联 formControl，也就是该控件被设置为一个普通的组件"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Set the form control to be unassociated with `formControl`, meaning the control is configured as a regular component."
   },
   "3014408415754019309": {
     "id": "3014408415754019309",
@@ -4463,53 +4199,41 @@
     "associatedMessageIds": {},
     "target": "Set input properties"
   },
-  "4116791952393996719": {
-    "id": "4116791952393996719",
-    "text": "设计上来讲`Props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现",
+  "3247000606556525248": {
+    "id": "3247000606556525248",
+    "text": "设计上来讲 `props` 可以完成所有工作（只要定义得当），但是为了更好的语义，所以分为多种属性；实际在开发中可以按照自己的习惯实现",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "设计上来讲`Props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现"
+      "设计上来讲 `props` 可以完成所有工作（只要定义得当），但是为了更好的语义，所以分为多种属性；实际在开发中可以按照自己的习惯实现"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "From a design perspective, `Props` can accomplish all tasks (provided they are properly defined); however, for better semantics, they are divided into various attributes. In actual development, you can implement them according to your own preferences."
+    "target": "In terms of design, `props` can accomplish all tasks (provided they are defined appropriately); however, to achieve better semantics, they are categorized into various types. In actual development, you can implement them according to your own preferences."
   },
-  "791421212478389271": {
-    "id": "791421212478389271",
-    "text": "设计上来讲`props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现",
+  "4292357276741349775": {
+    "id": "4292357276741349775",
+    "text": "该服务的作用域为在当前组件及其子级，也就是可以通过它来进行组件间的数据通讯",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "设计上来讲`props`可以完成所有工作(只要定义得当),但是为了更好的语义,所以分为多种属性;实际在开发中可以按照自己的习惯实现"
+      "该服务的作用域为在当前组件及其子级，也就是可以通过它来进行组件间的数据通讯"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "In terms of design, `props` can accomplish all tasks (provided they are defined appropriately); however, to enhance semantic clarity, they are categorized into various attribute types. In actual development, you may implement them according to your personal preferences or conventions."
+    "target": "The scope of this service is limited to the current component and its descendants, enabling inter-component data communication."
   },
-  "9099612979882518592": {
-    "id": "9099612979882518592",
-    "text": "该函数输入为一个函数,其输入变量为当前的`SchemaHandle`,可以处理所有暴露的变量",
+  "266120722795704367": {
+    "id": "266120722795704367",
+    "text": "语法说明",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "该函数输入为一个函数,其输入变量为当前的`SchemaHandle`,可以处理所有暴露的变量"
+      "语法说明"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "The function takes as input a function whose input variable is the current `SchemaHandle`, capable of handling all exposed variables."
-  },
-  "8652580632179148785": {
-    "id": "8652580632179148785",
-    "text": "该服务的作用域为在当前组件及其子级,也就是可以通过它来进行组件间的数据通讯",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "该服务的作用域为在当前组件及其子级,也就是可以通过它来进行组件间的数据通讯"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "The scope of this service is within the current component and its descendants, enabling inter-component data communication."
+    "target": "Grammatical Notes"
   },
   "1231540176232516907": {
     "id": "1231540176232516907",
@@ -4535,6 +4259,18 @@
     "associatedMessageIds": {},
     "target": "Call"
   },
+  "7129700806098052516": {
+    "id": "7129700806098052516",
+    "text": "路径关键字",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "路径关键字"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Path Keywords"
+  },
   "7694252381790420250": {
     "id": "7694252381790420250",
     "text": "路径查询",
@@ -4547,17 +4283,17 @@
     "associatedMessageIds": {},
     "target": "Path Query"
   },
-  "6429650137716363702": {
-    "id": "6429650137716363702",
-    "text": "路径查询在`outputChange`,`valueChange`,`hideWhen`,`disableWhen`等Action中被使用",
+  "1313099857191700772": {
+    "id": "1313099857191700772",
+    "text": "路径查询用于在 `valueChange`、`outputChange`、`hideWhen`、`disableWhen` 等 Action 中定位其他字段。",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "路径查询在`outputChange`,`valueChange`,`hideWhen`,`disableWhen`等Action中被使用"
+      "路径查询用于在 `valueChange`、`outputChange`、`hideWhen`、`disableWhen` 等 Action 中定位其他字段。"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Path queries are used in actions such as `outputChange`, `valueChange`, `hideWhen`, and `disableWhen`."
+    "target": "Path queries are used to locate other fields within Actions such as `valueChange`, `outputChange`, `hideWhen`, and `disableWhen`."
   },
   "2863249439826723137": {
     "id": "2863249439826723137",
@@ -4595,6 +4331,18 @@
     "associatedMessageIds": {},
     "target": "Output Conversion"
   },
+  "2549183896956089710": {
+    "id": "2549183896956089710",
+    "text": "迁移状态",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "迁移状态"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Migration Status"
+  },
   "2341205884529028245": {
     "id": "2341205884529028245",
     "text": "过滤组",
@@ -4607,65 +4355,53 @@
     "associatedMessageIds": {},
     "target": "Filter Group"
   },
-  "8537854309019301809": {
-    "id": "8537854309019301809",
-    "text": "这也是皮影敢于使用Schema定义的底气,允许固定的类型有用动态的布局",
+  "7804069466345260391": {
+    "id": "7804069466345260391",
+    "text": "进行 RxJS 管道处理（`pipe.toModel`）",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "这也是皮影敢于使用Schema定义的底气,允许固定的类型有用动态的布局"
+      "进行 RxJS 管道处理（`pipe.toModel`）"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "This is also the confidence behind Piying's use of Schema definitions—allowing fixed types with dynamic layouts."
+    "target": "Perform RxJS pipeline processing (`pipe.toModel`)"
   },
-  "2139968651747675907": {
-    "id": "2139968651747675907",
-    "text": "进行`valibot`解析,解析失败会写入验证异常,标记为`dirty`",
+  "8996922941375733417": {
+    "id": "8996922941375733417",
+    "text": "进行 Valibot 解析，解析失败会写入验证异常，标记为 dirty",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "进行`valibot`解析,解析失败会写入验证异常,标记为`dirty`"
+      "进行 Valibot 解析，解析失败会写入验证异常，标记为 dirty"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Perform `valibot` parsing, and if parsing fails, it will write a validation exception and mark it as `dirty`."
+    "target": "Perform Valibot parsing; if parsing fails, write a validation exception and mark it as dirty."
   },
-  "2167079586077256140": {
-    "id": "2167079586077256140",
-    "text": "进行rxjs管道处理`pipe.toModel`",
+  "1339424323160919861": {
+    "id": "1339424323160919861",
+    "text": "进行模型到视图转换（`transformer.toView`），允许输入值在写入到视图时进行修改",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "进行rxjs管道处理`pipe.toModel`"
+      "进行模型到视图转换（`transformer.toView`），允许输入值在写入到视图时进行修改"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Process the RxJS pipe `pipe.toModel`"
+    "target": "Perform model-to-view transformation (`transformer.toView`), allowing input values to be modified before being written to the view."
   },
-  "314304491980374487": {
-    "id": "314304491980374487",
-    "text": "进行模型到视图转换(`transfomer.toView`),允许输入值在写入到视图时进行修改",
+  "2131692059937348443": {
+    "id": "2131692059937348443",
+    "text": "进行转换处理（`transformer.toModel`）",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "进行模型到视图转换(`transfomer.toView`),允许输入值在写入到视图时进行修改"
+      "进行转换处理（`transformer.toModel`）"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Perform model-to-view conversion (`transfomer.toView`), allowing input values to be modified when written to the view."
-  },
-  "4909173552783547282": {
-    "id": "4909173552783547282",
-    "text": "进行转换处理`transfomer.toModel`\n> 这两个未来可能合成为一个,因为管道可以实现的更多,比如防抖",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "进行转换处理`transfomer.toModel`\n> 这两个未来可能合成为一个,因为管道可以实现的更多,比如防抖"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Perform conversion processing `transfomer.toModel`  \n> These two futures may merge into one, as the pipeline can achieve more, such as debouncing."
+    "target": "Perform transformation processing (`transformer.toModel`)"
   },
   "6284504305697969947": {
     "id": "6284504305697969947",
@@ -4679,53 +4415,29 @@
     "associatedMessageIds": {},
     "target": "Applicable to Orm scenarios"
   },
-  "1689207149762549552": {
-    "id": "1689207149762549552",
-    "text": "适配的库/框架的输入属性",
+  "3670669786681287195": {
+    "id": "3670669786681287195",
+    "text": "适用于前后端或其他输入解析也需要相同验证的场景",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "适配的库/框架的输入属性"
+      "适用于前后端或其他输入解析也需要相同验证的场景"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Input properties of compatible libraries/frameworks"
+    "target": "Applicable to scenarios where both frontend and backend, or other input parsing, require the same validation."
   },
-  "8815653886570924608": {
-    "id": "8815653886570924608",
-    "text": "适配的库/框架的输出属性",
+  "6875079695513142241": {
+    "id": "6875079695513142241",
+    "text": "适用于复杂验证逻辑，希望在当前控件上处理时",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "适配的库/框架的输出属性"
+      "适用于复杂验证逻辑，希望在当前控件上处理时"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Output properties of compatible libraries/frameworks"
-  },
-  "930747479237518416": {
-    "id": "930747479237518416",
-    "text": "选择类型,会自动传入`options`输入属性,对应组件需要实现",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "选择类型,会自动传入`options`输入属性,对应组件需要实现"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Select a type, and the `options` input property will be automatically passed in; the corresponding component needs to implement this."
-  },
-  "3503935297635445401": {
-    "id": "3503935297635445401",
-    "text": "通常用于控件的类型定义是一个对象/数组,但是不需要分开用多个控件表示,而是像普通控件一样输出",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "通常用于控件的类型定义是一个对象/数组,但是不需要分开用多个控件表示,而是像普通控件一样输出"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Typically, the type definition for controls is an object or array, but it does not require representing them as separate controls; instead, they are output like regular controls."
+    "target": "Applicable to complex validation logic, intended to be handled on the current control."
   },
   "3495916946674036777": {
     "id": "3495916946674036777",
@@ -4739,17 +4451,53 @@
     "associatedMessageIds": {},
     "target": "A value of the generic `signal` type needs to be converted into a solid `signal` in order to support dynamic changes."
   },
-  "6228005948062275225": {
-    "id": "6228005948062275225",
-    "text": "通用配置，用于设置渲染和表单配置",
+  "1866289123546598433": {
+    "id": "1866289123546598433",
+    "text": "通用属性",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "通用配置，用于设置渲染和表单配置"
+      "通用属性"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "General configuration, used for setting rendering and form configuration."
+    "target": "General Attributes"
+  },
+  "7661934723045356031": {
+    "id": "7661934723045356031",
+    "text": "通用格式：`actions.[propertyName].[method]`",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "通用格式：`actions.[propertyName].[method]`"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Generic format: `actions.[propertyName].[method]`"
+  },
+  "3603021873729777612": {
+    "id": "3603021873729777612",
+    "text": "通过 `field.get([])` 查询其他字段的配置，即使非表单控件也可以查询（只是返回的配置中没有控件引用）。",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "通过 `field.get([])` 查询其他字段的配置，即使非表单控件也可以查询（只是返回的配置中没有控件引用）。"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Query the configuration of other fields using `field.get([])`, even for non-form controls (though the returned configuration will not include control references)."
+  },
+  "8203291582640690411": {
+    "id": "8203291582640690411",
+    "text": "通过 `transfomer`/v.transform 处理数据格式转换",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "通过 `transfomer`/v.transform 处理数据格式转换"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Data format conversion via `transfomer`/v.transform"
   },
   "5822582136818176348": {
     "id": "5822582136818176348",
@@ -4775,41 +4523,17 @@
     "associatedMessageIds": {},
     "target": "Listen to the specified control through `valueChange` and update the control's value."
   },
-  "903384071175009273": {
-    "id": "903384071175009273",
-    "text": "通过传入`context`使得组件可以通过上下文动态获取参数",
+  "2731046540288691253": {
+    "id": "2731046540288691253",
+    "text": "通过传入 `context` 使得组件可以通过上下文动态获取参数",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "通过传入`context`使得组件可以通过上下文动态获取参数"
+      "通过传入 `context` 使得组件可以通过上下文动态获取参数"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "By passing in `context`, the component can dynamically retrieve parameters through the context."
-  },
-  "211474697240626646": {
-    "id": "211474697240626646",
-    "text": "通过使用`field.get([])`可以查询定义的`组件`配置\n> 即使非表单控件,也可以查询,只不过返回的配置中没有控件引用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "通过使用`field.get([])`可以查询定义的`组件`配置\n> 即使非表单控件,也可以查询,只不过返回的配置中没有控件引用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "By using `field.get([])`, you can query the defined `component` configuration  \n> Even for non-form controls, the query is possible, but the returned configuration does not include control references."
-  },
-  "4401278516210119299": {
-    "id": "4401278516210119299",
-    "text": "通过分组可以定义`card`,`tabs`,`navbar`等容器,使控件以不同风格展示\n> 在一定程度上替代了[slot](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/slot)",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "通过分组可以定义`card`,`tabs`,`navbar`等容器,使控件以不同风格展示\n> 在一定程度上替代了[slot](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/slot)"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "By grouping, you can define containers such as `card`, `tabs`, and `navbar`, allowing controls to be displayed in different styles  \n> To a certain extent, it replaces the [slot](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/slot)"
+    "target": "By passing `context`, the component can dynamically retrieve parameters via the context."
   },
   "4822148391498864378": {
     "id": "4822148391498864378",
@@ -4847,65 +4571,41 @@
     "associatedMessageIds": {},
     "target": "By adding metadata support, the ORM definition and type definition are combined into one, making management more convenient."
   },
-  "1109032047741382816": {
-    "id": "1109032047741382816",
-    "text": "逻辑或/与",
+  "3500756481102473169": {
+    "id": "3500756481102473169",
+    "text": "配置中的属性输入虽然分为多种，但是在不同的库/框架中表现不同，比如 `React` 中 `Attribute/Input/Output` 会合并到一起作为输入传入到组件。",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "逻辑或/与"
+      "配置中的属性输入虽然分为多种，但是在不同的库/框架中表现不同，比如 `React` 中 `Attribute/Input/Output` 会合并到一起作为输入传入到组件。"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Logical OR/AND"
+    "target": "Although property inputs in configuration are categorized into multiple types, their manifestation varies across different libraries or frameworks—for instance, in `React`, `Attributes`, `Inputs`, and `Outputs` are consolidated into a single input passed to the component."
   },
-  "7905472181288812355": {
-    "id": "7905472181288812355",
-    "text": "配置中的属性输入虽然分为四种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件",
+  "9114472680330731305": {
+    "id": "9114472680330731305",
+    "text": "配置的通用属性，可以在当前组件/包装器中使用",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "配置中的属性输入虽然分为四种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件"
+      "配置的通用属性，可以在当前组件/包装器中使用"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Although attributes in the configuration are divided into four types, their behavior varies across different libraries/frameworks. For example, in `React`, `Attribute`, `Input`, and `Output` are merged together and passed as a single input to the component."
+    "target": "Configurable generic attributes that can be used within the current component/wrapper."
   },
-  "4289398073232534927": {
-    "id": "4289398073232534927",
-    "text": "配置中的属性输入虽然分为多种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件",
+  "4097416812861895291": {
+    "id": "4097416812861895291",
+    "text": "钩子",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "配置中的属性输入虽然分为多种,但是在不同的库/框架中表现不同,比如`React`中`Attribute/Input/Output`会合并到一起作为输入传入到组件"
+      "钩子"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Although configuration attributes are categorized into several types, their behavior varies across different libraries or frameworks. For instance, in `React`, `Attribute`, `Input`, and `Output` are merged together and passed as a single input to the component."
-  },
-  "367359449842309647": {
-    "id": "367359449842309647",
-    "text": "配置的通用属性,可以在当前组件/包装器中使用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "配置的通用属性,可以在当前组件/包装器中使用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "The configured general properties can be used within the current component/wrapper."
-  },
-  "8341680220354987742": {
-    "id": "8341680220354987742",
-    "text": "配置的通用属性,设置可以在当前组件/包装器中使用",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "配置的通用属性,设置可以在当前组件/包装器中使用"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Common properties configured, settings available for use within the current component/wrapper."
+    "target": "Hook"
   },
   "52740241527664589": {
     "id": "52740241527664589",
@@ -4919,17 +4619,17 @@
     "associatedMessageIds": {},
     "target": "Limit"
   },
-  "8539469130608253947": {
-    "id": "8539469130608253947",
-    "text": "隐藏条件，根据值的变化动态控制字段是否隐藏",
+  "4473196405306236838": {
+    "id": "4473196405306236838",
+    "text": "限制说明",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "隐藏条件，根据值的变化动态控制字段是否隐藏"
+      "限制说明"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Hidden condition: Dynamically controls whether a field is hidden based on value changes."
+    "target": "Limitation Statement"
   },
   "1357377159883930936": {
     "id": "1357377159883930936",
@@ -4943,17 +4643,17 @@
     "associatedMessageIds": {},
     "target": "`environments` must be configured in the component’s `options`."
   },
-  "6933856329582536302": {
-    "id": "6933856329582536302",
-    "text": "需要注册组件",
+  "1486217485826117153": {
+    "id": "1486217485826117153",
+    "text": "需要在需要显示异常信息的包装器、组件上自行实现国际化",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "需要注册组件"
+      "需要在需要显示异常信息的包装器、组件上自行实现国际化"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "Component registration is required"
+    "target": "The wrapper and components where exception information needs to be displayed must implement internationalization themselves."
   },
   "4386449032482258827": {
     "id": "4386449032482258827",
@@ -4966,30 +4666,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Note that the moved position must be parsed first."
-  },
-  "1810688521660190431": {
-    "id": "1810688521660190431",
-    "text": "需要组件中实现手动选择一个或多个子条件",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "需要组件中实现手动选择一个或多个子条件"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "The component needs to implement manual selection of one or more sub-conditions."
-  },
-  "8929633343167762652": {
-    "id": "8929633343167762652",
-    "text": "需要自己在实现验证的`包装器`,`分组`上自行实现国际化",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "需要自己在实现验证的`包装器`,`分组`上自行实现国际化"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "The internationalization of `wrappers` and `groups` that require self-implementation of verification needs to be implemented by yourself."
   },
   "4870486845916972510": {
     "id": "4870486845916972510",
@@ -5027,18 +4703,6 @@
     "associatedMessageIds": {},
     "target": "Non-form control components"
   },
-  "9140568832968454150": {
-    "id": "9140568832968454150",
-    "text": "预制的验证Action,`valibot`上已经存在国际化",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "预制的验证Action,`valibot`上已经存在国际化"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "Predefined validation Action, already exists internationalization on `valibot`"
-  },
   "6199461778127369329": {
     "id": "6199461778127369329",
     "text": "验证",
@@ -5050,18 +4714,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Verify"
-  },
-  "7328029759524627809": {
-    "id": "7328029759524627809",
-    "text": "验证使用,可视为普通的object类型",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "验证使用,可视为普通的object类型"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "For verification purposes, it can be regarded as a regular object type."
   },
   "6782449427950026009": {
     "id": "6782449427950026009",
@@ -5075,17 +4727,17 @@
     "associatedMessageIds": {},
     "target": "Validation and control components are completely decoupled; they need to be implemented manually, and only related control states are provided."
   },
-  "6603239672487831028": {
-    "id": "6603239672487831028",
-    "text": "高内聚,低耦合;通过增删配置动态设置",
+  "3963528380070914714": {
+    "id": "3963528380070914714",
+    "text": "验证顺序",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "高内聚,低耦合;通过增删配置动态设置"
+      "验证顺序"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "High cohesion, low coupling; dynamically configure through adding or removing configurations"
+    "target": "Verification Sequence"
   },
   "8931984317790526076": {
     "id": "8931984317790526076",
@@ -5110,18 +4762,6 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "By default, after dynamic parsing, most scenarios can be used directly."
-  },
-  "6735707648165510781": {
-    "id": "6735707648165510781",
-    "text": "默认下直接触发变更,设置`updateOn:'blur'`后要等待`touched`发射",
-    "meaning": "",
-    "description": "",
-    "messageParts": [
-      "默认下直接触发变更,设置`updateOn:'blur'`后要等待`touched`发射"
-    ],
-    "placeholderNames": [],
-    "associatedMessageIds": {},
-    "target": "By default, changes are triggered directly. After setting `updateOn: 'blur'`, you need to wait for the `touched` event to be emitted."
   },
   "7727666512987859558": {
     "id": "7727666512987859558",
@@ -5159,53 +4799,89 @@
     "associatedMessageIds": {},
     "target": "Default value"
   },
-  "9031301241060936147": {
-    "id": "9031301241060936147",
-    "text": "默认情况下,比如使用`v.string()`时,会自动查找注册的`string`配置;但是您也可以使用此方法手动指定",
+  "936525838123261225": {
+    "id": "936525838123261225",
+    "text": "默认情况下，Valibot 的强类型定义使所有输入默认为表单控件",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "默认情况下,比如使用`v.string()`时,会自动查找注册的`string`配置;但是您也可以使用此方法手动指定"
+      "默认情况下，Valibot 的强类型定义使所有输入默认为表单控件"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "By default, for example when using `v.string()`, it will automatically look up the registered `string` configuration; however, you can also use this method to manually specify it."
+    "target": "By default, Valibot’s strongly typed definitions treat all inputs as form controls."
   },
-  "7063127021049097214": {
-    "id": "7063127021049097214",
-    "text": "默认情况下,由于valibot为强类型定义,所以所有输入默认为表单控件,如果想要定义为非表单控件,可以使用`v.optional(v.void())`,表示一个不可能的值",
+  "5155284194786834538": {
+    "id": "5155284194786834538",
+    "text": "默认提供基础的 object 组件，用来展示内部子组件",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "默认情况下,由于valibot为强类型定义,所以所有输入默认为表单控件,如果想要定义为非表单控件,可以使用`v.optional(v.void())`,表示一个不可能的值"
+      "默认提供基础的 object 组件，用来展示内部子组件"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "By default, since valibot is strongly typed, all inputs are considered form controls by default. If you want to define them as non-form controls, you can use `v.optional(v.void())`, which represents an impossible value."
+    "target": "By default, a basic `object` component is provided to display internal child components."
   },
-  "6654936285331109296": {
-    "id": "6654936285331109296",
-    "text": "默认提供了一个基础的object组件,用来展示内部子组件",
+  "5748274546914428411": {
+    "id": "5748274546914428411",
+    "text": "默认直接触发变更；设置 `updateOn: 'blur'` 后要等待 touched 发射",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "默认提供了一个基础的object组件,用来展示内部子组件"
+      "默认直接触发变更；设置 `updateOn: 'blur'` 后要等待 touched 发射"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "A basic object component is provided by default to display internal child components."
+    "target": "By default, changes are triggered immediately; when `updateOn: 'blur'` is set, it waits for the `touched` emission."
   },
-  "4049547774694746509": {
-    "id": "4049547774694746509",
-    "text": "默认的valibot`transform`仅支持视图到模型转换,如果需要回显,则需要配置`formConfig({ transfomer: { toView(value, control) {} } })`",
+  "566476086976917668": {
+    "id": "566476086976917668",
+    "text": "📝 其他",
     "meaning": "",
     "description": "",
     "messageParts": [
-      "默认的valibot`transform`仅支持视图到模型转换,如果需要回显,则需要配置`formConfig({ transfomer: { toView(value, control) {} } })`"
+      "📝 其他"
     ],
     "placeholderNames": [],
     "associatedMessageIds": {},
-    "target": "The default `transform` in Valibot supports only view-to-model conversion. For bidirectional transformation (i.e., to support form data display), you need to configure it as follows:  \n`formConfig({ transformer: { toView(value, control) { ... } } })`."
+    "target": "📝 Others"
+  },
+  "4268532418507219577": {
+    "id": "4268532418507219577",
+    "text": "🔌 调用方式",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "🔌 调用方式"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "🔌 Call Method"
+  },
+  "8270484606054628273": {
+    "id": "8270484606054628273",
+    "text": "🧩 组件注册",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "🧩 组件注册"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "🧩 Component Registration"
+  },
+  "4136674902330181121": {
+    "id": "4136674902330181121",
+    "text": "🧪 目前进行实验性支持\n\n🎮 [在线游乐场](https://piying-org.github.io/website/jsonschema-playground)\n\n🔧 对`JsonSchema`的支持本质上是将其转换为`Valibot`定义,然后进行解析",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "🧪 目前进行实验性支持\n\n🎮 [在线游乐场](https://piying-org.github.io/website/jsonschema-playground)\n\n🔧 对`JsonSchema`的支持本质上是将其转换为`Valibot`定义,然后进行解析"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "🧪 Currently under experimental support  \n\n🎮 [Online Playground](https://piying-org.github.io/website/jsonschema-playground)  \n\n🔧 Support for `JsonSchema` essentially involves converting it into `Valibot` definitions, followed by parsing."
   },
   "8044044696511750096": {
     "id": "8044044696511750096",
@@ -5278,6 +4954,18 @@
     "placeholderNames": [],
     "associatedMessageIds": {},
     "target": "Introduction"
+  },
+  "8522361668357636719": {
+    "id": "8522361668357636719",
+    "text": "概念",
+    "meaning": "",
+    "description": "",
+    "messageParts": [
+      "概念"
+    ],
+    "placeholderNames": [],
+    "associatedMessageIds": {},
+    "target": "Concept"
   },
   "9216117865911519658": {
     "id": "9216117865911519658",

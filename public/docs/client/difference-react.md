@@ -1,4 +1,4 @@
-#
+# React使用差异与配置说明
 
 ## 组件中获取配置实例
 
@@ -15,7 +15,7 @@ const field = useContext(PI_VIEW_FIELD_TOKEN);
 
 ```typescript
 const { cva, cvaa } = useControlValueAccessor();
-  useImperativeHandle(props[CVA], () => cva, [cva]);
+useImperativeHandle(props[CVA], () => cva, [cva]);
 ```
 
 ## useSignalToRef

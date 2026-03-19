@@ -104,11 +104,11 @@ npm i valibot
 :2:custom-tab{label='Angular'}
 
 ```typescript
-import { Component, forwardRef } from "@angular/core";
-import { FormsModule, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { BaseControl } from "@piying/view-angular";
+import { Component, forwardRef } from '@angular/core';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { BaseControl } from '@piying/view-angular';
 @Component({
-  selector: "app-input",
+  selector: 'app-input',
   imports: [FormsModule],
   providers: [
     {
@@ -127,8 +127,8 @@ export class InputFCC extends BaseControl {}
 
 ```vue
 <script setup lang="ts">
-import { useControlValueAccessor } from "@piying/view-vue";
-import { vModelDynamic } from "vue";
+import { useControlValueAccessor } from '@piying/view-vue';
+import { vModelDynamic } from 'vue';
 const {
   cva,
   cvaa: { value, disabled, valueChange, touchedChange },
@@ -145,9 +145,9 @@ defineExpose({ cva });
 :2:custom-tab{label='React'}
 
 ```tsx
-import type { ControlValueAccessor } from "@piying/view-core";
-import { CVA, useControlValueAccessor, useInputTextModel } from "@piying/view-react";
-import { useImperativeHandle } from "react";
+import type { ControlValueAccessor } from '@piying/view-core';
+import { CVA, useControlValueAccessor, useInputTextModel } from '@piying/view-react';
+import { useImperativeHandle } from 'react';
 interface PiInputOptions {
   [CVA]: React.RefObject<ControlValueAccessor>;
 }
@@ -185,9 +185,9 @@ export function InputText(props: PiInputOptions) {
 :2:custom-tab{label='Solid'}
 
 ```tsx
-import type { ControlValueAccessor } from "@piying/view-core";
-import { CVA, useControlValueAccessor, useInputTextModel } from "@piying/view-solid";
-import { createMemo, type Setter } from "solid-js";
+import type { ControlValueAccessor } from '@piying/view-core';
+import { CVA, useControlValueAccessor, useInputTextModel } from '@piying/view-solid';
+import { createMemo, type Setter } from 'solid-js';
 interface PiInputOptions {
   [CVA]: Setter<ControlValueAccessor>;
 }
@@ -227,12 +227,12 @@ export function InputText(props: PiInputOptions) {
 ```
 
 ```typescript
-import { Component, computed } from "@angular/core";
-import { InsertFieldDirective } from "@piying/view-angular";
-import { setGlobalConfig, summarize } from "valibot";
+import { Component, computed } from '@angular/core';
+import { InsertFieldDirective } from '@piying/view-angular';
+import { setGlobalConfig, summarize } from 'valibot';
 @Component({
-  selector: "label-wrapper",
-  templateUrl: "./component.html",
+  selector: 'label-wrapper',
+  templateUrl: './component.html',
   imports: [InsertFieldDirective],
 })
 export class LabelWC {}
@@ -261,15 +261,15 @@ const props = signalToRef(() => field?.value.props());
 :2:custom-tab{label='React'}
 
 ```tsx
-import { PI_VIEW_FIELD_TOKEN, useSignalToRef } from "@piying/view-react";
-import { useContext } from "react";
+import { PI_VIEW_FIELD_TOKEN, useSignalToRef } from '@piying/view-react';
+import { useContext } from 'react';
 export function LabelWC(props: { children: any }) {
   const field = useContext(PI_VIEW_FIELD_TOKEN);
   const props2 = useSignalToRef(field, () => field?.props());
   return (
     <>
       <div className="flex gap-2 items-center">
-        {props2?.["title"] ? <span className="label">{props2["title"]}</span> : undefined}
+        {props2?.['title'] ? <span className="label">{props2['title']}</span> : undefined}
         {props.children}
       </div>
     </>
@@ -300,9 +300,9 @@ export function LabelWC(props: { children: any }) {
 :2:custom-tab{label='Solid'}
 
 ```tsx
-import { PI_VIEW_FIELD_TOKEN, createSignalConvert } from "@piying/view-solid";
-import clsx from "clsx";
-import { useContext, createMemo, Show } from "solid-js";
+import { PI_VIEW_FIELD_TOKEN, createSignalConvert } from '@piying/view-solid';
+import clsx from 'clsx';
+import { useContext, createMemo, Show } from 'solid-js';
 export function LabelWrapper(props: { children: any }) {
   const field = useContext(PI_VIEW_FIELD_TOKEN)!;
   const props2 = createSignalConvert(() => {
@@ -311,17 +311,17 @@ export function LabelWrapper(props: { children: any }) {
   const attributes = createSignalConvert(() => field.attributes());
   const isRequired = createSignalConvert(() => !!field.form.control?.required$$());
   const wrapperClass = createMemo(() => {
-    return clsx("flex gap-2", {
-      "flex-col": props2()["labelPosition"] === "top",
-      "items-center": props2()["labelPosition"] !== "top",
+    return clsx('flex gap-2', {
+      'flex-col': props2()['labelPosition'] === 'top',
+      'items-center': props2()['labelPosition'] !== 'top',
     });
   });
-  const title = createMemo(() => props2()["title"]);
+  const title = createMemo(() => props2()['title']);
   return (
     <>
       <div class={wrapperClass()}>
-        <Show when={(!props2()["labelPosition"] || props2()["labelPosition"] === "left" || props2()["labelPosition"] === "top") && props2()["title"]}>
-          <label for={attributes()?.["id"]}>
+        <Show when={(!props2()['labelPosition'] || props2()['labelPosition'] === 'left' || props2()['labelPosition'] === 'top') && props2()['title']}>
+          <label for={attributes()?.['id']}>
             <Show when={isRequired()}>
               <span class="text-red-500">*</span>
             </Show>
@@ -329,8 +329,8 @@ export function LabelWrapper(props: { children: any }) {
           </label>
         </Show>
         {props.children}
-        <Show when={props2()["labelPosition"] === "right" && props2()["title"]}>
-          <label for={attributes()?.["id"]}>
+        <Show when={props2()['labelPosition'] === 'right' && props2()['title']}>
+          <label for={attributes()?.['id']}>
             <Show when={isRequired()}>
               <span class="text-red-500">*</span>
             </Show>
@@ -366,12 +366,12 @@ export function LabelWrapper(props: { children: any }) {
 ```
 
 ```typescript
-import { NgTemplateOutlet } from "@angular/common";
-import { Component, inject } from "@angular/core";
-import { PI_VIEW_FIELD_TOKEN, PiyingViewGroupBase } from "@piying/view-angular";
+import { NgTemplateOutlet } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { PI_VIEW_FIELD_TOKEN, PiyingViewGroupBase } from '@piying/view-angular';
 @Component({
-  selector: "fieldset-group",
-  templateUrl: "./component.html",
+  selector: 'fieldset-group',
+  templateUrl: './component.html',
   imports: [NgTemplateOutlet],
 })
 export class FieldsetFGC extends PiyingViewGroupBase {
@@ -408,14 +408,14 @@ const props = signalToRef(() => field?.value.props());
 :2:custom-tab{label='React'}
 
 ```tsx
-import { PI_VIEW_FIELD_TOKEN, useSignalToRef, type PiResolvedViewFieldConfig, PiyingFieldTemplate } from "@piying/view-react";
-import { useContext } from "react";
+import { PI_VIEW_FIELD_TOKEN, useSignalToRef, type PiResolvedViewFieldConfig, PiyingFieldTemplate } from '@piying/view-react';
+import { useContext } from 'react';
 export function FieldsetFGC(props: { fields: PiResolvedViewFieldConfig[] }) {
   const field = useContext(PI_VIEW_FIELD_TOKEN);
   const props2 = useSignalToRef(field, (field) => field?.props());
   return (
     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4 w-full">
-      {props2?.["title"] ? <legend className="fieldset-legend">{props2["title"]}</legend> : undefined}
+      {props2?.['title'] ? <legend className="fieldset-legend">{props2['title']}</legend> : undefined}
       {props.fields.map((field, index) => {
         return <PiyingFieldTemplate field={field} key={index}></PiyingFieldTemplate>;
       })}
@@ -449,8 +449,8 @@ export function FieldsetFGC(props: { fields: PiResolvedViewFieldConfig[] }) {
 :2:custom-tab{label='Solid'}
 
 ```tsx
-import { PI_VIEW_FIELD_TOKEN, createSignalConvert, PiyingFieldTemplate } from "@piying/view-solid";
-import { For, Show, useContext } from "solid-js";
+import { PI_VIEW_FIELD_TOKEN, createSignalConvert, PiyingFieldTemplate } from '@piying/view-solid';
+import { For, Show, useContext } from 'solid-js';
 export function FieldsetGroup(_: {}) {
   const field = useContext(PI_VIEW_FIELD_TOKEN);
   const props2 = createSignalConvert(() => field?.props());
@@ -458,7 +458,7 @@ export function FieldsetGroup(_: {}) {
   return (
     <>
       <fieldset class="fieldset bg-base-200 border-base-300 rounded-box border p-4 w-full">
-        <Show when={props2()?.["title"]} keyed>
+        <Show when={props2()?.['title']} keyed>
           {(title) => <legend class="fieldset-legend">{title}</legend>}
         </Show>
         <For each={children()}>
@@ -508,22 +508,22 @@ export const FieldGlobalConfig = {
 ```
 
 ```typescript
-import { Component, OnInit } from "@angular/core";
-import { actions, setComponent } from "@piying/view-angular-core";
-import * as v from "valibot";
-import { PiyingView } from "@piying/view-angular";
+import { Component, OnInit } from '@angular/core';
+import { actions, setComponent } from '@piying/view-angular-core';
+import * as v from 'valibot';
+import { PiyingView } from '@piying/view-angular';
 @Component({
-  selector: "app-piying",
-  templateUrl: "./component.html",
+  selector: 'app-piying',
+  templateUrl: './component.html',
   imports: [PiyingView],
 })
 export class PiyingPage {
   schema = v.pipe(
     v.object({
-      text1: v.pipe(v.optional(v.string()), v.title("text1-label"), actions.wrappers.set(["label"])),
+      text1: v.pipe(v.optional(v.string()), v.title('text1-label'), actions.wrappers.set(['label'])),
     }),
-    v.title("form"),
-    setComponent("fieldset"),
+    v.title('form'),
+    setComponent('fieldset'),
   );
   options = {
     fieldGlobalConfig: FieldGlobalConfig,
@@ -539,16 +539,16 @@ export class PiyingPage {
 
 ```vue
 <script setup lang="ts">
-import { PiyingView } from "@piying/view-vue";
-import { actions, setComponent } from "@piying/view-core";
-import * as v from "valibot";
-import { ref } from "vue";
+import { PiyingView } from '@piying/view-vue';
+import { actions, setComponent } from '@piying/view-core';
+import * as v from 'valibot';
+import { ref } from 'vue';
 const schema = v.pipe(
   v.object({
-    text1: v.pipe(v.optional(v.string()), v.title("text1-label"), actions.wrappers.set(["label"])),
+    text1: v.pipe(v.optional(v.string()), v.title('text1-label'), actions.wrappers.set(['label'])),
   }),
-  v.title("form"),
-  setComponent("fieldset"),
+  v.title('form'),
+  setComponent('fieldset'),
 );
 const options = {
   fieldGlobalConfig: FieldGlobalConfig,
@@ -567,15 +567,15 @@ const model = ref({});
 :2:custom-tab{label='React'}
 
 ```tsx
-import * as v from "valibot";
-import { setComponent, actions } from "@piying/view-core";
-import { PiyingView } from "@piying/view-react";
+import * as v from 'valibot';
+import { setComponent, actions } from '@piying/view-core';
+import { PiyingView } from '@piying/view-react';
 const schema = v.pipe(
   v.object({
-    text1: v.pipe(v.optional(v.string()), v.title("text1-label"), actions.wrappers.set(["label"])),
+    text1: v.pipe(v.optional(v.string()), v.title('text1-label'), actions.wrappers.set(['label'])),
   }),
-  v.title("form"),
-  setComponent("fieldset"),
+  v.title('form'),
+  setComponent('fieldset'),
 );
 const options = {
   fieldGlobalConfig: FieldGlobalConfig,
@@ -618,15 +618,15 @@ export function PiyingPage() {
 :2:custom-tab{label='Solid'}
 
 ```tsx
-import * as v from "valibot";
-import { setComponent, actions } from "@piying/view-core";
-import { PiyingView } from "@piying/view-solid";
+import * as v from 'valibot';
+import { setComponent, actions } from '@piying/view-core';
+import { PiyingView } from '@piying/view-solid';
 const schema = v.pipe(
   v.object({
-    text1: v.pipe(v.optional(v.string()), v.title("text1-label"), actions.wrappers.set(["label"])),
+    text1: v.pipe(v.optional(v.string()), v.title('text1-label'), actions.wrappers.set(['label'])),
   }),
-  v.title("form"),
-  setComponent("fieldset"),
+  v.title('form'),
+  setComponent('fieldset'),
 );
 const options = {
   fieldGlobalConfig: FieldGlobalConfig,

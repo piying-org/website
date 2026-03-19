@@ -1,87 +1,77 @@
 # 表单
 
-## 类型
+> 表单是皮影的核心组成部分，通过 Schema 定义来构建表单结构和行为。
 
-### FieldGroup
+## 表单类型
 
-- 基本等价于`Record<string,any>`
+| 类型              | 说明                                           |
+| ----------------- | ---------------------------------------------- |
+| `FieldGroup`      | 基本等价于 `Record<string, any>`，用于对象类型 |
+| `FieldArray`      | 基本等价于 `any[]`，用于数组类型               |
+| `FieldLogicGroup` | 逻辑或/与，允许启用部分子级                    |
+| `FieldControl`    | 最基础的表单单位，直接与组件绑定               |
 
-### FieldArray
+---
 
-- 基本等价于`any[]`
+## 表单状态
 
-### FieldLogicGroup
+带 `$` 符号的属于 `Signal` 类型
 
-- 逻辑或/与
-- 允许启用部分子级
+| 状态                    | 说明                                   |
+| ----------------------- | -------------------------------------- |
+| `disabled`              | 是否禁用（自身或父级禁用）             |
+| `touched/untouched`     | 控件是否被使用过（一般为触发 blur 后） |
+| `dirty/pristine`        | 控件是否发射过值                       |
+| `valid/invalid/pending` | 验证状态（有效/无效/验证中）           |
 
-### FieldControl
+---
 
-- 直接与组件绑定的类,表单中的最基础单位
+## 值变化流程
 
-## 状态
+### 模型 → 视图（Model → View）
 
-- 表单中带`$$`属于`Signal`
-
-### disabled
-
-- 是否禁用
-- 禁用状态取决于两个值,自身是否禁用和父级是否禁用,满足其一即禁用
-### touched/untouched
-
-- 控件使用过/未使用过
-- 使用过不代表发射过值,可能是点击过一次,一般为触发`blur`后变成`touched`
-
-### dirty/pristine
-
-- 控件发射过值/未发射过值
-
-### valid/invalid/pending
-
-- 控件的值目前验证有效/无效/正在验证中
-
-
-## 值变化
-
-### 模型到视图
-
-1. 根级`updateValue`
-2. 分发到FieldControl级`updateValue`
+1. 根级 `updateValue`
+2. 分发到 FieldControl 级 `updateValue`
 3. 视图变更过?强制更新:仅与上次不同才更新,同时设置表单值
-4. 进行模型到视图转换(`transfomer.toView`),允许输入值在写入到视图时进行修改
+4. 进行模型到视图转换（`transformer.toView`），允许输入值在写入到视图时进行修改
 
-### 视图到模型
+### 视图 → 模型（View → Model）
 
 1. 视图变更
-2. 如果值禁用,不发射值
-3. 默认下直接触发变更,设置`updateOn:'blur'`后要等待`touched`发射
-4. 进行rxjs管道处理`pipe.toModel`
-5. 进行转换处理`transfomer.toModel`
-   > 这两个未来可能合成为一个,因为管道可以实现的更多,比如防抖
-6. 进行`valibot`解析,解析失败会写入验证异常,标记为`dirty`
-7. 设置设置表单值
-8. 触发值变更,开启异步获取值
-9. 如果值没有异常/没有禁用或维持之前的值,那么可以发射获取到,否则跳过
+2. 如果值禁用，不发射值
+3. 默认直接触发变更；设置 `updateOn: 'blur'` 后要等待 touched 发射
+4. 进行 RxJS 管道处理（`pipe.toModel`）
+5. 进行转换处理（`transformer.toModel`）
+6. 进行 Valibot 解析，解析失败会写入验证异常，标记为 dirty
+7. 设置表单值
+8. 触发值变更，开启异步获取值
+9. 如果值没有异常或没有禁用，则发射获取到的值，否则跳过
 
-## 值更新时机(updateOn)
-- `change`控件值变更发射时更新
-- `blur` touchedChange触发时更新(一般为blur事件触发)
-- `submit` 调用控件的`emitSubmit`方法后更新(一般为form的submit事件后调用)
+---
 
-## reset
-- 设置后状态恢复到`untouched`,`pristine`
-- 值恢复为默认值(如果没有传入)
+## 值更新时机（updateOn）
 
-## updateValue
+| 时机     | 说明                                                               |
+| -------- | ------------------------------------------------------------------ |
+| `change` | 控件值变更发射时更新                                               |
+| `blur`   | touchedChange 触发时更新（一般为 blur 事件）                       |
+| `submit` | 调用控件的 `emitSubmit` 方法后更新（一般为 form 的 submit 事件后） |
 
-- 此方法单纯为表单更新值,也就是模型到视图
+---
 
-## viewValueChange
+## 表单方法
 
-- 控件发出值使用;直接使用仅会模拟发出值,视图部分不变
-- 一般为适配不同的库/框架时使用
+| 方法              | 说明                                                           |
+| ----------------- | -------------------------------------------------------------- |
+| `reset`           | 重置表单，状态恢复为 untouched/pristine，值恢复为默认值        |
+| `updateValue`     | 单纯为表单更新值（模型 → 视图）                                |
+| `viewValueChange` | 控件发出值；仅模拟发出值，视图部分不变（一般用于适配不同框架） |
+
+---
 
 ## 变更监听
 
-- `field.valueChanges`可以监听模型值变更
-- `field.statusChanges`可以监听模型值变更
+| 监听                  | 说明             |
+| --------------------- | ---------------- |
+| `field.valueChanges`  | 监听模型值变更   |
+| `field.statusChanges` | 监听模型状态变更 |

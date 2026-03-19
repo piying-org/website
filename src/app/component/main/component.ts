@@ -43,6 +43,11 @@ const Menu: NavigationItem[] = [
         type: 'group',
         children: [
           {
+            title: $localize`核心`,
+            link: '/docs/client/concept/core',
+            type: 'basic',
+          },
+          {
             title: $localize`组件`,
             link: '/docs/client/concept/component',
             type: 'basic',

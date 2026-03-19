@@ -1,8 +1,13 @@
-# ngx-formly 迁移
+# Ngx-Formly 迁移
 
-- 实现与ngx-formly官网例子一样的用例
+## 迁移状态
 
-## [Introduction Example](https://formly.dev/docs/examples/introduction)
+- 实现与 Ngx-Formly 官网例子一样的用例
+- 您可以访问 [Formly 迁移示例](https://piying-org.github.io/formly-migration/) 查看用例对照
+
+## 示例
+
+### [Introduction Example](https://formly.dev/docs/examples/introduction)
 
 ```ts
 {

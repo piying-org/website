@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="zh-hans" datatype="plaintext" original="ng2.template">
     <body>
@@ -28,7 +28,9 @@
           快速组件布局,定位,事件融合监听及
           &lt;br /&gt;
           表单设计,验证,分区禁用,类型安全等功能</source>
-        <target>Piying provides fast component layout, positioning, event fusion listening, form design, validation, partition disabling, type safety, and other features that can be used on any platform.</target>
+        <target>Piying provides fast component layout, positioning, event fusion listening, form
+          design, validation, partition disabling, type safety, and other features that can be used
+          on any platform.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/main-1/component.ts</context>
           <context context-type="linenumber">20,24</context>
@@ -128,6 +130,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/component/main/component.ts</context>
           <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1707265755336628440" datatype="html">
+        <source>核心</source>
+        <target>Core</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/component/main/component.ts</context>
+          <context context-type="linenumber">46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3353987121576643334" datatype="html">

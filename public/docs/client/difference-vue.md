@@ -1,13 +1,17 @@
-#
+# Vue使用差异与配置说明
+
+- 支持Vue2与Vue3
 
 ## 组件中获取配置实例
+
 ```typescript
-import { inject } from "vue";
-import { PI_VIEW_FIELD_TOKEN } from "@piying/view-vue";
+import { inject } from 'vue';
+import { PI_VIEW_FIELD_TOKEN } from '@piying/view-vue';
 const field = inject(PI_VIEW_FIELD_TOKEN)!;
 ```
 
 ## 绑定表单
+
 - `cva`用于外部自动绑定
 - `cvaa`用于和现有的表单控件进行绑定
 

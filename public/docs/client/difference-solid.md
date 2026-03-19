@@ -1,10 +1,10 @@
-#
+# Solid使用差异与配置说明
 
 ## 组件中获取配置实例
 
 ```typescript
-import { PI_VIEW_FIELD_TOKEN } from "@piying/view-solid";
-import { useContext } from "solid-js";
+import { PI_VIEW_FIELD_TOKEN } from '@piying/view-solid';
+import { useContext } from 'solid-js';
 const field = useContext(PI_VIEW_FIELD_TOKEN);
 ```
 

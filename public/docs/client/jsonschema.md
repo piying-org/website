@@ -1,26 +1,31 @@
-# JsonSchema
+# JsonSchema 支持
 
-- 目前进行实验性支持
-- [游乐场](https://piying-org.github.io/website/jsonschema-playground)
-- 对`JsonSchema`的支持本质上是将其转换为`Valibot`定义,然后进行解析
+> 🧪 目前进行实验性支持
+>
+> 🎮 [在线游乐场](https://piying-org.github.io/website/jsonschema-playground)
+>
+> 🔧 对`JsonSchema`的支持本质上是将其转换为`Valibot`定义,然后进行解析
 
-## 支持程度
+## ✅ 支持程度
 
-- 传入度数据不可存在死结
-  > 如果某些字段在验证过程中,始终失败,则为死结
+### 限制说明
+
+- **死结检测**：传入数据不可存在死结
+
+  > 如果某些字段在验证过程中始终失败，则为死结
 
 ```json
 {
   //👎
   "propertyNames": false,
   "properties": { "a": { "type": "string" } },
-  //👎
   "required": ["a"]
 }
 ```
 
-- `const`/`enum`出现时优先转换,忽略其他验证
-  > 即当出现限定范围的字段时,优先实现
+- **优先级规则**：`const`/`enum`出现时优先转换，忽略其他验证
+
+  > 当出现限定范围的字段时，优先实现
 
 ```json
 {
@@ -31,19 +36,20 @@
 }
 ```
 
-- 一个`schema`中只允许出现`allOf`/`oneOf`/`anyOf`/`if/then/else`其中之一子模式
+- **互斥模式**：一个`schema`中只允许出现`allOf`/`oneOf`/`anyOf`/`if/then/else`其中之一子模式
+
   > `not`不在此限制中
 
 ```json
-//❌
-{ "allOf": [], "oneOf": [] }
-//✅
-{ "allOf": [] }
-//✅
-{ "oneOf": [] }
+  //❌
+  { "allOf": [], "oneOf": [] }
+
+  //✅
+  { "allOf": [] }
+  { "oneOf": [] }
 ```
 
-- `allOf`/`oneOf`/`anyOf`/`if/then/else`子模式内不支持子模式
+- **嵌套限制**：`allOf`/`oneOf`/`anyOf`/`if/then/else`子模式内不支持嵌套子模式
 
 ```json
 {
@@ -56,17 +62,17 @@
 }
 ```
 
-- `$ref`仅支持单文件,不支持远程引用
+- **引用限制**：`$ref`仅支持单文件，不支持远程引用
 
-## 需要注册组件
+## 🧩 组件注册
 
 - [参考文件](https://github.com/piying-org/website/blob/master/src/app/component/define.ts)
 
-### group
+### group 类型
 
-#### oneOf-condition/anyOf-condition
+#### oneOf-condition / anyOf-condition
 
-- 子模式下存在相同字段时使用
+- **适用场景**：子模式下存在相同字段时使用
 
 ```json
 {
@@ -89,10 +95,10 @@
 }
 ```
 
-#### oneOf-select/anyOf-select
+#### oneOf-select / anyOf-select
 
-- 需要组件中实现手动选择一个或多个子条件
-- [参考文件](https://github.com/piying-org/website/blob/master/src/app/component/logic-group/component.ts)
+- **适用场景**：需要组件中实现手动选择一个或多个子条件
+- **参考文件**：[logic-group/component.ts](https://github.com/piying-org/website/blob/master/src/app/component/logic-group/component.ts)
 
 ```json
 {
@@ -113,7 +119,7 @@
 }
 ```
 
-#### loose_object/object_with_rest/object
+#### loose_object / object_with_rest / object
 
 ```json
 {
@@ -136,7 +142,7 @@
 }
 ```
 
-#### tuple/loose_tuple/tuple_with_rest
+#### tuple / loose_tuple / tuple_with_rest
 
 ```json
 {
@@ -144,16 +150,16 @@
 }
 ```
 
-#### intersect/union
+#### intersect / union
 
-- 验证使用,可视为普通的object类型
+- **用途**：验证使用，可视为普通的 object 类型
 
-### control
+### control 类型
 
-#### picklist/multiselect/multiselect-repeat
+#### picklist / multiselect / multiselect-repeat
 
-- 选择类型,会自动传入`options`输入属性,对应组件需要实现
-- 参考[实现文件](https://github.com/piying-org/website/blob/master/src/app/component/select/component.ts#L61)
+- **说明**：选择类型，会自动传入`options`输入属性，对应组件需要实现
+- **参考**：[select/component.ts#L61](https://github.com/piying-org/website/blob/master/src/app/component/select/component.ts#L61)
 
 ```json
 {
@@ -196,7 +202,7 @@
 
 #### string
 
-- 字符串
+- 字符串类型支持
 
 ```json
 {
@@ -207,7 +213,7 @@
 
 #### boolean
 
-- 布尔值
+- 布尔值类型
 
 ```json
 {
@@ -218,26 +224,28 @@
 
 #### any
 
-- 其他未知的类型
+- 其他未知类型
 
 #### null
 
-- null类型
+- null 类型
 
-## 调用
+## 🔌 调用方式
 
 - [参考文件](https://github.com/piying-org/website/blob/master/src/app/component/json-schema/component.ts)
-- 将`jsonschema`转换为`valibot`定义后,即可与传统的`piying`使用一致
+- 将`jsonschema`转换为`valibot`定义后，即可与传统的`piying`使用一致
 
 ```typescript
-import { jsonSchemaToValibot } from "@piying/view-angular-core/adapter";
+import { jsonSchemaToValibot } from '@piying/view-angular-core/adapter';
 
 jsonSchemaToValibot(jsonSchema);
 ```
 
-## 自定义actions
+## ⚙️ 自定义 actions
 
-- 在schema项中定义`actions`字段即可
+### 内置 actions
+
+- 在 schema 项中定义`actions`字段即可
 
 ```json
 {
@@ -253,7 +261,9 @@ jsonSchemaToValibot(jsonSchema);
 }
 ```
 
-- 如果传入其他自定义的actions,则需要注册
+### 自定义 actions
+
+- 如果传入其他自定义的 actions，则需要注册
 - [参考文件](https://github.com/piying-org/website/blob/master/src/app/component/json-schema/component.ts#L56)
 
 ```json
@@ -268,6 +278,6 @@ jsonSchemaToValibot(jsonSchema);
 }
 ```
 
-## 其他
+## 📝 其他
 
 - 如果遇到问题欢迎[反馈](https://github.com/piying-org/website/issues)
