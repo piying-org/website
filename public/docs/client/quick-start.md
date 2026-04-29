@@ -360,7 +360,7 @@ export function LabelWrapper(props: { children: any }) {
   @if (field().props()['title']; as title) {
   <legend class="fieldset-legend">{{ title }}</legend>
   } @for (field of fields(); track field.id || $index) {
-  <ng-container *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: field }"></ng-container>
+  <ng-container *ngTemplateOutlet="fieldTemplateRef; context: { $implicit: field }"></ng-container>
   }
 </fieldset>
 ```

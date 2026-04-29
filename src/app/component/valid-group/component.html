@@ -14,7 +14,7 @@
       [class.pi-pristine]="field.form.control && field.form.control.pristine"
     >
       <ng-container
-        *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: field }"
+        *ngTemplateOutlet="fieldTemplateRef; context: { $implicit: field }"
       ></ng-container>
     </div>
   }

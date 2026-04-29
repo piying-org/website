@@ -10,7 +10,7 @@
         @if (!field.renderConfig().hidden) {
           <ng-container
             *ngTemplateOutlet="
-              fieldTemplateRef();
+              fieldTemplateRef;
               context: { $implicit: field }
             "
           ></ng-container>

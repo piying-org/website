@@ -2,7 +2,7 @@
   @for (child of field$$().children!(); track child; let i = $index) {
     <div class="flex items-center gap-2 *:first:flex-1">
       <ng-container
-        *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: child }"
+        *ngTemplateOutlet="fieldTemplateRef; context: { $implicit: child }"
       ></ng-container>
       @let btnDisabled = minLength() ? $count <= minLength()! : false;
       @if (!isFixedLength$$()) {

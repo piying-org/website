@@ -22,7 +22,7 @@
         @if (toolbar$$(); as toolbar) {
           <ng-container
             *ngTemplateOutlet="
-              fieldTemplateRef();
+              fieldTemplateRef;
               context: { $implicit: toolbar }
             "
           ></ng-container>

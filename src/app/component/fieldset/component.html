@@ -6,7 +6,7 @@
   }
   @for (field of field$$().children!(); track field.id || $index) {
     <ng-container
-      *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: field }"
+      *ngTemplateOutlet="fieldTemplateRef; context: { $implicit: field }"
     ></ng-container>
   }
 </fieldset>

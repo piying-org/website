@@ -11,7 +11,7 @@
     @for (item of field$$().children!(); track $index) {
       @if (selectAny$().includes($index)) {
         <ng-container
-          *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: item }"
+          *ngTemplateOutlet="fieldTemplateRef; context: { $implicit: item }"
         ></ng-container>
       }
     }
@@ -27,7 +27,7 @@
     @for (item of field$$().children!(); track $index) {
       @if (selectOr$() === $index) {
         <ng-container
-          *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: item }"
+          *ngTemplateOutlet="fieldTemplateRef; context: { $implicit: item }"
         ></ng-container>
       }
     }
@@ -36,7 +36,7 @@
   @for (item of field$$().children!(); track $index) {
     @if (!item.renderConfig().hidden) {
       <ng-container
-        *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: item }"
+        *ngTemplateOutlet="fieldTemplateRef; context: { $implicit: item }"
       ></ng-container>
     }
   }

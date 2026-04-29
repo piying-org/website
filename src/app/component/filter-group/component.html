@@ -11,7 +11,7 @@
         <label class="label">{{ field.props()['title'] }}</label>
       }
       <ng-container
-        *ngTemplateOutlet="fieldTemplateRef(); context: { $implicit: field }"
+        *ngTemplateOutlet="fieldTemplateRef; context: { $implicit: field }"
       ></ng-container>
     }
   </div>
