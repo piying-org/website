@@ -2,6 +2,15 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 
 export const serverRoutes: ServerRoute[] = [
   {
+    path: 'docs/:l1/',
+    renderMode: RenderMode.Prerender,
+    getPrerenderParams: async () => [
+      { l1: 'intro' },
+      { l1: 'source-code' },
+      { l1: 'contact-me' },
+    ],
+  },
+  {
     path: 'docs/:l1/:l2',
     renderMode: RenderMode.Prerender,
     getPrerenderParams: async () => [
@@ -26,7 +35,21 @@ export const serverRoutes: ServerRoute[] = [
     ],
   },
   {
-    path: '**',
+    path: 'docs/:l1/:l2/:l3',
+    renderMode: RenderMode.Prerender,
+    getPrerenderParams: async () => [
+      { l1: 'client', l2: 'concept', l3: 'core' },
+      { l1: 'client', l2: 'concept', l3: 'component' },
+      { l1: 'client', l2: 'concept', l3: 'action' },
+      { l1: 'client', l2: 'concept', l3: 'field' },
+    ],
+  },
+  {
+    path: 'playground/group/:type',
     renderMode: RenderMode.Client,
+  },
+  {
+    path: '**',
+    renderMode: RenderMode.Prerender,
   },
 ];

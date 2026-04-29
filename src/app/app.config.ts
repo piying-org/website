@@ -30,6 +30,9 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     ThemeService,
     provideAppInitializer(() => {
+      if (typeof localStorage === 'undefined') {
+        return;
+      }
       const router = localStorage.getItem('router');
       if (router) {
         return inject(Router).navigateByUrl(router);
